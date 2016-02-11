@@ -1,0 +1,57 @@
+{
+  "name": "Composition",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "catalogue": {
+      "type": "string"
+    },
+    "workNumber": {
+      "type": "string"
+    },
+    "henle": {
+      "type": "string"
+    },
+    "abrsm": {
+      "type": "string"
+    },
+    "vanity": {
+      "type": "string"
+    },
+    "order": {
+      "type": "number"
+    },
+    "imslp": {
+      "type": "string"
+    },
+    "wikipedia": {
+      "type": "string"
+    },
+    "aka": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "form": {
+      "type": "string"
+    },
+    "hero": {
+      "type": "string"
+    },
+    "rcm": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -35,5 +35,9 @@
   "Composer": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Composition": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
