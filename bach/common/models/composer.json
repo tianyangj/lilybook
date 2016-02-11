@@ -1,0 +1,31 @@
+{
+  "name": "Composer",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "vanity": {
+      "type": "string",
+      "required": true
+    },
+    "fullname": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
