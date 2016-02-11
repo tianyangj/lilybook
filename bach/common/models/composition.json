@@ -48,6 +48,9 @@
     },
     "description": {
       "type": "string"
+    },
+    "key": {
+      "type": "string"
     }
   },
   "validations": [],
