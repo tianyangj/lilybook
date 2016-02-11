@@ -33,7 +33,7 @@
     "public": false
   },
   "Composer": {
-    "dataSource": "db",
+    "dataSource": "mongoDB",
     "public": true
   }
 }

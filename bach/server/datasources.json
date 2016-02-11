@@ -2,5 +2,14 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongoDB": {
+    "name": "mongoDB",
+    "connector": "mongodb",
+    "host": "ds059215.mongolab.com",
+    "port": 59215,
+    "database": "bach",
+    "username": "tjiang",
+    "password": "qwer1234"
   }
 }
