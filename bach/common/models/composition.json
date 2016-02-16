@@ -54,7 +54,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "composer": {
+      "type": "belongsTo",
+      "model": "Composer",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
