@@ -1,47 +1,43 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('blocks.logger')
         .factory('logger', logger);
 
-    logger.$inject = ['$log', 'toastr'];
+    logger.$inject = ['$log'];
 
     /* @ngInject */
-    function logger($log, toastr) {
+    function logger($log) {
         var service = {
             showToasts: true,
 
-            error   : error,
-            info    : info,
-            success : success,
-            warning : warning,
+            error: error,
+            info: info,
+            success: success,
+            warning: warning,
 
-            // straight to console; bypass toastr
-            log     : $log.log
+            // straight to console
+            log: $log.log
         };
 
         return service;
         /////////////////////
 
         function error(message, data, title) {
-            toastr.error(message, title);
-            $log.error('Error: ' + message, data);
+            $log.error('Error: ' + message, data, title);
         }
 
         function info(message, data, title) {
-            toastr.info(message, title);
-            $log.info('Info: ' + message, data);
+            $log.info('Info: ' + message, data, title);
         }
 
         function success(message, data, title) {
-            toastr.success(message, title);
-            $log.info('Success: ' + message, data);
+            $log.info('Success: ' + message, data, title);
         }
 
         function warning(message, data, title) {
-            toastr.warning(message, title);
-            $log.warn('Warning: ' + message, data);
+            $log.warn('Warning: ' + message, data, title);
         }
     }
-}());
+} ());
