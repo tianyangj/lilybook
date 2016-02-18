@@ -17,7 +17,6 @@
     "bardjs": "^0.1.4"
   },
   "dependencies": {
-    "jquery": "^2.1.4",
     "angular": "^1.4.5",
     "angular-sanitize": "^1.4.5",
     "font-awesome": "^4.3.0",
