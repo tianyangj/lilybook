@@ -13,6 +13,7 @@
     <base href="/">
 
     <!-- build:css styles/lib.css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
@@ -25,7 +26,8 @@
     <!-- endbuild -->
 </head>
 <body>
-    <div>
+    <lb-root></lb-root>
+    <!--<div>
         <div ng-include="'app/layout/shell.html'"></div>
         <div id="splash-page" ng-show="showSplash">
             <div class="page-splash">
@@ -37,7 +39,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- build:js js/lib.js -->
     <!-- bower:js -->
@@ -73,12 +75,15 @@
     <script src="/src/client/app/core/constants.js"></script>
     <script src="/src/client/app/core/core.route.js"></script>
     <script src="/src/client/app/core/dataservice.js"></script>
+    <script src="/src/client/app/core/lb-root.component.js"></script>
     <script src="/src/client/app/dashboard/dashboard.controller.js"></script>
     <script src="/src/client/app/dashboard/dashboard.route.js"></script>
     <script src="/src/client/app/layout/ht-sidebar.directive.js"></script>
     <script src="/src/client/app/layout/ht-top-nav.directive.js"></script>
     <script src="/src/client/app/layout/shell.controller.js"></script>
     <script src="/src/client/app/layout/sidebar.controller.js"></script>
+    <script src="/src/client/app/layout/lb-header.component.js"></script>
+    <script src="/src/client/app/layout/lb-sidenav.component.js"></script>
     <script src="/src/client/app/widgets/ht-img-person.directive.js"></script>
     <script src="/src/client/app/widgets/ht-widget-header.directive.js"></script>
     <!-- endinject -->

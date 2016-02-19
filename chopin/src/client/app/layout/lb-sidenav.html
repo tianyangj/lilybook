@@ -1,0 +1,23 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-toolbar layout="row" layout-align="center center" class="md-whiteframe-z1">
+        <a ui-sref="app.splash">LilyBook</a>
+    </md-toolbar>
+    <md-content flex>
+        <md-list>
+            <md-list-item ng-click="todo()">
+                <span>Browse</span>
+            </md-list-item>
+            <md-list-item ng-click="todo()">
+                <span>Discover</span>
+            </md-list-item>
+            <md-list-item ng-click="todo()">
+                <span>Composers</span>
+            </md-list-item>
+        </md-list>
+    </md-content>
+    <md-toolbar layout="row" layout-align="center center">
+        <md-button ui-sref="app.signup">Signup</md-button>
+        <span flex></span>
+        <md-button ui-sref="app.login">Login</md-button>
+    </md-toolbar>
+</md-sidenav>
