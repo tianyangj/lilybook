@@ -1,0 +1,18 @@
+(function () {
+    'use strict';
+
+    angular.module('app.splash', ['app.core']);
+
+    angular.module('app.splash').config(routerConfig);
+
+    routerConfig.$inject = ['$stateProvider'];
+
+    function routerConfig($stateProvider) {
+        $stateProvider.state('splash', {
+            url: '/',
+            templateUrl: 'app/splash/splash.html',
+            controller: 'SplashController',
+            controllerAs: '$ctrl'
+        });
+    }
+})();
