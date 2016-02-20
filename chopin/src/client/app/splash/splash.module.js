@@ -14,5 +14,11 @@
             controller: 'SplashController',
             controllerAs: '$ctrl'
         });
+        $stateProvider.state('login', {
+            url: '/login',
+            templateUrl: 'app/splash/login.html',
+            controller: 'LoginController',
+            controllerAs: '$ctrl'
+        });
     }
 })();
