@@ -4,6 +4,7 @@
     angular.module('app.core', [
         'ngAnimate',
         'ngSanitize',
+        'ngMessages',
         'ngMaterial',
         'blocks.exception',
         'blocks.logger',

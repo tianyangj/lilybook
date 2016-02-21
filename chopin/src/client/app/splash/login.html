@@ -1,16 +1,23 @@
 <div flex layout="row" layout-align="center center">
-    <form layout="column" name="loginForm" class="md-whiteframe-z1 md-padding" style="width:320px;">
-        <md-input-container>
+    <form name="loginForm" class="md-whiteframe-z2" novalidate>
+        <h1 class="md-display-1 text-center">Login</h1>
+        <md-input-container class="md-block">
             <label>Email</label>
-            <input type="email" name="email" ng-model="$ctrl.email" required>
+            <input type="email" name="email" ng-model="$ctrl.email" ng-pattern="/^.+@.+\..+$/" required>
+            <div ng-messages="loginForm.email.$error">
+                <div ng-message-exp="['required','pattern']">This field must be an valid email address.</div>
+            </div>
         </md-input-container>
-        <md-input-container>
+        <md-input-container class="md-block">
             <label>Password</label>
             <input type="password" name="password" ng-model="$ctrl.password" required>
+            <div ng-messages="loginForm.password.$error">
+                <div ng-message="required">This field is required.</div>
+            </div>
         </md-input-container>
-        <div layout="row" layout-align="center center">
-            <md-button class="md-raised md-primary" ng-click="$ctrl.logIn()">Login</md-button>
-        </div>
+        <md-input-container class="md-block">
+            <md-button type="submit" class="md-raised md-primary width-full margin-none" ng-disabled="loginForm.$invalid" ng-click="$ctrl.login()">Login</md-button>
+        </md-input-container>
         <div layout="row" layout-align="center center" layout-padding>
             <a ui-sref="app.splash">Forgot password?</a>
         </div>

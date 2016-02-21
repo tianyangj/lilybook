@@ -7,8 +7,8 @@
 
         var self = this;
 
-        this.logIn = function () {
-            console.log('haha', self.email, self.password)
+        this.login = function () {
+            console.log('login...', self.email, self.password)
         }
     }
 })();
