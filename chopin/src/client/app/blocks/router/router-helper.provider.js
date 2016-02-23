@@ -75,6 +75,9 @@
                             ': ' + (error.status || '');
                         logger.warning(msg, [toState]);
                         $location.path('/');
+                        if (error.status === 401) {
+                            $state.go('login', { next: toState });
+                        }
                     }
                 );
             }

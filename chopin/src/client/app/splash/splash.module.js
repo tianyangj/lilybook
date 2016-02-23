@@ -16,6 +16,7 @@
         });
         $stateProvider.state('login', {
             url: '/login',
+            params: { next: null },
             templateUrl: 'app/splash/login.html',
             controller: 'LoginController',
             controllerAs: '$ctrl'
