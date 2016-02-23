@@ -10,7 +10,15 @@
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             if (toState.authentication && !Account.isAuthenticated()) {
                 event.preventDefault();
-                $state.go('login', { next: toState });
+                return $state.go('login', { next: toState });
+            }
+            if (toState.admin) {
+                Account.getCurrent().$promise.then(function (user) {
+                    if (!user || !user.admin) {
+                        event.preventDefault();
+                        return $state.go('splash');
+                    }
+                });
             }
         });
     }

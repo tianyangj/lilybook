@@ -13,7 +13,8 @@
             tempalteUrl: 'app/admin/admin.html',
             controller: 'AdminController',
             controllerAs: '$ctrl',
-            authentication: true
+            authentication: true,
+            admin: true
         });
     }
 
