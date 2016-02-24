@@ -18,10 +18,10 @@
     <md-button hide-gt-md class="md-icon-button" aria-label="Search" ng-click="todo()">
         <md-icon class="material-icons">search</md-icon>
     </md-button>
-    <md-menu-bar ng-if="appCtrl.account">
+    <md-menu-bar ng-if="$ctrl.user">
         <md-menu>
             <button ng-click="$mdOpenMenu($event)">
-                {{appCtrl.account.firstname}}
+                {{$ctrl.user.email}}
             </button>
             <md-menu-content>
                 <md-menu-item>
@@ -32,10 +32,10 @@
                 </md-menu-item>
                 <md-menu-divider></md-menu-divider>
                 <md-menu-item>
-                    <md-button ng-click="$ctrl.logOut()">Logout</md-button>
+                    <md-button ng-click="$ctrl.logout()">Logout</md-button>
                 </md-menu-item>
             </md-menu-content>
         </md-menu>
     </md-menu-bar>
-    <md-button ui-sref="login" ng-if="!appCtrl.account">Login</md-button>
+    <md-button ui-sref="login" ng-if="!$ctrl.user">Login</md-button>
 </md-toolbar>
