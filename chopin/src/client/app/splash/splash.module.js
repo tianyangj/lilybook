@@ -19,7 +19,8 @@
             params: { next: null },
             templateUrl: 'app/splash/login.html',
             controller: 'LoginController',
-            controllerAs: '$ctrl'
+            controllerAs: '$ctrl',
+            unauthenticated: true
         });
     }
 })();

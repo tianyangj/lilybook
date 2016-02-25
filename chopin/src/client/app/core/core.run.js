@@ -20,6 +20,10 @@
                     }
                 });
             }
+            if (toState.unauthenticated && Account.isAuthenticated()) {
+                event.preventDefault();
+                return $state.go('splash');
+            }
         });
     }
 
