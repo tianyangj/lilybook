@@ -19,9 +19,8 @@
 
         this.logout = function () {
             Account.logout().$promise.then(function () {
-                this.user = null;
                 $state.go('splash');
-            }.bind(this));
+            });
         }
     }
 

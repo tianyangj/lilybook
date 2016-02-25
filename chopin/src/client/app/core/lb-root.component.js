@@ -6,10 +6,17 @@
         controller: RootComponentController
     });
 
-    RootComponentController.$inject = ['Account']
+    RootComponentController.$inject = ['$scope', 'Account', 'LoopBackAuth']
 
-    function RootComponentController(Account) {
-        Account.getCurrent().$promise.then(function (user) {
+    function RootComponentController($scope, Account, LoopBackAuth) {
+
+        this.$onInit = function () {
+            Account.getCurrent();
+        };
+
+        $scope.$watch(function () {
+            return LoopBackAuth.currentUserData;
+        }, function (user) {
             this.user = user;
         }.bind(this));
     }
