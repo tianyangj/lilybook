@@ -1,23 +1,30 @@
 <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-    <md-toolbar layout="row" layout-align="center center" class="md-whiteframe-z1">
+    <md-toolbar layout="row" layout-align="center center" class="md-whiteframe-z1 md-tall">
         <a ui-sref="splash" class="brand">LilyBook</a>
     </md-toolbar>
     <md-content flex>
         <md-list>
-            <md-list-item ng-click="todo()">
-                <span>Browse</span>
+            <md-list-item ui-sref="admin" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">help</md-icon>
+                <span flex>Admin</span>
             </md-list-item>
-            <md-list-item ng-click="todo()">
-                <span>Discover</span>
+            <md-list-item ui-sref="admin" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">help</md-icon>
+                <span flex>Browse</span>
             </md-list-item>
-            <md-list-item ng-click="todo()">
-                <span>Composers</span>
+            <md-list-item ui-sref="admin" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">help</md-icon>
+                <span flex>Discover</span>
+            </md-list-item>
+            <md-list-item ui-sref="admin" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">help</md-icon>
+                <span flex>Composers</span>
             </md-list-item>
         </md-list>
     </md-content>
     <md-toolbar layout="row" layout-align="center center">
-        <md-button ui-sref="app.signup">Signup</md-button>
+        <md-button ui-sref="signup" ng-click="$ctrl.close()">Signup</md-button>
         <span flex></span>
-        <md-button ui-sref="app.login">Login</md-button>
+        <md-button ui-sref="login" ng-click="$ctrl.close()">Login</md-button>
     </md-toolbar>
 </md-sidenav>
