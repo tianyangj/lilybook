@@ -10,7 +10,7 @@
     function routerConfig($stateProvider) {
         $stateProvider.state('admin', {
             url: '/admin',
-            tempalteUrl: 'app/admin/admin.html',
+            templateUrl: 'app/admin/admin.html',
             controller: 'AdminController',
             controllerAs: '$ctrl',
             authentication: true,
