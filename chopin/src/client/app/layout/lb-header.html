@@ -18,24 +18,28 @@
     <md-button hide-gt-md class="md-icon-button" aria-label="Search" ng-click="todo()">
         <md-icon class="material-icons">search</md-icon>
     </md-button>
-    <md-menu-bar ng-if="$ctrl.user">
-        <md-menu>
-            <button ng-click="$mdOpenMenu($event)">
-                {{$ctrl.user.email}}
-            </button>
-            <md-menu-content>
-                <md-menu-item>
-                    <md-button ui-sref="app.home">Home</md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ui-sref="app.account">Account</md-button>
-                </md-menu-item>
-                <md-menu-divider></md-menu-divider>
-                <md-menu-item>
-                    <md-button ng-click="$ctrl.logout()">Logout</md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-    </md-menu-bar>
+    <md-menu ng-if="$ctrl.user">
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon class="material-icons">account_circle</md-icon>
+        </md-button>
+        <md-menu-content width="3">
+            <md-menu-item>
+                <md-button ui-sref="home">
+                    <md-icon class="material-icons">home</md-icon> Home
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button ui-sref="settings">
+                    <md-icon class="material-icons">settings</md-icon> Settings
+                </md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item>
+                <md-button ng-click="$ctrl.logout()">
+                    <md-icon class="material-icons">exit_to_app</md-icon>Logout
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
     <md-button ui-sref="login" ng-if="!$ctrl.user">Login</md-button>
 </md-toolbar>
