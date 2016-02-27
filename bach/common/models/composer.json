@@ -10,10 +10,6 @@
       "type": "string",
       "required": true
     },
-    "vanity": {
-      "type": "string",
-      "required": true
-    },
     "fullname": {
       "type": "string"
     },

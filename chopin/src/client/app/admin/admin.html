@@ -1,8 +1,8 @@
-<div flex>
-    <md-tabs md-center-tabs>
+<div flex layout="column">
+    <md-tabs md-center-tabs md-border-bottom>
         <md-tab label="Compositions"></md-tab>
-        <md-tab label="Composers"></md-tab>
+        <md-tab label="Composers" ui-sref="admin.composers"></md-tab>
         <md-tab label="Forms"></md-tab>
     </md-tabs>
-    Compositions CRUD
+    <ui-view flex layout></ui-view>
 </div>

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.admin', ['app.core']);
+    angular.module('app.admin', ['app.core', 'xeditable']);
 
     angular.module('app.admin').config(routerConfig);
 
@@ -15,6 +15,12 @@
             controllerAs: '$ctrl',
             authentication: true,
             admin: true
+        });
+        $stateProvider.state('admin.composers', {
+            url: '/composers',
+            templateUrl: 'app/admin/admin-composers.html',
+            controller: 'AdminComposersController',
+            controllerAs: '$ctrl'
         });
     }
 

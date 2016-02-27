@@ -1,0 +1,9 @@
+<div flex>
+    <md-card class="md-padding" ng-repeat="composer in $ctrl.composers">
+        <div><a href="#" editable-text="composer.id">{{ composer.id || 'empty' }}</a></div>
+        <div><a href="#" editable-text="composer.name">{{ composer.name || 'empty' }}</a></div>
+        <div><a href="#" editable-text="composer.fullname">{{ composer.fullname || 'empty' }}</a></div>
+        <div><a href="#" editable-text="composer.image">{{ composer.image || 'empty' }}</a></div>
+        <div><a href="#" editable-textarea="composer.bio" e-rows="5" e-cols="80">{{ composer.bio || 'empty' }}</a></div>
+    </md-card>
+</div>
