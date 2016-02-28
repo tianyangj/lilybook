@@ -1,7 +1,7 @@
 <md-dialog>
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2>Composer: {{$ctrl.original.fullname}}</h2>
+            <h2>Composer Editor</h2>
             <span flex></span>
             <md-button class="md-icon-button" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">close</md-icon>
@@ -12,24 +12,24 @@
         <form name="composerForm">
             <md-input-container class="md-block">
                 <label>ID (vanity)</label>
-                <input ng-model="$ctrl.updated.id" disabled>
+                <input ng-model="$ctrl.composer.id" disabled>
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Name</label>
-                <input ng-model="$ctrl.updated.name">
+                <input ng-model="$ctrl.composer.name">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Full Name</label>
-                <input ng-model="$ctrl.updated.fullname">
+                <input ng-model="$ctrl.composer.fullname">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Image</label>
-                <input ng-model="$ctrl.updated.image">
-                <img ng-src="{{ $ctrl.updated.image }}" style="width:100px;height:100px;">
+                <input ng-model="$ctrl.composer.image">
+                <img ng-src="{{ $ctrl.composer.image }}" style="width:100px;height:100px;">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Bio</label>
-                <textarea ng-model="$ctrl.updated.bio" rows="5"></textarea>
+                <textarea ng-model="$ctrl.composer.bio" rows="5"></textarea>
             </md-input-container>
         </form>
     </md-dialog-content>

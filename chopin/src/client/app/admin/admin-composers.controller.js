@@ -29,28 +29,28 @@
                 controller: DialogController,
                 controllerAs: '$ctrl',
                 bindToController: true,
-                locals: { original: composer },
+                locals: { composer: angular.copy(composer) },
                 targetEvent: $event
             }).then(function (updated) {
-                console.log('updated composer', updated);
+                angular.extend(composer, updated);
             });
         }
     }
 
-    DialogController.$inject = ['$mdDialog'];
+    DialogController.$inject = ['$mdDialog', 'Composer'];
 
-    function DialogController($mdDialog) {
+    function DialogController($mdDialog, Composer) {
 
         var self = this;
-
-        this.updated = angular.copy(this.original);
 
         this.close = function () {
             $mdDialog.cancel();
         }
 
         this.update = function () {
-            $mdDialog.hide(self.updated);
+            self.composer.$save().then(function () {
+                $mdDialog.hide(self.composer);
+            });
         }
     }
 })();
