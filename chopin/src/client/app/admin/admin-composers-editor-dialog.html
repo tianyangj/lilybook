@@ -1,0 +1,45 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Composer: {{$ctrl.original.fullname}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="md-dialog-content">
+        <form name="composerForm">
+            <md-input-container class="md-block">
+                <label>ID (vanity)</label>
+                <input ng-model="$ctrl.updated.id" disabled>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Name</label>
+                <input ng-model="$ctrl.updated.name">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Full Name</label>
+                <input ng-model="$ctrl.updated.fullname">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Image</label>
+                <input ng-model="$ctrl.updated.image">
+                <img ng-src="{{ $ctrl.updated.image }}" style="width:100px;height:100px;">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Bio</label>
+                <textarea ng-model="$ctrl.updated.bio" rows="5"></textarea>
+            </md-input-container>
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="md-primary" ng-click="$ctrl.update()">
+            Update
+        </md-button>
+        <md-button ng-click="$ctrl.close()">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
