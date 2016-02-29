@@ -22,6 +22,18 @@
             controller: 'AdminComposersController',
             controllerAs: '$ctrl'
         });
+        $stateProvider.state('admin.compositions', {
+            url: '/compositions',
+            templateUrl: 'app/admin/compositions/admin-compositions.html',
+            controller: 'AdminCompositionsController',
+            controllerAs: '$ctrl'
+        });
+        $stateProvider.state('admin.forms', {
+            url: '/forms',
+            templateUrl: 'app/admin/forms/admin-forms.html',
+            controller: 'AdminFormsController',
+            controllerAs: '$ctrl'
+        });
     }
 
 })();
