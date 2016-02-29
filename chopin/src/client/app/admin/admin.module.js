@@ -18,7 +18,7 @@
         });
         $stateProvider.state('admin.composers', {
             url: '/composers',
-            templateUrl: 'app/admin/admin-composers.html',
+            templateUrl: 'app/admin/composers/admin-composers.html',
             controller: 'AdminComposersController',
             controllerAs: '$ctrl'
         });

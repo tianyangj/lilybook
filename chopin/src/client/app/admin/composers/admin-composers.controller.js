@@ -24,15 +24,14 @@
         }
 
         function gotoComposer(composer) {
-            console.log('goto')
-            //$state.go('composer', { vanity: composer.id });
+            $state.go('composer', { vanity: composer.id });
         }
 
         function openEditor(composer, $event) {
             $event.stopPropagation();
             $mdDialog.show({
-                templateUrl: 'app/admin/admin-composers-editor-dialog.html',
-                controller: DialogController,
+                templateUrl: 'app/admin/composers/admin-composers-dialog.html',
+                controller: 'AdminComposersDialogController',
                 controllerAs: '$ctrl',
                 bindToController: true,
                 locals: { composer: angular.copy(composer) },
@@ -44,47 +43,14 @@
 
         function createComposer() {
             $mdDialog.show({
-                templateUrl: 'app/admin/admin-composers-editor-dialog.html',
-                controller: DialogController,
+                templateUrl: 'app/admin/composers/admin-composers-dialog.html',
+                controller: 'AdminComposersDialogController',
                 controllerAs: '$ctrl',
                 bindToController: true,
                 locals: { composer: null }
             }).then(function () {
                 onInit();
             });
-        }
-    }
-
-    DialogController.$inject = ['$mdDialog', 'Composer'];
-
-    function DialogController($mdDialog, Composer) {
-
-        var self = this;
-
-        this.isCreate = this.composer === null;
-
-        this.close = function () {
-            $mdDialog.cancel();
-        }
-
-        this.upsert = function () {
-            if (self.isCreate) {
-                Composer.create(self.composer).$promise.then(function (composer) {
-                    $mdDialog.hide(composer);
-                })
-            } else {
-                self.composer.$save().then(function () {
-                    $mdDialog.hide(self.composer);
-                });
-            }
-        }
-
-        this.delete = function () {
-            Composer.deleteById({
-                id: self.composer.id
-            }).$promise.then(function () {
-                $mdDialog.hide(self.composer);
-            })
         }
     }
 })();

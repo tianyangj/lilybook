@@ -22,8 +22,8 @@
     getComposer.$inject = ['$stateParams', 'Composer']
 
     function getComposer($stateParams, Composer) {
-        return Composer.findOne({
-            filter: { where: { vanity: $stateParams.vanity } }
+        return Composer.findById({
+            id: $stateParams.vanity
         }).$promise;
     }
 })();
