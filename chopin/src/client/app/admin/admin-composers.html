@@ -1,10 +1,12 @@
 <div flex>
-    <form class="md-padding">
-        <md-input-container class="md-block">
-            <label>Search Composers</label>
-            <input ng-model="$ctrl.searchText">
-        </md-input-container>
-    </form>
+    <md-card>
+        <form class="md-padding">
+            <md-input-container class="md-block" style="margin-bottom:0;">
+                <label>Search Composers</label>
+                <input ng-model="$ctrl.searchText">
+            </md-input-container>
+        </form>
+    </md-card>
     <md-list>
         <md-list-item ng-repeat="composer in $ctrl.composers | filter:{fullname:$ctrl.searchText}" ng-click="$ctrl.gotoComposer(composer)">
             <img alt="{{ composer.name }}" ng-src="{{ composer.image }}" class="md-avatar" />
@@ -12,4 +14,7 @@
             <md-icon class="material-icons" ng-click="$ctrl.openEditor(composer, $event)">edit</md-icon>
         </md-list-item>
     </md-list>
+    <md-button class="md-fab" ng-click="$ctrl.createComposer()" style="position:fixed;right:0;bottom:0;">
+        <md-icon class="material-icons">add</md-icon>
+    </md-button>
 </div>

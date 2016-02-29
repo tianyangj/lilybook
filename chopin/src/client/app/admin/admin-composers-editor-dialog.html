@@ -12,7 +12,7 @@
         <form name="composerForm">
             <md-input-container class="md-block">
                 <label>ID (vanity)</label>
-                <input ng-model="$ctrl.composer.id" disabled>
+                <input ng-model="$ctrl.composer.id" ng-disabled="!$ctrl.isCreate">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Name</label>
@@ -35,8 +35,11 @@
     </md-dialog-content>
     <md-dialog-actions layout="row">
         <span flex></span>
-        <md-button class="md-primary" ng-click="$ctrl.update()">
-            Update
+        <md-button class="md-warn" ng-click="$ctrl.delete()">
+            Delete
+        </md-button>
+        <md-button class="md-primary" ng-click="$ctrl.upsert()">
+            {{$ctrl.isCreate ? 'Create': 'Update'}}
         </md-button>
         <md-button ng-click="$ctrl.close()">
             Cancel
