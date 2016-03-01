@@ -44,5 +44,9 @@
   "Account": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Form": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }

@@ -1,3 +1,19 @@
 <div flex>
-    forms...
+    <md-card>
+        <form class="md-padding">
+            <md-input-container class="md-block" style="margin-bottom:0;">
+                <label>Search Forms</label>
+                <input ng-model="$ctrl.searchText">
+            </md-input-container>
+        </form>
+    </md-card>
+    <md-list>
+        <md-list-item ng-repeat="form in $ctrl.forms | filter:{name:$ctrl.searchText}">
+            <p>{{ form.name }}</p>
+            <md-icon class="material-icons" ng-click="$ctrl.openEditor(form, $event)">edit</md-icon>
+        </md-list-item>
+    </md-list>
+    <md-button class="md-fab" ng-click="$ctrl.createForm()" style="position:fixed;right:40px;bottom:40px;">
+        <md-icon class="material-icons">add</md-icon>
+    </md-button>
 </div>

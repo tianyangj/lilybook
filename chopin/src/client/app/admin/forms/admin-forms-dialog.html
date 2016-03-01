@@ -1,0 +1,47 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Form Editor</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="md-dialog-content">
+        <form name="formForm">
+            <md-input-container class="md-block">
+                <label>ID (vanity)</label>
+                <input ng-model="$ctrl.form.id" ng-disabled="!$ctrl.isCreate">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Name</label>
+                <input ng-model="$ctrl.form.name">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Description</label>
+                <textarea ng-model="$ctrl.form.description" rows="5"></textarea>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Wiki</label>
+                <input ng-model="$ctrl.form.wiki">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Order</label>
+                <input type="number" ng-model="$ctrl.form.order">
+            </md-input-container>
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="md-warn" ng-click="$ctrl.delete()">
+            Delete
+        </md-button>
+        <md-button class="md-primary" ng-click="$ctrl.upsert()">
+            {{$ctrl.isCreate ? 'Create': 'Update'}}
+        </md-button>
+        <md-button ng-click="$ctrl.close()">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
