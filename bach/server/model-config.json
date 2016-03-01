@@ -48,5 +48,9 @@
   "Form": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Key": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
