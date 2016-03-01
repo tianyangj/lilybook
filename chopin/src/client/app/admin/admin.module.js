@@ -28,6 +28,12 @@
             controller: 'AdminCompositionsController',
             controllerAs: '$ctrl'
         });
+        $stateProvider.state('admin.compositions-edit', {
+            url: '/compositions/:vanity',
+            templateUrl: 'app/admin/compositions/admin-compositions-edit.html',
+            controller: 'AdminCompositionsEditController',
+            controllerAs: '$ctrl'
+        });
         $stateProvider.state('admin.forms', {
             url: '/forms',
             templateUrl: 'app/admin/forms/admin-forms.html',

@@ -10,7 +10,9 @@
     <md-list>
         <md-list-item ng-repeat="composition in $ctrl.compositions | filter:{title:$ctrl.searchText}">
             <p>{{ composition.title }}</p>
-            <md-icon class="material-icons" ng-click="$ctrl.openEditor(composition, $event)">edit</md-icon>
+            <a ui-sref="admin.compositions-edit({vanity:composition.id})">
+                <md-icon class="material-icons">edit</md-icon>
+            </a>
         </md-list-item>
     </md-list>
     <md-button class="md-fab" ng-click="$ctrl.createComposition()" style="position:fixed;right:40px;bottom:40px;">

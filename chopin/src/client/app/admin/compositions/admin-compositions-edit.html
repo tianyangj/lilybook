@@ -1,0 +1,92 @@
+<div flex ng-clock>
+    <form class="md-padding" name="compositionForm">
+        <md-input-container class="md-block">
+            <label>Title</label>
+            <input ng-model="$ctrl.composition.title">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Description</label>
+            <textarea ng-model="$ctrl.composition.description" rows="5"></textarea>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Hero</label>
+            <input ng-model="$ctrl.composition.hero">
+        </md-input-container>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Vanity</label>
+                <input ng-model="$ctrl.composition.vanity">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Also Known As</label>
+                <input ng-model="$ctrl.composition.aka">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Composer</label>
+                <md-select ng-model="$ctrl.composition.composerId">
+                    <md-option ng-repeat="composer in $ctrl.composers" value="{{composer.id}}">
+                        {{composer.fullname}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Key</label>
+                <md-select ng-model="$ctrl.composition.key">
+                    <md-option ng-repeat="key in $ctrl.keys" value="{{key.name}}">
+                        {{key.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Form</label>
+                <md-select ng-model="$ctrl.composition.form">
+                    <md-option ng-repeat="form in $ctrl.forms" value="{{form.id}}">
+                        {{form.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Catalogue</label>
+                <input ng-model="$ctrl.composition.catalogue">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Work Number</label>
+                <input ng-model="$ctrl.composition.workNumber">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Display Order</label>
+                <input type="number" ng-model="$ctrl.composition.order">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <label>RCM</label>
+                <input ng-model="$ctrl.composition.rcm">
+            </md-input-container>
+            <md-input-container flex>
+                <label>ABRSM</label>
+                <input ng-model="$ctrl.composition.abrsm">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Henle</label>
+                <input ng-model="$ctrl.composition.henle">
+            </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+            <label>Wikipedia</label>
+            <input ng-model="$ctrl.composition.wikipedia">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>IMSLP</label>
+            <input ng-model="$ctrl.composition.imslp">
+        </md-input-container>
+        <div layout="row">
+            <span flex></span>
+            <md-button class="md-raised md-primary" ng-click="$ctrl.update()">Update</md-button>
+        </div>
+    </form>
+</div>
