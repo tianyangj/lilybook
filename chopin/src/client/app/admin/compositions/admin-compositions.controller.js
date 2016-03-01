@@ -3,10 +3,18 @@
 
     angular.module('app.admin').controller('AdminCompositionsController', AdminCompositionsController);
 
-    AdminCompositionsController.$inject = ['$mdDialog', 'Composer'];
+    AdminCompositionsController.$inject = ['$mdDialog', 'Composition'];
 
-    function AdminCompositionsController($mdDialog, Composer) {
+    function AdminCompositionsController($mdDialog, Composition) {
 
-        console.log('AdminCompositionsController...')
+        var self = this;
+
+        onInit();
+
+        function onInit() {
+            Composition.find().$promise.then(function (compositions) {
+                self.compositions = compositions;
+            });
+        }
     }
 })();
