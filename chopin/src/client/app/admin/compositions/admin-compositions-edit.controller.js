@@ -3,9 +3,9 @@
 
     angular.module('app.admin').controller('AdminCompositionsEditController', AdminCompositionsEditController);
 
-    AdminCompositionsEditController.$inject = ['$stateParams', 'Composition', 'Composer', 'Key', 'Form', 'ABRSM', 'Henle', 'RCM'];
+    AdminCompositionsEditController.$inject = ['$stateParams', 'Composition', 'definitionService'];
 
-    function AdminCompositionsEditController($stateParams, Composition, Composer, Key, Form, ABRSM, Henle, RCM) {
+    function AdminCompositionsEditController($stateParams, Composition, definitionService) {
 
         var self = this;
 
@@ -15,27 +15,27 @@
             self.composition = composition;
         });
 
-        Composer.find().$promise.then(function (composers) {
+        definitionService.getComposers().then(function (composers) {
             self.composers = composers;
         });
 
-        Key.find().$promise.then(function (keys) {
+        definitionService.getKeys().then(function (keys) {
             self.keys = keys;
         });
 
-        Form.find().$promise.then(function (forms) {
+        definitionService.getForms().then(function (forms) {
             self.forms = forms;
         });
 
-        ABRSM.find().$promise.then(function (abrsms) {
+        definitionService.getABRSMs().then(function (abrsms) {
             self.abrsms = abrsms;
         });
 
-        Henle.find().$promise.then(function (henles) {
+        definitionService.getHenles().then(function (henles) {
             self.henles = henles;
         });
 
-        RCM.find().$promise.then(function (rcms) {
+        definitionService.getRCMs().then(function (rcms) {
             self.rcms = rcms;
         });
 
