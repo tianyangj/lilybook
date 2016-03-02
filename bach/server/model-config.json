@@ -60,5 +60,9 @@
   "Henle": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "RCM": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
