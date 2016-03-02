@@ -69,7 +69,11 @@
             </md-input-container>
             <md-input-container flex>
                 <label>ABRSM</label>
-                <input ng-model="$ctrl.composition.abrsm">
+                <md-select ng-model="$ctrl.composition.abrsm">
+                    <md-option ng-repeat="abrsm in $ctrl.abrsms" value="{{abrsm.id}}">
+                        {{abrsm.name}}
+                    </md-option>
+                </md-select>
             </md-input-container>
             <md-input-container flex>
                 <label>Henle</label>

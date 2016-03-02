@@ -3,9 +3,9 @@
 
     angular.module('app.admin').controller('AdminCompositionsEditController', AdminCompositionsEditController);
 
-    AdminCompositionsEditController.$inject = ['$stateParams', 'Composition', 'Composer', 'Key', 'Form'];
+    AdminCompositionsEditController.$inject = ['$stateParams', 'Composition', 'Composer', 'Key', 'Form', 'ABRSM'];
 
-    function AdminCompositionsEditController($stateParams, Composition, Composer, Key, Form) {
+    function AdminCompositionsEditController($stateParams, Composition, Composer, Key, Form, ABRSM) {
 
         var self = this;
 
@@ -25,6 +25,10 @@
 
         Form.find().$promise.then(function (forms) {
             self.forms = forms;
+        });
+
+        ABRSM.find().$promise.then(function (abrsms) {
+            self.abrsms = abrsms;
         });
 
         this.update = function () {
