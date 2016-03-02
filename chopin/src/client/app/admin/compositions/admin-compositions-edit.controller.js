@@ -3,9 +3,9 @@
 
     angular.module('app.admin').controller('AdminCompositionsEditController', AdminCompositionsEditController);
 
-    AdminCompositionsEditController.$inject = ['$stateParams', 'Composition', 'Composer', 'Key', 'Form', 'ABRSM', 'Henle'];
+    AdminCompositionsEditController.$inject = ['$stateParams', 'Composition', 'Composer', 'Key', 'Form', 'ABRSM', 'Henle', 'RCM'];
 
-    function AdminCompositionsEditController($stateParams, Composition, Composer, Key, Form, ABRSM, Henle) {
+    function AdminCompositionsEditController($stateParams, Composition, Composer, Key, Form, ABRSM, Henle, RCM) {
 
         var self = this;
 
@@ -33,6 +33,10 @@
 
         Henle.find().$promise.then(function (henles) {
             self.henles = henles;
+        });
+
+        RCM.find().$promise.then(function (rcms) {
+            self.rcms = rcms;
         });
 
         this.update = function () {

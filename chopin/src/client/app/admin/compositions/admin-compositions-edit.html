@@ -65,7 +65,11 @@
         <div layout="row">
             <md-input-container flex>
                 <label>RCM</label>
-                <input ng-model="$ctrl.composition.rcm">
+                <md-select ng-model="$ctrl.composition.rcm">
+                    <md-option ng-repeat="rcm in $ctrl.rcms" value="{{rcm.id}}">
+                        {{rcm.name}}
+                    </md-option>
+                </md-select>
             </md-input-container>
             <md-input-container flex>
                 <label>ABRSM</label>
