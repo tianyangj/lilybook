@@ -34,7 +34,7 @@
             <md-input-container flex>
                 <label>Key</label>
                 <md-select ng-model="$ctrl.composition.key">
-                    <md-option ng-repeat="key in $ctrl.keys" value="{{key.name}}">
+                    <md-option ng-repeat="key in $ctrl.keys" value="{{key.id}}">
                         {{key.name}}
                     </md-option>
                 </md-select>
