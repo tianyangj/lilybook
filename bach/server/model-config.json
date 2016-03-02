@@ -56,5 +56,9 @@
   "ABRSM": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Henle": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
