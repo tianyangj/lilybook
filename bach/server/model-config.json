@@ -52,5 +52,9 @@
   "Key": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "ABRSM": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
