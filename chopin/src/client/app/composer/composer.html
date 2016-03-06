@@ -1,40 +1,17 @@
 <div flex layout="column">
     <lb-composer-hero composer="$ctrl.composer"></lb-composer-hero>
-    <div flex="33">
-        <md-card style="margin:16px;">
-            <img ng-src="{{$ctrl.composer.image}}" class="md-card-image" alt="{{$ctrl.composer.fullname}}">
-            <md-card-title>
-                <md-card-title-text>
-                    <h1 class="md-display-1">{{$ctrl.composer.fullname}}</h1>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>{{$ctrl.composer.bio}}</p>
-            </md-card-content>
-            <!--<md-card-actions layout="column" layout-align="center stretch">
-                <md-button class="md-raised">
-                    <md-icon class="md-primary" md-svg-src="assets/svg/ic_playlist_play.svg"></md-icon>
-                    My Todos
-                </md-button>
-                <md-button class="md-raised">
-                    <md-icon class="md-primary" md-svg-src="assets/svg/ic_live_help.svg"></md-icon>
-                    Help Requests
-                </md-button>
-                <md-button class="md-raised">
-                    <md-icon class="md-primary" md-svg-src="assets/svg/ic_question_answer.svg"></md-icon>
-                    Community Questions
-                </md-button>
-            </md-card-actions>-->
-        </md-card>
-    </div>
-    <div flex>
-        <md-list class="md-whiteframe-1dp" style="padding:0;margin:16px;">
-            <md-subheader class="md-no-sticky" ng-repeat-start="(form, compositions) in $ctrl.compositionsByForm">{{form}}</md-subheader>
-            <md-list-item ng-repeat="composition in compositions">
-                <md-icon class="md-accent" md-svg-src="assets/svg/ic_play_circle_filled.svg"></md-icon>
-                <p><a ui-sref="app.composition({id:composition.id})">{{composition.title}}</a></p>
-            </md-list-item>
-            <md-divider ng-repeat-end></md-divider>
-        </md-list>
+    <div flex layout="row" class="md-padding" style="position:relative;">
+        <lb-composer-card flex="33" composer="$ctrl.composer"></lb-composer-card>
+        <div flex>
+            <iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/71760739&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
+            <md-list class="md-whiteframe-1dp" style="padding:0;margin:16px;">
+                <md-subheader class="md-no-sticky" ng-repeat-start="(form, compositions) in $ctrl.compositionsByForm">{{form}}</md-subheader>
+                <md-list-item ng-repeat="composition in compositions">
+                    <md-icon class="md-accent" md-svg-src="assets/svg/ic_play_circle_filled.svg"></md-icon>
+                    <p><a ui-sref="app.composition({id:composition.id})">{{composition.title}}</a></p>
+                </md-list-item>
+                <md-divider ng-repeat-end></md-divider>
+            </md-list>
+        </div>
     </div>
 </div>
