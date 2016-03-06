@@ -1,0 +1,8 @@
+<md-list class="md-whiteframe-1dp">
+    <!--<md-subheader class="md-no-sticky" ng-repeat-start="(form, compositions) in $ctrl.compositionsByForm">{{form}}</md-subheader>-->
+    <md-list-item ng-repeat="composition in $ctrl.compositions">
+        <!--<md-icon class="md-accent" md-svg-src="assets/svg/ic_play_circle_filled.svg"></md-icon>-->
+        <p><a ui-sref="app.composition({id:composition.id})">{{composition.title}}</a></p>
+    </md-list-item>
+    <md-divider ng-repeat-end></md-divider>
+</md-list>

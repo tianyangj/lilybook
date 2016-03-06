@@ -4,14 +4,7 @@
         <lb-composer-card flex="33" composer="$ctrl.composer"></lb-composer-card>
         <div flex>
             <iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/71760739&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
-            <md-list class="md-whiteframe-1dp" style="padding:0;margin:16px;">
-                <md-subheader class="md-no-sticky" ng-repeat-start="(form, compositions) in $ctrl.compositionsByForm">{{form}}</md-subheader>
-                <md-list-item ng-repeat="composition in compositions">
-                    <md-icon class="md-accent" md-svg-src="assets/svg/ic_play_circle_filled.svg"></md-icon>
-                    <p><a ui-sref="app.composition({id:composition.id})">{{composition.title}}</a></p>
-                </md-list-item>
-                <md-divider ng-repeat-end></md-divider>
-            </md-list>
+            <lb-composer-compositions composer="$ctrl.composer"></lb-composer-compositions>
         </div>
     </div>
 </div>
