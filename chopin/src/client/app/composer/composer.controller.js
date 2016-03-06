@@ -7,10 +7,6 @@
 
     function ComposerController(composer) {
 
-        var self = this;
-        
         this.composer = composer;
-
-        console.log(composer)
     }
 })();
