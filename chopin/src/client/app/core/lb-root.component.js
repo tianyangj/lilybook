@@ -11,7 +11,9 @@
     function RootComponentController($scope, Account, LoopBackAuth) {
 
         this.$onInit = function () {
-            Account.getCurrent();
+            if (Account.getCurrentId()) {
+                Account.getCurrent();
+            }
         };
 
         $scope.$watch(function () {
