@@ -9,16 +9,28 @@
         controller: ComposerCompositionsController
     });
 
-    ComposerCompositionsController.$inject = ['$state', '$mdSidenav', 'Composer'];
+    ComposerCompositionsController.$inject = ['Composer'];
 
-    function ComposerCompositionsController($state, $mdSidenav, Composer) {
-
-        console.log('ComposerCompositionsController', this.composer)
+    function ComposerCompositionsController(Composer) {
 
         Composer.compositions({
-            id: this.composer.id
+            id: this.composer.id,
+            filter: {
+                order: 'id DESC',
+                limit: 5
+            }
         }).$promise.then(function (compositions) {
-            this.compositions = compositions
+            this.additions = compositions;
+        }.bind(this));
+
+        Composer.compositions({
+            id: this.composer.id,
+            filter: {
+                order: 'id ASC',
+                limit: 10
+            }
+        }).$promise.then(function (compositions) {
+            this.populars = compositions;
         }.bind(this));
     }
 
