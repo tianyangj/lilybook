@@ -6,6 +6,7 @@
         'app.widgets',
         'app.admin',
         'app.composer',
+        'app.composition',
         'app.dashboard',
         'app.data',
         'app.layout',
