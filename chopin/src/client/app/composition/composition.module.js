@@ -1,7 +1,12 @@
-(function () {
+(function() {
     'use strict';
 
-    angular.module('app.composition', ['app.core']);
+    angular.module('app.composition', [
+        'app.core',
+        'com.2fdevs.videogular',
+        'com.2fdevs.videogular.plugins.controls',
+        'info.vietnamcode.nampnq.videogular.plugins.youtube'
+    ]);
 
     angular.module('app.composition').config(routerConfig);
 

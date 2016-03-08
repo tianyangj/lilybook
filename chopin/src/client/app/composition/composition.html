@@ -1,1 +1,8 @@
-<code>{{$ctrl.composition | json}}</code>
+<div layout="column">
+    <div style="height:300px;">
+        <lb-composition-hero hero="$ctrl.composition.hero"></lb-composition-hero>
+    </div>
+    <div flex>
+        <code>{{$ctrl.composition | json}}</code>
+    </div>
+</div>
