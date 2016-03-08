@@ -22,6 +22,12 @@
                 composition: getComposition
             }
         });
+        $stateProvider.state('composition.sheet', {
+            url: '/sheet',
+            templateUrl: 'app/composition/composition-sheet.html',
+            controller: 'CompositionSheetController',
+            controllerAs: '$ctrl'
+        });
     }
 
     getComposition.$inject = ['$stateParams', 'Composition']
