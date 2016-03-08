@@ -20,25 +20,33 @@
             url: '/composers',
             templateUrl: 'app/admin/composers/admin-composers.html',
             controller: 'AdminComposersController',
-            controllerAs: '$ctrl'
+            controllerAs: '$ctrl',
+            authentication: true,
+            admin: true
         });
         $stateProvider.state('admin.compositions', {
             url: '/compositions',
             templateUrl: 'app/admin/compositions/admin-compositions.html',
             controller: 'AdminCompositionsController',
-            controllerAs: '$ctrl'
+            controllerAs: '$ctrl',
+            authentication: true,
+            admin: true
         });
         $stateProvider.state('admin.compositions-edit', {
             url: '/compositions/:vanity',
             templateUrl: 'app/admin/compositions/admin-compositions-edit.html',
             controller: 'AdminCompositionsEditController',
-            controllerAs: '$ctrl'
+            controllerAs: '$ctrl',
+            authentication: true,
+            admin: true
         });
         $stateProvider.state('admin.forms', {
             url: '/forms',
             templateUrl: 'app/admin/forms/admin-forms.html',
             controller: 'AdminFormsController',
-            controllerAs: '$ctrl'
+            controllerAs: '$ctrl',
+            authentication: true,
+            admin: true
         });
     }
 
