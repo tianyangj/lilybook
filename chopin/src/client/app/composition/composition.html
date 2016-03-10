@@ -15,11 +15,11 @@
                 <div flex>
                     <div class="md-padding" layout="row" layout-align="center center">
                         <strong flex="33" class="md-subhead">Composer</strong>
-                        <span flex>{{$ctrl.composer.fullname}}</span>
+                        <span flex>{{$ctrl.composition.composer.fullname}}</span>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.form">
                         <strong flex="33" class="md-subhead">Form/Genre</strong>
-                        <span flex>{{$ctrl.composition.form}}</span>
+                        <span flex>{{$ctrl.composition.form.name}}</span>
                     </div>
                     <div class="md-padding" layout="row" layout-align="center center">
                         <strong flex="33" class="md-subhead">Catalogue Number</strong>
@@ -29,13 +29,21 @@
                         <strong flex="33" class="md-subhead">Work Number</strong>
                         <div flex>{{$ctrl.composition.number}}</div>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.key">
                         <strong flex="33" class="md-subhead">Key</strong>
-                        <div flex>{{$ctrl.composition.key}}</div>
+                        <div flex>{{$ctrl.composition.key.name}}</div>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.rcm">
                         <strong flex="33" class="md-subhead">RCM</strong>
-                        <div flex>{{$ctrl.composition.rcm}}</div>
+                        <div flex>{{$ctrl.composition.rcm.name}}</div>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.abrsm">
+                        <strong flex="33" class="md-subhead">ABRSM</strong>
+                        <div flex>{{$ctrl.composition.abrsm.name}}</div>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.henle">
+                        <strong flex="33" class="md-subhead">Henle</strong>
+                        <div flex>{{$ctrl.composition.henle.name}}</div>
                     </div>
                 </div>
                 <div flex>
