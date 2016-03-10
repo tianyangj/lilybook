@@ -15,7 +15,7 @@
                 <div flex>
                     <div class="md-padding" layout="row" layout-align="center center">
                         <strong flex="33" class="md-subhead">Composer</strong>
-                        <span flex>{{$ctrl.composition.composer.fullname}}</span>
+                        <a flex ui-sref="composer({vanity:$ctrl.composition.composerId})">{{$ctrl.composition.composer.fullname}}</a>
                     </div>
                     <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.form">
                         <strong flex="33" class="md-subhead">Form/Genre</strong>
