@@ -4,7 +4,8 @@
     angular.module('app.composition').component('lbCompositionHero', {
         templateUrl: 'app/composition/composition-hero.html',
         bindings: {
-            hero: '<?'
+            hero: '<?',
+            onToggle: '&'
         },
         controller: CompositionHeroController
     });
@@ -25,5 +26,12 @@
                 }
             }
         };
+
+        this.icon = 'keyboard_arrow_up';
+
+        this.toggle = function() {
+            this.onToggle();
+            this.icon = this.icon === 'keyboard_arrow_up' ? 'keyboard_arrow_down' : 'keyboard_arrow_up';
+        }
     }
 })();

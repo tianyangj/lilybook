@@ -9,6 +9,12 @@
 
         this.composition = composition;
 
-        console.log(composition)
+        this.height = '300px';
+
+        this.toggleHeight = function() {
+            this.height = this.height === '300px' ? '50px' : '300px';
+        }
+
+        console.log(composition);
     }
 })();

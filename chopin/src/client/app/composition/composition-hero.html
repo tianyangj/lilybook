@@ -1,4 +1,4 @@
-<div style="width:100%;height:100%">
+<div class="hero">
     <videogular vg-theme="$ctrl.config.theme.url">
         <vg-media vg-src="$ctrl.config.sources" vg-youtube="showinfo=0">
         </vg-media>
@@ -13,9 +13,9 @@
                 <vg-mute-button></vg-mute-button>
                 <vg-volume-bar></vg-volume-bar>
             </vg-volume>
-            <div style="display: table-cell;width: 50px;vertical-align: middle;text-align: center;">
-                <button class="iconButton">
-                    <md-icon class="material-icons" style="color:#fff;">keyboard_arrow_up</md-icon>
+            <div class="toggle-button">
+                <button class="iconButton" ng-click="$ctrl.toggle()">
+                    <md-icon class="material-icons">{{$ctrl.icon}}</md-icon>
                 </button>
             </div>
         </vg-controls>
