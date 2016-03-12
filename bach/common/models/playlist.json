@@ -30,13 +30,14 @@
             "permission": "ALLOW"
         },
         {
-            "accessType": "WRITE",
+            "accessType": "EXECUTE",
             "principalType": "ROLE",
             "principalId": "$authenticated",
-            "permission": "ALLOW"
+            "permission": "ALLOW",
+            "property": "create"
         },
         {
-            "accessType": "EXECUTE",
+            "accessType": "WRITE",
             "principalType": "ROLE",
             "principalId": "$owner",
             "permission": "ALLOW"
