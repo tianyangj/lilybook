@@ -64,5 +64,9 @@
   "RCM": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Playlist": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
