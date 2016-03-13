@@ -7,13 +7,7 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {
-    "playlists": {
-      "type": "hasMany",
-      "model": "Playlist",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
