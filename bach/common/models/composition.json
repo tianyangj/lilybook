@@ -58,7 +58,7 @@
     "composer": {
       "type": "belongsTo",
       "model": "Composer",
-      "foreignKey": ""
+      "foreignKey": "composerId"
     }
   },
   "acls": [
