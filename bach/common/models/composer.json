@@ -25,7 +25,7 @@
     "compositions": {
       "type": "hasMany",
       "model": "Composition",
-      "foreignKey": ""
+      "foreignKey": "composerId"
     }
   },
   "acls": [
