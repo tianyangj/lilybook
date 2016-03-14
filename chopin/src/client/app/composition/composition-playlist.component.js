@@ -9,20 +9,34 @@
         controller: CompositionPlaylistController
     });
 
-    CompositionPlaylistController.$inject = ['LoopBackAuth', 'Playlist'];
+    CompositionPlaylistController.$inject = ['LoopBackAuth', 'Playlist', 'dialogService'];
 
-    function CompositionPlaylistController(LoopBackAuth, Playlist) {
+    function CompositionPlaylistController(LoopBackAuth, Playlist, dialogService) {
 
-        this.add = function() {
-            console.log('todo, add to playlist', this.composition, Playlist);
-            Playlist.create({
-                compositionId: this.composition.id,
-                userId: LoopBackAuth.currentUserId
-            });
+        /*this.$onInit = function() {
+            Playlist.findById({
+                filter: {
+                    where: {
+                        compositionId: this.composition.id,
+                        userId: LoopBackAuth.currentUserId
+                    }
+                }
+            }).$promise.then(function() {
+                console.log('haha', arguments)
+            })
+        }*/
 
-            /*Playlist.find().$promise.then(function(playlists) {
-                console.log(playlists)
-            })*/
+        this.add = function($event) {
+            dialogService.showLogin($event).then(function() {
+                return Playlist.create({
+                    compositionId: this.composition.id,
+                    userId: LoopBackAuth.currentUserId
+                }).$promise;
+            }.bind(this)).then(function() {
+                this.inPlaylist = true;
+            }.bind(this));
         };
     }
 })();
+
+//{"email":"tianyangj@gmail.com","password":"qwer1234"}

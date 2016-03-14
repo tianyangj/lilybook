@@ -1,0 +1,33 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Login</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="md-dialog-content">
+        <form name="loginForm">
+            <md-input-container class="md-block">
+                <label>Email</label>
+                <input type="email" name="email" ng-model="$ctrl.email" ng-pattern="/^.+@.+\..+$/" required>
+                <div ng-messages="loginForm.email.$error">
+                    <div ng-message-exp="['required','pattern']">This field must be an valid email address.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <input type="password" name="password" ng-model="$ctrl.password" required>
+                <div ng-messages="loginForm.password.$error">
+                    <div ng-message="required">This field is required.</div>
+                </div>
+            </md-input-container>
+            <p class="md-body-2" ng-if="$ctrl.error">{{$ctrl.error.message}}</p>
+            <md-input-container class="md-block">
+                <md-button type="submit" class="md-raised md-primary width-full margin-none" ng-disabled="loginForm.$invalid" ng-click="$ctrl.login()">Login</md-button>
+            </md-input-container>
+        </form>
+    </md-dialog-content>
+</md-dialog>
