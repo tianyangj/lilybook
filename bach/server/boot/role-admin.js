@@ -1,6 +1,6 @@
 module.exports = function (app) {
 
-    const ADMIN_ID = '1014';
+    const ADMIN_ID = 'meatball';
 
     var Account = app.models.Account;
     var Role = app.models.Role;
