@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('app.composition').component('lbCompositionPlaylist', {
@@ -9,30 +9,35 @@
         controller: CompositionPlaylistController
     });
 
-    CompositionPlaylistController.$inject = ['LoopBackAuth', 'Playlist', 'dialogService'];
+    CompositionPlaylistController.$inject = ['Account', 'dialogService'];
 
-    function CompositionPlaylistController(LoopBackAuth, Playlist, dialogService) {
+    function CompositionPlaylistController(Account, dialogService) {
 
-        /*this.$onInit = function() {
-            Playlist.findById({
-                filter: {
-                    where: {
-                        compositionId: this.composition.id,
-                        userId: LoopBackAuth.currentUserId
+        this.$onInit = function () {
+            if (Account.isAuthenticated()) {
+                Account.playlists({
+                    id: Account.getCurrentId(),
+                    filter: {
+                        fields: 'compositionId'
                     }
-                }
-            }).$promise.then(function() {
-                console.log('haha', arguments)
-            })
-        }*/
+                }).$promise.then(function (playlists) {
+                    var compositionIds = playlists.map(function (playlist) {
+                        return playlist.compositionId;
+                    });
+                    if (compositionIds.indexOf(this.composition.id) > -1) {
+                        this.inPlaylist = true;
+                    }
+                }.bind(this));
+            }
+        }
 
-        this.add = function($event) {
-            dialogService.showLogin($event).then(function() {
-                return Playlist.create({
-                    compositionId: this.composition.id,
-                    userId: LoopBackAuth.currentUserId
-                }).$promise;
-            }.bind(this)).then(function() {
+        this.add = function ($event) {
+            dialogService.showLogin($event).then(function () {
+                return Account.playlists.create(
+                    { id: Account.getCurrentId() },
+                    { compositionId: this.composition.id }
+                    ).$promise;
+            }.bind(this)).then(function () {
                 this.inPlaylist = true;
             }.bind(this));
         };
