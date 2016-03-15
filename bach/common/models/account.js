@@ -20,4 +20,6 @@ module.exports = function(Account) {
     Account.disableRemoteMethod('__findById__accessTokens', false);
     Account.disableRemoteMethod('__get__accessTokens', false);
     Account.disableRemoteMethod('__updateById__accessTokens', false);
+    
+    Account.disableRemoteMethod('__delete__playlists', false);
 };
