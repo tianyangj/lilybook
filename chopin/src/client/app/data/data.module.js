@@ -47,50 +47,11 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Composer.compositions.findById() instead.
-        "prototype$__findById__compositions": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Composers/:id/compositions/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Composer.compositions.destroyById() instead.
-        "prototype$__destroyById__compositions": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Composers/:id/compositions/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Composer.compositions.updateById() instead.
-        "prototype$__updateById__compositions": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Composers/:id/compositions/:fk",
-          method: "PUT"
-        },
-
         // INTERNAL. Use Composer.compositions() instead.
         "prototype$__get__compositions": {
           isArray: true,
           url: urlBase + "/Composers/:id/compositions",
           method: "GET"
-        },
-
-        // INTERNAL. Use Composer.compositions.create() instead.
-        "prototype$__create__compositions": {
-          url: urlBase + "/Composers/:id/compositions",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Composer.compositions.destroyAll() instead.
-        "prototype$__delete__compositions": {
-          url: urlBase + "/Composers/:id/compositions",
-          method: "DELETE"
         },
 
         // INTERNAL. Use Composer.compositions.count() instead.
@@ -350,40 +311,6 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name app.data.Composer#updateAll
-         * @methodOf app.data.Composer
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        "updateAll": {
-          url: urlBase + "/Composers/update",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
          * @name app.data.Composer#deleteById
          * @methodOf app.data.Composer
          *
@@ -417,38 +344,6 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name app.data.Composer#count
-         * @methodOf app.data.Composer
-         *
-         * @description
-         *
-         * Count instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `count` – `{number=}` - 
-         */
-        "count": {
-          url: urlBase + "/Composers/count",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
          * @name app.data.Composer#prototype$updateAttributes
          * @methodOf app.data.Composer
          *
@@ -458,7 +353,8 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *  - `id` – `{*}` - PersistedModel id
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
          *
          * @param {Object} postData Request data.
          *
@@ -482,43 +378,6 @@ module.factory(
         "prototype$updateAttributes": {
           url: urlBase + "/Composers/:id",
           method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer#createChangeStream
-         * @methodOf app.data.Composer
-         *
-         * @description
-         *
-         * Create a change stream.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         *  - `options` – `{object=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `changes` – `{ReadableStream=}` - 
-         */
-        "createChangeStream": {
-          url: urlBase + "/Composers/change-stream",
-          method: "POST"
         },
 
         // INTERNAL. Use Composition.composer() instead.
@@ -565,37 +424,6 @@ module.factory(
          * </em>
          */
         R["updateOrCreate"] = R["upsert"];
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer#update
-         * @methodOf app.data.Composer
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        R["update"] = R["updateAll"];
 
         /**
          * @ngdoc method
@@ -751,222 +579,6 @@ module.factory(
         R.compositions.count = function() {
           var TargetResource = $injector.get("Composition");
           var action = TargetResource["::count::Composer::compositions"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer.compositions#create
-         * @methodOf app.data.Composer.compositions
-         *
-         * @description
-         *
-         * Creates a new instance in compositions of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Composition` object.)
-         * </em>
-         */
-        R.compositions.create = function() {
-          var TargetResource = $injector.get("Composition");
-          var action = TargetResource["::create::Composer::compositions"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer.compositions#createMany
-         * @methodOf app.data.Composer.compositions
-         *
-         * @description
-         *
-         * Creates a new instance in compositions of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Composition` object.)
-         * </em>
-         */
-        R.compositions.createMany = function() {
-          var TargetResource = $injector.get("Composition");
-          var action = TargetResource["::createMany::Composer::compositions"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer.compositions#destroyAll
-         * @methodOf app.data.Composer.compositions
-         *
-         * @description
-         *
-         * Deletes all compositions of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.compositions.destroyAll = function() {
-          var TargetResource = $injector.get("Composition");
-          var action = TargetResource["::delete::Composer::compositions"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer.compositions#destroyById
-         * @methodOf app.data.Composer.compositions
-         *
-         * @description
-         *
-         * Delete a related item by id for compositions.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for compositions
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.compositions.destroyById = function() {
-          var TargetResource = $injector.get("Composition");
-          var action = TargetResource["::destroyById::Composer::compositions"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer.compositions#findById
-         * @methodOf app.data.Composer.compositions
-         *
-         * @description
-         *
-         * Find a related item by id for compositions.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for compositions
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Composition` object.)
-         * </em>
-         */
-        R.compositions.findById = function() {
-          var TargetResource = $injector.get("Composition");
-          var action = TargetResource["::findById::Composer::compositions"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composer.compositions#updateById
-         * @methodOf app.data.Composer.compositions
-         *
-         * @description
-         *
-         * Update a related item by id for compositions.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for compositions
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Composition` object.)
-         * </em>
-         */
-        R.compositions.updateById = function() {
-          var TargetResource = $injector.get("Composition");
-          var action = TargetResource["::updateById::Composer::compositions"];
           return action.apply(R, arguments);
         };
 
@@ -1255,40 +867,6 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name app.data.Composition#updateAll
-         * @methodOf app.data.Composition
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        "updateAll": {
-          url: urlBase + "/Compositions/update",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
          * @name app.data.Composition#deleteById
          * @methodOf app.data.Composition
          *
@@ -1363,7 +941,8 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *  - `id` – `{*}` - PersistedModel id
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
          *
          * @param {Object} postData Request data.
          *
@@ -1389,94 +968,11 @@ module.factory(
           method: "PUT"
         },
 
-        /**
-         * @ngdoc method
-         * @name app.data.Composition#createChangeStream
-         * @methodOf app.data.Composition
-         *
-         * @description
-         *
-         * Create a change stream.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         *  - `options` – `{object=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `changes` – `{ReadableStream=}` - 
-         */
-        "createChangeStream": {
-          url: urlBase + "/Compositions/change-stream",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Composer.compositions.findById() instead.
-        "::findById::Composer::compositions": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Composers/:id/compositions/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Composer.compositions.destroyById() instead.
-        "::destroyById::Composer::compositions": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Composers/:id/compositions/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Composer.compositions.updateById() instead.
-        "::updateById::Composer::compositions": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Composers/:id/compositions/:fk",
-          method: "PUT"
-        },
-
         // INTERNAL. Use Composer.compositions() instead.
         "::get::Composer::compositions": {
           isArray: true,
           url: urlBase + "/Composers/:id/compositions",
           method: "GET"
-        },
-
-        // INTERNAL. Use Composer.compositions.create() instead.
-        "::create::Composer::compositions": {
-          url: urlBase + "/Composers/:id/compositions",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Composer.compositions.createMany() instead.
-        "::createMany::Composer::compositions": {
-          isArray: true,
-          url: urlBase + "/Composers/:id/compositions",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Composer.compositions.destroyAll() instead.
-        "::delete::Composer::compositions": {
-          url: urlBase + "/Composers/:id/compositions",
-          method: "DELETE"
         },
 
         // INTERNAL. Use Composer.compositions.count() instead.
@@ -1523,37 +1019,6 @@ module.factory(
          * </em>
          */
         R["updateOrCreate"] = R["upsert"];
-
-        /**
-         * @ngdoc method
-         * @name app.data.Composition#update
-         * @methodOf app.data.Composition
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        R["update"] = R["updateAll"];
 
         /**
          * @ngdoc method
@@ -1691,86 +1156,6 @@ module.factory(
       { 'id': '@id' },
       {
 
-        /**
-         * @ngdoc method
-         * @name app.data.Account#prototype$__findById__accessTokens
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Find a related item by id for accessTokens.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `fk` – `{*}` - Foreign key for accessTokens
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "prototype$__findById__accessTokens": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Accounts/:id/accessTokens/:fk",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#prototype$__updateById__accessTokens
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Update a related item by id for accessTokens.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `fk` – `{*}` - Foreign key for accessTokens
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "prototype$__updateById__accessTokens": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Accounts/:id/accessTokens/:fk",
-          method: "PUT"
-        },
-
         // INTERNAL. Use Account.playlists.findById() instead.
         "prototype$__findById__playlists": {
           params: {
@@ -1798,113 +1183,6 @@ module.factory(
           method: "PUT"
         },
 
-        /**
-         * @ngdoc method
-         * @name app.data.Account#prototype$__get__accessTokens
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Queries accessTokens of Account.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `filter` – `{object=}` - 
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "prototype$__get__accessTokens": {
-          isArray: true,
-          url: urlBase + "/Accounts/:id/accessTokens",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#prototype$__create__accessTokens
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Creates a new instance in accessTokens of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "prototype$__create__accessTokens": {
-          url: urlBase + "/Accounts/:id/accessTokens",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#prototype$__count__accessTokens
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Counts accessTokens of Account.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `count` – `{number=}` - 
-         */
-        "prototype$__count__accessTokens": {
-          url: urlBase + "/Accounts/:id/accessTokens/count",
-          method: "GET"
-        },
-
         // INTERNAL. Use Account.playlists() instead.
         "prototype$__get__playlists": {
           isArray: true,
@@ -1918,162 +1196,9 @@ module.factory(
           method: "POST"
         },
 
-        // INTERNAL. Use Account.playlists.destroyAll() instead.
-        "prototype$__delete__playlists": {
-          url: urlBase + "/Accounts/:id/playlists",
-          method: "DELETE"
-        },
-
         // INTERNAL. Use Account.playlists.count() instead.
         "prototype$__count__playlists": {
           url: urlBase + "/Accounts/:id/playlists/count",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#create
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Create a new instance of the model and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "create": {
-          url: urlBase + "/Accounts",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#createMany
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Create a new instance of the model and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "createMany": {
-          isArray: true,
-          url: urlBase + "/Accounts",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#upsert
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Update an existing model instance or insert a new one into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "upsert": {
-          url: urlBase + "/Accounts",
-          method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#exists
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Check whether a model instance exists in the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `exists` – `{boolean=}` - 
-         */
-        "exists": {
-          url: urlBase + "/Accounts/:id/exists",
           method: "GET"
         },
 
@@ -2110,213 +1235,6 @@ module.factory(
         "findById": {
           url: urlBase + "/Accounts/:id",
           method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#find
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Find all instances of the model matched by filter from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "find": {
-          isArray: true,
-          url: urlBase + "/Accounts",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#findOne
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Find first instance of the model matched by filter from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "findOne": {
-          url: urlBase + "/Accounts/findOne",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#updateAll
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        "updateAll": {
-          url: urlBase + "/Accounts/update",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#count
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Count instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `count` – `{number=}` - 
-         */
-        "count": {
-          url: urlBase + "/Accounts/count",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#prototype$updateAttributes
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Update attributes for a model instance and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        "prototype$updateAttributes": {
-          url: urlBase + "/Accounts/:id",
-          method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#createChangeStream
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Create a change stream.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         *  - `options` – `{object=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `changes` – `{ReadableStream=}` - 
-         */
-        "createChangeStream": {
-          url: urlBase + "/Accounts/change-stream",
-          method: "POST"
         },
 
         /**
@@ -2531,72 +1449,6 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name app.data.Account#updateOrCreate
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Update an existing model instance or insert a new one into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Account` object.)
-         * </em>
-         */
-        R["updateOrCreate"] = R["upsert"];
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account#update
-         * @methodOf app.data.Account
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        R["update"] = R["updateAll"];
-
-        /**
-         * @ngdoc method
          * @name app.data.Account#getCachedCurrent
          * @methodOf app.data.Account
          *
@@ -2806,37 +1658,6 @@ module.factory(
         R.playlists.createMany = function() {
           var TargetResource = $injector.get("Playlist");
           var action = TargetResource["::createMany::Account::playlists"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name app.data.Account.playlists#destroyAll
-         * @methodOf app.data.Account.playlists
-         *
-         * @description
-         *
-         * Deletes all playlists of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.playlists.destroyAll = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::delete::Account::playlists"];
           return action.apply(R, arguments);
         };
 
@@ -4226,7 +3047,8 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *  - `id` – `{*}` - PersistedModel id
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
          *
          * @param {Object} postData Request data.
          *
@@ -4250,43 +3072,6 @@ module.factory(
         "prototype$updateAttributes": {
           url: urlBase + "/Playlists/:id",
           method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name app.data.Playlist#createChangeStream
-         * @methodOf app.data.Playlist
-         *
-         * @description
-         *
-         * Create a change stream.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         *  - `options` – `{object=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `changes` – `{ReadableStream=}` - 
-         */
-        "createChangeStream": {
-          url: urlBase + "/Playlists/change-stream",
-          method: "POST"
         },
 
         // INTERNAL. Use Account.playlists.findById() instead.
@@ -4334,12 +3119,6 @@ module.factory(
           isArray: true,
           url: urlBase + "/Accounts/:id/playlists",
           method: "POST"
-        },
-
-        // INTERNAL. Use Account.playlists.destroyAll() instead.
-        "::delete::Account::playlists": {
-          url: urlBase + "/Accounts/:id/playlists",
-          method: "DELETE"
         },
 
         // INTERNAL. Use Account.playlists.count() instead.
