@@ -18,15 +18,11 @@
                 Account.playlists({
                     id: Account.getCurrentId(),
                     filter: {
-                        fields: 'compositionId'
+                        fields: 'compositionId',
+                        where: { compositionId: this.composition.id }
                     }
                 }).$promise.then(function (playlists) {
-                    var compositionIds = playlists.map(function (playlist) {
-                        return playlist.compositionId;
-                    });
-                    if (compositionIds.indexOf(this.composition.id) > -1) {
-                        this.inPlaylist = true;
-                    }
+                    this.inPlaylist = !!playlists.length;
                 }.bind(this));
             }
         }
