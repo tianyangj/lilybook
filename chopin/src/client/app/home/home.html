@@ -1,1 +1,15 @@
-<div>home placeholder</div>
+<div layout="column" class="home">
+    <div>
+        <code>{{$ctrl.account | json}}</code>
+    </div>
+    <div flex layout="column">
+        <md-tabs md-center-tabs md-border-bottom>
+            <md-tab label="Details" ui-sref="composition"></md-tab>
+            <md-tab label="Playlists" ui-sref="composition.sheet"></md-tab>
+            <md-tab label="Todo" ui-sref="composition.qa"></md-tab>
+        </md-tabs>
+        <md-content class="md-padding">
+            <code>{{$ctrl.playlists | json}}</code>
+        </md-content>
+    </div>
+</div>

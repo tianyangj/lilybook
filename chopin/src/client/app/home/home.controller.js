@@ -3,16 +3,16 @@
 
     angular.module('app.home').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['logger'];
+    HomeController.$inject = ['Account', 'account'];
 
-    function HomeController(logger) {
-        var vm = this;
-        vm.title = 'Admin';
+    function HomeController(Account, account) {
 
-        activate();
+        this.account = account;
 
-        function activate() {
-            logger.info('Activated HomeController View');
-        }
+        Account.playlists({
+            id: Account.getCurrentId()
+        }).$promise.then(function(playlists) {
+            this.playlists = playlists;
+        }.bind(this));
     }
 })();
