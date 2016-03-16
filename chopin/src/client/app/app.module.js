@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app', [
@@ -9,6 +9,7 @@
         'app.composition',
         'app.dashboard',
         'app.data',
+        'app.home',
         'app.layout',
         'app.splash'
     ]);
