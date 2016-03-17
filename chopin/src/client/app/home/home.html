@@ -1,15 +1,16 @@
-<div layout="column" class="home">
+<div layout="column" class="home" style="width:100%;">
     <div>
         <code>{{$ctrl.account | json}}</code>
     </div>
     <div flex layout="column">
         <md-tabs md-center-tabs md-border-bottom>
-            <md-tab label="Details" ui-sref="composition"></md-tab>
-            <md-tab label="Playlists" ui-sref="composition.sheet"></md-tab>
-            <md-tab label="Todo" ui-sref="composition.qa"></md-tab>
+            <md-tab label="Home" ui-sref="home"></md-tab>
+            <md-tab label="Profile" ui-sref="home.profile"></md-tab>
+            <md-tab label="Playlist" ui-sref="home.playlist"></md-tab>
+            <md-tab label="Repertoire" ui-sref="home.repertoire"></md-tab>
         </md-tabs>
-        <md-content class="md-padding">
-            <code>{{$ctrl.playlists | json}}</code>
+        <md-content flex ui-view class="md-padding">
+            recommendation goes here, featured?
         </md-content>
     </div>
 </div>
