@@ -2,7 +2,7 @@
     <md-button class="md-raised md-primary" ng-if="!$ctrl.inPlaylist" ng-click="$ctrl.add($event)">
         <md-icon class="material-icons">playlist_add</md-icon> Add to Playlist
     </md-button>
-    <md-button class="md-raised md-accent" ng-if="$ctrl.inPlaylist">
+    <md-button class="md-raised md-accent" ng-if="$ctrl.inPlaylist" ui-sref="home.playlist">
         <md-icon class="material-icons">playlist_add_check</md-icon> In Playlist
     </md-button>
 </div>

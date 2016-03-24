@@ -12,7 +12,6 @@
         }).$promise.then(function(playlists) {
             this.playlists = playlists;
         }.bind(this));
-
-        console.log('HomePlaylistController', account)
     }
+
 })();

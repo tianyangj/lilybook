@@ -1,3 +1,10 @@
-<div>
-    <code>{{$ctrl.playlists | json}}</code>
+<div class="md-padding">
+    <md-subheader class="md-no-sticky">My Playlist</md-subheader>
+    <md-list-item class="md-2-line" ng-repeat="playlist in $ctrl.playlists">
+        <md-icon class="material-icons md-avatar">queue_music</md-icon>
+        <div class="md-list-item-text">
+            <h3><a ui-sref="composition({id:playlist.compositionId})">{{playlist.compositionId}}</a></h3>
+            <p>{{playlist.createdAt | date}}</p>
+        </div>
+    </md-list-item>
 </div>
