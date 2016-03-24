@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app.composition').component('lbCompositionPlaylist', {
@@ -13,27 +13,28 @@
 
     function CompositionPlaylistController(Account, dialogService) {
 
-        this.$onInit = function () {
+        this.$onInit = function() {
             if (Account.isAuthenticated()) {
                 Account.playlists({
                     id: Account.getCurrentId(),
                     filter: {
-                        fields: 'compositionId',
-                        where: { compositionId: this.composition.id }
+                        fields: 'compositionId'
                     }
-                }).$promise.then(function (playlists) {
-                    this.inPlaylist = !!playlists.length;
+                }).$promise.then(function(playlists) {
+                    this.inPlaylist = playlists.map(function(playlist) {
+                        return playlist.compositionId;
+                    }).indexOf(this.composition.id) > -1;
                 }.bind(this));
             }
         }
 
-        this.add = function ($event) {
-            dialogService.showLogin($event).then(function () {
+        this.add = function($event) {
+            dialogService.showLogin($event).then(function() {
                 return Account.playlists.create(
                     { id: Account.getCurrentId() },
                     { compositionId: this.composition.id }
-                    ).$promise;
-            }.bind(this)).then(function () {
+                ).$promise;
+            }.bind(this)).then(function() {
                 this.inPlaylist = true;
             }.bind(this));
         };

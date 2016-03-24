@@ -1,5 +1,6 @@
 <div class="md-padding">
-    <md-subheader class="md-no-sticky">My Playlist</md-subheader>
+    <h2>My Playlist</h2>
+    <p ng-if="!$ctrl.playlists.length">You haven't added any composition to your playlist.</p>
     <md-list-item class="md-2-line" ng-repeat="playlist in $ctrl.playlists">
         <md-icon class="material-icons md-avatar">queue_music</md-icon>
         <div class="md-list-item-text">

@@ -11,10 +11,12 @@
   "properties": {
     "compositionId": {
       "type": "string",
+      "id": 1,
       "required": true
     },
     "userId": {
       "type": "string",
+      "id": 2,
       "required": true
     }
   },
