@@ -8,7 +8,7 @@
             <md-tab label="Sheet Music" ui-sref="composition.sheet"></md-tab>
             <md-tab label="Q & A" ui-sref="composition.qa"></md-tab>
         </md-tabs>
-        <md-content flex ui-view class="md-padding">
+        <md-content flex layout="column" ui-view>
             <h1 class="md-display-1">{{$ctrl.composition.title}}</h1>
             <p class="md-body-1">{{$ctrl.composition.description}}</p>
             <div layout="row">
