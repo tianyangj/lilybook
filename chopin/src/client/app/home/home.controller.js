@@ -3,10 +3,18 @@
 
     angular.module('app.home').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['account'];
+    HomeController.$inject = ['Composition', 'account'];
 
-    function HomeController(account) {
+    function HomeController(Composition, account) {
 
         this.account = account;
+
+        Composition.find({
+            filter: {
+                limit: 10
+            }
+        }).$promise.then(function(compositions) {
+            this.recommendations = compositions;
+        }.bind(this));
     }
 })();

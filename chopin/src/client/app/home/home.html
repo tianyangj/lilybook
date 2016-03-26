@@ -13,12 +13,53 @@
             <md-tab label="Repertoire" ui-sref="home.repertoire"></md-tab>
         </md-tabs>
         <md-content flex ui-view>
-            <div>Recommended (10), 2 rows, 5 compositions in each row</div>
-            <div>Featured composer 1</div>
-            <div>Featured composer 2</div>
-            <div>Continue listening/studying</div>
-            <div>Random followed composer 1</div>
-            <div>Random followed composer 2</div>
+            <div class="md-padding">
+                <section>
+                    <md-subheader class="md-primary">Recommended</md-subheader>
+                    <div layout="row" layout-wrap>
+                        <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
+                            <md-card>
+                                <img src="http://placehold.it/200x300" class="md-card-image">
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-subhead">{{recommendation.title}}</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <!--<md-card-content>
+                                    <p>{{recommendation.description}}</p>
+                                </md-card-content>
+                                <md-card-actions layout="row" layout-align="end center">
+                                    <md-button class="md-icon-button" aria-label="Favorite">
+                                        <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                                    </md-button>
+                                    <md-button class="md-icon-button" aria-label="Settings">
+                                        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                                    </md-button>
+                                    <md-button class="md-icon-button" aria-label="Share">
+                                        <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+                                    </md-button>
+                                </md-card-actions>-->
+                            </md-card>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <md-subheader class="md-primary">Chopin</md-subheader>
+                    <div layout="row" layout-wrap>
+                        <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
+                            <md-card>
+                                <img src="http://placehold.it/200x300" class="md-card-image">
+                            </md-card>
+                        </div>
+                    </div>
+                </section>
+                <div>Recommended (10), 2 rows, 5 compositions in each row</div>
+                <div>Featured composer 1</div>
+                <div>Featured composer 2</div>
+                <div>Continue listening/studying</div>
+                <div>Random followed composer 1</div>
+                <div>Random followed composer 2</div>
+            </div>
         </md-content>
     </div>
 </div>
