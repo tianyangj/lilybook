@@ -46,11 +46,11 @@
                 <section>
                     <md-subheader class="md-primary">Chopin</md-subheader>
                     <div layout="row" layout-wrap>
-                        <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
+                        <a flex="20" ng-repeat="recommendation in $ctrl.recommendations" ui-sref="composition({id:recommendation.id})">
                             <md-card>
                                 <img src="http://placehold.it/200x300" class="md-card-image">
                             </md-card>
-                        </div>
+                        </a>
                     </div>
                 </section>
                 <div>Recommended (10), 2 rows, 5 compositions in each row</div>
