@@ -28,6 +28,12 @@
             controller: 'CompositionSheetController',
             controllerAs: '$ctrl'
         });
+        $stateProvider.state('composition.qa', {
+            url: '/qa',
+            templateUrl: 'app/composition/composition-qa.html',
+            controller: 'CompositionQAController',
+            controllerAs: '$ctrl'
+        });
     }
 
     getComposition.$inject = ['$q', '$stateParams', 'Composition', 'definitionService']

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.composition').component('lbCompositionLike', {
-        templateUrl: 'app/composition/composition-like.html',
+        templateUrl: 'app/composition/components/composition-like.html',
         bindings: {
             composition: '<'
         },

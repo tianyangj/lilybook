@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.composition').component('lbCompositionHero', {
-        templateUrl: 'app/composition/composition-hero.html',
+        templateUrl: 'app/composition/components/composition-hero.html',
         bindings: {
             hero: '<?',
             onToggle: '&'
