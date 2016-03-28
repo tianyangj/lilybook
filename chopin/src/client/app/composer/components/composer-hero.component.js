@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.composer').component('lbComposerHero', {
-        templateUrl: 'app/composer/composer-hero.html',
+        templateUrl: 'app/composer/components/composer-hero.html',
         bindings: {
             composer: '<'
         },

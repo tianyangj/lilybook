@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.composer').component('lbComposerCard', {
-        templateUrl: 'app/composer/composer-card.html',
+        templateUrl: 'app/composer/components/composer-card.html',
         bindings: {
             composer: '<'
         },
