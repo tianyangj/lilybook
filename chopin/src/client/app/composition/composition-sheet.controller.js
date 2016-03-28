@@ -9,8 +9,6 @@
 
         this.composition = composition;
 
-        console.log('CompositionSheetController init...', $scope.$parent.$ctrl);
-
-        $scope.$parent.$ctrl.toggleHeight();
+        $scope.$parent.$ctrl.collapseHero();
     }
 })();

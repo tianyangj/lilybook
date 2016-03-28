@@ -11,10 +11,14 @@
 
         this.height = '300px';
 
-        this.toggleHeight = function() {
+        this.toggleHero = function() {
             this.height = this.height === '300px' ? '50px' : '300px';
-        }
+        };
 
-        console.log(composition);
+        this.collapseHero = function() {
+            if (this.height === '300px') {
+                this.height = '50px';
+            }
+        };
     }
 })();
