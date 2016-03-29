@@ -1,6 +1,4 @@
 <div class="hero md-whiteframe-1dp">
-    <h1 class="md-display-1">{{$ctrl.composer.fullname}}</h1>
-    <md-card class="hero-card">
-        <img ng-src="{{$ctrl.composer.image}}" class="md-card-image">
-    </md-card>
+    <lb-composer-card composer="$ctrl.composer"></lb-composer-card>
+    <lb-composer-subscribe composer="$ctrl.composer"></lb-composer-subscribe>
 </div>

@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app.composer').component('lbComposerCard', {
@@ -9,11 +9,13 @@
         controller: ComposerCardController
     });
 
-    ComposerCardController.$inject = ['$state', '$mdSidenav', 'Account'];
+    ComposerCardController.$inject = ['Account'];
 
-    function ComposerCardController($state, $mdSidenav, Account) {
+    function ComposerCardController(Account) {
 
-        console.log('lbComposerCard', this.composer)
+        this.subscribe = function() {
+            alert('to subscribe...');
+        };
     }
 
 })();
