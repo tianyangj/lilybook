@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app.composer').component('lbComposerCompositions', {
@@ -19,8 +19,11 @@
                 order: 'id DESC',
                 limit: 5
             }
-        }).$promise.then(function (compositions) {
+        }).$promise.then(function(compositions) {
             this.additions = compositions;
+            if (this.additions.length) {
+                this.composition = this.additions[0];
+            }
         }.bind(this));
 
         Composer.compositions({
@@ -29,9 +32,13 @@
                 order: 'id ASC',
                 limit: 10
             }
-        }).$promise.then(function (compositions) {
+        }).$promise.then(function(compositions) {
             this.populars = compositions;
         }.bind(this));
+
+        this.play = function(composition) {
+            this.composition = composition;
+        };
     }
 
 })();

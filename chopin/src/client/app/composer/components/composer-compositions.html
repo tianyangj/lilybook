@@ -1,12 +1,13 @@
-<md-list>
+<lb-composition-player composition="$ctrl.composition"></lb-composition-player>
+<md-list class="md-dense">
     <md-subheader class="md-no-sticky">New Additions</md-subheader>
     <md-list-item ng-repeat="composition in $ctrl.additions">
-        <!--<md-icon class="md-accent" md-svg-src="assets/svg/ic_play_circle_filled.svg"></md-icon>-->
+        <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_filled</md-icon>
         <p><a ui-sref="composition({id:composition.id})">{{composition.title}}</a></p>
     </md-list-item>
     <md-subheader class="md-no-sticky">Most Populars</md-subheader>
     <md-list-item ng-repeat="composition in $ctrl.populars">
-        <!--<md-icon class="md-accent" md-svg-src="assets/svg/ic_play_circle_filled.svg"></md-icon>-->
+        <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_filled</md-icon>
         <p><a ui-sref="composition({id:composition.id})">{{composition.title}}</a></p>
     </md-list-item>
 </md-list>

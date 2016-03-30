@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app.composer').component('lbComposerHero', {
@@ -13,7 +13,7 @@
 
     function ComposerHeroController($state, $mdSidenav, Account) {
 
-        console.log('lbComposerHero', this.composer)
+
     }
 
 })();
