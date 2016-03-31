@@ -1,5 +1,5 @@
 <div style="transition:height 1s;overflow:hidden;" ng-style="{height:$ctrl.height}">
-    <md-button class="md-fab md-mini" ng-click="$ctrl.close()" style="position:absolute;right:0;">
+    <md-button class="md-fab md-mini" ng-click="$ctrl.close()" ng-hide="$ctrl.height==='0'" style="position:absolute;right:0;">
         <md-icon class="material-icons">close</md-icon>
     </md-button>
     <div id="soundcloud"></div>
