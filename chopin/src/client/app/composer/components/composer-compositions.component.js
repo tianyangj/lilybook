@@ -9,9 +9,9 @@
         controller: ComposerCompositionsController
     });
 
-    ComposerCompositionsController.$inject = ['Composer'];
+    ComposerCompositionsController.$inject = ['$rootScope', 'Composer'];
 
-    function ComposerCompositionsController(Composer) {
+    function ComposerCompositionsController($rootScope, Composer) {
 
         Composer.compositions({
             id: this.composer.id,
@@ -37,7 +37,7 @@
         }.bind(this));
 
         this.play = function(composition) {
-            this.composition = composition;
+            $rootScope.$emit('LB_EVENT_PLAYER', composition);
         };
     }
 

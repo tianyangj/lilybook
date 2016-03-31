@@ -1,3 +1,6 @@
-<div style="padding:8px;">
-    <iframe width="100%" height="120px" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https://soundcloud.com/mohamed-ibrahim-60/frederic-chopin-nocturne-in-e&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=false"></iframe>
+<div style="transition:height 1s;overflow:hidden;" ng-style="{height:$ctrl.height}">
+    <md-button class="md-fab md-mini" ng-click="$ctrl.close()" style="position:absolute;right:0;">
+        <md-icon class="material-icons">close</md-icon>
+    </md-button>
+    <div id="soundcloud"></div>
 </div>

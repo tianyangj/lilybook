@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="app" ng-strict-di>
+
 <head>
     <style>
         /* This helps the ng-show/ng-hide animations start at the right place. */
         /* Since Angular has this but needs to load, this gives us the class early. */
-        .ng-hide { display: none!important; }
+        
+        .ng-hide {
+            display: none!important;
+        }
     </style>
     <title ng-bind="title">lilybook</title>
     <meta charset="utf-8" />
@@ -27,6 +31,7 @@
     <!-- endinject -->
     <!-- endbuild -->
 </head>
+
 <body layout>
     <lb-root flex layout></lb-root>
     <!--<div>
@@ -59,7 +64,7 @@
     <script src="/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
     <script src="/bower_components/bower-videogular-youtube/youtube.js"></script>
     <!-- endbower -->
-    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
     <!-- endbuild -->
 
     <!-- build:js js/app.js -->
@@ -131,4 +136,5 @@
     <!-- endinject -->
     <!-- endbuild -->
 </body>
+
 </html>
