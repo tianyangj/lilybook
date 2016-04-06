@@ -7,8 +7,13 @@
 
     function CompositionSheetController(composition, $scope) {
 
+        this.sheet = composition.sheet;
         this.composition = composition;
 
         $scope.$parent.$ctrl.collapseHero();
+
+        if (this.sheet) {
+            this.pdfUrl = this.sheet.pdf + '/preview';
+        }
     }
 })();

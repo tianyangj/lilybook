@@ -96,9 +96,19 @@
             <label>IMSLP</label>
             <input ng-model="$ctrl.composition.imslp">
         </md-input-container>
+        <md-input-container class="md-block">
+            <label>Sheet Music PDF</label>
+            <input ng-model="$ctrl.composition.sheet.pdf">
+        </md-input-container>
+        <div layout="row">
+            <md-input-container flex="25">
+                <label>Total Measures</label>
+                <input type="number" ng-model="$ctrl.composition.sheet.measures">
+            </md-input-container>
+        </div>
         <div layout="row">
             <span flex></span>
-            <md-button class="md-raised md-primary" ng-click="$ctrl.update()">Update</md-button>
+            <md-button class="md-raised md-primary" ng-click="$ctrl.upsert()">{{$ctrl.action}}</md-button>
         </div>
     </form>
 </div>

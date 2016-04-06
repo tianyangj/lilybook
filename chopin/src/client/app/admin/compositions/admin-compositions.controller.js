@@ -1,27 +1,25 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app.admin').controller('AdminCompositionsController', AdminCompositionsController);
 
-    AdminCompositionsController.$inject = ['Composition'];
+    AdminCompositionsController.$inject = ['$state', 'Composition'];
 
-    function AdminCompositionsController(Composition) {
+    function AdminCompositionsController($state, Composition) {
 
-        var self = this;
+        this.createComposition = function() {
+            $state.go('admin.compositions-edit', { vanity: 'new' });
+        };
 
-        onInit();
-
-        function onInit() {
-            Composition.find({
-                filter: {
-                    fields: {
-                        id: true,
-                        title: true
-                    }
+        Composition.find({
+            filter: {
+                fields: {
+                    id: true,
+                    title: true
                 }
-            }).$promise.then(function (compositions) {
-                self.compositions = compositions;
-            });
-        }
+            }
+        }).$promise.then(function(compositions) {
+            this.compositions = compositions;
+        }.bind(this));
     }
 })();

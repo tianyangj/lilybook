@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app.admin').controller('AdminCompositionsEditController', AdminCompositionsEditController);
@@ -9,40 +9,53 @@
 
         var self = this;
 
-        Composition.findById({
-            id: $stateParams.vanity
-        }).$promise.then(function (composition) {
-            self.composition = composition;
-        });
+        this.isCreate = $stateParams.vanity === 'new';
 
-        definitionService.getComposers().then(function (composers) {
+        if (this.isCreate) {
+            this.action = 'Create';
+        } else {
+            this.action = 'Update';
+            Composition.findById({
+                id: $stateParams.vanity
+            }).$promise.then(function(composition) {
+                self.composition = composition;
+            });
+        }
+
+        definitionService.getComposers().then(function(composers) {
             self.composers = composers;
         });
 
-        definitionService.getKeys().then(function (keys) {
+        definitionService.getKeys().then(function(keys) {
             self.keys = keys;
         });
 
-        definitionService.getForms().then(function (forms) {
+        definitionService.getForms().then(function(forms) {
             self.forms = forms;
         });
 
-        definitionService.getABRSMs().then(function (abrsms) {
+        definitionService.getABRSMs().then(function(abrsms) {
             self.abrsms = abrsms;
         });
 
-        definitionService.getHenles().then(function (henles) {
+        definitionService.getHenles().then(function(henles) {
             self.henles = henles;
         });
 
-        definitionService.getRCMs().then(function (rcms) {
+        definitionService.getRCMs().then(function(rcms) {
             self.rcms = rcms;
         });
 
-        this.update = function () {
-            self.composition.$save().then(function (composition) {
-                self.composition = composition;
-            });
+        this.upsert = function() {
+            if (self.isCreate) {
+                Composition.create(self.composition).$promise.then(function(composition) {
+                    self.composition = composition;
+                });
+            } else {
+                self.composition.$save().then(function(composition) {
+                    self.composition = composition;
+                });
+            }
         };
     }
 })();

@@ -5,7 +5,7 @@
     <div flex layout="column">
         <md-tabs md-center-tabs md-border-bottom>
             <md-tab label="Details" ui-sref="composition"></md-tab>
-            <md-tab label="Sheet Music" ui-sref="composition.sheet"></md-tab>
+            <md-tab label="Sheet Music" ui-sref="composition.sheet" ng-disabled="!$ctrl.composition.sheet"></md-tab>
             <md-tab label="Q & A" ui-sref="composition.qa"></md-tab>
         </md-tabs>
         <md-content flex layout="column" ui-view>
