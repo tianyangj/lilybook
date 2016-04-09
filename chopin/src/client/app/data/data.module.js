@@ -1,6 +1,6 @@
 (function(window, angular, undefined) {'use strict';
 
-var urlBase = "//localhost:3100/api";
+var urlBase = "//api.lilybook.com/api";
 var authHeader = 'authorization';
 
 function getHost(url) {

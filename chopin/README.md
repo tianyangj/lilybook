@@ -2,6 +2,8 @@
 
 ## lb-ng -m "app.data" -u "//localhost:3100/api" ../bach/server/server.js src/client/app/data/data.module.js
 
+## lb-ng -m "app.data" -u "//api.lilybook.com/api" ../bach/server/server.js src/client/app/data/data.module.js
+
 **Generated from HotTowel Angular**
 
 >*Opinionated Angular style guide for teams by [@john_papa](//twitter.com/john_papa)*
