@@ -7,7 +7,6 @@
         'app.admin',
         'app.composer',
         'app.composition',
-        'app.dashboard',
         'app.data',
         'app.home',
         'app.layout',
