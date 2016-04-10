@@ -80,7 +80,7 @@ gulp.task('fonts', ['clean-fonts'], function() {
 
     return gulp
         .src(config.fonts)
-        .pipe(gulp.dest(config.build + 'fonts'));
+        .pipe(gulp.dest(config.build + 'styles/fonts'));
 });
 
 /**
@@ -264,7 +264,7 @@ gulp.task('clean', function(done) {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-fonts', function(done) {
-    clean(config.build + 'fonts/**/*.*', done);
+    clean(config.build + 'styles/fonts/**/*.*', done);
 });
 
 /**

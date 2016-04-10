@@ -16,9 +16,6 @@
             sources: [
                 { src: this.hero }
             ],
-            theme: {
-                url: '/bower_components/videogular-themes-default/videogular.css'
-            },
             plugins: {
                 controls: {
                     autoHide: true,
