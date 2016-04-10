@@ -1,27 +1,18 @@
-(function () {
+(function() {
     'use strict';
 
-    angular
-        .module('app.core')
-        .run(appRun);
+    angular.module('app.core').config(routerConfig);
 
-    appRun.$inject = ['routerHelper'];
+    routerConfig.$inject = ['$stateProvider', '$urlRouterProvider']
 
-    function appRun(routerHelper) {
-        var otherwise = '/404';
-        routerHelper.configureStates(getStates(), otherwise);
+    function routerConfig($stateProvider, $urlRouterProvider) {
+
+        $stateProvider.state('404', {
+            url: '/404',
+            templateUrl: 'app/core/404.html'
+        });
+
+        $urlRouterProvider.otherwise('/');
     }
 
-    function getStates() {
-        return [
-            {
-                state: '404',
-                config: {
-                    url: '/404',
-                    templateUrl: 'app/core/404.html',
-                    title: '404'
-                }
-            }
-        ];
-    }
 })();

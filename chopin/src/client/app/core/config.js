@@ -12,14 +12,13 @@
 
     core.config(configure);
 
-    configure.$inject = ['$logProvider', '$httpProvider', 'routerHelperProvider', 'exceptionHandlerProvider'];
+    configure.$inject = ['$logProvider', '$httpProvider', 'exceptionHandlerProvider'];
     /* @ngInject */
-    function configure($logProvider, $httpProvider, routerHelperProvider, exceptionHandlerProvider) {
+    function configure($logProvider, $httpProvider, exceptionHandlerProvider) {
         if ($logProvider.debugEnabled) {
             $logProvider.debugEnabled(true);
         }
         exceptionHandlerProvider.configure(config.appErrorPrefix);
-        routerHelperProvider.configure({ docTitle: config.appTitle + ': ' });
 
         $httpProvider.interceptors.push(interceptor);
 
