@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.layout').component('lbFooter', {
-        templateUrl: '/src/client/app/layout/lb-footer.html',
+        templateUrl: 'app/layout/lb-footer.html',
         controller: FooterComponentController
     });
 

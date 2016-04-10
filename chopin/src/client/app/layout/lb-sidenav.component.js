@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.layout').component('lbSidenav', {
-        templateUrl: '/src/client/app/layout/lb-sidenav.html',
+        templateUrl: 'app/layout/lb-sidenav.html',
         controller: SidenavComponentController
     });
 

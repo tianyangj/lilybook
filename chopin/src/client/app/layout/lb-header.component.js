@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.layout').component('lbHeader', {
-        templateUrl: '/src/client/app/layout/lb-header.html',
+        templateUrl: 'app/layout/lb-header.html',
         bindings: {
             user: '<'
         },
