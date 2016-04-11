@@ -1,21 +1,10 @@
 <md-toolbar layout="row" layout-align="center center" class="md-whiteframe-z1">
-    <md-button hide-gt-sm class="md-icon-button" aria-label="Menu" ng-click="$ctrl.toggleSidenav('left')">
+    <md-button class="md-icon-button" aria-label="Menu" ng-click="$ctrl.toggleSidenav('left')">
         <md-icon class="material-icons">menu</md-icon>
     </md-button>
-    <a ui-sref="splash" class="brand">LilyBook</a>
-    <lb-header-menu></lb-header-menu>
-    <md-button hide-sm ui-sref="app.discover">Discover</md-button>
-    <md-button hide-sm ui-sref="app.browse">Browse</md-button>
-    <md-button hide-sm ui-sref="app.composers">Composers</md-button>
+    <md-button ui-sref="splash" class="brand">LilyBook</md-button>
     <span flex></span>
-    <md-autocomplete flex="auto" hide-md hide-sm md-autofocus="false" md-items="item in search(searchText)" md-search-text="searchText"
-    md-search-text-change="" placeholder="Search">
-        <md-item-template>
-            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-        </md-item-template>
-        <md-not-found>No matches found.</md-not-found>
-    </md-autocomplete>
-    <md-button hide-gt-md class="md-icon-button" aria-label="Search" ng-click="todo()">
+    <md-button class="md-icon-button" aria-label="Search" ng-click="todo()">
         <md-icon class="material-icons">search</md-icon>
     </md-button>
     <md-menu ng-if="$ctrl.user">
