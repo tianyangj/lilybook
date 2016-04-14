@@ -1,0 +1,7 @@
+<md-list flex>
+    <md-list-item ng-click="$ctrl.goto(composer)" ng-repeat="composer in $ctrl.composers">
+        <img ng-src="{{composer.image}}" class="md-avatar" alt="{{composer.name}}" />
+        <p>{{composer.fullname}}</p>
+        <span class="md-secondary">(##)</span>
+    </md-list-item>
+</md-list>

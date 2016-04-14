@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('app.composer', ['app.core']);
@@ -17,6 +17,15 @@
                 composer: getComposer
             }
         });
+        $stateProvider.state('composers', {
+            url: '/composers',
+            templateUrl: 'app/composer/composers.html',
+            controller: 'ComposersController',
+            controllerAs: '$ctrl',
+            resolve: {
+                composers: getComposers
+            }
+        });
     }
 
     getComposer.$inject = ['$stateParams', 'Composer']
@@ -25,5 +34,11 @@
         return Composer.findById({
             id: $stateParams.vanity
         }).$promise;
+    }
+
+    getComposers.$inject = ['Composer']
+
+    function getComposers(Composer) {
+        return Composer.find().$promise;
     }
 })();
