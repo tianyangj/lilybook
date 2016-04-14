@@ -6,6 +6,7 @@
         'ngSanitize',
         'ngMessages',
         'ngMaterial',
+        'ngProgress',
         'blocks.exception',
         'blocks.logger',
         'ui.router'

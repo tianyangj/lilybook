@@ -27,6 +27,7 @@
     "videogular": "^1.4.2",
     "videogular-controls": "^1.4.2",
     "videogular-themes-default": "^1.4.2",
-    "bower-videogular-youtube": "videogular-youtube#^2.0.5"
+    "bower-videogular-youtube": "videogular-youtube#^2.0.5",
+    "ngprogress": "^1.1.3"
   }
 }
