@@ -1,9 +1,6 @@
 <div layout="column" class="home" style="width:100%;">
-    <div>
-        <code>{{$ctrl.account | json}}</code>
-    </div>
     <div flex layout="column">
-        <md-tabs md-center-tabs md-border-bottom>
+        <md-tabs class="md-primary" md-center-tabs md-border-bottom>
             <md-tab label="Home" ui-sref="home"></md-tab>
             <md-tab label="Profile" ui-sref="home.profile"></md-tab>
             <md-tab label="Trending" ui-sref="home.trending"></md-tab>
