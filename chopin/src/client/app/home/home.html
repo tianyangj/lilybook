@@ -15,26 +15,17 @@
                 <div layout="row" layout-wrap class="md-padding">
                     <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
                         <md-card>
-                            <img src="//placehold.it/200x300" class="md-card-image">
-                            <md-card-title>
-                                <md-card-title-text>
-                                    <span class="md-subhead">{{recommendation.title}}</span>
-                                </md-card-title-text>
-                            </md-card-title>
-                            <!--<md-card-content>
-                                    <p>{{recommendation.description}}</p>
-                                </md-card-content>
-                                <md-card-actions layout="row" layout-align="end center">
-                                    <md-button class="md-icon-button" aria-label="Favorite">
-                                        <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                                    </md-button>
-                                    <md-button class="md-icon-button" aria-label="Settings">
-                                        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                                    </md-button>
-                                    <md-button class="md-icon-button" aria-label="Share">
-                                        <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                                    </md-button>
-                                </md-card-actions>-->
+                            <a ui-sref="composition({id:recommendation.id})">
+                                <img src="/images/thumb.jpg" class="md-card-image" title={{recommendation.title}}>
+                            </a>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button">
+                                    <md-icon class="material-icons">play_arrow</md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button">
+                                    <md-icon class="material-icons">more_vert</md-icon>
+                                </md-button>
+                            </md-card-actions>
                         </md-card>
                     </div>
                 </div>
@@ -44,7 +35,7 @@
                 <div layout="row" layout-wrap class="md-padding">
                     <a flex="20" ng-repeat="recommendation in $ctrl.recommendations" ui-sref="composition({id:recommendation.id})">
                         <md-card>
-                            <img src="//placehold.it/200x300" class="md-card-image">
+                            <img src="/images/thumb.jpg" class="md-card-image">
                         </md-card>
                     </a>
                 </div>
