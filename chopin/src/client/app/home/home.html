@@ -10,19 +10,18 @@
             <md-tab label="Repertoire" ui-sref="home.repertoire"></md-tab>
         </md-tabs>
         <md-content flex ui-view>
-            <div class="md-padding">
-                <section>
-                    <md-subheader class="md-primary">Recommended</md-subheader>
-                    <div layout="row" layout-wrap>
-                        <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
-                            <md-card>
-                                <img src="//placehold.it/200x300" class="md-card-image">
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-subhead">{{recommendation.title}}</span>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <!--<md-card-content>
+            <section>
+                <md-subheader class="md-primary">Recommended</md-subheader>
+                <div layout="row" layout-wrap class="md-padding">
+                    <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
+                        <md-card>
+                            <img src="//placehold.it/200x300" class="md-card-image">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-subhead">{{recommendation.title}}</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <!--<md-card-content>
                                     <p>{{recommendation.description}}</p>
                                 </md-card-content>
                                 <md-card-actions layout="row" layout-align="end center">
@@ -36,27 +35,26 @@
                                         <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
                                     </md-button>
                                 </md-card-actions>-->
-                            </md-card>
-                        </div>
+                        </md-card>
                     </div>
-                </section>
-                <section>
-                    <md-subheader class="md-primary">Chopin</md-subheader>
-                    <div layout="row" layout-wrap>
-                        <a flex="20" ng-repeat="recommendation in $ctrl.recommendations" ui-sref="composition({id:recommendation.id})">
-                            <md-card>
-                                <img src="//placehold.it/200x300" class="md-card-image">
-                            </md-card>
-                        </a>
-                    </div>
-                </section>
-                <div>Recommended (10), 2 rows, 5 compositions in each row</div>
-                <div>Featured composer 1</div>
-                <div>Featured composer 2</div>
-                <div>Continue listening/studying</div>
-                <div>Random followed composer 1</div>
-                <div>Random followed composer 2</div>
-            </div>
+                </div>
+            </section>
+            <section>
+                <md-subheader class="md-primary">Chopin</md-subheader>
+                <div layout="row" layout-wrap class="md-padding">
+                    <a flex="20" ng-repeat="recommendation in $ctrl.recommendations" ui-sref="composition({id:recommendation.id})">
+                        <md-card>
+                            <img src="//placehold.it/200x300" class="md-card-image">
+                        </md-card>
+                    </a>
+                </div>
+            </section>
+            <div>Recommended (10), 2 rows, 5 compositions in each row</div>
+            <div>Featured composer 1</div>
+            <div>Featured composer 2</div>
+            <div>Continue listening/studying</div>
+            <div>Random followed composer 1</div>
+            <div>Random followed composer 2</div>
         </md-content>
     </div>
 </div>
