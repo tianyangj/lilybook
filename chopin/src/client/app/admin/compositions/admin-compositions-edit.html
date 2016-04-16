@@ -8,6 +8,15 @@
             <label>Description</label>
             <textarea ng-model="$ctrl.composition.description" rows="5"></textarea>
         </md-input-container>
+        <div layout="row">
+            <div flex="25">
+                <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="Thumbnail" class="width-full" />
+            </div>
+            <md-input-container flex>
+                <label>Thumbnail</label>
+                <input ng-model="$ctrl.composition.thumbnail.url">
+            </md-input-container>
+        </div>
         <md-input-container class="md-block">
             <label>Hero</label>
             <input ng-model="$ctrl.composition.hero">

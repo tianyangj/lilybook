@@ -54,6 +54,9 @@
     },
     "sheet": {
       "type": "object"
+    },
+    "thumbnail": {
+      "type": "object"
     }
   },
   "validations": [],
