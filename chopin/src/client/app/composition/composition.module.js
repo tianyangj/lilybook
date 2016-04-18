@@ -3,6 +3,7 @@
 
     angular.module('app.composition', [
         'app.core',
+        'angular-carousel',
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'info.vietnamcode.nampnq.videogular.plugins.youtube'
