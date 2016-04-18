@@ -109,10 +109,18 @@
             <label>Sheet Music PDF</label>
             <input ng-model="$ctrl.composition.sheet.pdf">
         </md-input-container>
+        <md-input-container class="md-block">
+            <label>Sheet Music PNGs</label>
+            <input ng-model="$ctrl.composition.sheet.image">
+        </md-input-container>
         <div layout="row">
             <md-input-container flex="25">
                 <label>Total Measures</label>
                 <input type="number" ng-model="$ctrl.composition.sheet.measures">
+            </md-input-container>
+            <md-input-container flex="25">
+                <label>Total Pages</label>
+                <input type="number" ng-model="$ctrl.composition.sheet.pages">
             </md-input-container>
         </div>
         <div layout="row">

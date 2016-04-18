@@ -13,7 +13,8 @@
         $scope.$parent.$ctrl.collapseHero();
 
         if (this.sheet) {
-            this.pdfUrl = this.sheet.pdf;
+            //this.pdfUrl = this.sheet.pdf + '/preview';
+            console.log(this.sheet)
         }
     }
 })();
