@@ -14,15 +14,17 @@
                     <div flex="25">
                         <img src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" class="width-full" />
                     </div>
-                    <div flex style="padding-left:16px;">
-                        <h1 class="md-headline">{{$ctrl.composition.title}}</h1>
-                        <p class="md-body-1">{{$ctrl.composition.description}}</p>
+                    <div flex layout="column" style="padding-left:16px;">
+                        <div flex>
+                            <h1 class="md-headline">{{$ctrl.composition.title}}</h1>
+                            <p class="md-body-1">{{$ctrl.composition.description}}</p>
+                        </div>
+                        <div layout="row">
+                            <span flex></span>
+                            <lb-composition-like composition="$ctrl.composition"></lb-composition-like>
+                            <lb-composition-playlist composition="$ctrl.composition"></lb-composition-playlist>
+                        </div>
                     </div>
-                </div>
-                <div layout="row">
-                    <span flex></span>
-                    <lb-composition-like composition="$ctrl.composition"></lb-composition-like>
-                    <lb-composition-playlist composition="$ctrl.composition"></lb-composition-playlist>
                 </div>
                 <div layout="row">
                     <div flex>
