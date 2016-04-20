@@ -6,13 +6,25 @@
         controller: SidenavComponentController
     });
 
-    SidenavComponentController.$inject = ['$mdSidenav'];
+    SidenavComponentController.$inject = ['$rootScope', '$mdSidenav', 'Account', 'LoopBackAuth'];
 
-    function SidenavComponentController($mdSidenav) {
+    function SidenavComponentController($rootScope, $mdSidenav, Account, LoopBackAuth) {
+
+        this.$onInit = function () {
+            this.isAuthenticated = Account.isAuthenticated();
+        };
 
         this.close = function () {
             $mdSidenav('left').close();
-        }
+        };
+
+        $rootScope.$watch(function () {
+            return LoopBackAuth.currentUserData;
+        }, function (newUser, oldUser) {
+            if (newUser !== oldUser) {
+                this.$onInit();
+            }
+        }.bind(this));
     }
 
 })();
