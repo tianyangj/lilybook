@@ -1,25 +1,21 @@
 <md-toolbar layout="row" layout-align="center center">
-    <md-button class="md-icon-button" aria-label="Menu" ng-click="$ctrl.toggleSidenav('left')">
+    <!-- hide menu icon when width >= 1280px -->
+    <md-button class="md-icon-button" hide-gt-md ng-click="$ctrl.toggleSidenav('left')">
         <md-icon class="material-icons">menu</md-icon>
     </md-button>
-    <md-button ui-sref="splash" class="brand">LilyBook</md-button>
+    <a ui-sref="splash" class="brand">LilyBook</a>
     <span flex></span>
-    <md-button class="md-icon-button" aria-label="Search" ng-click="todo()">
+    <md-button class="md-icon-button" ng-click="$ctrl.todo()">
         <md-icon class="material-icons">search</md-icon>
     </md-button>
-    <md-menu ng-if="$ctrl.user">
-        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+    <md-menu ng-if="$ctrl.isAuthenticated">
+        <md-button class="md-icon-button " ng-click="$mdOpenMenu($event)">
             <md-icon class="material-icons">account_circle</md-icon>
         </md-button>
         <md-menu-content width="3">
             <md-menu-item>
                 <md-button ui-sref="home">
-                    <md-icon class="material-icons">home</md-icon> Home
-                </md-button>
-            </md-menu-item>
-            <md-menu-item>
-                <md-button ui-sref="settings">
-                    <md-icon class="material-icons">settings</md-icon> Settings
+                    <md-icon class="material-icons">home</md-icon>Home
                 </md-button>
             </md-menu-item>
             <md-menu-divider></md-menu-divider>
@@ -30,5 +26,5 @@
             </md-menu-item>
         </md-menu-content>
     </md-menu>
-    <md-button ui-sref="login" ng-if="!$ctrl.user">Login</md-button>
+    <md-button class="md-raised md-primary md-hue-3" ui-sref="login" ng-if="!$ctrl.isAuthenticated">Login</md-button>
 </md-toolbar>

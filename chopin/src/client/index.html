@@ -34,8 +34,18 @@
     <!-- endbuild -->
 </head>
 
-<body layout md-whiteframe="5">
-    <lb-root flex layout></lb-root>
+<body layout="column">
+    <!--<lb-root flex layout></lb-root>-->
+    <lb-header></lb-header>
+    <div flex layout="row">
+        <lb-sidenav user="$ctrl.user" layout="column"></lb-sidenav>
+        <div flex layout="column">
+            <md-content flex layout ui-view>
+                Loading...
+            </md-content>
+            <lb-footer></lb-footer>
+        </div>
+    </div>
 
     <!-- build:js js/lib.js -->
     <!-- bower:js -->
@@ -118,9 +128,9 @@
     <!-- inject:templates:js -->
     <!-- endinject -->
     <!-- endbuild -->
-    
+
     <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
-    
+
 </body>
 
 </html>
