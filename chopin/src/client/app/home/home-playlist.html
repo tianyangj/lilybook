@@ -21,10 +21,10 @@
             <p>Date added {{playlist.createdAt | date}}</p>
             <md-slider-container>
                 <span>{{(playlist.measure||0)*100/(playlist.composition.sheet.measures||100)|number:0}}%</span>
-                <md-slider md-discrete flex min="1" max="{{playlist.composition.sheet.measures || 100}}" ng-model="playlist.measure" aria-label="progress">
+                <md-slider md-discrete flex min="0" max="{{playlist.composition.sheet.measures || 100}}" ng-model="playlist.measure" aria-label="progress">
                 </md-slider>
                 <md-input-container>
-                    <input flex type="number" min="1" max="{{playlist.composition.sheet.measures || 100}}" ng-model="playlist.measure" aria-label="progress" aria-controls="red-slider">
+                    <input flex type="number" min="0" max="{{playlist.composition.sheet.measures || 100}}" ng-model="playlist.measure" aria-label="progress" aria-controls="red-slider">
                 </md-input-container>
             </md-slider-container>
         </div>
