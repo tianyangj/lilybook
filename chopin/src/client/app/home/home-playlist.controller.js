@@ -33,6 +33,7 @@
             this.playlists.forEach(function(playlist) {
                 playlist.composition = compositions[playlist.compositionId];
             });
+            console.log(this.playlists)
         }.bind(this));
     }
 
