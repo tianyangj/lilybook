@@ -50,6 +50,12 @@
             "principalId": "$owner",
             "permission": "ALLOW",
             "property": "__destroyById__playlists"
+        },
+        {
+            "principalType": "ROLE",
+            "principalId": "$authenticated",
+            "permission": "ALLOW",
+            "property": "bookmarks"
         }
     ],
     "methods": {}
