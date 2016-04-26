@@ -25,10 +25,10 @@
             //controller: 'HomeProfileController',
             //controllerAs: '$ctrl'
         });
-        $stateProvider.state('home.playlist', {
-            url: '/playlist',
-            templateUrl: 'app/home/home-playlist.html',
-            controller: 'HomePlaylistController',
+        $stateProvider.state('home.bookmarks', {
+            url: '/bookmarks',
+            templateUrl: 'app/home/home-bookmarks.html',
+            controller: 'HomeBookmarksController',
             controllerAs: '$ctrl'
         });
         $stateProvider.state('home.repertoire', {
