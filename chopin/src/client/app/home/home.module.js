@@ -13,6 +13,7 @@
             templateUrl: 'app/home/home.html',
             controller: 'HomeController',
             controllerAs: '$ctrl',
+            authentication: true,
             resolve: {
                 account: ['Account', function(Account) {
                     return Account.getCurrent().$promise;
