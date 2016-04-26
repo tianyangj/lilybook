@@ -1406,6 +1406,43 @@ module.factory(
 
         /**
          * @ngdoc method
+         * @name app.data.Account#bookmarks
+         * @methodOf app.data.Account
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Account` object.)
+         * </em>
+         */
+        "bookmarks": {
+          isArray: true,
+          url: urlBase + "/Accounts/bookmarks",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
          * @name app.data.Account#getCurrent
          * @methodOf app.data.Account
          *
