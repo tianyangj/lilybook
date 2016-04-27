@@ -8,9 +8,9 @@
     "properties": {},
     "validations": [],
     "relations": {
-        "playlists": {
+        "bookmarks": {
             "type": "hasMany",
-            "model": "Playlist",
+            "model": "Bookmark",
             "foreignKey": "userId"
         }
     },
@@ -19,37 +19,37 @@
             "principalType": "ROLE",
             "principalId": "$owner",
             "permission": "ALLOW",
-            "property": "__get__playlists"
+            "property": "__get__bookmarks"
         },
         {
             "principalType": "ROLE",
             "principalId": "$owner",
             "permission": "ALLOW",
-            "property": "__create__playlists"
+            "property": "__create__bookmarks"
         },
         {
             "principalType": "ROLE",
             "principalId": "$owner",
             "permission": "ALLOW",
-            "property": "__count__playlists"
+            "property": "__count__bookmarks"
         },
         {
             "principalType": "ROLE",
             "principalId": "$owner",
             "permission": "ALLOW",
-            "property": "__findById__playlists"
+            "property": "__findById__bookmarks"
         },
         {
             "principalType": "ROLE",
             "principalId": "$owner",
             "permission": "ALLOW",
-            "property": "__updateById__playlists"
+            "property": "__updateById__bookmarks"
         },
         {
             "principalType": "ROLE",
             "principalId": "$owner",
             "permission": "ALLOW",
-            "property": "__destroyById__playlists"
+            "property": "__destroyById__bookmarks"
         },
         {
             "principalType": "ROLE",

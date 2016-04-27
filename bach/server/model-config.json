@@ -65,7 +65,7 @@
     "dataSource": "mongoDB",
     "public": true
   },
-  "Playlist": {
+  "Bookmark": {
     "dataSource": "mongoDB",
     "public": true
   }

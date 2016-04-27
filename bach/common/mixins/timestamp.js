@@ -1,3 +1,3 @@
-module.exports = function(Playlist, options) {
-    Playlist.defineProperty('createdAt', { type: Date, default: '$now' });
+module.exports = function(Bookmark, options) {
+    Bookmark.defineProperty('createdAt', { type: Date, default: '$now' });
 }

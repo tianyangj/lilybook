@@ -25,7 +25,7 @@ module.exports = function (Account) {
     Account.disableRemoteMethod('__get__accessTokens', false);
     Account.disableRemoteMethod('__updateById__accessTokens', false);
 
-    Account.disableRemoteMethod('__delete__playlists', false);
+    Account.disableRemoteMethod('__delete__bookmarks', false);
 
     // remote methods
     Account.bookmarks = function (cb) {
@@ -33,11 +33,11 @@ module.exports = function (Account) {
         let context = loopback.getCurrentContext();
         let accessToken = context.get('accessToken');
         let userId = accessToken.userId;
-        let Playlist = Account.app.models.Playlist;
+        let Bookmark = Account.app.models.Bookmark;
         let Composition = Account.app.models.Composition;
         let Composer = Account.app.models.Composer;
 
-        Playlist.find({
+        Bookmark.find({
             fields: {
                 compositionId: true,
                 createdAt: true
@@ -45,7 +45,7 @@ module.exports = function (Account) {
             where: {
                 userId: userId
             }
-        }).then(playlists => {
+        }).then(bookmarks => {
             Composition.find({
                 fields: {
                     id: true,
@@ -56,7 +56,7 @@ module.exports = function (Account) {
                     vanity: true
                 },
                 where: {
-                    id: { inq: playlists.map(playlist => playlist.compositionId) }
+                    id: { inq: bookmarks.map(bookmark => bookmark.compositionId) }
                 }
             }).then(compositions => {
                 Composer.find({
@@ -78,11 +78,11 @@ module.exports = function (Account) {
                         prev[curr.id] = curr;
                         return prev;
                     }, {});
-                    playlists.forEach(playlist => {
-                        playlist.composition = compositionMap[playlist.compositionId];
-                        playlist.composer = composerMap[playlist.composition.composerId];
+                    bookmarks.forEach(bookmark => {
+                        bookmark.composition = compositionMap[bookmark.compositionId];
+                        bookmark.composer = composerMap[bookmark.composition.composerId];
                     });
-                    cb(null, playlists);
+                    cb(null, bookmarks);
                 });
             });
         });

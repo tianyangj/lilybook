@@ -9,12 +9,12 @@
         controller: BookmarkController
     });
 
-    BookmarkController.$inject = ['Account', 'Playlist', 'dialogService'];
+    BookmarkController.$inject = ['Account', 'Bookmark', 'dialogService'];
 
-    function BookmarkController(Account, Playlist, dialogService) {
+    function BookmarkController(Account, Bookmark, dialogService) {
 
         this.$onInit = function () {
-            Playlist.checkBookmark({
+            Bookmark.checkBookmark({
                 compositionId: this.composition.id
             }).$promise.then(function (response) {
                 this.bookmarked = response.bookmarked;
@@ -23,7 +23,7 @@
 
         this.add = function ($event) {
             dialogService.showLogin($event).then(function () {
-                return Account.playlists.create(
+                return Account.bookmarks.create(
                     { id: Account.getCurrentId() },
                     { compositionId: this.composition.id }
                 ).$promise;

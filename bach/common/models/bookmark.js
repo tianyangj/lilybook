@@ -2,18 +2,18 @@
 
 var loopback = require('loopback');
 
-module.exports = function (Playlist) {
+module.exports = function (Bookmark) {
 
-    Playlist.disableRemoteMethod('createChangeStream', true);
+    Bookmark.disableRemoteMethod('createChangeStream', true);
 
-    Playlist.checkBookmark = function (compositionId, cb) {
+    Bookmark.checkBookmark = function (compositionId, cb) {
 
         let context = loopback.getCurrentContext();
         let accessToken = context.get('accessToken');
         if (!accessToken) {
             cb(null, false);
         } else {
-            Playlist.find({
+            Bookmark.find({
                 fields: { compositionId: true },
                 where: { userId: accessToken.userId }
             }).then(bookmarks => {
@@ -23,7 +23,7 @@ module.exports = function (Playlist) {
         }
     }
 
-    Playlist.remoteMethod('checkBookmark', {
+    Bookmark.remoteMethod('checkBookmark', {
         accepts: { arg: 'compositionId', type: 'string', required: true },
         returns: { arg: 'bookmarked', type: 'boolean' },
         http: { path: '/checkBookmark', verb: 'get' }

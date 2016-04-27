@@ -1156,49 +1156,49 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Account.playlists.findById() instead.
-        "prototype$__findById__playlists": {
+        // INTERNAL. Use Account.bookmarks.findById() instead.
+        "prototype$__findById__bookmarks": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Accounts/:id/playlists/:fk",
+          url: urlBase + "/Accounts/:id/bookmarks/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use Account.playlists.destroyById() instead.
-        "prototype$__destroyById__playlists": {
+        // INTERNAL. Use Account.bookmarks.destroyById() instead.
+        "prototype$__destroyById__bookmarks": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Accounts/:id/playlists/:fk",
+          url: urlBase + "/Accounts/:id/bookmarks/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use Account.playlists.updateById() instead.
-        "prototype$__updateById__playlists": {
+        // INTERNAL. Use Account.bookmarks.updateById() instead.
+        "prototype$__updateById__bookmarks": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Accounts/:id/playlists/:fk",
+          url: urlBase + "/Accounts/:id/bookmarks/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use Account.playlists() instead.
-        "prototype$__get__playlists": {
+        // INTERNAL. Use Account.bookmarks() instead.
+        "prototype$__get__bookmarks": {
           isArray: true,
-          url: urlBase + "/Accounts/:id/playlists",
+          url: urlBase + "/Accounts/:id/bookmarks",
           method: "GET"
         },
 
-        // INTERNAL. Use Account.playlists.create() instead.
-        "prototype$__create__playlists": {
-          url: urlBase + "/Accounts/:id/playlists",
+        // INTERNAL. Use Account.bookmarks.create() instead.
+        "prototype$__create__bookmarks": {
+          url: urlBase + "/Accounts/:id/bookmarks",
           method: "POST"
         },
 
-        // INTERNAL. Use Account.playlists.count() instead.
-        "prototype$__count__playlists": {
-          url: urlBase + "/Accounts/:id/playlists/count",
+        // INTERNAL. Use Account.bookmarks.count() instead.
+        "prototype$__count__bookmarks": {
+          url: urlBase + "/Accounts/:id/bookmarks/count",
           method: "GET"
         },
 
@@ -1538,27 +1538,27 @@ module.factory(
 
     /**
      * @ngdoc object
-     * @name app.data.Account.playlists
-     * @header app.data.Account.playlists
+     * @name app.data.Account.bookmarks
+     * @header app.data.Account.bookmarks
      * @object
      * @description
      *
-     * The object `Account.playlists` groups methods
-     * manipulating `Playlist` instances related to `Account`.
+     * The object `Account.bookmarks` groups methods
+     * manipulating `Bookmark` instances related to `Account`.
      *
-     * Call {@link app.data.Account#playlists Account.playlists()}
+     * Call {@link app.data.Account#bookmarks Account.bookmarks()}
      * to query all related instances.
      */
 
 
         /**
          * @ngdoc method
-         * @name app.data.Account#playlists
+         * @name app.data.Account#bookmarks
          * @methodOf app.data.Account
          *
          * @description
          *
-         * Queries playlists of Account.
+         * Queries bookmarks of Account.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1578,23 +1578,23 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
-        R.playlists = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::get::Account::playlists"];
+        R.bookmarks = function() {
+          var TargetResource = $injector.get("Bookmark");
+          var action = TargetResource["::get::Account::bookmarks"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name app.data.Account.playlists#count
-         * @methodOf app.data.Account.playlists
+         * @name app.data.Account.bookmarks#count
+         * @methodOf app.data.Account.bookmarks
          *
          * @description
          *
-         * Counts playlists of Account.
+         * Counts bookmarks of Account.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1616,20 +1616,20 @@ module.factory(
          *
          *  - `count` – `{number=}` - 
          */
-        R.playlists.count = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::count::Account::playlists"];
+        R.bookmarks.count = function() {
+          var TargetResource = $injector.get("Bookmark");
+          var action = TargetResource["::count::Account::bookmarks"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name app.data.Account.playlists#create
-         * @methodOf app.data.Account.playlists
+         * @name app.data.Account.bookmarks#create
+         * @methodOf app.data.Account.bookmarks
          *
          * @description
          *
-         * Creates a new instance in playlists of this model.
+         * Creates a new instance in bookmarks of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1651,23 +1651,23 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
-        R.playlists.create = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::create::Account::playlists"];
+        R.bookmarks.create = function() {
+          var TargetResource = $injector.get("Bookmark");
+          var action = TargetResource["::create::Account::bookmarks"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name app.data.Account.playlists#createMany
-         * @methodOf app.data.Account.playlists
+         * @name app.data.Account.bookmarks#createMany
+         * @methodOf app.data.Account.bookmarks
          *
          * @description
          *
-         * Creates a new instance in playlists of this model.
+         * Creates a new instance in bookmarks of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1689,29 +1689,29 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
-        R.playlists.createMany = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::createMany::Account::playlists"];
+        R.bookmarks.createMany = function() {
+          var TargetResource = $injector.get("Bookmark");
+          var action = TargetResource["::createMany::Account::bookmarks"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name app.data.Account.playlists#destroyById
-         * @methodOf app.data.Account.playlists
+         * @name app.data.Account.bookmarks#destroyById
+         * @methodOf app.data.Account.bookmarks
          *
          * @description
          *
-         * Delete a related item by id for playlists.
+         * Delete a related item by id for bookmarks.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for playlists
+         *  - `fk` – `{*}` - Foreign key for bookmarks
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1725,26 +1725,26 @@ module.factory(
          *
          * This method returns no data.
          */
-        R.playlists.destroyById = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::destroyById::Account::playlists"];
+        R.bookmarks.destroyById = function() {
+          var TargetResource = $injector.get("Bookmark");
+          var action = TargetResource["::destroyById::Account::bookmarks"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name app.data.Account.playlists#findById
-         * @methodOf app.data.Account.playlists
+         * @name app.data.Account.bookmarks#findById
+         * @methodOf app.data.Account.bookmarks
          *
          * @description
          *
-         * Find a related item by id for playlists.
+         * Find a related item by id for bookmarks.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for playlists
+         *  - `fk` – `{*}` - Foreign key for bookmarks
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1758,29 +1758,29 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
-        R.playlists.findById = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::findById::Account::playlists"];
+        R.bookmarks.findById = function() {
+          var TargetResource = $injector.get("Bookmark");
+          var action = TargetResource["::findById::Account::bookmarks"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name app.data.Account.playlists#updateById
-         * @methodOf app.data.Account.playlists
+         * @name app.data.Account.bookmarks#updateById
+         * @methodOf app.data.Account.bookmarks
          *
          * @description
          *
-         * Update a related item by id for playlists.
+         * Update a related item by id for bookmarks.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for playlists
+         *  - `fk` – `{*}` - Foreign key for bookmarks
          *
          * @param {Object} postData Request data.
          *
@@ -1798,12 +1798,12 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
-        R.playlists.updateById = function() {
-          var TargetResource = $injector.get("Playlist");
-          var action = TargetResource["::updateById::Account::playlists"];
+        R.bookmarks.updateById = function() {
+          var TargetResource = $injector.get("Bookmark");
+          var action = TargetResource["::updateById::Account::bookmarks"];
           return action.apply(R, arguments);
         };
 
@@ -2702,13 +2702,13 @@ module.factory(
 
 /**
  * @ngdoc object
- * @name app.data.Playlist
- * @header app.data.Playlist
+ * @name app.data.Bookmark
+ * @header app.data.Bookmark
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Playlist` model.
+ * A $resource object for interacting with the `Bookmark` model.
  *
  * ## Example
  *
@@ -2718,17 +2718,17 @@ module.factory(
  *
  */
 module.factory(
-  "Playlist",
+  "Bookmark",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/Playlists/:id",
+      urlBase + "/Bookmarks/:id",
       { 'id': '@id' },
       {
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#create
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#create
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -2755,18 +2755,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "create": {
-          url: urlBase + "/Playlists",
+          url: urlBase + "/Bookmarks",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#createMany
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#createMany
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -2793,19 +2793,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "createMany": {
           isArray: true,
-          url: urlBase + "/Playlists",
+          url: urlBase + "/Bookmarks",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#upsert
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#upsert
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -2832,18 +2832,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "upsert": {
-          url: urlBase + "/Playlists",
+          url: urlBase + "/Bookmarks",
           method: "PUT"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#exists
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#exists
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -2868,14 +2868,14 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/Playlists/:id/exists",
+          url: urlBase + "/Bookmarks/:id/exists",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#findById
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#findById
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -2899,18 +2899,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "findById": {
-          url: urlBase + "/Playlists/:id",
+          url: urlBase + "/Bookmarks/:id",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#find
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#find
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -2932,19 +2932,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "find": {
           isArray: true,
-          url: urlBase + "/Playlists",
+          url: urlBase + "/Bookmarks",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#findOne
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#findOne
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -2966,18 +2966,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "findOne": {
-          url: urlBase + "/Playlists/findOne",
+          url: urlBase + "/Bookmarks/findOne",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#updateAll
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#updateAll
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3004,14 +3004,14 @@ module.factory(
          * The number of instances updated
          */
         "updateAll": {
-          url: urlBase + "/Playlists/update",
+          url: urlBase + "/Bookmarks/update",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#deleteById
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#deleteById
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3033,18 +3033,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "deleteById": {
-          url: urlBase + "/Playlists/:id",
+          url: urlBase + "/Bookmarks/:id",
           method: "DELETE"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#count
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#count
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3069,14 +3069,14 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/Playlists/count",
+          url: urlBase + "/Bookmarks/count",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#prototype$updateAttributes
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#prototype$updateAttributes
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3102,18 +3102,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         "prototype$updateAttributes": {
-          url: urlBase + "/Playlists/:id",
+          url: urlBase + "/Bookmarks/:id",
           method: "PUT"
         },
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#checkBookmark
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#checkBookmark
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3135,66 +3135,65 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
-         * </em>
+         * Data properties:
+         *
+         *  - `bookmarked` – `{boolean=}` - 
          */
         "checkBookmark": {
-          url: urlBase + "/Playlists/checkBookmark",
+          url: urlBase + "/Bookmarks/checkBookmark",
           method: "GET"
         },
 
-        // INTERNAL. Use Account.playlists.findById() instead.
-        "::findById::Account::playlists": {
+        // INTERNAL. Use Account.bookmarks.findById() instead.
+        "::findById::Account::bookmarks": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Accounts/:id/playlists/:fk",
+          url: urlBase + "/Accounts/:id/bookmarks/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use Account.playlists.destroyById() instead.
-        "::destroyById::Account::playlists": {
+        // INTERNAL. Use Account.bookmarks.destroyById() instead.
+        "::destroyById::Account::bookmarks": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Accounts/:id/playlists/:fk",
+          url: urlBase + "/Accounts/:id/bookmarks/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use Account.playlists.updateById() instead.
-        "::updateById::Account::playlists": {
+        // INTERNAL. Use Account.bookmarks.updateById() instead.
+        "::updateById::Account::bookmarks": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Accounts/:id/playlists/:fk",
+          url: urlBase + "/Accounts/:id/bookmarks/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use Account.playlists() instead.
-        "::get::Account::playlists": {
+        // INTERNAL. Use Account.bookmarks() instead.
+        "::get::Account::bookmarks": {
           isArray: true,
-          url: urlBase + "/Accounts/:id/playlists",
+          url: urlBase + "/Accounts/:id/bookmarks",
           method: "GET"
         },
 
-        // INTERNAL. Use Account.playlists.create() instead.
-        "::create::Account::playlists": {
-          url: urlBase + "/Accounts/:id/playlists",
+        // INTERNAL. Use Account.bookmarks.create() instead.
+        "::create::Account::bookmarks": {
+          url: urlBase + "/Accounts/:id/bookmarks",
           method: "POST"
         },
 
-        // INTERNAL. Use Account.playlists.createMany() instead.
-        "::createMany::Account::playlists": {
+        // INTERNAL. Use Account.bookmarks.createMany() instead.
+        "::createMany::Account::bookmarks": {
           isArray: true,
-          url: urlBase + "/Accounts/:id/playlists",
+          url: urlBase + "/Accounts/:id/bookmarks",
           method: "POST"
         },
 
-        // INTERNAL. Use Account.playlists.count() instead.
-        "::count::Account::playlists": {
-          url: urlBase + "/Accounts/:id/playlists/count",
+        // INTERNAL. Use Account.bookmarks.count() instead.
+        "::count::Account::bookmarks": {
+          url: urlBase + "/Accounts/:id/bookmarks/count",
           method: "GET"
         },
       }
@@ -3204,8 +3203,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#updateOrCreate
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#updateOrCreate
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3232,15 +3231,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         R["updateOrCreate"] = R["upsert"];
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#update
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#update
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3270,8 +3269,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#destroyById
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#destroyById
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3293,15 +3292,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         R["destroyById"] = R["deleteById"];
 
         /**
          * @ngdoc method
-         * @name app.data.Playlist#removeById
-         * @methodOf app.data.Playlist
+         * @name app.data.Bookmark#removeById
+         * @methodOf app.data.Bookmark
          *
          * @description
          *
@@ -3323,7 +3322,7 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Playlist` object.)
+         * This usually means the response is a `Bookmark` object.)
          * </em>
          */
         R["removeById"] = R["deleteById"];
@@ -3331,13 +3330,13 @@ module.factory(
 
     /**
     * @ngdoc property
-    * @name app.data.Playlist#modelName
-    * @propertyOf app.data.Playlist
+    * @name app.data.Bookmark#modelName
+    * @propertyOf app.data.Bookmark
     * @description
     * The name of the model represented by this $resource,
-    * i.e. `Playlist`.
+    * i.e. `Bookmark`.
     */
-    R.modelName = "Playlist";
+    R.modelName = "Bookmark";
 
 
     return R;
