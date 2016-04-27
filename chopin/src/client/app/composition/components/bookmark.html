@@ -1,0 +1,8 @@
+<div>
+    <md-button class="md-raised md-primary" ng-if="!$ctrl.bookmarked" ng-click="$ctrl.add($event)">
+        <md-icon class="material-icons">bookmark</md-icon> Save Bookmark
+    </md-button>
+    <md-button class="md-raised md-accent" ng-if="$ctrl.bookmarked" ui-sref="home.bookmarks">
+        <md-icon class="material-icons">collections_bookmark</md-icon> In Bookmark
+    </md-button>
+</div>

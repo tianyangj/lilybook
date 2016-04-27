@@ -1,23 +1,23 @@
 (function () {
     'use strict';
 
-    angular.module('app.composition').component('lbCompositionPlaylist', {
-        templateUrl: 'app/composition/components/composition-playlist.html',
+    angular.module('app.composition').component('lbBookmark', {
+        templateUrl: 'app/composition/components/bookmark.html',
         bindings: {
             composition: '<'
         },
-        controller: CompositionPlaylistController
+        controller: BookmarkController
     });
 
-    CompositionPlaylistController.$inject = ['Account', 'Playlist', 'dialogService'];
+    BookmarkController.$inject = ['Account', 'Playlist', 'dialogService'];
 
-    function CompositionPlaylistController(Account, Playlist, dialogService) {
+    function BookmarkController(Account, Playlist, dialogService) {
 
         this.$onInit = function () {
             Playlist.checkBookmark({
                 compositionId: this.composition.id
             }).$promise.then(function (response) {
-                this.inPlaylist = response.bookmarked;
+                this.bookmarked = response.bookmarked;
             }.bind(this));
         }
 
@@ -28,7 +28,7 @@
                     { compositionId: this.composition.id }
                 ).$promise;
             }.bind(this)).then(function () {
-                this.inPlaylist = true;
+                this.bookmarked = true;
             }.bind(this));
         };
     }
