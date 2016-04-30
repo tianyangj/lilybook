@@ -10,7 +10,7 @@ describe('controllers', () => {
     webDevTec.data = [null, null, null, null, null];
     spyOn(toastr, 'info').and.callThrough();
 
-    mainController = $controller('MainController');
+    mainController = $controller<MainController>('MainController');
   }));
 
   it('should have a timestamp creation date', () => {
