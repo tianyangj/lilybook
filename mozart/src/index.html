@@ -28,8 +28,10 @@
 
   <div layout="column" layout-fill>
     <lb-header></lb-header>
-    <lb-sidenav></lb-sidenav>
-    <ui-view flex layout></ui-view>
+    <div flex layout="row">
+      <lb-sidenav layout></lb-sidenav>
+      <ui-view flex layout></ui-view>
+    </div>
   </div>
 
   <!-- build:js(src) scripts/vendor.js -->
