@@ -13,5 +13,12 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     templateUrl: 'app/splash/splash.html'
   });
 
+  $stateProvider.state('login', {
+    url: '/login',
+    templateUrl: 'app/login/login.html',
+    controller: 'LoginController',
+    controllerAs: '$ctrl'
+  });
+
   $urlRouterProvider.otherwise('/');
 }

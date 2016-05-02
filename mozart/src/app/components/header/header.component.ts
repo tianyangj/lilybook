@@ -1,19 +1,34 @@
 /** @ngInject */
 export class HeaderComponentController {
 
+    isAuthenticated: boolean;
+
     constructor(
         private $rootScope: angular.IRootScopeService,
         private $state: angular.ui.IStateService,
-        private $mdSidenav: angular.material.ISidenavService) {
-        console.log('header', this);
-    }
-
-    $onInit() {
-        console.log('init...');
+        private $mdSidenav: angular.material.ISidenavService,
+        private Account: any,
+        private LoopBackAuth: any
+    ) {
+        this.$rootScope.$watch(() => {
+            return this.LoopBackAuth.currentUserData;
+        }, (currentUserData: any) => {
+            this.isAuthenticated = currentUserData !== null;
+        });
     }
 
     toggleSidenav(sidenavId: string) {
         this.$mdSidenav(sidenavId).toggle();
+    }
+
+    logout() {
+        this.Account.logout().$promise.then(() => {
+            this.$state.go('splash');
+        });
+    }
+
+    todo() {
+        alert('todo');
     }
 }
 
@@ -21,34 +36,3 @@ export let headerComponent = {
     templateUrl: 'app/components/header/header.html',
     controller: HeaderComponentController
 };
-
-/*HeaderComponentController.$inject = ['$rootScope', '$state', '$mdSidenav', 'Account', 'LoopBackAuth'];
-
-function HeaderComponentController($rootScope, $state, $mdSidenav, Account, LoopBackAuth) {
-
-    this.$onInit = function () {
-        this.isAuthenticated = Account.isAuthenticated();
-    };
-
-    this.toggleSidenav = function (sidenavId) {
-        $mdSidenav(sidenavId).toggle();
-    };
-
-    this.logout = function () {
-        Account.logout().$promise.then(function () {
-            $state.go('splash');
-        });
-    };
-
-    this.todo = function () {
-        alert('todo');
-    };
-
-    $rootScope.$watch(function () {
-        return LoopBackAuth.currentUserData;
-    }, function (newUser, oldUser) {
-        if (newUser !== oldUser) {
-            this.$onInit();
-        }
-    }.bind(this));
-}*/
