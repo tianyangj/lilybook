@@ -20,5 +20,12 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     controllerAs: '$ctrl'
   });
 
+  $stateProvider.state('home', {
+    url: '/home',
+    templateUrl: 'app/home/home.html',
+    controller: 'HomeController',
+    controllerAs: '$ctrl'
+  });
+
   $urlRouterProvider.otherwise('/');
 }
