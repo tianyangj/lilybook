@@ -19,22 +19,22 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     controller: 'HomeController',
     controllerAs: '$ctrl'
   });
-  
+
   $stateProvider.state('home.profile', {
     url: '/profile',
     template: 'home.profile'
   });
-  
+
   $stateProvider.state('home.likes', {
     url: '/likes',
     template: 'home.likes'
   });
-  
+
   $stateProvider.state('home.bookmarks', {
     url: '/bookmarks',
     template: 'home.bookmarks'
   });
-  
+
   $stateProvider.state('home.repertoire', {
     url: '/repertoire',
     template: 'home.repertoire'
