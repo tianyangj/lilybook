@@ -13,7 +13,7 @@ export class ComposerListController {
         });
     }
 
-    goto(composer) {
+    goto(composer: any) {
         this.$state.go('composer', { vanity: composer.id });
     }
 }

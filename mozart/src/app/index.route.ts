@@ -48,7 +48,7 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     controller: 'ComposerController',
     controllerAs: '$ctrl'
   });
-  
+
   $stateProvider.state('composer-list', {
     url: '/composers',
     templateUrl: 'app/composer/composer-list.html',
