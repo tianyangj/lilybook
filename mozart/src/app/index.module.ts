@@ -3,7 +3,6 @@
 import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
-import { MainController } from './main/main.controller';
 import { LoginController } from './login/login.controller';
 import { HomeController } from './home/home.controller';
 import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
@@ -26,7 +25,6 @@ module lilybook {
     .run(runBlock)
     .service('githubContributor', GithubContributor)
     .service('webDevTec', WebDevTecService)
-    .controller('MainController', MainController)
     .controller('LoginController', LoginController)
     .controller('HomeController', HomeController)
     .directive('acmeNavbar', acmeNavbar)
