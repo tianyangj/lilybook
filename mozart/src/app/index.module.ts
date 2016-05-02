@@ -5,6 +5,7 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { LoginController } from './login/login.controller';
 import { HomeController } from './home/home.controller';
+import { HomeBookmarksController } from './home/home-bookmarks.controller';
 import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { acmeNavbar } from '../app/components/navbar/navbar.directive';
@@ -27,6 +28,7 @@ module lilybook {
     .service('webDevTec', WebDevTecService)
     .controller('LoginController', LoginController)
     .controller('HomeController', HomeController)
+    .controller('HomeBookmarksController', HomeBookmarksController)
     .directive('acmeNavbar', acmeNavbar)
     .directive('acmeMalarkey', acmeMalarkey);
 

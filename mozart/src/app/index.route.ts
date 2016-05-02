@@ -32,7 +32,9 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
 
   $stateProvider.state('home.bookmarks', {
     url: '/bookmarks',
-    template: 'home.bookmarks'
+    templateUrl: 'app/home/home-bookmarks.html',
+    controller: 'HomeBookmarksController',
+    controllerAs: '$ctrl'
   });
 
   $stateProvider.state('home.repertoire', {
