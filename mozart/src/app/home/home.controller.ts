@@ -1,11 +1,17 @@
 export class HomeController {
 
+    recommendations: any[];
+
     /* @ngInject */
     constructor(
         private $state: angular.ui.IStateService,
-        private Account: any
+        private Composition: any
     ) {
-        console.log('HomeController');
+        this.Composition.find({
+            filter: { limit: 10 }
+        }).$promise.then((compositions: any[]) => {
+            this.recommendations = compositions;
+        });
     }
 
 }
