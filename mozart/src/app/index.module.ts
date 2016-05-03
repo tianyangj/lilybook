@@ -8,6 +8,7 @@ import { HomeController } from './home/home.controller';
 import { HomeBookmarksController } from './home/home-bookmarks.controller';
 import { ComposerController } from './composer/composer.controller';
 import { ComposerListController } from './composer/composer-list.controller';
+import { CompositionController } from './composition/composition.controller';
 import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { acmeNavbar } from '../app/components/navbar/navbar.directive';
@@ -33,6 +34,7 @@ module lilybook {
     .controller('HomeBookmarksController', HomeBookmarksController)
     .controller('ComposerController', ComposerController)
     .controller('ComposerListController', ComposerListController)
+    .controller('CompositionController', CompositionController)
     .directive('acmeNavbar', acmeNavbar)
     .directive('acmeMalarkey', acmeMalarkey);
 

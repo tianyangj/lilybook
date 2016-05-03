@@ -1,3 +1,5 @@
+import { resolver } from './resolvers';
+
 /** @ngInject */
 export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider) {
 
@@ -54,6 +56,16 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     templateUrl: 'app/composer/composer-list.html',
     controller: 'ComposerListController',
     controllerAs: '$ctrl'
+  });
+
+  $stateProvider.state('composition', {
+    url: '/composition/:id',
+    templateUrl: 'app/composition/composition.html',
+    controller: 'CompositionController',
+    controllerAs: '$ctrl',
+    resolve: {
+      composition: resolver.getComposition
+    }
   });
 
   $urlRouterProvider.otherwise('/');
