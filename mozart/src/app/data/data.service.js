@@ -941,8 +941,7 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{*}` - PersistedModel id
          *
          * @param {Object} postData Request data.
          *
@@ -966,6 +965,41 @@ module.factory(
         "prototype$updateAttributes": {
           url: urlBase + "/Compositions/:id",
           method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lilybook.data.Composition#detail
+         * @methodOf lilybook.data.Composition
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{string=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Composition` object.)
+         * </em>
+         */
+        "detail": {
+          url: urlBase + "/Compositions/detail",
+          method: "GET"
         },
 
         // INTERNAL. Use Composer.compositions() instead.

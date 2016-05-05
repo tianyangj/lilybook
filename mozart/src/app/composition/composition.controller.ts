@@ -3,9 +3,9 @@ export class CompositionController {
     /* @ngInject */
     constructor(
         private $stateParams: any,
-        private Composer: any
+        private composition: any
     ) {
-        console.log('CompositionController');
+        console.log('CompositionController', this.composition);
     }
 
 }
