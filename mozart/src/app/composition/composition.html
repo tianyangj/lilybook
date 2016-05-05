@@ -1,4 +1,4 @@
-<div layout="column" class="composition">
+<div flex layout="column" class="composition">
     <div class="composition-hero" ng-style="{'height':$ctrl.height}">
         <lb-composition-hero hero="$ctrl.composition.hero" on-toggle="$ctrl.toggleHero()"></lb-composition-hero>
     </div>
@@ -12,7 +12,7 @@
             <div class="md-padding">
                 <div layout="row">
                     <div flex="25">
-                        <img src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" class="width-full" />
+                        <img src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" style="width:100%" />
                     </div>
                     <div flex layout="column" style="padding-left:16px;">
                         <div flex>
