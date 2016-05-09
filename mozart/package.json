@@ -1,7 +1,9 @@
 {
   "name": "lilybook",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "@angular/router": "^0.2.0"
+  },
   "scripts": {
     "test": "gulp test"
   },
