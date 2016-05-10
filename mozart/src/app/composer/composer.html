@@ -1,21 +1,19 @@
-<div flex layout="column" class="composer">
+<md-content flex class="composer">
     <div class="hero" ng-style="{'background-image':'url('+$ctrl.composer.hero+')'}">
         <md-card>
             <img class="md-card-image" ng-src="{{$ctrl.composer.image}}" alt="{{$ctrl.composer.fullname}}">
         </md-card>
     </div>
-    <md-content flex layout="column">
-        <md-list class="md-dense">
-            <md-subheader>New Additions</md-subheader>
-            <md-list-item ng-repeat="composition in $ctrl.additions">
-                <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_filled</md-icon>
-                <p><a ui-sref="composition({id:composition.id})">{{composition.title}}</a></p>
-            </md-list-item>
-            <md-subheader>Most Popular</md-subheader>
-            <md-list-item ng-repeat="composition in $ctrl.populars">
-                <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_filled</md-icon>
-                <p><a ui-sref="composition({id:composition.id})">{{composition.title}}</a></p>
-            </md-list-item>
-        </md-list>
-    </md-content>
-</div>
+    <md-list class="md-dense">
+        <md-subheader>New Additions</md-subheader>
+        <md-list-item ng-repeat="composition in $ctrl.additions">
+            <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_filled</md-icon>
+            <p><a ui-sref="composition({id:composition.id})">{{composition.title}}</a></p>
+        </md-list-item>
+        <md-subheader>Most Popular</md-subheader>
+        <md-list-item ng-repeat="composition in $ctrl.populars">
+            <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_filled</md-icon>
+            <p><a ui-sref="composition({id:composition.id})">{{composition.title}}</a></p>
+        </md-list-item>
+    </md-list>
+</md-content>
