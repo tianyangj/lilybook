@@ -21,8 +21,16 @@ declare var moment: moment.MomentStatic;
 module lilybook {
   'use strict';
 
-  angular.module('lilybook', ['ngAnimate', 'ui.router', 'ngMaterial', 'toastr', 'lilybook.data'])
-    .constant('malarkey', malarkey)
+  angular.module('lilybook', [
+    'ngAnimate',
+    'ui.router',
+    'ngMaterial',
+    'toastr',
+    'lilybook.data',
+    'com.2fdevs.videogular',
+    'com.2fdevs.videogular.plugins.controls',
+    'info.vietnamcode.nampnq.videogular.plugins.youtube'
+  ]).constant('malarkey', malarkey)
     .constant('moment', moment)
     .config(config)
     .config(routerConfig)

@@ -1,0 +1,23 @@
+<div class="hero">
+    <videogular vg-theme="$ctrl.config.theme.url">
+        <vg-media vg-src="$ctrl.config.sources" vg-youtube="showinfo=0">
+        </vg-media>
+        <vg-controls vg-autohide="$ctrl.config.plugins.controls.autoHide" vg-autohide-time="$ctrl.config.plugins.controls.autoHideTime">
+            <vg-play-pause-button></vg-play-pause-button>
+            <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            </vg-scrub-bar>
+            <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-volume>
+                <vg-mute-button></vg-mute-button>
+                <vg-volume-bar></vg-volume-bar>
+            </vg-volume>
+            <div class="toggle-button">
+                <button class="iconButton" ng-click="$ctrl.toggle()">
+                    <md-icon class="material-icons">{{$ctrl.icon}}</md-icon>
+                </button>
+            </div>
+        </vg-controls>
+    </videogular>
+</div>
