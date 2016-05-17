@@ -67,17 +67,17 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
       composition: resolver.getComposition
     }
   });
-  
+
   $stateProvider.state('composition.sheet', {
     url: '/sheetmusic',
     template: '<div>sheet music</div>'
   });
-  
+
   $stateProvider.state('composition.videos', {
     url: '/videos',
     template: '<div>videos</div>'
   });
-  
+
   $stateProvider.state('composition.qa', {
     url: '/qa',
     template: '<div>questions and answers</div>'
