@@ -6,12 +6,13 @@
         <md-tabs md-center-tabs md-border-bottom>
             <md-tab label="Details" ui-sref="composition"></md-tab>
             <md-tab label="Sheet Music" ui-sref="composition.sheet" ng-disabled="!$ctrl.composition.sheet"></md-tab>
+            <md-tab label="Videos" ui-sref="composition.videos"></md-tab>
             <md-tab label="Q & A" ui-sref="composition.qa"></md-tab>
         </md-tabs>
         <md-content flex layout="column" ui-view>
             <div class="md-padding">
-                <div layout="row">
-                    <div flex="25">
+                <div class="md-padding" layout="row">
+                    <div flex="30">
                         <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" style="width:100%" />
                     </div>
                     <div flex layout="column" style="padding-left:16px;">
@@ -26,62 +27,38 @@
                         </div>
                     </div>
                 </div>
-                <div layout="row">
-                    <div flex>
-                        <div class="md-padding" layout="row" layout-align="center center">
-                            <strong flex="33" class="md-subhead">Composer</strong>
-                            <a flex ui-sref="composer({vanity:$ctrl.composition.composerId})">{{$ctrl.composition.composer.fullname}}</a>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.form">
-                            <strong flex="33" class="md-subhead">Form/Genre</strong>
-                            <span flex>{{$ctrl.composition.form.name}}</span>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center">
-                            <strong flex="33" class="md-subhead">Catalogue Number</strong>
-                            <span flex>{{$ctrl.composition.catalogue}}</span>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.number">
-                            <strong flex="33" class="md-subhead">Work Number</strong>
-                            <div flex>{{$ctrl.composition.number}}</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.key">
-                            <strong flex="33" class="md-subhead">Key</strong>
-                            <div flex>{{$ctrl.composition.key.name}}</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.rcm">
-                            <strong flex="33" class="md-subhead">RCM</strong>
-                            <div flex>{{$ctrl.composition.rcm.name}}</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.abrsm">
-                            <strong flex="33" class="md-subhead">ABRSM</strong>
-                            <div flex>{{$ctrl.composition.abrsm.name}}</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.henle">
-                            <strong flex="33" class="md-subhead">Henle</strong>
-                            <div flex>{{$ctrl.composition.henle.name}}</div>
-                        </div>
+                <div class="md-padding">
+                    <div class="md-padding" layout="row" layout-align="center center">
+                        <strong flex="33" class="md-subhead">Composer</strong>
+                        <a flex ui-sref="composer({vanity:$ctrl.composition.composerId})">{{$ctrl.composition.composer.fullname}}</a>
                     </div>
-                    <div flex>
-                        <div class="md-padding" layout="row" layout-align="center center">
-                            <strong flex="33" class="md-subhead">Likes</strong>
-                            <div flex>{{$ctrl.likes.length}}</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center">
-                            <strong flex="33" class="md-subhead">Todos</strong>
-                            <div flex>{{$ctrl.todos.length}}</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center">
-                            <strong flex="33" class="md-subhead">Videos</strong>
-                            <div flex>##</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center">
-                            <strong flex="33" class="md-subhead">Q&As</strong>
-                            <div flex>##</div>
-                        </div>
-                        <div class="md-padding" layout="row" layout-align="center center">
-                            <strong flex="33" class="md-subhead">Average Difficulty</strong>
-                            <div flex>{{$ctrl.average}}</div>
-                        </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.form">
+                        <strong flex="33" class="md-subhead">Form/Genre</strong>
+                        <span flex>{{$ctrl.composition.form.name}}</span>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center">
+                        <strong flex="33" class="md-subhead">Catalogue Number</strong>
+                        <span flex>{{$ctrl.composition.catalogue}}</span>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.number">
+                        <strong flex="33" class="md-subhead">Work Number</strong>
+                        <div flex>{{$ctrl.composition.number}}</div>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.key">
+                        <strong flex="33" class="md-subhead">Key</strong>
+                        <div flex>{{$ctrl.composition.key.name}}</div>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.rcm">
+                        <strong flex="33" class="md-subhead">RCM</strong>
+                        <div flex>{{$ctrl.composition.rcm.name}}</div>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.abrsm">
+                        <strong flex="33" class="md-subhead">ABRSM</strong>
+                        <div flex>{{$ctrl.composition.abrsm.name}}</div>
+                    </div>
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.henle">
+                        <strong flex="33" class="md-subhead">Henle</strong>
+                        <div flex>{{$ctrl.composition.henle.name}}</div>
                     </div>
                 </div>
             </div>
