@@ -9,6 +9,7 @@ import { HomeBookmarksController } from './home/home-bookmarks.controller';
 import { ComposerController } from './composer/composer.controller';
 import { ComposerListController } from './composer/composer-list.controller';
 import { CompositionController } from './composition/composition.controller';
+import { CompositionSheetController } from './composition/composition-sheet.controller';
 import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { acmeNavbar } from '../app/components/navbar/navbar.directive';
@@ -29,7 +30,8 @@ module lilybook {
     'lilybook.data',
     'com.2fdevs.videogular',
     'com.2fdevs.videogular.plugins.controls',
-    'info.vietnamcode.nampnq.videogular.plugins.youtube'
+    'info.vietnamcode.nampnq.videogular.plugins.youtube',
+    'jkAngularCarousel'
   ]).constant('malarkey', malarkey)
     .constant('moment', moment)
     .config(config)
@@ -43,6 +45,7 @@ module lilybook {
     .controller('ComposerController', ComposerController)
     .controller('ComposerListController', ComposerListController)
     .controller('CompositionController', CompositionController)
+    .controller('CompositionSheetController', CompositionSheetController)
     .directive('acmeNavbar', acmeNavbar)
     .directive('acmeMalarkey', acmeMalarkey);
 
