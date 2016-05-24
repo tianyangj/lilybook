@@ -70,7 +70,7 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
 
   $stateProvider.state('composition.sheet', {
     url: '/sheetmusic',
-    templateUrl: 'app/composition/composition-sheet.html',
+    templateUrl: 'app/composition/composition-sheet-a.html',
     controller: 'CompositionSheetController',
     controllerAs: '$ctrl'
   });
