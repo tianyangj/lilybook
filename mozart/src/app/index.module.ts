@@ -31,7 +31,7 @@ module lilybook {
     'com.2fdevs.videogular',
     'com.2fdevs.videogular.plugins.controls',
     'info.vietnamcode.nampnq.videogular.plugins.youtube',
-    'jkAngularCarousel'
+    'slickCarousel'
   ]).constant('malarkey', malarkey)
     .constant('moment', moment)
     .config(config)

@@ -2,8 +2,7 @@
   "name": "lilybook",
   "version": "0.0.0",
   "dependencies": {
-    "@angular/router": "^0.2.0",
-    "angular-jk-carousel": "^0.1.4"
+    "@angular/router": "^0.2.0"
   },
   "scripts": {
     "test": "gulp test"

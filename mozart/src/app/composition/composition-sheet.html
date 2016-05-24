@@ -1,13 +1,13 @@
 <div flex layout>
-    <!--<div id="test">
-        <img style="width:100%;" ng-src="{{image}}" ng-repeat="image in $ctrl.composition.sheet.images"/>
-    </div>
-    <style type="text/css">
-        #test{
-            overflow-x: scroll;
-            overflow-y: auto;
-            padding: 0 50px;
-            white-space: nowrap;
-        }
-    </style>-->
+    <md-button class="md-icon-button md-accent prev-button">
+        <md-icon class="material-icons">navigate_before</md-icon>
+    </md-button>
+    <slick flex infinite="false" dots="true" prev-arrow=".prev-button" next-arrow=".next-button">
+        <div ng-repeat="image in $ctrl.composition.sheet.images">
+            <img style="width:100%;" ng-src="{{image}}" />
+        </div>
+    </slick>
+    <md-button class="md-icon-button md-accent next-button">
+        <md-icon class="material-icons">navigate_next</md-icon>
+    </md-button>
 </div>
