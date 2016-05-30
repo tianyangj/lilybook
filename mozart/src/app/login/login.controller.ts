@@ -8,7 +8,8 @@ export class LoginController {
     constructor(
         private $state: angular.ui.IStateService,
         private $stateParams: any,
-        private Account: any
+        private Account: any,
+        private firebase: any
     ) { }
 
     login() {
@@ -25,6 +26,12 @@ export class LoginController {
             this.error = response.data ? response.data.error : {
                 message: 'The application has encountered an unknown error.'
             };
+        });
+
+        this.firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
+            console.log('user', user);
+        }).catch(function (error) {
+            console.log('error', error);
         });
     }
 }

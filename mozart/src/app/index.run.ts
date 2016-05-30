@@ -1,11 +1,13 @@
 /** @ngInject */
 export function runBlock(
   $log: angular.ILogService,
-  Account: any
+  firebase: any
 ) {
-  Account.getCurrent().$promise.then(() => {
-    $log.debug('AUTHENTICATED');
-  }).catch(() => {
-    $log.debug('NOT AUTHENTICATED');
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      $log.debug('AUTHENTICATED', user);
+    } else {
+      $log.debug('NOT AUTHENTICATED', user);
+    }
   });
 }

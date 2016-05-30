@@ -18,6 +18,7 @@ import { registerComponents } from '../app/components/index';
 
 declare var malarkey: any;
 declare var moment: moment.MomentStatic;
+declare var firebase: any;
 
 module lilybook {
   'use strict';
@@ -34,6 +35,7 @@ module lilybook {
     'slickCarousel'
   ]).constant('malarkey', malarkey)
     .constant('moment', moment)
+    .constant('firebase', firebase)
     .config(config)
     .config(routerConfig)
     .run(runBlock)
