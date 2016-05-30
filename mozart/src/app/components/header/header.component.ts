@@ -4,16 +4,12 @@ export class HeaderComponentController {
     isAuthenticated: boolean;
 
     constructor(
-        private $rootScope: angular.IRootScopeService,
         private $state: angular.ui.IStateService,
         private $mdSidenav: angular.material.ISidenavService,
-        private Account: any,
-        private LoopBackAuth: any
+        private firebase: any
     ) {
-        this.$rootScope.$watch(() => {
-            return this.LoopBackAuth.currentUserData;
-        }, (currentUserData: any) => {
-            this.isAuthenticated = currentUserData !== null;
+        firebase.auth().onAuthStateChanged(user => {
+            this.isAuthenticated = !!user;
         });
     }
 
@@ -22,7 +18,7 @@ export class HeaderComponentController {
     }
 
     logout() {
-        this.Account.logout().$promise.then(() => {
+        this.firebase.auth().signOut().then(() => {
             this.$state.go('splash');
         });
     }
