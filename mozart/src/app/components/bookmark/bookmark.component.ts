@@ -56,9 +56,8 @@ class BookmarkController {
 
     add() {
         if (this.user) {
-            let bookmark = {};
-            bookmark[this.composition.id] = true;
-            this.firebase.database().ref('/user-bookmarks/' + this.user.uid).set(bookmark);
+            let path = '/user-bookmarks/' + this.user.uid + '/' + this.composition.id;
+            this.firebase.database().ref(path).set(true);
         }
     }
 }
