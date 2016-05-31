@@ -11,6 +11,7 @@ export function getComposition($stateParams, $timeout, Composition, firebase) {
 
     return firebase.database().ref('/compositions/' + $stateParams.id).once('value').then(snapshot => {
         let composition = snapshot.val();
+        composition.id = $stateParams.id;
         return composition;
     });
 }

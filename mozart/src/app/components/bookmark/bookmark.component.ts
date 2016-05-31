@@ -38,22 +38,28 @@
 class BookmarkController {
 
     composition: any;
-    bookmarked: boolean;
+    bookmarked: boolean = false;
+    user: any;
 
     /** @ngInject */
     constructor(
-        private Account: any,
-        private Bookmark: any
+        private firebase: any
     ) {
-        Bookmark.checkBookmark({
-            compositionId: this.composition.id
-        }).$promise.then((response) => {
-            this.bookmarked = response.bookmarked;
-        });
+        this.user = firebase.auth().currentUser;
+        if (this.user) {
+            let path = '/user-bookmarks/' + this.user.uid + '/' + this.composition.id;
+            firebase.database().ref(path).on('value', snapshot => {
+                this.bookmarked = !!snapshot.val();
+            });
+        }
     }
 
     add() {
-        console.log('on add');
+        if (this.user) {
+            let bookmark = {};
+            bookmark[this.composition.id] = true;
+            this.firebase.database().ref('/user-bookmarks/' + this.user.uid).set(bookmark);
+        }
     }
 }
 
