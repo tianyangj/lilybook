@@ -7,9 +7,28 @@ export class ComposerController {
     /* @ngInject */
     constructor(
         private $stateParams: any,
-        private Composer: any
+        private $timeout: angular.ITimeoutService,
+        private Composer: any,
+        private firebase: any
     ) {
-        this.Composer.findById({
+        firebase.database().ref('/composers/' + $stateParams.vanity).once('value').then(snapshot => {
+            return $timeout(() => {
+                this.composer = snapshot.val();
+                this.composer.id = $stateParams.vanity;
+                this.composer.hero = '//placehold.it/851x315?text=composer+hero+image';
+                return this.composer;
+            });
+        }).then(composer => {
+            firebase.database().ref('/compositions')
+                .orderByChild('composerId')
+                .equalTo($stateParams.vanity)
+                .once('value').then(snapshot => {
+                    $timeout(() => {
+                        this.additions = snapshot.val();
+                    });
+                });
+        });
+        /*this.Composer.findById({
             id: this.$stateParams.vanity
         }).$promise.then((composer: any) => {
             this.composer = composer;
@@ -30,7 +49,7 @@ export class ComposerController {
                     limit: 10
                 }
             }).$promise.then(compositions => this.populars = compositions);
-        });
+        });*/
     }
 
     play(composition) {

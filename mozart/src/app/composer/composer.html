@@ -12,7 +12,7 @@
                 <md-button class="md-primary md-hue-1">View All</md-button>
             </div>
             <md-list class="md-dense" style="padding:0;">
-                <md-list-item class="md-2-line" ng-repeat="composition in $ctrl.additions">
+                <md-list-item class="md-2-line" ng-repeat="(id, composition) in $ctrl.additions">
                     <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_outline</md-icon>
                     <div class="md-list-item-text">
                         <a ui-sref="composition({id:composition.id})">{{composition.title}}</a>

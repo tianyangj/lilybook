@@ -1,19 +1,21 @@
 export class ComposerListController {
 
-    composers: any[];
+    composers;
 
     /* @ngInject */
     constructor(
         private $state: angular.ui.IStateService,
-        private $stateParams: any,
-        private Composer: any
+        private $timeout: angular.ITimeoutService,
+        private firebase: any
     ) {
-        this.Composer.find().$promise.then((composers: any) => {
-            this.composers = composers;
+        firebase.database().ref('/composers').once('value').then(snapshot => {
+            $timeout(() => {
+                this.composers = snapshot.val();
+            });
         });
     }
 
-    goto(composer: any) {
-        this.$state.go('composer', { vanity: composer.id });
+    goto(id) {
+        this.$state.go('composer', { vanity: id });
     }
 }
