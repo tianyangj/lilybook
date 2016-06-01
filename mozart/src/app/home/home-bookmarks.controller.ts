@@ -10,7 +10,7 @@ export class HomeBookmarksController {
         this.user = firebase.auth().currentUser;
         firebase.database().ref('/user-bookmarks/' + this.user.uid).on('value', snapshot => {
             this.bookmarks = snapshot.val();
-            console.log(this.bookmarks)
+            console.log(this.bookmarks);
         });
     }
 
