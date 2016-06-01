@@ -1,6 +1,6 @@
 export class ComposerController {
 
-    composer: any;
+    composer: any = {};
     additions: any[] = [];
     populars: any[] = [];
 
@@ -11,37 +11,34 @@ export class ComposerController {
         private Composer: any,
         private firebase: any
     ) {
-        console.log('start', performance.now())
-        firebase.database().ref('/composers/' + $stateParams.vanity).once('value').then(snapshot => {
+        console.log('ComposerController.constructor', performance.now());
+        let composerPath = '/composers/' + $stateParams.vanity;
+        firebase.database().ref(composerPath).once('value').then(snapshot => {
+            console.log('snapshot callback', composerPath, performance.now());
             return $timeout(() => {
-                this.composer = snapshot.val();
-                this.composer.id = $stateParams.vanity;
-                this.composer.hero = '//placehold.it/851x315?text=composer+hero+image';
-                return this.composer;
+                console.log('composer timeout', performance.now());
+                return angular.extend(this.composer, snapshot.val(), {
+                    id: $stateParams.vanity,
+                    hero: '//placehold.it/851x315?text=composer+hero+image'
+                });
             });
         }).then(composer => {
-            /*firebase.database().ref('/compositions')
-                .orderByChild('composerId')
-                .equalTo($stateParams.vanity)
-                .once('value').then(snapshot => {
-                    $timeout(() => {
-                        this.additions = snapshot.val();
-                    });
-                });*/
+            console.log('composer', this.composer, performance.now());
         });
-        firebase.database().ref('/composers/' + $stateParams.vanity + '/compositions')
+        let composerCompositionsPath = composerPath + '/compositions';
+        firebase.database().ref(composerCompositionsPath)
             .orderByKey()
             .once('value').then(snapshot => {
-                console.log('compositions', performance.now())
-                snapshot.forEach(childSnapshot => {
-                    firebase.database().ref('/compositions/' + childSnapshot.key).once('value').then(ss => {
-                        console.log('loop', performance.now())
+                console.log('snapshot callback', composerCompositionsPath, performance.now());
+                snapshot.forEach(composition => {
+                    firebase.database().ref('/compositions/' + composition.key).once('value').then(ss => {
+                        console.log('composition callback', performance.now());
                         $timeout(() => {
                             this.additions.push(ss.val());
                         });
-                    })
-                })
-            })
+                    });
+                });
+            });
         /*this.Composer.findById({
             id: this.$stateParams.vanity
         }).$promise.then((composer: any) => {
