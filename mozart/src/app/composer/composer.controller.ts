@@ -11,28 +11,29 @@ export class ComposerController {
         private Composer: any,
         private firebase: any
     ) {
-        console.log('ComposerController.constructor', performance.now());
+        let start = performance.now();
+        console.log('ComposerController.constructor', performance.now() - start);
         let composerPath = '/composers/' + $stateParams.vanity;
         firebase.database().ref(composerPath).once('value').then(snapshot => {
-            console.log('snapshot callback', composerPath, performance.now());
+            console.log('snapshot callback', composerPath, performance.now() - start);
             return $timeout(() => {
-                console.log('composer timeout', performance.now());
+                console.log('composer timeout', performance.now() - start);
                 return angular.extend(this.composer, snapshot.val(), {
                     id: $stateParams.vanity,
                     hero: '//placehold.it/851x315?text=composer+hero+image'
                 });
             });
         }).then(composer => {
-            console.log('composer', this.composer, performance.now());
+            console.log('composer', this.composer, performance.now() - start);
         });
         let composerCompositionsPath = composerPath + '/compositions';
         firebase.database().ref(composerCompositionsPath)
             .orderByKey()
             .once('value').then(snapshot => {
-                console.log('snapshot callback', composerCompositionsPath, performance.now());
+                console.log('snapshot callback', composerCompositionsPath, performance.now() - start);
                 snapshot.forEach(composition => {
                     firebase.database().ref('/compositions/' + composition.key).once('value').then(ss => {
-                        console.log('composition callback', performance.now());
+                        console.log('composition callback', performance.now() - start);
                         $timeout(() => {
                             this.additions.push(ss.val());
                         });
