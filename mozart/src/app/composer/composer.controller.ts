@@ -1,8 +1,8 @@
 export class ComposerController {
 
     composer: any;
-    additions: any[];
-    populars: any[];
+    additions: any[] = [];
+    populars: any[] = [];
 
     /* @ngInject */
     constructor(
@@ -11,6 +11,7 @@ export class ComposerController {
         private Composer: any,
         private firebase: any
     ) {
+        console.log('start', performance.now())
         firebase.database().ref('/composers/' + $stateParams.vanity).once('value').then(snapshot => {
             return $timeout(() => {
                 this.composer = snapshot.val();
@@ -19,15 +20,28 @@ export class ComposerController {
                 return this.composer;
             });
         }).then(composer => {
-            firebase.database().ref('/compositions')
+            /*firebase.database().ref('/compositions')
                 .orderByChild('composerId')
                 .equalTo($stateParams.vanity)
                 .once('value').then(snapshot => {
                     $timeout(() => {
                         this.additions = snapshot.val();
                     });
-                });
+                });*/
         });
+        firebase.database().ref('/composers/' + $stateParams.vanity + '/compositions')
+            .orderByKey()
+            .once('value').then(snapshot => {
+                console.log('compositions', performance.now())
+                snapshot.forEach(childSnapshot => {
+                    firebase.database().ref('/compositions/' + childSnapshot.key).once('value').then(ss => {
+                        console.log('loop', performance.now())
+                        $timeout(() => {
+                            this.additions.push(ss.val());
+                        });
+                    })
+                })
+            })
         /*this.Composer.findById({
             id: this.$stateParams.vanity
         }).$promise.then((composer: any) => {
