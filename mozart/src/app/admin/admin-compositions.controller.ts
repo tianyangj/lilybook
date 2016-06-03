@@ -22,8 +22,8 @@ export class AdminCompositionsController {
             }, {});
             Object.keys(ss).forEach(key => {
                 console.log(key, ss[key]);
-                //firebase.database().ref('/composers/' + key + '/compositions').set(ss[key]);
-            })
+                // firebase.database().ref('/composers/' + key + '/compositions').set(ss[key]);
+            });
             console.log(compositions, tt, ss);
         });
     }
