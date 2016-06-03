@@ -1,18 +1,15 @@
 /** @ngInject */
 export class SidenavComponentController {
 
-    isAuthenticated: boolean;
+    isAuthenticated = false;
 
     constructor(
         private $rootScope: angular.IRootScopeService,
         private $mdSidenav: angular.material.ISidenavService,
-        private Account: any,
-        private LoopBackAuth: any
+        private $firebaseAuth
     ) {
-        this.$rootScope.$watch(() => {
-            return this.LoopBackAuth.currentUserData;
-        }, (currentUserData: any) => {
-            this.isAuthenticated = currentUserData !== null;
+        $firebaseAuth().$onAuthStateChanged(user => {
+            this.isAuthenticated = !!user;
         });
     }
 

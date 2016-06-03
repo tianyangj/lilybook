@@ -30,7 +30,6 @@ module lilybook {
     'ui.router',
     'ngMaterial',
     'toastr',
-    'lilybook.data',
     'com.2fdevs.videogular',
     'com.2fdevs.videogular.plugins.controls',
     'info.vietnamcode.nampnq.videogular.plugins.youtube',
