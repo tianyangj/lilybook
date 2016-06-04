@@ -29,7 +29,6 @@ module lilybook {
     'ngAnimate',
     'ui.router',
     'ngMaterial',
-    'toastr',
     'slickCarousel',
     'firebase'
   ]).constant('malarkey', malarkey)
