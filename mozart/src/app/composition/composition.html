@@ -1,7 +1,5 @@
-<div flex layout="column" class="composition">
-    <div class="composition-hero" ng-style="{'height':$ctrl.height}">
-        <lb-video-hero hero="$ctrl.composition.hero" on-toggle="$ctrl.toggleHero()"></lb-video-hero>
-    </div>
+<md-content flex layout="column" class="composition">
+    <lb-video-hero hero="$ctrl.composition.hero"></lb-video-hero>
     <div flex layout="column">
         <md-tabs md-center-tabs md-border-bottom>
             <md-tab label="Details" ui-sref="composition"></md-tab>
@@ -9,7 +7,7 @@
             <md-tab label="Videos" ui-sref="composition.videos"></md-tab>
             <md-tab label="Q & A" ui-sref="composition.qa"></md-tab>
         </md-tabs>
-        <md-content flex layout="column" ui-view>
+        <div flex layout="column" ui-view>
             <div class="md-padding">
                 <div class="md-padding" layout="row">
                     <div flex="30">
@@ -62,6 +60,6 @@
                     </div>
                 </div>
             </div>
-        </md-content>
+        </div>
     </div>
-</div>
+</md-content>

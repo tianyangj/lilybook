@@ -30,9 +30,6 @@ module lilybook {
     'ui.router',
     'ngMaterial',
     'toastr',
-    'com.2fdevs.videogular',
-    'com.2fdevs.videogular.plugins.controls',
-    'info.vietnamcode.nampnq.videogular.plugins.youtube',
     'slickCarousel',
     'firebase'
   ]).constant('malarkey', malarkey)
