@@ -18,7 +18,6 @@ import { acmeNavbar } from '../app/components/navbar/navbar.directive';
 import { acmeMalarkey } from '../app/components/malarkey/malarkey.directive';
 import { registerComponents } from '../app/components/index';
 
-declare var malarkey: any;
 declare var moment: moment.MomentStatic;
 declare var firebase: any;
 
@@ -31,8 +30,7 @@ module lilybook {
     'ngMaterial',
     'slickCarousel',
     'firebase'
-  ]).constant('malarkey', malarkey)
-    .constant('moment', moment)
+  ]).constant('moment', moment)
     .constant('firebase', firebase)
     .config(config)
     .config(routerConfig)
