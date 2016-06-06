@@ -1,17 +1,19 @@
+import { ComposerService } from '../data/composer.service';
+
 export class CompositionController {
 
-    height: string = '300px';
+    composer;
 
     /* @ngInject */
     constructor(
         private $stateParams: any,
-        private composition: any
+        private composition: any,
+        private composerService: ComposerService
     ) {
         console.log('CompositionController', this.composition);
-    }
-
-    toggleHero() {
-        this.height = this.height === '300px' ? '50px' : '300px';
+        composerService.get(composition.composerId).then(composer => {
+            this.composer = composer;
+        });
     }
 
 }

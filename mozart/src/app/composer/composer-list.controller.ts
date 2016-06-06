@@ -1,3 +1,5 @@
+import { ComposerService } from '../data/composer.service';
+
 export class ComposerListController {
 
     composers;
@@ -5,17 +7,14 @@ export class ComposerListController {
     /* @ngInject */
     constructor(
         private $state: angular.ui.IStateService,
-        private $timeout: angular.ITimeoutService,
-        private firebase: any
+        private composerService: ComposerService
     ) {
-        firebase.database().ref('/composers').once('value').then(snapshot => {
-            $timeout(() => {
-                this.composers = snapshot.val();
-            });
+        composerService.getAll().then(composers => {
+            this.composers = composers;
         });
     }
 
-    goto(id) {
-        this.$state.go('composer', { vanity: id });
+    goto(composerId) {
+        this.$state.go('composer', { vanity: composerId });
     }
 }

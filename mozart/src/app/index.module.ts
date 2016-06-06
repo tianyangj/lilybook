@@ -17,6 +17,7 @@ import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service'
 import { acmeNavbar } from '../app/components/navbar/navbar.directive';
 import { acmeMalarkey } from '../app/components/malarkey/malarkey.directive';
 import { registerComponents } from '../app/components/index';
+import { registerDataServices } from '../app/data/index';
 
 declare var moment: moment.MomentStatic;
 declare var firebase: any;
@@ -50,4 +51,5 @@ module lilybook {
     .directive('acmeMalarkey', acmeMalarkey);
 
   registerComponents();
+  registerDataServices();
 }
