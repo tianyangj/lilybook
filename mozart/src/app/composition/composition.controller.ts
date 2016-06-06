@@ -1,18 +1,38 @@
 import { ComposerService } from '../data/composer.service';
+import { DefinitionService } from '../data/definition.service';
 
 export class CompositionController {
 
     composer;
+    abrsm;
+    form;
+    henle;
+    key;
+    rcm;
 
     /* @ngInject */
     constructor(
-        private $stateParams: any,
         private composition: any,
-        private composerService: ComposerService
+        private composerService: ComposerService,
+        private definitionService: DefinitionService
     ) {
-        console.log('CompositionController', this.composition);
         composerService.get(composition.composerId).then(composer => {
             this.composer = composer;
+        });
+        definitionService.getAbrsm(composition.abrsm).then(abrsm => {
+            this.abrsm = abrsm;
+        });
+        definitionService.getForm(composition.form).then(form => {
+            this.form = form;
+        });
+        definitionService.getHenle(composition.henle).then(henle => {
+            this.henle = henle;
+        });
+        definitionService.getKey(composition.key).then(key => {
+            this.key = key;
+        });
+        definitionService.getRcm(composition.rcm).then(rcm => {
+            this.rcm = rcm;
         });
     }
 

@@ -1,6 +1,7 @@
-/* @ngInject */
-export function getComposition($stateParams, $firebaseObject, firebase) {
+import { CompositionService } from '../data/composition.service';
 
-    let compositionRef = firebase.database().ref('/compositions/' + $stateParams.id);
-    return $firebaseObject(compositionRef).$loaded();
+/* @ngInject */
+export function getComposition($stateParams, compositionService: CompositionService) {
+
+    return compositionService.get($stateParams.id);
 }

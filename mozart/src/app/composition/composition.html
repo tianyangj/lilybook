@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div class="md-padding">
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.form">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.form">
                         <strong flex="33" class="md-subhead">Form/Genre</strong>
-                        <span flex>{{$ctrl.composition.form.name}}</span>
+                        <span flex>{{$ctrl.form.name}}</span>
                     </div>
                     <div class="md-padding" layout="row" layout-align="center center">
                         <strong flex="33" class="md-subhead">Catalogue Number</strong>
@@ -39,21 +39,24 @@
                         <strong flex="33" class="md-subhead">Work Number</strong>
                         <div flex>{{$ctrl.composition.number}}</div>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.key">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.key">
                         <strong flex="33" class="md-subhead">Key</strong>
-                        <div flex>{{$ctrl.composition.key.name}}</div>
+                        <div flex>
+                            <img ng-src="{{$ctrl.key.image}}" style="width:60px;">
+                            {{$ctrl.key.name}}
+                        </div>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.rcm">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.rcm">
                         <strong flex="33" class="md-subhead">RCM</strong>
-                        <div flex>{{$ctrl.composition.rcm.name}}</div>
+                        <div flex>{{$ctrl.rcm.name}}</div>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.abrsm">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.abrsm">
                         <strong flex="33" class="md-subhead">ABRSM</strong>
-                        <div flex>{{$ctrl.composition.abrsm.name}}</div>
+                        <div flex>{{$ctrl.abrsm.name}}</div>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.henle">
+                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.henle">
                         <strong flex="33" class="md-subhead">Henle</strong>
-                        <div flex>{{$ctrl.composition.henle.name}}</div>
+                        <div flex>{{$ctrl.henle.name}}</div>
                     </div>
                 </div>
             </div>
