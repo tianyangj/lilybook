@@ -34,29 +34,32 @@
     }
 })();*/
 
+import { BookmarkService } from '../../data/bookmark.service';
 
 class BookmarkController {
 
-    composition: any;
     bookmarked: boolean = false;
     user: any;
 
+    private composition: any;
+
     /** @ngInject */
     constructor(
-        private firebase: any
+        private firebase: any,
+        private $firebaseAuth,
+        private bookmarkService: BookmarkService
     ) {
-        this.user = firebase.auth().currentUser;
+        this.user = $firebaseAuth().$getAuth();
         if (this.user) {
-            let path = '/user-bookmarks/' + this.user.uid + '/' + this.composition.id;
-            firebase.database().ref(path).on('value', snapshot => {
-                this.bookmarked = !!snapshot.val();
+            bookmarkService.get(this.user.uid).then(bookmarks => {
+                this.bookmarked = bookmarks.$indexFor(this.composition.$id) >= 0;
             });
         }
     }
 
     add() {
         if (this.user) {
-            let path = '/user-bookmarks/' + this.user.uid + '/' + this.composition.id;
+            let path = '/user-bookmarks/' + this.user.uid + '/' + this.composition.$id;
             this.firebase.database().ref(path).set(true);
         }
     }

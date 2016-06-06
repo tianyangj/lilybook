@@ -9,10 +9,12 @@ class VideoHeroController {
         private $window: any,
         private $timeout: angular.ITimeoutService
     ) {
-        this.videoId = this.hero.substr(this.hero.indexOf('?v=') + 3);
-        $timeout(() => {
-            $window.plyr.setup();
-        });
+        if (this.hero) {
+            this.videoId = this.hero.substr(this.hero.indexOf('?v=') + 3);
+            $timeout(() => {
+                $window.plyr.setup();
+            });
+        }
     }
 }
 
