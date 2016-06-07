@@ -26,7 +26,10 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     url: '/home',
     templateUrl: 'app/home/home.html',
     controller: 'HomeController',
-    controllerAs: '$ctrl'
+    controllerAs: '$ctrl',
+    resolve: {
+      user: resolver.requireSignIn
+    }
   });
 
   $stateProvider.state('home.profile', {
@@ -43,7 +46,10 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     url: '/bookmarks',
     templateUrl: 'app/home/home-bookmarks.html',
     controller: 'HomeBookmarksController',
-    controllerAs: '$ctrl'
+    controllerAs: '$ctrl',
+    resolve: {
+      user: resolver.requireSignIn
+    }
   });
 
   $stateProvider.state('home.repertoire', {
