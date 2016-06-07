@@ -38,8 +38,9 @@ import { BookmarkService } from '../../data/bookmark.service';
 
 class BookmarkController {
 
-    bookmarked: boolean = false;
     user: any;
+    bookmark: any;
+    bookmarked: boolean = false;
 
     private composition: any;
 
@@ -50,17 +51,20 @@ class BookmarkController {
         private bookmarkService: BookmarkService
     ) {
         this.user = $firebaseAuth().$getAuth();
+        this.bookmark = this.bookmarkService.get(this.user.uid, this.composition.$id);
         if (this.user) {
-            bookmarkService.get(this.user.uid).then(bookmarks => {
-                this.bookmarked = bookmarks.$indexFor(this.composition.$id) >= 0;
+            this.bookmark.$watch(() => {
+                this.bookmark.$loaded().then(data => {
+                    this.bookmarked = data.$value;
+                });
             });
         }
     }
 
     add() {
         if (this.user) {
-            let path = '/user-bookmarks/' + this.user.uid + '/' + this.composition.$id;
-            this.firebase.database().ref(path).set(true);
+            this.bookmark.$value = true;
+            this.bookmark.$save();
         }
     }
 }

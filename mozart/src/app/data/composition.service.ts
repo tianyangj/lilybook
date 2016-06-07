@@ -5,7 +5,6 @@ export class CompositionService {
     /* @ngInject */
     constructor(
         private $firebaseObject,
-        private $firebaseArray,
         private firebase
     ) {
         this.compositionRef = firebase.database().ref('/compositions');

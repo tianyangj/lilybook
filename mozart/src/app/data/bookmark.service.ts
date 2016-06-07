@@ -4,13 +4,14 @@ export class BookmarkService {
 
     /* @ngInject */
     constructor(
+        private $firebaseObject,
         private $firebaseArray,
         private firebase
     ) {
         this.bookmarkRef = firebase.database().ref('/user-bookmarks');
     }
 
-    get(userId: string) {
-        return this.$firebaseArray(this.bookmarkRef.child(userId)).$loaded();
+    get(userId: string, compositionId: string) {
+        return this.$firebaseObject(this.bookmarkRef.child(userId).child(compositionId));
     }
 }
