@@ -5,15 +5,8 @@ export class HomeController {
 
     /* @ngInject */
     constructor(
-        private $state: angular.ui.IStateService,
-        private Composition: any
+        private $state: angular.ui.IStateService
     ) {
-        this.Composition.find({
-            filter: { limit: 10 }
-        }).$promise.then((compositions: any[]) => {
-            this.recommendations = compositions;
-        });
-
         switch (this.$state.current.name) {
             case 'home.profile':
                 this.activeTab = 1;
