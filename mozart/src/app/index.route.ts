@@ -11,6 +11,11 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     }
   });
 
+  $stateProvider.state('profile', {
+    abstract: true,
+    templateUrl: 'app/layout/profile.html'
+  });
+
   $stateProvider.state('app.splash', {
     url: '/',
     templateUrl: 'app/splash/splash.html'
@@ -33,9 +38,9 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     }
   });
 
-  $stateProvider.state('home.profile', {
+  $stateProvider.state('profile.book', {
     url: '/profile',
-    template: 'home.profile'
+    templateUrl: 'app/profile/book.html'
   });
 
   $stateProvider.state('home.likes', {
