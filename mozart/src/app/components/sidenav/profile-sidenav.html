@@ -1,0 +1,23 @@
+<md-sidenav flex layout="column" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+    <md-toolbar class="md-tall" layout="row" layout-align="center center" hide-gt-md>
+        <a ui-sref="app.splash" class="brand" ng-click="$ctrl.close()">LilyBook</a>
+    </md-toolbar>
+    <md-content flex>
+        <md-list>
+            <md-subheader>Likes</md-subheader>
+            <md-list-item ng-repeat="composition in $ctrl.likes">
+                <p>{{composition.title}}</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader>Bookmarks</md-subheader>
+            <md-list-item ng-repeat="composition in $ctrl.bookmarks">
+                <p>{{composition.title}}</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader>Repertoire</md-subheader>
+            <md-list-item ng-repeat="composition in $ctrl.repertoire">
+                <p>{{composition.title}}</p>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-sidenav>

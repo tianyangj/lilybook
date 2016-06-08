@@ -6,6 +6,8 @@ import { adminRouterConfig } from './admin/admin.route';
 import { runBlock } from './index.run';
 import { LoginController } from './login/login.controller';
 import { HomeController } from './home/home.controller';
+import { ProfileController } from './profile/profile.controller';
+import { ProfileCompositionController } from './profile/profile-composition.controller';
 import { HomeBookmarksController } from './home/home-bookmarks.controller';
 import { ComposerController } from './composer/composer.controller';
 import { ComposerListController } from './composer/composer-list.controller';
@@ -41,6 +43,8 @@ module lilybook {
     .service('webDevTec', WebDevTecService)
     .controller('LoginController', LoginController)
     .controller('HomeController', HomeController)
+    .controller('ProfileController', ProfileController)
+    .controller('ProfileCompositionController', ProfileCompositionController)
     .controller('HomeBookmarksController', HomeBookmarksController)
     .controller('ComposerController', ComposerController)
     .controller('ComposerListController', ComposerListController)

@@ -11,7 +11,7 @@ export class CompositionService {
     }
 
     get(compositionId: string) {
-        return this.$firebaseObject(this.compositionRef.child(compositionId)).$loaded();
+        return this.$firebaseObject(this.compositionRef.child(compositionId));
     }
 
 }

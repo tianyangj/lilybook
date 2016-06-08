@@ -1,0 +1,11 @@
+<md-toolbar class="md-primary md-hue-3" layout="row" layout-align="center center" md-whiteframe="6">
+    <!-- hide menu icon when width >= 1280px -->
+    <md-button class="md-icon-button" hide-gt-md ng-click="$ctrl.toggleSidenav('left')">
+        <md-icon class="material-icons">menu</md-icon>
+    </md-button>
+    <span>{{$ctrl.profile.firstname}}'s LilyBook</span>
+    <span flex></span>
+    <md-button class="md-icon-button" ng-click="$ctrl.share()">
+        <md-icon class="material-icons">share</md-icon>
+    </md-button>
+</md-toolbar>
