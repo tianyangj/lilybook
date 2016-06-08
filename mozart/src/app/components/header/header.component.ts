@@ -19,7 +19,7 @@ export class HeaderComponentController {
 
     logout() {
         this.firebase.auth().signOut().then(() => {
-            this.$state.go('splash');
+            this.$state.go('app.splash');
         });
     }
 

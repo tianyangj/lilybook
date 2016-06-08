@@ -5,12 +5,13 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
 
   $stateProvider.state('app', {
     abstract: true,
+    templateUrl: 'app/layout/app.html',
     resolve: {
       user: resolver.waitForSignIn
     }
   });
 
-  $stateProvider.state('splash', {
+  $stateProvider.state('app.splash', {
     url: '/',
     templateUrl: 'app/splash/splash.html'
   });
