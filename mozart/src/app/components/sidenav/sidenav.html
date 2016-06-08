@@ -4,7 +4,7 @@
     </md-toolbar>
     <md-content flex>
         <md-list>
-            <md-list-item ui-sref="home" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
+            <md-list-item ui-sref="app.home" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">home</md-icon>
                 <p>Home</p>
             </md-list-item>
@@ -51,8 +51,8 @@
         </md-list>
     </md-content>
     <md-toolbar layout="row" layout-align="center center" ng-if="!$ctrl.isAuthenticated">
-        <md-button ui-sref="signup" ng-click="$ctrl.close()">Signup</md-button>
+        <md-button ui-sref="app.signup" ng-click="$ctrl.close()">Signup</md-button>
         <span flex></span>
-        <md-button ui-sref="login" ng-click="$ctrl.close()">Login</md-button>
+        <md-button ui-sref="app.login" ng-click="$ctrl.close()">Login</md-button>
     </md-toolbar>
 </md-sidenav>

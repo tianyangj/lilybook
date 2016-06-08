@@ -16,14 +16,14 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     templateUrl: 'app/splash/splash.html'
   });
 
-  $stateProvider.state('login', {
+  $stateProvider.state('app.login', {
     url: '/login',
     templateUrl: 'app/login/login.html',
     controller: 'LoginController',
     controllerAs: '$ctrl'
   });
 
-  $stateProvider.state('home', {
+  $stateProvider.state('app.home', {
     url: '/home',
     templateUrl: 'app/home/home.html',
     controller: 'HomeController',

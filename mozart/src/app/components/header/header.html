@@ -14,7 +14,7 @@
         </md-button>
         <md-menu-content width="3">
             <md-menu-item>
-                <md-button ui-sref="home">
+                <md-button ui-sref="app.home">
                     <md-icon class="material-icons">home</md-icon>Home
                 </md-button>
             </md-menu-item>
@@ -26,5 +26,5 @@
             </md-menu-item>
         </md-menu-content>
     </md-menu>
-    <md-button class="md-raised md-primary md-hue-3" ui-sref="login" ng-if="!$ctrl.isAuthenticated">Login</md-button>
+    <md-button class="md-raised md-primary md-hue-3" ui-sref="app.login" ng-if="!$ctrl.isAuthenticated">Login</md-button>
 </md-toolbar>

@@ -16,7 +16,7 @@ export class LoginController {
             if (this.$stateParams.next) {
                 this.$state.go(this.$stateParams.next.name);
             } else {
-                this.$state.go('home');
+                this.$state.go('app.home');
             }
         }).catch(error => {
             this.error = error;
