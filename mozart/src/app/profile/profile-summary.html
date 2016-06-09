@@ -1,0 +1,19 @@
+<div class="md-padding">
+    <h1 class="md-display-1">{{$ctrl.profile.firstname}}'s LilyBook</h1>
+    <md-list>
+        <md-subheader>Likes</md-subheader>
+        <md-list-item ng-repeat="composition in $ctrl.likes">
+            <p><a ui-sref="profile.composition({compositionId:composition.$id})">{{composition.title}}</a></p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-subheader>Bookmarks</md-subheader>
+        <md-list-item ng-repeat="composition in $ctrl.bookmarks">
+            <p><a ui-sref="profile.composition({compositionId:composition.$id})">{{composition.title}}</a></p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-subheader>Repertoire</md-subheader>
+        <md-list-item ng-repeat="composition in $ctrl.repertoire">
+            <p><a ui-sref="profile.composition({compositionId:composition.$id})">{{composition.title}}</a></p>
+        </md-list-item>
+    </md-list>
+</div>
