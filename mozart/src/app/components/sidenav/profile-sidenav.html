@@ -6,17 +6,17 @@
         <md-list>
             <md-subheader>Likes</md-subheader>
             <md-list-item ng-repeat="composition in $ctrl.likes">
-                <p>{{composition.title}}</p>
+                <p><a ui-sref="profile.composition({compositionId:composition.$id})" ng-click="$ctrl.close()">{{composition.title}}</a></p>
             </md-list-item>
             <md-divider></md-divider>
             <md-subheader>Bookmarks</md-subheader>
             <md-list-item ng-repeat="composition in $ctrl.bookmarks">
-                <p>{{composition.title}}</p>
+                <p><a ui-sref="profile.composition({compositionId:composition.$id})" ng-click="$ctrl.close()">{{composition.title}}</a></p>
             </md-list-item>
             <md-divider></md-divider>
             <md-subheader>Repertoire</md-subheader>
             <md-list-item ng-repeat="composition in $ctrl.repertoire">
-                <p>{{composition.title}}</p>
+                <p><a ui-sref="profile.composition({compositionId:composition.$id})" ng-click="$ctrl.close()">{{composition.title}}</a></p>
             </md-list-item>
         </md-list>
     </md-content>

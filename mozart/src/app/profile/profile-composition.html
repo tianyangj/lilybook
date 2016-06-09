@@ -1,6 +1,14 @@
-<div class="md-padding">
-    <h1 class="md-headline">{{$ctrl.composition.title}}</h1>
-    <div ng-repeat="image in $ctrl.composition.sheet.images">
-        <img ng-src="{{image}}" style="width:100%;" />
+<div layout="row" class="md-padding">
+    <md-button ng-disabled="!$ctrl.prevCompositionId" ui-sref="profile.composition({compositionId:$ctrl.prevCompositionId})" style="padding:0;margin:0;min-width:40px;">
+        <md-icon class="material-icons" style="position:fixed;top:50%;left:20px;">chevron_left</md-icon>
+    </md-button>
+    <div flex>
+        <h1 class="md-headline" style="text-align:center;">{{$ctrl.composition.title}}</h1>
+        <div ng-repeat="image in $ctrl.composition.sheet.images">
+            <img ng-src="{{image}}" style="width:100%;" />
+        </div>
     </div>
+    <md-button ng-disabled="!$ctrl.nextCompositionId" ui-sref="profile.composition({compositionId:$ctrl.nextCompositionId})" style="padding:0;margin:0;min-width:40px;">
+        <md-icon class="material-icons" style="position:fixed;top:50%;right:20px;">chevron_right</md-icon>
+    </md-button>
 </div>

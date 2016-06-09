@@ -1,17 +1,9 @@
 /** @ngInject */
 class ProfileSidenavComponentController {
 
-    isAuthenticated = false;
-
     constructor(
-        private $rootScope: angular.IRootScopeService,
-        private $mdSidenav: angular.material.ISidenavService,
-        private $firebaseAuth
-    ) {
-        $firebaseAuth().$onAuthStateChanged(user => {
-            this.isAuthenticated = !!user;
-        });
-    }
+        private $mdSidenav: angular.material.ISidenavService
+    ) { }
 
     close() {
         this.$mdSidenav('left').close();
