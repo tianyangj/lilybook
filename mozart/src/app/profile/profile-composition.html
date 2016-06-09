@@ -1,2 +1,6 @@
-<h1>profile-composition.html</h1>
-<code>{{$ctrl.composition | json}}</code>
+<div class="md-padding">
+    <h1 class="md-headline">{{$ctrl.composition.title}}</h1>
+    <div ng-repeat="image in $ctrl.composition.sheet.images">
+        <img ng-src="{{image}}" style="width:100%;" />
+    </div>
+</div>
