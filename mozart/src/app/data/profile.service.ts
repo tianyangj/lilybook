@@ -4,6 +4,7 @@ export class ProfileService {
 
     private usersRef;
     private userPublicRef;
+    private userVanityRef;
 
     /* @ngInject */
     constructor(
@@ -15,14 +16,19 @@ export class ProfileService {
     ) {
         this.usersRef = firebase.database().ref('/users');
         this.userPublicRef = firebase.database().ref('/user-public');
+        this.userVanityRef = firebase.database().ref('/user-vanity');
     }
 
-    get(uid: string) {
+    get(vanity: string) {
         this.$log.debug('[ProfileService.get]: start', performance.now());
         let result: any = {};
-        return this.$q.all<any>({
-            profile: this.$firebaseObject(this.usersRef.child(uid)).$loaded(),
-            compositions: this.$firebaseObject(this.userPublicRef.child(uid)).$loaded()
+        return this.$firebaseObject(this.userVanityRef.child(vanity)).$loaded().then(response => {
+            this.$log.debug('[ProfileService.get]: userVanityRef loaded', performance.now());
+            let uid = response.$value || vanity;
+            return this.$q.all<any>({
+                profile: this.$firebaseObject(this.usersRef.child(uid)).$loaded(),
+                compositions: this.$firebaseObject(this.userPublicRef.child(uid)).$loaded()
+            })
         }).then(response => {
             this.$log.debug('[ProfileService.get]: usersRef and userPublicRef loaded', performance.now());
             result.profile = response.profile;
@@ -55,6 +61,6 @@ export class ProfileService {
             });
             this.$log.debug('[ProfileService.get]: end', performance.now());
             return result;
-        });
+        });;
     }
 }
