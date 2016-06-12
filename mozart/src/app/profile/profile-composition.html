@@ -1,14 +1,18 @@
-<div layout="row" class="md-padding">
-    <md-button ng-disabled="!$ctrl.prevCompositionId" ui-sref="profile.composition({compositionId:$ctrl.prevCompositionId})" style="padding:0;margin:0;min-width:40px;">
-        <md-icon class="material-icons" style="position:fixed;top:50%;left:20px;">chevron_left</md-icon>
-    </md-button>
-    <div flex>
+<div flex layout="column">
+    <md-content flex>
         <h1 class="md-headline" style="text-align:center;">{{$ctrl.composition.title}}</h1>
         <div ng-repeat="image in $ctrl.composition.sheet.images">
             <img ng-src="{{image}}" style="width:100%;" />
         </div>
-    </div>
-    <md-button ng-disabled="!$ctrl.nextCompositionId" ui-sref="profile.composition({compositionId:$ctrl.nextCompositionId})" style="padding:0;margin:0;min-width:40px;">
-        <md-icon class="material-icons" style="position:fixed;top:50%;right:20px;">chevron_right</md-icon>
-    </md-button>
+    </md-content>
+    <md-toolbar class="md-primary md-hue-3">
+        <div class="md-toolbar-tools">
+            <md-button flex ng-disabled="!$ctrl.prevComposition" ui-sref="profile.composition({compositionId:$ctrl.prevComposition.$id})">
+                <md-icon class="material-icons">chevron_left</md-icon>
+            </md-button>
+            <md-button flex ng-disabled="!$ctrl.nextComposition" ui-sref="profile.composition({compositionId:$ctrl.nextComposition.$id})">
+                <md-icon class="material-icons">chevron_right</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
 </div>
