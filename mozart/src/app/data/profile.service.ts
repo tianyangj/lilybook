@@ -2,7 +2,6 @@ import { CompositionService } from './composition.service';
 
 export class ProfileService {
 
-    private usersRef;
     private userPublicRef;
     private userVanityRef;
 
@@ -14,7 +13,6 @@ export class ProfileService {
         private firebase,
         private compositionService: CompositionService
     ) {
-        this.usersRef = firebase.database().ref('/users');
         this.userPublicRef = firebase.database().ref('/user-public');
         this.userVanityRef = firebase.database().ref('/user-vanity');
     }
@@ -25,30 +23,25 @@ export class ProfileService {
         return this.$firebaseObject(this.userVanityRef.child(vanity)).$loaded().then(response => {
             this.$log.debug('[ProfileService.get]: userVanityRef loaded', performance.now());
             let uid = response.$value || vanity;
-            return this.$q.all<any>({
-                profile: this.$firebaseObject(this.usersRef.child(uid)).$loaded(),
-                compositions: this.$firebaseObject(this.userPublicRef.child(uid)).$loaded()
-            })
+            return this.$firebaseObject(this.userPublicRef.child(uid)).$loaded();
         }).then(response => {
-            this.$log.debug('[ProfileService.get]: usersRef and userPublicRef loaded', performance.now());
+            this.$log.debug('[ProfileService.get]: userPublicRef loaded', performance.now());
             result.profile = response.profile;
             let query: any = {};
-            if (response.compositions) {
-                if (response.compositions.bookmarks) {
-                    Object.keys(response.compositions.bookmarks).forEach((compositionId) => {
-                        query['bookmarks|' + compositionId] = this.compositionService.get(compositionId).$loaded();
-                    });
-                }
-                if (response.compositions.likes) {
-                    Object.keys(response.compositions.likes).forEach((compositionId) => {
-                        query['likes|' + compositionId] = this.compositionService.get(compositionId).$loaded();
-                    });
-                }
-                if (response.compositions.repertoire) {
-                    Object.keys(response.compositions.repertoire).forEach((compositionId) => {
-                        query['repertoire|' + compositionId] = this.compositionService.get(compositionId).$loaded();
-                    });
-                }
+            if (response.bookmarks) {
+                Object.keys(response.bookmarks).forEach((compositionId) => {
+                    query['bookmarks|' + compositionId] = this.compositionService.get(compositionId).$loaded();
+                });
+            }
+            if (response.likes) {
+                Object.keys(response.likes).forEach((compositionId) => {
+                    query['likes|' + compositionId] = this.compositionService.get(compositionId).$loaded();
+                });
+            }
+            if (response.repertoire) {
+                Object.keys(response.repertoire).forEach((compositionId) => {
+                    query['repertoire|' + compositionId] = this.compositionService.get(compositionId).$loaded();
+                });
             }
             this.$log.debug('[ProfileService.get]: compositions query ready', performance.now());
             return this.$q.all<any>(query);
@@ -61,6 +54,6 @@ export class ProfileService {
             });
             this.$log.debug('[ProfileService.get]: end', performance.now());
             return result;
-        });;
+        });
     }
 }
