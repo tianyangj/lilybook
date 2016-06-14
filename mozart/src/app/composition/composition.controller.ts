@@ -16,6 +16,7 @@ export class CompositionController {
         private composerService: ComposerService,
         private definitionService: DefinitionService
     ) {
+        this.composition = composition;
         composerService.get(composition.composerId).then(composer => {
             this.composer = composer;
         });

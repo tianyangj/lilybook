@@ -51,8 +51,8 @@ class BookmarkController {
         private bookmarkService: BookmarkService
     ) {
         this.user = $firebaseAuth().$getAuth();
-        this.bookmark = this.bookmarkService.get(this.user.uid, this.composition.$id);
         if (this.user) {
+            this.bookmark = this.bookmarkService.get(this.user.uid, this.composition.$id);
             this.bookmark.$watch(() => {
                 this.bookmark.$loaded().then(data => {
                     this.bookmarked = data.$value;
