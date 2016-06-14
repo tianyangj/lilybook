@@ -9,8 +9,6 @@ import { HomeController } from './home/home.controller';
 import { HomeBookmarksController } from './home/home-bookmarks.controller';
 import { ComposerController } from './composer/composer.controller';
 import { ComposerListController } from './composer/composer-list.controller';
-import { CompositionController } from './composition/composition.controller';
-import { CompositionSheetController } from './composition/composition-sheet.controller';
 import { AdminCompositionsController } from './admin/admin-compositions.controller';
 import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
@@ -19,6 +17,7 @@ import { acmeMalarkey } from '../app/components/malarkey/malarkey.directive';
 import { registerComponents } from '../app/components/index';
 import { registerDataServices } from '../app/data/index';
 import { registerProfile } from '../app/profile/index';
+import { registerComposition } from '../app/composition/index';
 
 declare var moment: moment.MomentStatic;
 declare var firebase: any;
@@ -45,8 +44,6 @@ module lilybook {
     .controller('HomeBookmarksController', HomeBookmarksController)
     .controller('ComposerController', ComposerController)
     .controller('ComposerListController', ComposerListController)
-    .controller('CompositionController', CompositionController)
-    .controller('CompositionSheetController', CompositionSheetController)
     .controller('AdminCompositionsController', AdminCompositionsController)
     .directive('acmeNavbar', acmeNavbar)
     .directive('acmeMalarkey', acmeMalarkey);
@@ -54,4 +51,5 @@ module lilybook {
   registerComponents();
   registerDataServices();
   registerProfile();
+  registerComposition();
 }
