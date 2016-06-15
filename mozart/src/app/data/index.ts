@@ -3,6 +3,7 @@ import { ComposerService } from './composer.service';
 import { CompositionService } from './composition.service';
 import { DefinitionService } from './definition.service';
 import { ProfileService } from './profile.service';
+import { UserService } from './user.service';
 
 export function registerDataServices() {
     angular.module('lilybook')
@@ -10,6 +11,7 @@ export function registerDataServices() {
         .service('composerService', ComposerService)
         .service('compositionService', CompositionService)
         .service('definitionService', DefinitionService)
-        .service('profileService', ProfileService);
+        .service('profileService', ProfileService)
+        .service('userService', UserService);
 }
 

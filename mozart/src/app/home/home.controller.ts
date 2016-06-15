@@ -5,7 +5,8 @@ export class HomeController {
 
     /* @ngInject */
     constructor(
-        private $state: angular.ui.IStateService
+        private $state: angular.ui.IStateService,
+        public account
     ) {
         switch (this.$state.current.name) {
             case 'home.profile':

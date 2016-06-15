@@ -10,8 +10,8 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider) {
         controller: HomeController,
         controllerAs: '$ctrl',
         resolve: {
-            user: ['$firebaseAuth', $firebaseAuth => {
-                return $firebaseAuth().$requireSignIn();
+            account: ['userService', userService => {
+                return userService.getAccount();
             }]
         }
     });

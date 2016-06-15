@@ -22,29 +22,29 @@
             </md-list-item>
             <md-divider></md-divider>
             <md-subheader ng-if="$ctrl.isAuthenticated">Library</md-subheader>
-            <md-list-item ui-sref="home.likes" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
+            <md-list-item ui-sref="app.home.likes" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">favorite</md-icon>
                 <p>Likes</p>
             </md-list-item>
-            <md-list-item ui-sref="home.bookmarks" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
+            <md-list-item ui-sref="app.home.bookmarks" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">view_list</md-icon>
                 <p>Bookmarks</p>
             </md-list-item>
-            <md-list-item ui-sref="home.repertoire" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
+            <md-list-item ui-sref="app.home.repertoire" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">view_list</md-icon>
                 <p>Repertoire</p>
             </md-list-item>
             <md-divider ng-if="$ctrl.isAuthenticated"></md-divider>
             <md-subheader>Composers</md-subheader>
-            <md-list-item ui-sref="composer({vanity:'chopin'})" ng-click="$ctrl.close()">
+            <md-list-item ui-sref="app.composer({vanity:'chopin'})" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">face</md-icon>
                 <p>Chopin</p>
             </md-list-item>
-            <md-list-item ui-sref="composer({vanity:'beethoven'})" ng-click="$ctrl.close()">
+            <md-list-item ui-sref="app.composer({vanity:'beethoven'})" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">face</md-icon>
                 <p>Beethoven</p>
             </md-list-item>
-            <md-list-item ui-sref="composer({vanity:'mozart'})" ng-click="$ctrl.close()">
+            <md-list-item ui-sref="app.composer({vanity:'mozart'})" ng-click="$ctrl.close()">
                 <md-icon class="material-icons">face</md-icon>
                 <p>Mozart</p>
             </md-list-item>

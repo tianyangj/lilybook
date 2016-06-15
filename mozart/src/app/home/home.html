@@ -1,7 +1,7 @@
 <div flex layout="column" class="home">
     <md-tabs md-center-tabs md-border-bottom md-selected="$ctrl.activeTab">
         <md-tab label="Home" ui-sref="app.home"></md-tab>
-        <md-tab label="Profile" ui-sref="app.profile.book"></md-tab>
+        <md-tab label="Profile" ui-sref="profile.summary({uid:$ctrl.account.username})"></md-tab>
         <md-tab label="Likes" ui-sref="app.home.likes"></md-tab>
         <md-tab label="Bookmarks" ui-sref="app.home.bookmarks"></md-tab>
         <md-tab label="Repertoire" ui-sref="app.home.repertoire"></md-tab>
