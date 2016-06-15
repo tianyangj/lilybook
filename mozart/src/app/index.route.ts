@@ -53,19 +53,5 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     template: 'home.repertoire'
   });
 
-  $stateProvider.state('composer', {
-    url: '/composer/:vanity',
-    templateUrl: 'app/composer/composer.html',
-    controller: 'ComposerController',
-    controllerAs: '$ctrl'
-  });
-
-  $stateProvider.state('composer-list', {
-    url: '/composers',
-    templateUrl: 'app/composer/composer-list.html',
-    controller: 'ComposerListController',
-    controllerAs: '$ctrl'
-  });
-
   $urlRouterProvider.otherwise('/');
 }

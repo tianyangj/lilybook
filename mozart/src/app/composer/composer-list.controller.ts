@@ -15,6 +15,6 @@ export class ComposerListController {
     }
 
     goto(composerId) {
-        this.$state.go('composer', { vanity: composerId });
+        this.$state.go('app.composer', { vanity: composerId });
     }
 }
