@@ -15,7 +15,7 @@ export class HomeBookmarksController {
         this.user = $firebaseAuth().$getAuth();
         this.bookmarkService.getAll(this.user.uid).$loaded().then(bookmarks => {
             bookmarks.forEach(bookmark => {
-                compositionService.get(bookmark.$id).then(composition => {
+                compositionService.get(bookmark.$id).$loaded().then(composition => {
                     this.bookmarks.push({
                         composition: composition
                     });

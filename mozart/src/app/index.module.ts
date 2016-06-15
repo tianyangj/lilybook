@@ -5,8 +5,6 @@ import { routerConfig } from './index.route';
 import { adminRouterConfig } from './admin/admin.route';
 import { runBlock } from './index.run';
 import { LoginController } from './login/login.controller';
-import { HomeController } from './home/home.controller';
-import { HomeBookmarksController } from './home/home-bookmarks.controller';
 import { AdminCompositionsController } from './admin/admin-compositions.controller';
 import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
@@ -17,6 +15,7 @@ import { registerDataServices } from '../app/data/index';
 import { registerProfile } from '../app/profile/index';
 import { registerComposition } from '../app/composition/index';
 import { registerComposer } from '../app/composer/index';
+import { registerHome } from '../app/home/index';
 
 declare var moment: moment.MomentStatic;
 declare var firebase: any;
@@ -39,8 +38,6 @@ module lilybook {
     .service('githubContributor', GithubContributor)
     .service('webDevTec', WebDevTecService)
     .controller('LoginController', LoginController)
-    .controller('HomeController', HomeController)
-    .controller('HomeBookmarksController', HomeBookmarksController)
     .controller('AdminCompositionsController', AdminCompositionsController)
     .directive('acmeNavbar', acmeNavbar)
     .directive('acmeMalarkey', acmeMalarkey);
@@ -50,4 +47,5 @@ module lilybook {
   registerProfile();
   registerComposition();
   registerComposer();
+  registerHome();
 }

@@ -1,0 +1,38 @@
+import { HomeController } from './home.controller';
+import { HomeBookmarksController } from './home-bookmarks.controller';
+
+/** @ngInject */
+export function routerConfig($stateProvider: angular.ui.IStateProvider) {
+
+    $stateProvider.state('app.home', {
+        url: '/home',
+        templateUrl: 'app/home/home.html',
+        controller: HomeController,
+        controllerAs: '$ctrl',
+        resolve: {
+            user: ['$firebaseAuth', $firebaseAuth => {
+                return $firebaseAuth().$requireSignIn();
+            }]
+        }
+    });
+
+    $stateProvider.state('app.home.likes', {
+        url: '/likes',
+        template: 'home.likes'
+    });
+
+    $stateProvider.state('app.home.bookmarks', {
+        url: '/bookmarks',
+        templateUrl: 'app/home/home-bookmarks.html',
+        controller: HomeBookmarksController,
+        controllerAs: '$ctrl',
+        resolve: {
+            user: ['user', user => user]
+        }
+    });
+
+    $stateProvider.state('app.home.repertoire', {
+        url: '/repertoire',
+        template: 'home.repertoire'
+    });
+}

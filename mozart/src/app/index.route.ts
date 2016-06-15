@@ -23,35 +23,5 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
     controllerAs: '$ctrl'
   });
 
-  $stateProvider.state('app.home', {
-    url: '/home',
-    templateUrl: 'app/home/home.html',
-    controller: 'HomeController',
-    controllerAs: '$ctrl',
-    resolve: {
-      user: resolver.requireSignIn
-    }
-  });
-
-  $stateProvider.state('home.likes', {
-    url: '/likes',
-    template: 'home.likes'
-  });
-
-  $stateProvider.state('home.bookmarks', {
-    url: '/bookmarks',
-    templateUrl: 'app/home/home-bookmarks.html',
-    controller: 'HomeBookmarksController',
-    controllerAs: '$ctrl',
-    resolve: {
-      user: resolver.requireSignIn
-    }
-  });
-
-  $stateProvider.state('home.repertoire', {
-    url: '/repertoire',
-    template: 'home.repertoire'
-  });
-
   $urlRouterProvider.otherwise('/');
 }
