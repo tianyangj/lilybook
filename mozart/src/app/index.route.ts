@@ -1,14 +1,9 @@
-import { resolver } from './resolvers';
-
 /** @ngInject */
 export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider) {
 
   $stateProvider.state('app', {
     abstract: true,
-    templateUrl: 'app/layout/app.html',
-    resolve: {
-      user: resolver.waitForSignIn
-    }
+    templateUrl: 'app/layout/app.html'
   });
 
   $stateProvider.state('app.splash', {

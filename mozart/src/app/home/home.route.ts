@@ -27,7 +27,7 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider) {
         controller: HomeBookmarksController,
         controllerAs: '$ctrl',
         resolve: {
-            user: ['user', user => user]
+            user: ['account', account => account]
         }
     });
 
