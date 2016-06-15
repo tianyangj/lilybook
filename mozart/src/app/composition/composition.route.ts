@@ -5,7 +5,7 @@ import { CompositionSheetController } from './composition-sheet.controller';
 /** @ngInject */
 export function routerConfig($stateProvider: angular.ui.IStateProvider) {
 
-    $stateProvider.state('composition', {
+    $stateProvider.state('app.composition', {
         url: '/composition/:id',
         templateUrl: 'app/composition/composition.html',
         controller: CompositionController,
@@ -15,20 +15,20 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider) {
         }
     });
 
-    $stateProvider.state('composition.sheet', {
+    $stateProvider.state('app.composition.sheet', {
         url: '/sheetmusic',
         templateUrl: 'app/composition/composition-sheet-a.html',
         controller: CompositionSheetController,
         controllerAs: '$ctrl'
     });
 
-    $stateProvider.state('composition.videos', {
+    $stateProvider.state('app.composition.videos', {
         url: '/videos',
         template: '<div>videos</div>'
     });
 
-    $stateProvider.state('composition.qa', {
-        url: '/qa',
+    $stateProvider.state('app.composition.discuss', {
+        url: '/discuss',
         template: '<div>questions and answers</div>'
     });
 }

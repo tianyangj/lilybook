@@ -2,10 +2,10 @@
     <lb-video-hero hero="$ctrl.composition.hero"></lb-video-hero>
     <div flex layout="column">
         <md-tabs md-center-tabs md-border-bottom>
-            <md-tab label="Details" ui-sref="composition"></md-tab>
-            <md-tab label="Sheet Musics" ui-sref="composition.sheet" ng-disabled="!$ctrl.composition.sheet"></md-tab>
-            <md-tab label="Videos" ui-sref="composition.videos"></md-tab>
-            <md-tab label="Discussions" ui-sref="composition.qa"></md-tab>
+            <md-tab label="Details" ui-sref="app.composition"></md-tab>
+            <md-tab label="Sheet Musics" ui-sref="app.composition.sheet" ng-disabled="!$ctrl.composition.sheet"></md-tab>
+            <md-tab label="Videos" ui-sref="app.composition.videos"></md-tab>
+            <md-tab label="Discussions" ui-sref="app.composition.discuss"></md-tab>
         </md-tabs>
         <div flex layout="column" ui-view>
             <div class="md-padding">
