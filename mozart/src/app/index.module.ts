@@ -6,10 +6,6 @@ import { adminRouterConfig } from './admin/admin.route';
 import { runBlock } from './index.run';
 import { LoginController } from './login/login.controller';
 import { AdminCompositionsController } from './admin/admin-compositions.controller';
-import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
-import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
-import { acmeNavbar } from '../app/components/navbar/navbar.directive';
-import { acmeMalarkey } from '../app/components/malarkey/malarkey.directive';
 import { registerComponents } from '../app/components/index';
 import { registerDataServices } from '../app/data/index';
 import { registerProfile } from '../app/profile/index';
@@ -35,12 +31,8 @@ module lilybook {
     .config(routerConfig)
     .config(adminRouterConfig)
     .run(runBlock)
-    .service('githubContributor', GithubContributor)
-    .service('webDevTec', WebDevTecService)
     .controller('LoginController', LoginController)
-    .controller('AdminCompositionsController', AdminCompositionsController)
-    .directive('acmeNavbar', acmeNavbar)
-    .directive('acmeMalarkey', acmeMalarkey);
+    .controller('AdminCompositionsController', AdminCompositionsController);
 
   registerComponents();
   registerDataServices();
