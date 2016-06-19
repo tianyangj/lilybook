@@ -1,5 +1,5 @@
 /** @ngInject */
-export function config($logProvider: angular.ILogProvider) {
+export function appConfig($logProvider: angular.ILogProvider) {
   // enable log
   $logProvider.debugEnabled(true);
 }
