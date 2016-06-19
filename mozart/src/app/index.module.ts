@@ -2,10 +2,9 @@
 
 import { config } from './index.config';
 import { routerConfig } from './index.route';
-import { adminRouterConfig } from './admin/admin.route';
 import { runBlock } from './index.run';
 import { LoginController } from './login/login.controller';
-import { AdminCompositionsController } from './admin/admin-compositions.controller';
+import { registerAdmin } from '../app/admin/index';
 import { registerComponents } from '../app/components/index';
 import { registerDataServices } from '../app/data/index';
 import { registerProfile } from '../app/profile/index';
@@ -29,11 +28,10 @@ module lilybook {
     .constant('firebase', firebase)
     .config(config)
     .config(routerConfig)
-    .config(adminRouterConfig)
     .run(runBlock)
-    .controller('LoginController', LoginController)
-    .controller('AdminCompositionsController', AdminCompositionsController);
+    .controller('LoginController', LoginController);
 
+  registerAdmin();
   registerComponents();
   registerDataServices();
   registerProfile();
