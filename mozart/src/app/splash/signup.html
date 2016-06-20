@@ -1,0 +1,25 @@
+<div flex layout="column" layout-align="center center" class="signup-container">
+    <h1 class="md-display-1">Sign Up</h1>
+    <form layout="column" md-whiteframe="2">
+        <div layout="row">
+            <md-input-container flex>
+                <label>First Name</label>
+                <input type="text" name="firstname" ng-model="$ctrl.firstname" required>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Last Name</label>
+                <input type="text" name="lastname" ng-model="$ctrl.lastname" required>
+            </md-input-container>
+        </div>
+        <md-input-container>
+            <label>Email</label>
+            <input type="email" name="email" ng-model="$ctrl.email" required>
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" name="password" ng-model="$ctrl.password" required>
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="$ctrl.signUp()">Sign Up</md-button>
+    </form>
+    <a class="login" ui-sref="app.login">Already have an account?</a>
+</div>
