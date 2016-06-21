@@ -1,24 +1,25 @@
-<div flex layout="column" layout-align="center center" class="login-container">
-    <h1 class="md-display-1">Login</h1>
-    <form layout="column" name="loginForm" ng-submit="$ctrl.login()" md-whiteframe="2" novalidate>
-        <md-input-container>
-            <label>Email</label>
-            <input type="email" name="email" ng-model="$ctrl.email" ng-pattern="/^.+@.+\..+$/" required>
-            <div ng-messages="loginForm.email.$error">
-                <p ng-message-exp="['required','pattern']">This field must be an valid email address.</p>
-            </div>
-        </md-input-container>
-        <md-input-container>
-            <label>Password</label>
-            <input type="password" name="password" ng-model="$ctrl.password" required>
-            <div ng-messages="loginForm.password.$error">
-                <p ng-message="required">This field is required.</p>
-            </div>
-        </md-input-container>
-        <div ng-if="$ctrl.error">
-            <p class="md-body-2">{{$ctrl.error.message}}</p>
+<div flex layout="column" layout-align="center center">
+    <div class="login-container">
+        <h1 class="md-display-1">Login</h1>
+        <form layout="column" name="loginForm" ng-submit="$ctrl.login()" md-whiteframe="2" novalidate>
+            <md-input-container>
+                <label>Email</label>
+                <input type="email" name="email" ng-model="$ctrl.email" ng-pattern="/^.+@.+\..+$/" required>
+                <div ng-messages="loginForm.email.$error">
+                    <p ng-message-exp="['required','pattern']">This field must be an valid email address.</p>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="password" name="password" ng-model="$ctrl.password" required>
+                <div ng-messages="loginForm.password.$error">
+                    <p ng-message="required">This field is required.</p>
+                </div>
+            </md-input-container>
+            <md-button type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid">Login</md-button>
+        </form>
+        <div>
+            <a ui-sref="app.splash">Forgot password?</a>
         </div>
-        <md-button type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid">Login</md-button>
-    </form>
-    <a class="password" ui-sref="app.splash">Forgot password?</a>
+    </div>
 </div>

@@ -2,24 +2,32 @@ export class LoginController {
 
     email: string;
     password: string;
-    error: any;
+    firebaseAuth;
 
     /* @ngInject */
     constructor(
         private $state: angular.ui.IStateService,
         private $stateParams: any,
-        private firebase: any
-    ) { }
+        private $firebaseAuth,
+        private $mdToast
+    ) {
+        this.firebaseAuth = $firebaseAuth();
+    }
 
     login() {
-        this.firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
+        this.firebaseAuth.$signInWithEmailAndPassword(this.email, this.password).then(user => {
             if (this.$stateParams.next) {
                 this.$state.go(this.$stateParams.next.name);
             } else {
                 this.$state.go('app.home');
             }
         }).catch(error => {
-            this.error = error;
+            this.$mdToast.show(
+                this.$mdToast.simple()
+                    .textContent(error.message)
+                    .position('top right')
+                    .hideDelay(3000)
+            );
         });
     }
 }
