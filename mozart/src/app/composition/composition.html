@@ -28,6 +28,8 @@
                 </div>
                 <div class="md-padding" layout="row">
                     <lb-badge-key key="$ctrl.key"></lb-badge-key>
+                    <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
+                    <lb-badge-henle henle="$ctrl.henle"></lb-badge-henle>
                 </div>
                 <div class="md-padding">
                     <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.form">
@@ -42,23 +44,9 @@
                         <strong flex="33" class="md-subhead">Work Number</strong>
                         <div flex>{{$ctrl.composition.number}}</div>
                     </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.key">
-                        <strong flex="33" class="md-subhead">Key</strong>
-                        <div flex>
-                            <img ng-src="{{$ctrl.key.image}}" style="width:60px;"> ({{$ctrl.key.name}})
-                        </div>
-                    </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.rcm">
-                        <strong flex="33" class="md-subhead">RCM</strong>
-                        <div flex>{{$ctrl.rcm.name}}</div>
-                    </div>
                     <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.abrsm">
                         <strong flex="33" class="md-subhead">ABRSM</strong>
                         <div flex>{{$ctrl.abrsm.name}}</div>
-                    </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.henle">
-                        <strong flex="33" class="md-subhead">Henle</strong>
-                        <div flex>{{$ctrl.henle.name}}</div>
                     </div>
                 </div>
             </div>
