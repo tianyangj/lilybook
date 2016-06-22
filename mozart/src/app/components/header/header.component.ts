@@ -1,3 +1,5 @@
+import { LoginModal } from '../../modals/login.service';
+
 /** @ngInject */
 export class HeaderComponentController {
 
@@ -6,7 +8,8 @@ export class HeaderComponentController {
     constructor(
         private $state: angular.ui.IStateService,
         private $mdSidenav: angular.material.ISidenavService,
-        private firebase: any
+        private firebase: any,
+        private loginModal: LoginModal
     ) {
         firebase.auth().onAuthStateChanged(user => {
             this.isAuthenticated = !!user;
@@ -15,6 +18,12 @@ export class HeaderComponentController {
 
     toggleSidenav(sidenavId: string) {
         this.$mdSidenav(sidenavId).toggle();
+    }
+
+    login(ev) {
+        this.loginModal.show(ev).then(() => {
+            this.$state.reload();
+        });
     }
 
     logout() {

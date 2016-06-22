@@ -10,7 +10,7 @@
     </md-button>
     <md-menu ng-if="$ctrl.isAuthenticated">
         <md-button class="md-icon-button " ng-click="$mdOpenMenu($event)">
-            <md-icon class="material-icons">account_circle</md-icon>
+            <md-icon class="material-icons">person</md-icon>
         </md-button>
         <md-menu-content width="3">
             <md-menu-item>
@@ -26,5 +26,8 @@
             </md-menu-item>
         </md-menu-content>
     </md-menu>
-    <md-button class="md-raised md-primary md-hue-3" ui-sref="app.login" ng-if="!$ctrl.isAuthenticated">Login</md-button>
+    <md-button class="md-icon-button" ng-if="!$ctrl.isAuthenticated" ng-click="$ctrl.login($event)">
+        <md-tooltip md-direction="bottom">Login</md-tooltip>
+        <md-icon class="material-icons">person_outline</md-icon>
+    </md-button>
 </md-toolbar>
