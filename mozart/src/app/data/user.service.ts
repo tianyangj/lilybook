@@ -16,4 +16,13 @@ export class UserService {
             return this.$firebaseObject(this.usersRef.child(user.uid));
         });
     }
+
+    createAccount(account) {
+        return this.$firebaseAuth().$createUserWithEmailAndPassword(account.email, account.password).then(user => {
+            var userObject = this.$firebaseObject(this.usersRef.child(user.uid));
+            userObject.firstname = account.firstname;
+            userObject.lastname = account.lastname;
+            return userObject.$save();
+        });
+    }
 }

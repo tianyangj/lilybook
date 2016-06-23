@@ -1,7 +1,11 @@
-import { SignupModal } from './signup.service';
+import { LoginModal } from './login.service';
+import { UserService } from '../data/user.service';
 
-class LoginController {
 
+class SignupController {
+
+    firstname: string;
+    lastname: string;
     email: string;
     password: string;
 
@@ -11,11 +15,17 @@ class LoginController {
         private $mdToast,
         private $firebaseAuth,
         private $state: angular.ui.IStateService,
-        private signupModal: SignupModal
+        private loginModal: LoginModal,
+        private userService: UserService
     ) { }
 
-    login() {
-        this.$firebaseAuth().$signInWithEmailAndPassword(this.email, this.password).then(user => {
+    signup() {
+        this.userService.createAccount({
+            firstname: this.firstname,
+            lastname: this.lastname,
+            email: this.email,
+            password: this.password
+        }).then(user => {
             this.$mdDialog.hide(user);
             this.$state.go('app.home');
         }).catch(error => {
@@ -28,8 +38,8 @@ class LoginController {
         });
     }
 
-    signup(ev) {
-        this.signupModal.show(ev);
+    login(ev) {
+        this.loginModal.show(ev);
     }
 
     cancel() {
@@ -37,7 +47,7 @@ class LoginController {
     }
 }
 
-export class LoginModal {
+export class SignupModal {
 
     /* @ngInject */
     constructor(
@@ -46,11 +56,10 @@ export class LoginModal {
 
     show(ev) {
         return this.$mdDialog.show({
-            controller: LoginController,
+            controller: SignupController,
             controllerAs: '$ctrl',
-            templateUrl: 'app/modals/login.html',
-            targetEvent: ev,
-            clickOutsideToClose: true
+            templateUrl: 'app/modals/signup.html',
+            targetEvent: ev
         });
     }
 
