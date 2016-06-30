@@ -2,6 +2,7 @@
 
 import { AppComponent } from './app.component';
 import { CommonModule } from '../common';
+import { ComponentsModule } from '../components';
 import { runBlock } from './app.run';
 
 angular
@@ -10,7 +11,8 @@ angular
         'ngAnimate',
         'ngMaterial',
         'ui.router',
-        CommonModule
+        CommonModule,
+        ComponentsModule
     ])
     .run(runBlock)
     .component('lbApp', AppComponent);

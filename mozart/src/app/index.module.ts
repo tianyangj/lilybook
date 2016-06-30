@@ -2,15 +2,13 @@
 
 import { appConfig } from './index.config';
 import { routerConfig } from './index.route';
-import { runBlock } from './index.run';
 
 import { registerAdmin } from '../app/admin/index';
-import { registerComponents } from '../app/components/index';
+import { registerComponents } from '../app/components_old/index';
 import { registerComposer } from '../app/composer/index';
 import { registerComposition } from '../app/composition/index';
 import { registerDataServices } from '../app/data/index';
 import { registerHome } from '../app/home/index';
-import { registerModals } from '../app/modals/index';
 import { registerProfile } from '../app/profile/index';
 import { registerSplash } from '../app/splash/index';
 
@@ -28,8 +26,7 @@ module lilybook {
   ]).constant('moment', moment)
     .constant('firebase', firebase)
     .config(appConfig)
-    .config(routerConfig)
-    .run(runBlock);
+    .config(routerConfig);
 
   registerAdmin();
   registerComponents();
@@ -37,7 +34,6 @@ module lilybook {
   registerComposition();
   registerDataServices();
   registerHome();
-  registerModals();
   registerProfile();
   registerSplash();
 

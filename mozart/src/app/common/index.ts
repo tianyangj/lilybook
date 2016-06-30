@@ -5,7 +5,7 @@ import { LoginModalService } from './modals/login.service';
 import { SignupModalService } from './modals/signup.service';
 
 export const CommonModule = angular
-    .module('app.common', [])
+    .module('lilybook.common', [])
     .component('lbHeader', HeaderComponent)
     .component('lbSidenav', SidenavComponent)
     .service('userDataService', UserDataService)
