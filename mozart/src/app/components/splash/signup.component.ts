@@ -1,4 +1,4 @@
-export class SignupController {
+class SignupComponentViewController {
 
     email: string;
     password: string;
@@ -7,12 +7,11 @@ export class SignupController {
     /* @ngInject */
     constructor(
         private $state: angular.ui.IStateService,
-        private $stateParams: any,
-        private firebase: any
+        private $stateParams: any
     ) { }
 
     login() {
-        this.firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
             if (this.$stateParams.next) {
                 this.$state.go(this.$stateParams.next.name);
             } else {
@@ -23,3 +22,8 @@ export class SignupController {
         });
     }
 }
+
+export const SignupComponentView = {
+    templateUrl: 'app/components/splash/signup.html',
+    controller: SignupComponentViewController
+};

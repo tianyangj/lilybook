@@ -1,4 +1,4 @@
-export class LoginController {
+class LoginComponentViewController {
 
     email: string;
     password: string;
@@ -31,3 +31,8 @@ export class LoginController {
         });
     }
 }
+
+export const LoginComponentView = {
+    templateUrl: 'app/components/splash/login.html',
+    controller: LoginComponentViewController
+};
