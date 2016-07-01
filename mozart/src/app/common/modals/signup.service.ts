@@ -58,7 +58,7 @@ export class SignupModalService {
         return this.$mdDialog.show({
             controller: SignupModalController,
             controllerAs: '$ctrl',
-            templateUrl: 'app/modals/signup.html',
+            templateUrl: 'app/common/modals/signup.html',
             targetEvent: ev
         });
     }
