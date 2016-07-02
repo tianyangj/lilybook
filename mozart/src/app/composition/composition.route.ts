@@ -1,4 +1,4 @@
-import { CompositionService } from '../data/composition.service';
+import { CompositionDataService } from '../common/data/composition.service';
 import { CompositionController } from './composition.controller';
 import { CompositionSheetController } from './composition-sheet.controller';
 
@@ -11,7 +11,7 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider) {
         controller: CompositionController,
         controllerAs: '$ctrl',
         resolve: {
-            composition: ['$stateParams', 'compositionService', ($stateParams, compositionService: CompositionService) => {
+            composition: ['$stateParams', 'compositionService', ($stateParams, compositionService: CompositionDataService) => {
                 return compositionService.get($stateParams.id).$loaded();
             }]
         }

@@ -34,7 +34,7 @@
     }
 })();*/
 
-import { BookmarkService } from '../../data/bookmark.service';
+import { BookmarkDataService } from '../../common/data/bookmark.service';
 
 class BookmarkController {
 
@@ -48,7 +48,7 @@ class BookmarkController {
     constructor(
         private firebase: any,
         private $firebaseAuth,
-        private bookmarkService: BookmarkService
+        private bookmarkService: BookmarkDataService
     ) {
         this.user = $firebaseAuth().$getAuth();
         if (this.user) {

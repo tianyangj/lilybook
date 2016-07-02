@@ -1,4 +1,4 @@
-import { CompositionService } from './composition.service';
+import { CompositionDataService } from '../common/data/composition.service';
 
 export class ProfileService {
 
@@ -11,7 +11,7 @@ export class ProfileService {
         private $log: angular.ILogService,
         private $firebaseObject,
         private firebase,
-        private compositionService: CompositionService
+        private compositionService: CompositionDataService
     ) {
         this.userPublicRef = firebase.database().ref('/user-public');
         this.userVanityRef = firebase.database().ref('/user-vanity');
