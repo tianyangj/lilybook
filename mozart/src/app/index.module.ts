@@ -5,7 +5,6 @@ import { routerConfig } from './index.route';
 
 import { registerAdmin } from '../app/admin/index';
 import { registerComponents } from '../app/components_old/index';
-import { registerComposer } from '../app/composer/index';
 import { registerComposition } from '../app/composition/index';
 import { registerDataServices } from '../app/data/index';
 import { registerHome } from '../app/home/index';
@@ -30,7 +29,6 @@ module lilybook {
 
   registerAdmin();
   registerComponents();
-  registerComposer();
   registerComposition();
   registerDataServices();
   registerHome();

@@ -1,4 +1,4 @@
-import { ComposerService } from '../data/composer.service';
+import { ComposerDataService } from '../common/data/composer.service';
 import { DefinitionService } from '../data/definition.service';
 
 export class CompositionController {
@@ -13,7 +13,7 @@ export class CompositionController {
     /* @ngInject */
     constructor(
         private composition: any,
-        private composerService: ComposerService,
+        private composerService: ComposerDataService,
         private definitionService: DefinitionService
     ) {
         this.composition = composition;
