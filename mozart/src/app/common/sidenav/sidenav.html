@@ -20,6 +20,10 @@
                 <md-icon class="material-icons">filter_list</md-icon>
                 <p>Browse</p>
             </md-list-item>
+            <md-list-item ui-sref="composers" ng-click="$ctrl.close()">
+                <md-icon class="material-icons">people</md-icon>
+                <p>Composers</p>
+            </md-list-item>
             <md-divider></md-divider>
             <md-subheader ng-if="$ctrl.isAuthenticated">Library</md-subheader>
             <md-list-item ui-sref="app.home.likes" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
