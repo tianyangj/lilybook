@@ -4,9 +4,9 @@ import { SplashComponentView } from './splash.component';
 
 export const SplashModule = angular
     .module('lilybook.splash', [])
-    .component('gfLoginView', LoginComponentView)
-    .component('gfSignupView', SignupComponentView)
-    .component('gfSplashView', SplashComponentView)
+    .component('lbLoginView', LoginComponentView)
+    .component('lbSignupView', SignupComponentView)
+    .component('lbSplashView', SplashComponentView)
     .config(($stateProvider) => {
         $stateProvider
             .state('splash', {
@@ -16,12 +16,12 @@ export const SplashModule = angular
         $stateProvider
             .state('login', {
                 url: '/login',
-                component: 'gfLoginView'
+                component: 'lbLoginView'
             });
         $stateProvider
             .state('signup', {
                 url: '/signup',
-                component: 'gfSignupView'
+                component: 'lbSignupView'
             });
     })
     .name;
