@@ -2,12 +2,12 @@ import { SplashComponentView } from './splash.component';
 
 export const SplashModule = angular
     .module('lilybook.splash', [])
-    .component('gfSplashView', SplashComponentView)
+    .component('lbSplashView', SplashComponentView)
     .config(($stateProvider) => {
         $stateProvider
             .state('splash', {
                 url: '/',
-                component: 'gfSplashView'
+                component: 'lbSplashView'
             });
     })
     .name;
