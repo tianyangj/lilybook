@@ -1,0 +1,27 @@
+<div flex class="md-padding">
+    <h2 class="md-headline">My Bookmarks</h2>
+    <p ng-if="!$ctrl.bookmarks.length">You haven't added any composition to your bookmark.</p>
+    <div layout="row" ng-repeat="bookmark in $ctrl.bookmarks" md-whiteframe="2" style="margin:16px 0;padding:8px;">
+        <div style="max-width:150px;margin-right:16px;">
+            <img src="/assets/images/thumb-czerny.jpg" style="width:100%;" />
+        </div>
+        <div flex>
+            <h3 class="md-title">
+                <a ui-sref="composition({id:bookmark.composition.$id})">{{bookmark.composition.title}}</a>
+            </h3>
+            <p class="md-subhead">
+                By <span>{{bookmark.composer.fullname}}</span>
+            </p>
+            <p>Date added {{bookmark.createdAt | date}}</p>
+            <md-slider-container>
+                <span>{{(bookmark.measure||0)*100/(bookmark.composition.sheet.measures||100)|number:0}}%</span>
+                <md-slider md-discrete flex min="0" max="{{bookmark.composition.sheet.measures || 100}}" ng-model="bookmark.measure" aria-label="progress">
+                </md-slider>
+                <md-input-container>
+                    <input flex type="number" min="0" max="{{bookmark.composition.sheet.measures || 100}}" ng-model="bookmark.measure" aria-label="progress"
+                        aria-controls="red-slider">
+                </md-input-container>
+            </md-slider-container>
+        </div>
+    </div>
+</div>

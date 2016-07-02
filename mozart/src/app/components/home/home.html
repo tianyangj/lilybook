@@ -1,0 +1,47 @@
+<div flex layout="column" class="home">
+    <md-tabs md-center-tabs md-border-bottom md-selected="$ctrl.activeTab">
+        <md-tab label="Home" ui-sref="home"></md-tab>
+        <md-tab label="Profile" ui-sref="profile.summary({uid:$ctrl.account.username})"></md-tab>
+        <md-tab label="Likes" ui-sref="home.likes"></md-tab>
+        <md-tab label="Bookmarks" ui-sref="home.bookmarks"></md-tab>
+        <md-tab label="Repertoire" ui-sref="home.repertoire"></md-tab>
+    </md-tabs>
+    <md-content flex ui-view>
+        <section>
+            <md-subheader class="md-primary">Recommended</md-subheader>
+            <div layout="row" layout-wrap class="md-padding">
+                <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
+                    <md-card>
+                        <a ui-sref="composition({id:recommendation.id})">
+                            <img src="/assets/images/thumb-czerny.jpg" class="md-card-image" title={{recommendation.title}}>
+                        </a>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-icon-button">
+                                <md-icon class="material-icons">play_arrow</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button">
+                                <md-icon class="material-icons">more_vert</md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </section>
+        <section>
+            <md-subheader class="md-primary">Chopin</md-subheader>
+            <div layout="row" layout-wrap class="md-padding">
+                <a flex="20" ng-repeat="recommendation in $ctrl.recommendations" ui-sref="composition({id:recommendation.id})">
+                    <md-card>
+                        <img src="/assets/images/thumb-chopin.jpg" class="md-card-image">
+                    </md-card>
+                </a>
+            </div>
+        </section>
+        <div>Recommended (10), 2 rows, 5 compositions in each row</div>
+        <div>Featured composer 1</div>
+        <div>Featured composer 2</div>
+        <div>Continue listening/studying</div>
+        <div>Random followed composer 1</div>
+        <div>Random followed composer 2</div>
+    </md-content>
+</div>
