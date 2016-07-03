@@ -1,4 +1,4 @@
-import { ResolverService } from '../data/resolver.service';
+import { ResolverService } from '../common/resolvers/resolver.service';
 
 /** @ngInject */
 export function routerConfig($stateProvider: angular.ui.IStateProvider) {

@@ -1,6 +1,6 @@
-import { CompositionDataService } from '../common/data/composition.service';
+import { CompositionDataService } from './composition.service';
 
-export class ProfileService {
+export class ProfileDataService {
 
     private userPublicRef;
     private userVanityRef;
@@ -10,8 +10,7 @@ export class ProfileService {
         private $q: angular.IQService,
         private $log: angular.ILogService,
         private $firebaseObject,
-        private firebase,
-        private compositionService: CompositionDataService
+        private compositionDataService: CompositionDataService
     ) {
         this.userPublicRef = firebase.database().ref('/user-public');
         this.userVanityRef = firebase.database().ref('/user-vanity');
@@ -30,17 +29,17 @@ export class ProfileService {
             let query: any = {};
             if (response.bookmarks) {
                 Object.keys(response.bookmarks).forEach((compositionId) => {
-                    query['bookmarks|' + compositionId] = this.compositionService.get(compositionId).$loaded();
+                    query['bookmarks|' + compositionId] = this.compositionDataService.get(compositionId).$loaded();
                 });
             }
             if (response.likes) {
                 Object.keys(response.likes).forEach((compositionId) => {
-                    query['likes|' + compositionId] = this.compositionService.get(compositionId).$loaded();
+                    query['likes|' + compositionId] = this.compositionDataService.get(compositionId).$loaded();
                 });
             }
             if (response.repertoire) {
                 Object.keys(response.repertoire).forEach((compositionId) => {
-                    query['repertoire|' + compositionId] = this.compositionService.get(compositionId).$loaded();
+                    query['repertoire|' + compositionId] = this.compositionDataService.get(compositionId).$loaded();
                 });
             }
             this.$log.debug('[ProfileService.get]: compositions query ready', performance.now());

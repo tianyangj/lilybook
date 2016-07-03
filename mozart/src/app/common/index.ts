@@ -10,9 +10,11 @@ import { BookmarkDataService } from './data/bookmark.service';
 import { ComposerDataService } from './data/composer.service';
 import { CompositionDataService } from './data/composition.service';
 import { DefinitionDataService } from './data/definition.service';
+import { ProfileDataService } from './data/profile.service';
 import { UserDataService } from './data/user.service';
 import { LoginModalService } from './modals/login.service';
 import { SignupModalService } from './modals/signup.service';
+import { ResolverService } from './resolvers/resolver.service';
 
 export const CommonModule = angular
     .module('lilybook.common', [])
@@ -27,7 +29,9 @@ export const CommonModule = angular
     .service('composerDataService', ComposerDataService)
     .service('compositionDataService', CompositionDataService)
     .service('definitionDataService', DefinitionDataService)
+    .service('profileDataService', ProfileDataService)
     .service('userDataService', UserDataService)
     .service('loginModalService', LoginModalService)
     .service('signupModalService', SignupModalService)
+    .service('resolverService', ResolverService)
     .name;

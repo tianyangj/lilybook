@@ -5,7 +5,6 @@ import { routerConfig } from './index.route';
 
 import { registerAdmin } from '../app/admin/index';
 import { registerComponents } from '../app/components_old/index';
-import { registerDataServices } from '../app/data/index';
 import { registerProfile } from '../app/profile/index';
 import { registerSplash } from '../app/splash/index';
 
@@ -27,7 +26,6 @@ module lilybook {
 
   registerAdmin();
   registerComponents();
-  registerDataServices();
   registerProfile();
   registerSplash();
 
