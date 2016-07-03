@@ -1,4 +1,4 @@
-export class DefinitionService {
+export class DefinitionDataService {
 
     private abrsmRef;
     private formRef;
@@ -10,8 +10,7 @@ export class DefinitionService {
     constructor(
         private $q: angular.IQService,
         private $firebaseObject,
-        private $firebaseArray,
-        private firebase
+        private $firebaseArray
     ) {
         this.abrsmRef = firebase.database().ref('/abrsm');
         this.formRef = firebase.database().ref('/form');

@@ -2,10 +2,10 @@
     <lb-video-hero hero="$ctrl.composition.hero"></lb-video-hero>
     <div flex layout="column">
         <md-tabs md-center-tabs md-border-bottom>
-            <md-tab label="Details" ui-sref="app.composition"></md-tab>
-            <md-tab label="Sheet Musics" ui-sref="app.composition.sheet" ng-disabled="!$ctrl.composition.sheet"></md-tab>
-            <md-tab label="Videos" ui-sref="app.composition.videos"></md-tab>
-            <md-tab label="Discussions" ui-sref="app.composition.discuss"></md-tab>
+            <md-tab label="Details" ui-sref="composition"></md-tab>
+            <md-tab label="Sheet Musics" ui-sref="composition.sheet" ng-disabled="!$ctrl.composition.sheet"></md-tab>
+            <md-tab label="Videos" ui-sref="composition.videos"></md-tab>
+            <md-tab label="Discussions" ui-sref="composition.discuss"></md-tab>
         </md-tabs>
         <div flex layout="column" ui-view>
             <div class="md-padding">
@@ -16,7 +16,7 @@
                     <div flex layout="column" class="title-wrapper">
                         <div flex>
                             <h1 class="md-headline">{{$ctrl.composition.title}}</h1>
-                            <h3 class="md-title"><a flex ui-sref="app.composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a></h3>
+                            <h3 class="md-title"><a flex ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a></h3>
                             <p class="md-body-1">{{$ctrl.composition.description}}</p>
                         </div>
                         <div layout="row">

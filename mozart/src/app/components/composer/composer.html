@@ -15,7 +15,7 @@
                 <md-list-item class="md-2-line" ng-repeat="composition in $ctrl.additions">
                     <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_outline</md-icon>
                     <div class="md-list-item-text">
-                        <a ui-sref="app.composition({id:composition.$id})">{{composition.title}}</a>
+                        <a ui-sref="composition({id:composition.$id})">{{composition.title}}</a>
                         <p>{{composition.form}}</p>
                     </div>
                 </md-list-item>
@@ -31,7 +31,7 @@
                 <md-list-item class="md-2-line" ng-repeat="composition in $ctrl.populars">
                     <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_outline</md-icon>
                     <div class="md-list-item-text">
-                        <a ui-sref="app.composition({id:composition.$id})">{{composition.title}}</a>
+                        <a ui-sref="composition({id:composition.$id})">{{composition.title}}</a>
                         <p>{{composition.form}}</p>
                     </div>
                 </md-list-item>

@@ -3,6 +3,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { BookmarkDataService } from './data/bookmark.service';
 import { ComposerDataService } from './data/composer.service';
 import { CompositionDataService } from './data/composition.service';
+import { DefinitionDataService } from './data/definition.service';
 import { UserDataService } from './data/user.service';
 import { LoginModalService } from './modals/login.service';
 import { SignupModalService } from './modals/signup.service';
@@ -14,6 +15,7 @@ export const CommonModule = angular
     .service('bookmarkDataService', BookmarkDataService)
     .service('composerDataService', ComposerDataService)
     .service('compositionDataService', CompositionDataService)
+    .service('definitionDataService', DefinitionDataService)
     .service('userDataService', UserDataService)
     .service('loginModalService', LoginModalService)
     .service('signupModalService', SignupModalService)
