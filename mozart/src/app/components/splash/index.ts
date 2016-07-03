@@ -1,6 +1,7 @@
 import { LoginComponentView } from './login.component';
 import { SignupComponentView } from './signup.component';
 import { SplashComponentView } from './splash.component';
+import { ResolverService } from '../../common/resolvers/resolver.service';
 
 export const SplashModule = angular
     .module('lilybook.splash', [])
@@ -11,7 +12,10 @@ export const SplashModule = angular
         $stateProvider
             .state('splash', {
                 url: '/',
-                component: 'lbSplashView'
+                component: 'lbSplashView',
+                resolve: {
+                    redirect: (resolverService: ResolverService) => resolverService.redirectIfSignIn()
+                }
             });
         $stateProvider
             .state('login', {

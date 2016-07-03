@@ -5,7 +5,6 @@ import { routerConfig } from './index.route';
 
 import { registerComponents } from '../app/components_old/index';
 import { registerProfile } from '../app/profile/index';
-import { registerSplash } from '../app/splash/index';
 
 declare var moment: moment.MomentStatic;
 declare var firebase: any;
@@ -25,6 +24,5 @@ module lilybook {
 
   registerComponents();
   registerProfile();
-  registerSplash();
 
 }
