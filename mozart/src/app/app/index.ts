@@ -3,6 +3,7 @@
 import { AppComponent } from './app.component';
 import { CommonModule } from '../common';
 import { ComponentsModule } from '../components';
+import { appConfig } from './app.config';
 import { runBlock } from './app.run';
 
 angular
@@ -14,5 +15,6 @@ angular
         CommonModule,
         ComponentsModule
     ])
+    .config(appConfig)
     .run(runBlock)
     .component('lbApp', AppComponent);
