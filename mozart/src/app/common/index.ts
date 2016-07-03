@@ -1,6 +1,7 @@
 import { BadgeHenleComponent } from './badges/henle.component';
 import { BadgeKeyComponent } from './badges/key.component';
 import { BadgeRcmComponent } from './badges/rcm.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { BookmarkDataService } from './data/bookmark.service';
@@ -16,6 +17,7 @@ export const CommonModule = angular
     .component('lbBadgeHenle', BadgeHenleComponent)
     .component('lbBadgeKey', BadgeKeyComponent)
     .component('lbBadgeRcm', BadgeRcmComponent)
+    .component('lbBookmark', BookmarkComponent)
     .component('lbHeader', HeaderComponent)
     .component('lbSidenav', SidenavComponent)
     .service('bookmarkDataService', BookmarkDataService)

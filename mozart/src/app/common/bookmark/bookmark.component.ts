@@ -34,9 +34,9 @@
     }
 })();*/
 
-import { BookmarkDataService } from '../../common/data/bookmark.service';
+import { BookmarkDataService } from '../data/bookmark.service';
 
-class BookmarkController {
+class BookmarkComponentController {
 
     user: any;
     bookmark: any;
@@ -46,13 +46,12 @@ class BookmarkController {
 
     /** @ngInject */
     constructor(
-        private firebase: any,
         private $firebaseAuth,
-        private bookmarkService: BookmarkDataService
+        private bookmarkDataService: BookmarkDataService
     ) {
         this.user = $firebaseAuth().$getAuth();
         if (this.user) {
-            this.bookmark = this.bookmarkService.get(this.user.uid, this.composition.$id);
+            this.bookmark = this.bookmarkDataService.get(this.user.uid, this.composition.$id);
             this.bookmark.$watch(() => {
                 this.bookmark.$loaded().then(data => {
                     this.bookmarked = data.$value;
@@ -69,9 +68,9 @@ class BookmarkController {
     }
 }
 
-export let bookmarkComponent = {
-    templateUrl: 'app/components/bookmark/bookmark.html',
-    controller: BookmarkController,
+export const BookmarkComponent = {
+    templateUrl: 'app/common/bookmark/bookmark.html',
+    controller: BookmarkComponentController,
     bindings: {
         composition: '<'
     }
