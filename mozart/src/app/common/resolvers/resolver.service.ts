@@ -7,7 +7,7 @@ export class ResolverService {
         private $state
     ) { }
 
-    redirectIfSignIn(state: string = 'app.home') {
+    redirectIfSignIn(state: string = 'home') {
         return this.$firebaseAuth().$waitForSignIn().then(user => {
             if (user) {
                 this.$state.go(state);

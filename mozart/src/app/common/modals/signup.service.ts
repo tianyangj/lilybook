@@ -27,7 +27,7 @@ class SignupModalController {
             password: this.password
         }).then(user => {
             this.$mdDialog.hide(user);
-            this.$state.go('app.home');
+            this.$state.go('home');
         }).catch(error => {
             this.$mdToast.show(
                 this.$mdToast.simple()

@@ -3,7 +3,6 @@
 import { appConfig } from './index.config';
 import { routerConfig } from './index.route';
 
-import { registerAdmin } from '../app/admin/index';
 import { registerComponents } from '../app/components_old/index';
 import { registerProfile } from '../app/profile/index';
 import { registerSplash } from '../app/splash/index';
@@ -24,7 +23,6 @@ module lilybook {
     .config(appConfig)
     .config(routerConfig);
 
-  registerAdmin();
   registerComponents();
   registerProfile();
   registerSplash();
