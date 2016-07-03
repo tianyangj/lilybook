@@ -4,6 +4,8 @@ import { BadgeRcmComponent } from './badges/rcm.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { VideoHeroComponent } from './video-hero/video-hero.component';
+
 import { BookmarkDataService } from './data/bookmark.service';
 import { ComposerDataService } from './data/composer.service';
 import { CompositionDataService } from './data/composition.service';
@@ -20,6 +22,7 @@ export const CommonModule = angular
     .component('lbBookmark', BookmarkComponent)
     .component('lbHeader', HeaderComponent)
     .component('lbSidenav', SidenavComponent)
+    .component('lbVideoHero', VideoHeroComponent)
     .service('bookmarkDataService', BookmarkDataService)
     .service('composerDataService', ComposerDataService)
     .service('compositionDataService', CompositionDataService)

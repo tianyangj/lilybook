@@ -1,10 +1,10 @@
-/** @ngInject */
 class VideoHeroController {
 
     videoId: string;
 
     private hero: any;
 
+    /** @ngInject */
     constructor(
         private $window: any,
         private $timeout: angular.ITimeoutService
@@ -18,8 +18,8 @@ class VideoHeroController {
     }
 }
 
-export let videoHeroComponent = {
-    templateUrl: 'app/components/video-hero/video-hero.html',
+export const VideoHeroComponent = {
+    templateUrl: 'app/common/video-hero/video-hero.html',
     controller: VideoHeroController,
     bindings: {
         hero: '<'
