@@ -1,16 +1,14 @@
-export class ProfileCompositionController {
+class BookCompositionComponentController {
 
+    vm;
+    composition;
     prevComposition;
     nextComposition;
 
-    /* @ngInject */
-    constructor(
-        private vm: any,
-        private composition: any
-    ) {
-        let list = vm.likes.concat(vm.bookmarks).concat(vm.repertoire);
+    $onInit() {
+        let list = this.vm.likes.concat(this.vm.bookmarks).concat(this.vm.repertoire);
         let index = list.findIndex(item => {
-            return item.$id === composition.$id;
+            return item.$id === this.composition.$id;
         });
         if (list.length > 1) {
             if (index === 0) {
@@ -23,5 +21,14 @@ export class ProfileCompositionController {
             }
         }
     }
-
 }
+
+export const BookCompositionComponentView: angular.IComponentOptions = {
+    templateUrl: 'app/components/book/book-composition.html',
+    controller: BookCompositionComponentController,
+    bindings: {
+        vm: '<',
+        composition: '<'
+    }
+};
+

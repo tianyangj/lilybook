@@ -1,7 +1,6 @@
 /// <reference path="../../typings/main.d.ts" />
 
 import { registerComponents } from '../app/components_old/index';
-import { registerProfile } from '../app/profile/index';
 
 declare var moment: moment.MomentStatic;
 declare var firebase: any;
@@ -18,6 +17,5 @@ module lilybook {
     .constant('firebase', firebase);
 
   registerComponents();
-  registerProfile();
 
 }
