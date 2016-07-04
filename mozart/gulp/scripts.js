@@ -42,7 +42,7 @@ function webpackWrapper(watch, test, callback) {
     }
   };
 
-  var sources = [ path.join(conf.paths.src, '/app/app/index.ts') ];
+  var sources = [ path.join(conf.paths.src, '/app/app.ts') ];
   if (test) {
     sources.push(path.join(conf.paths.src, '/app/**/*.spec.ts'));
   }

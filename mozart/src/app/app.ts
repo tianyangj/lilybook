@@ -1,8 +1,8 @@
-/// <reference path="../../../typings/main.d.ts" />
+/// <reference path="../../typings/main.d.ts" />
 
 import { AppComponent } from './app.component';
-import { CommonModule } from '../common';
-import { ComponentsModule } from '../components';
+import { CommonModule } from './common';
+import { ComponentsModule } from './components';
 import { appConfig } from './app.config';
 import { runBlock } from './app.run';
 
