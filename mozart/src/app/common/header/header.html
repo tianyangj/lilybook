@@ -9,7 +9,7 @@
         <md-button class="md-icon-button" ng-click="$ctrl.todo()">
             <md-icon class="material-icons">search</md-icon>
         </md-button>
-        <md-menu ng-if="$ctrl.isAuthenticated">
+        <md-menu ng-if="$ctrl.user">
             <md-button class="md-icon-button " ng-click="$mdOpenMenu($event)">
                 <md-icon class="material-icons">person</md-icon>
             </md-button>
@@ -27,7 +27,7 @@
                 </md-menu-item>
             </md-menu-content>
         </md-menu>
-        <md-button class="md-icon-button" ng-if="!$ctrl.isAuthenticated" ng-click="$ctrl.login($event)">
+        <md-button class="md-icon-button" ng-if="!$ctrl.user" ng-click="$ctrl.login($event)">
             <md-tooltip md-direction="bottom">Login</md-tooltip>
             <md-icon class="material-icons">person_outline</md-icon>
         </md-button>

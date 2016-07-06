@@ -1,18 +1,20 @@
 import { LoginModalService } from '../modals/login.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 class HeaderComponentController {
 
-    isAuthenticated: boolean;
+    user;
 
     /** @ngInject */
     constructor(
         private $state: angular.ui.IStateService,
         private $mdSidenav: angular.material.ISidenavService,
-        private loginModalService: LoginModalService
-    ) {
-        firebase.auth().onAuthStateChanged(user => {
-            this.isAuthenticated = !!user;
-        });
+        private loginModalService: LoginModalService,
+        private authenticationService: AuthenticationService
+    ) { }
+
+    $onInit() {
+        this.authenticationService.authObj.$onAuthStateChanged(user => this.user = user);
     }
 
     toggleSidenav(sidenavId: string) {

@@ -15,6 +15,7 @@ import { UserDataService } from './data/user.service';
 import { LoginModalService } from './modals/login.service';
 import { SignupModalService } from './modals/signup.service';
 import { ResolverService } from './resolvers/resolver.service';
+import { AuthenticationService } from './services/authentication.service';
 
 export const CommonModule = angular
     .module('lilybook.common', [])
@@ -34,4 +35,5 @@ export const CommonModule = angular
     .service('loginModalService', LoginModalService)
     .service('signupModalService', SignupModalService)
     .service('resolverService', ResolverService)
+    .service('authenticationService', AuthenticationService)
     .name;
