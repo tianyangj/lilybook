@@ -3,6 +3,7 @@ import { BadgeKeyComponent } from './badges/key.component';
 import { BadgeRcmComponent } from './badges/rcm.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { HeaderComponent } from './header/header.component';
+import { HeaderMenuComponent } from './header/header-menu.component';
 import { HeaderSearchComponent } from './header/header-search.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { VideoHeroComponent } from './video-hero/video-hero.component';
@@ -25,6 +26,7 @@ export const CommonModule = angular
     .component('lbBadgeRcm', BadgeRcmComponent)
     .component('lbBookmark', BookmarkComponent)
     .component('lbHeader', HeaderComponent)
+    .component('lbHeaderMenu', HeaderMenuComponent)
     .component('lbHeaderSearch', HeaderSearchComponent)
     .component('lbSidenav', SidenavComponent)
     .component('lbVideoHero', VideoHeroComponent)

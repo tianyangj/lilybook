@@ -1,0 +1,24 @@
+<div>
+    <md-menu ng-if="$ctrl.user">
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon class="material-icons">person</md-icon>
+        </md-button>
+        <md-menu-content width="3">
+            <md-menu-item>
+                <md-button ui-sref="home">
+                    <md-icon class="material-icons">home</md-icon>Home
+                </md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item>
+                <md-button ng-click="$ctrl.logout()">
+                    <md-icon class="material-icons">exit_to_app</md-icon>Logout
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+    <md-button class="md-icon-button" ng-if="!$ctrl.user" ng-click="$ctrl.login($event)">
+        <md-tooltip md-direction="bottom">Login</md-tooltip>
+        <md-icon class="material-icons">person_outline</md-icon>
+    </md-button>
+</div>
