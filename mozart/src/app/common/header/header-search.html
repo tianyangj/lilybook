@@ -2,17 +2,15 @@
     <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
         <md-icon class="material-icons">search</md-icon>
     </md-button>
-    <md-menu-content width="3">
-        <md-menu-item>
-            <md-button ui-sref="home">
-                <md-icon class="material-icons">home</md-icon>Home
-            </md-button>
-        </md-menu-item>
-        <md-menu-divider></md-menu-divider>
-        <md-menu-item>
-            <md-button ng-click="$ctrl.logout()">
-                <md-icon class="material-icons">exit_to_app</md-icon>Logout
-            </md-button>
-        </md-menu-item>
+    <md-menu-content style="padding:0;min-width:300px;">
+        <md-autocomplete md-autofocus="true" md-selected-item="$ctrl.selectedItem" md-search-text="$ctrl.searchText" md-items="item in $ctrl.querySearch($ctrl.searchText)"
+            md-item-text="item.fullname" placeholder="Search">
+            <md-item-template>
+                <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.fullname}}</span>
+            </md-item-template>
+            <md-not-found>
+                No results matching "{{$ctrl.searchText}}" were found.
+            </md-not-found>
+        </md-autocomplete>
     </md-menu-content>
 </md-menu>

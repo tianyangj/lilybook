@@ -1,40 +1,18 @@
-import { LoginModalService } from '../modals/login.service';
-import { AuthenticationService } from '../services/authentication.service';
+import { ComposerDataService } from '../data/composer.service';
 
 class Controller {
 
-    user;
-
     /** @ngInject */
     constructor(
-        private $state: angular.ui.IStateService,
-        private $mdSidenav: angular.material.ISidenavService,
-        private loginModalService: LoginModalService,
-        private authenticationService: AuthenticationService
+        private composerDataService: ComposerDataService
     ) { }
 
-    $onInit() {
-        this.authenticationService.authObj.$onAuthStateChanged(user => this.user = user);
-    }
-
-    toggleSidenav(sidenavId: string) {
-        this.$mdSidenav(sidenavId).toggle();
-    }
-
-    login(ev) {
-        this.loginModalService.show(ev).then(() => {
-            this.$state.reload();
+    querySearch(text) {
+        return this.composerDataService.getAll().$loaded().then(composers => {
+            return composers.filter(composer => {
+                return composer.fullname.toLowerCase().indexOf(text.toLowerCase()) > -1;
+            });
         });
-    }
-
-    logout() {
-        firebase.auth().signOut().then(() => {
-            this.$state.go('splash');
-        });
-    }
-
-    todo() {
-        alert('todo');
     }
 }
 
