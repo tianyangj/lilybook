@@ -1,10 +1,34 @@
-<div flex class="md-padding">
-    <h1 class="md-display-1">All Composers</h1>
-    <md-list flex>
-        <md-list-item ng-click="$ctrl.goto(composer.$id)" ng-repeat="composer in $ctrl.composers">
-            <img ng-src="{{composer.image}}" class="md-avatar" alt="{{composer.name}}" />
-            <p>{{composer.fullname}}</p>
-            <span class="md-secondary">(##)</span>
-        </md-list-item>
-    </md-list>
+<div layout="column" layout-fill>
+    <md-toolbar class="md-hue-1">
+        <div class="md-toolbar-tools">
+            <h1>Composers</h1>
+            <span flex></span>
+            <md-menu>
+                <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon class="material-icons">sort</md-icon>
+                </md-button>
+                <md-menu-content width="3">
+                    <md-menu-item>
+                        <md-button>
+                            <md-icon class="material-icons">sort_by_alpha</md-icon>Alphabetical
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            <md-icon class="material-icons">favorite</md-icon>Popularity
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+    <md-content flex class="md-padding">
+        <md-list>
+            <md-list-item ng-click="$ctrl.goto(composer.$id)" ng-repeat="composer in $ctrl.composers">
+                <img ng-src="{{composer.image}}" class="md-avatar" alt="{{composer.name}}" />
+                <p>{{composer.fullname}}</p>
+                <span class="md-secondary">{{composer.compositionCount}} composition(s)</span>
+            </md-list-item>
+        </md-list>
+    </md-content>
 </div>

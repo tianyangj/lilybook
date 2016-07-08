@@ -1,6 +1,6 @@
 import { ComposerDataService } from '../../common/data/composer.service';
 
-class ComposersComponentController {
+class Controller {
 
     composers;
 
@@ -8,8 +8,16 @@ class ComposersComponentController {
     constructor(
         private $state: angular.ui.IStateService,
         private composerDataService: ComposerDataService
-    ) {
-        this.composers = composerDataService.getAll();
+    ) { }
+
+    $onInit() {
+        this.composerDataService.getAll().$loaded().then(composers => {
+            let result = composers.filter(composer => composer.compositions);
+            result.forEach(composer => {
+                composer.compositionCount = Object.keys(composer.compositions).length;
+            });
+            this.composers = result;
+        });
     }
 
     goto(composerId) {
@@ -19,5 +27,5 @@ class ComposersComponentController {
 
 export const ComposersComponentView = {
     templateUrl: 'app/components/composer/composers.html',
-    controller: ComposersComponentController
+    controller: Controller
 };
