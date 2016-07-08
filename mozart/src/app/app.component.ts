@@ -2,10 +2,10 @@ export const AppComponent: angular.IComponentOptions = {
     template: `
         <div layout="column" layout-fill>
             <lb-header></lb-header>
-            <div flex layout="row">
+            <md-content flex layout="row">
                 <lb-sidenav></lb-sidenav>
                 <ui-view flex></ui-view>
-            </div>
+            </md-content>
         </div> 
     `
 };
