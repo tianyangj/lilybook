@@ -1,60 +1,67 @@
-<md-sidenav flex layout="column" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+<md-sidenav layout="column" layout-fill class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')"
+    md-whiteframe="4">
     <md-toolbar layout="row" layout-align="center center" hide-gt-md>
-        <md-button ui-sref="splash" class="brand" ng-click="$ctrl.close()">LilyBook</md-button>
+        <md-button ui-sref="splash" ng-click="$ctrl.close()">LilyBook</md-button>
     </md-toolbar>
     <md-content flex>
         <md-list>
-            <md-list-item ui-sref="home" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">home</md-icon>
-                <p>Home</p>
-            </md-list-item>
-            <md-list-item ui-sref="profile" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">person</md-icon>
-                <p>Profile</p>
-            </md-list-item>
-            <md-list-item ui-sref="discover" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">explore</md-icon>
-                <p>Discover</p>
-            </md-list-item>
-            <md-list-item ui-sref="browse" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">filter_list</md-icon>
-                <p>Browse</p>
-            </md-list-item>
-            <md-list-item ui-sref="composers" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">people</md-icon>
-                <p>Composers</p>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-subheader ng-if="$ctrl.isAuthenticated">Library</md-subheader>
-            <md-list-item ui-sref="home.likes" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">favorite</md-icon>
-                <p>Likes</p>
-            </md-list-item>
-            <md-list-item ui-sref="home.bookmarks" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">view_list</md-icon>
-                <p>Bookmarks</p>
-            </md-list-item>
-            <md-list-item ui-sref="home.repertoire" ng-if="$ctrl.isAuthenticated" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">view_list</md-icon>
-                <p>Repertoire</p>
-            </md-list-item>
-            <md-divider ng-if="$ctrl.isAuthenticated"></md-divider>
-            <md-subheader>Composers</md-subheader>
-            <md-list-item ui-sref="composer({vanity:'chopin'})" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">face</md-icon>
-                <p>Chopin</p>
-            </md-list-item>
-            <md-list-item ui-sref="composer({vanity:'beethoven'})" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">face</md-icon>
-                <p>Beethoven</p>
-            </md-list-item>
-            <md-list-item ui-sref="composer({vanity:'mozart'})" ng-click="$ctrl.close()">
-                <md-icon class="material-icons">face</md-icon>
-                <p>Mozart</p>
-            </md-list-item>
+            <section ng-if="$ctrl.user">
+                <md-list-item ui-sref="home" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">home</md-icon>
+                    <p>Home</p>
+                </md-list-item>
+                <md-list-item ui-sref="profile" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">person</md-icon>
+                    <p>Profile</p>
+                </md-list-item>
+                <md-list-item ui-sref="home.likes" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">favorite</md-icon>
+                    <p>Likes</p>
+                </md-list-item>
+                <md-list-item ui-sref="home.bookmarks" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">view_list</md-icon>
+                    <p>Bookmarks</p>
+                </md-list-item>
+                <md-list-item ui-sref="home.repertoire" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">view_list</md-icon>
+                    <p>Repertoire</p>
+                </md-list-item>
+                <md-divider></md-divider>
+            </section>
+            <section>
+                <md-subheader>Discover</md-subheader>
+                <md-list-item ui-sref="discover" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">explore</md-icon>
+                    <p>Discover</p>
+                </md-list-item>
+                <md-list-item ui-sref="browse" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">filter_list</md-icon>
+                    <p>Browse</p>
+                </md-list-item>
+                <md-list-item ui-sref="composers" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">people</md-icon>
+                    <p>Composers</p>
+                </md-list-item>
+                <md-divider></md-divider>
+            </section>
+            <section>
+                <md-subheader>Composers</md-subheader>
+                <md-list-item ui-sref="composer({vanity:'chopin'})" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">face</md-icon>
+                    <p>Chopin</p>
+                </md-list-item>
+                <md-list-item ui-sref="composer({vanity:'beethoven'})" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">face</md-icon>
+                    <p>Beethoven</p>
+                </md-list-item>
+                <md-list-item ui-sref="composer({vanity:'mozart'})" ng-click="$ctrl.close()">
+                    <md-icon class="material-icons">face</md-icon>
+                    <p>Mozart</p>
+                </md-list-item>
+            </section>
         </md-list>
     </md-content>
-    <md-toolbar layout="row" layout-align="center center" ng-if="!$ctrl.isAuthenticated">
+    <md-toolbar layout="row" layout-align="center center" ng-if="!$ctrl.user">
         <md-button ui-sref="signup" ng-click="$ctrl.close()">Signup</md-button>
         <span flex></span>
         <md-button ui-sref="login" ng-click="$ctrl.close()">Login</md-button>
