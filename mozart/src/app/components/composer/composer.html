@@ -1,11 +1,15 @@
-<md-content flex class="composer">
-    <div class="hero" ng-style="{'background-image':'url('+$ctrl.composer.hero+')'}">
-        <md-card>
-            <img class="md-card-image" ng-src="{{$ctrl.composer.image}}" alt="{{$ctrl.composer.fullname}}">
-        </md-card>
-    </div>
-    <div class="md-padding">
-        <div md-whiteframe="2" style="margin-top:16px;">
+<div layout="column" layout-fill>
+    <md-toolbar class="md-tall md-hue-1" layout="row" layout-align="center center">
+        <div class="md-padding" style="width:128px;">
+            <img ng-src="{{$ctrl.composer.image}}" alt="{{$ctrl.composer.fullname}}" style="width:100%;border-radius:50%;">
+        </div>
+        <div flex>
+            <h1 class="md-title" style="margin-bottom:12px;">{{$ctrl.composer.fullname}}</h1>
+            <p class="md-body-1 line-clamp-3">{{$ctrl.composer.bio}}</p>
+        </div>
+    </md-toolbar>
+    <md-content flex class="md-padding">
+        <section md-whiteframe="2">
             <div layout="row" layout-align="center center" class="md-padding">
                 <h3 class="md-title md-padding">New Additions</h3>
                 <span flex></span>
@@ -20,8 +24,8 @@
                     </div>
                 </md-list-item>
             </md-list>
-        </div>
-        <div md-whiteframe="2" style="margin-top:16px;">
+        </section>
+        <section md-whiteframe="2" style="margin-top:12px;">
             <div layout="row" layout-align="center center" class="md-padding">
                 <h3 class="md-title md-padding">Most Popular</h3>
                 <span flex></span>
@@ -36,6 +40,6 @@
                     </div>
                 </md-list-item>
             </md-list>
-        </div>
-    </div>
-</md-content>
+        </section>
+    </md-content>
+</div>

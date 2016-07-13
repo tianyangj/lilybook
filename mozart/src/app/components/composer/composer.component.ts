@@ -15,7 +15,6 @@ class ComposerComponentController {
         let composerRef = firebase.database().ref('/composers/' + $stateParams.vanity);
         $firebaseObject(composerRef).$loaded().then(composer => {
             console.log('composer callback', composer, performance.now() - start);
-            composer.hero = '//placehold.it/851x315?text=composer+hero+image';
             this.composer = composer;
         });
         let composerCompositionsRef = firebase.database().ref('/composers/' + $stateParams.vanity + '/compositions');
