@@ -8,8 +8,24 @@
             <md-tab label="Discussions" ui-sref="composition.discuss"></md-tab>
         </md-tabs>
         <div flex layout="column" ui-view>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-media style="max-width:200px;margin:0;">
+                        <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
+                    </md-card-title-media>
+                    <md-card-title-text style="margin-left:24px;">
+                        <h1 class="md-headline" style="margin-bottom:12px;">{{$ctrl.composition.title}}</h1>
+                        <h3 class="md-title" style="margin-bottom:12px;"><a flex ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a></h3>
+                        <p class="md-body-1">{{$ctrl.composition.description}}</p>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <lb-composition-like composition="$ctrl.composition"></lb-composition-like>
+                    <lb-bookmark composition="$ctrl.composition"></lb-bookmark>
+                </md-card-actions>
+            </md-card>
             <div class="md-padding">
-                <div class="md-padding" layout="row">
+                <!--<div class="md-padding" layout="row">
                     <div class="thumbnail-wrapper">
                         <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
                     </div>
@@ -25,7 +41,7 @@
                             <lb-bookmark composition="$ctrl.composition"></lb-bookmark>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <div class="md-padding" layout="row">
                     <lb-badge-key key="$ctrl.key"></lb-badge-key>
                     <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
