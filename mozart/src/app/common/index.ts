@@ -1,3 +1,4 @@
+import { BadgeAbrsmComponent } from './badges/abrsm.component';
 import { BadgeHenleComponent } from './badges/henle.component';
 import { BadgeKeyComponent } from './badges/key.component';
 import { BadgeRcmComponent } from './badges/rcm.component';
@@ -21,6 +22,7 @@ import { AuthenticationService } from './services/authentication.service';
 
 export const CommonModule = angular
     .module('lilybook.common', [])
+    .component('lbBadgeAbrsm', BadgeAbrsmComponent)
     .component('lbBadgeHenle', BadgeHenleComponent)
     .component('lbBadgeKey', BadgeKeyComponent)
     .component('lbBadgeRcm', BadgeRcmComponent)

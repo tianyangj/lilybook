@@ -7,7 +7,7 @@
             <md-tab label="Videos" ui-sref="composition.videos"></md-tab>
             <md-tab label="Discussions" ui-sref="composition.discuss"></md-tab>
         </md-tabs>
-        <div flex layout="column" ui-view>
+        <div flex ui-view>
             <md-card>
                 <md-card-title>
                     <md-card-title-media style="max-width:200px;margin:0;">
@@ -46,6 +46,7 @@
                     <lb-badge-key key="$ctrl.key"></lb-badge-key>
                     <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
                     <lb-badge-henle henle="$ctrl.henle"></lb-badge-henle>
+                    <lb-badge-abrsm abrsm="$ctrl.abrsm"></lb-badge-abrsm>
                 </div>
                 <div class="md-padding">
                     <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.form">
