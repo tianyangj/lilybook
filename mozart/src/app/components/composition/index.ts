@@ -1,11 +1,13 @@
 import { CompositionDataService } from '../../common/data/composition.service';
 import { CompositionComponentView } from './composition.component';
 import { CompositionSheetComponentView } from './composition-sheet.component';
+import { CompositionFabComponent } from './composition-fab.component';
 
 export const CompositionModule = angular
     .module('lilybook.composition', [])
     .component('lbCompositionView', CompositionComponentView)
     .component('lbCompositionSheetView', CompositionSheetComponentView)
+    .component('lbCompositionFab', CompositionFabComponent)
     .config(($stateProvider) => {
         $stateProvider
             .state('composition', {
