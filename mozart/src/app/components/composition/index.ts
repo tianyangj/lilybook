@@ -4,7 +4,9 @@ import { CompositionSheetComponentView } from './composition-sheet.component';
 import { CompositionFabComponent } from './composition-fab.component';
 
 export const CompositionModule = angular
-    .module('lilybook.composition', [])
+    .module('lilybook.composition', [
+        'hm.readmore'
+    ])
     .component('lbCompositionView', CompositionComponentView)
     .component('lbCompositionSheetView', CompositionSheetComponentView)
     .component('lbCompositionFab', CompositionFabComponent)

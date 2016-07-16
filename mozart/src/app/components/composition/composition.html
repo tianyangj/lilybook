@@ -20,7 +20,7 @@
                             <img ng-src="{{$ctrl.composer.image}}" style="width:48px;height:48px;border-radius:50%;" />
                             <a flex class="md-title" ui-sref="composer({vanity:$ctrl.composer.$id})" style="margin-left:12px;">{{$ctrl.composer.fullname}}</a>
                         </div>
-                        <p class="md-body-1">{{$ctrl.composition.description}}</p>
+                        <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
