@@ -1,9 +1,16 @@
 class Controller {
 
     isOpen;
+    user;
+
+    /** @ngInject */
+    constructor(
+        private $firebaseAuth
+    ) { }
 
     $onInit() {
         this.isOpen = false;
+        this.user = this.$firebaseAuth().$getAuth();
     }
 }
 

@@ -1,6 +1,6 @@
 <div layout="column" layout-fill class="composition">
     <lb-video-hero hero="$ctrl.composition.hero"></lb-video-hero>
-    <lb-composition-fab style="position:fixed;right:24px;bottom:24px;"></lb-composition-fab>
+    <lb-composition-fab composition="$ctrl.composition" style="position:fixed;right:24px;bottom:24px;"></lb-composition-fab>
     <div flex layout="column">
         <md-tabs md-center-tabs md-border-bottom>
             <md-tab label="Details" ui-sref="composition"></md-tab>
@@ -14,11 +14,13 @@
                     <md-card-title-media style="max-width:200px;margin:0;">
                         <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
                     </md-card-title-media>
-                    <md-card-title-text style="margin-left:24px;">
+                    <md-card-title-text style="margin-left:18px;">
                         <h1 class="md-headline" style="margin-bottom:12px;">{{$ctrl.composition.title}}</h1>
                         <div layout="row" layout-align="center center" style="margin-bottom:12px;">
                             <img ng-src="{{$ctrl.composer.image}}" style="width:48px;height:48px;border-radius:50%;" />
-                            <a flex class="md-title" ui-sref="composer({vanity:$ctrl.composer.$id})" style="margin-left:12px;">{{$ctrl.composer.fullname}}</a>
+                            <h3 flex class="md-title" style="margin-left:12px;">
+                                <a ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a>
+                            </h3>
                         </div>
                         <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
                     </md-card-title-text>

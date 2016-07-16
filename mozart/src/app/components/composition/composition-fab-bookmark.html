@@ -1,0 +1,10 @@
+<div>
+    <md-button class="md-fab md-accent md-raised md-mini" ng-if="!$ctrl.bookmarked" ng-click="$ctrl.add($event)">
+        <md-tooltip md-direction="left">Add to Bookmark</md-tooltip>
+        <md-icon class="material-icons">bookmark</md-icon>
+    </md-button>
+    <md-button class="md-fab md-primary md-raised md-mini" ng-if="$ctrl.bookmarked" ui-sref="home.bookmarks">
+        <md-tooltip md-direction="left">In Bookmark</md-tooltip>
+        <md-icon class="material-icons">collections_bookmark</md-icon>
+    </md-button>
+</div>
