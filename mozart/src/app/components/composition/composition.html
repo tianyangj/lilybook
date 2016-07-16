@@ -16,7 +16,10 @@
                     </md-card-title-media>
                     <md-card-title-text style="margin-left:24px;">
                         <h1 class="md-headline" style="margin-bottom:12px;">{{$ctrl.composition.title}}</h1>
-                        <h3 class="md-title" style="margin-bottom:12px;"><a flex ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a></h3>
+                        <div layout="row" layout-align="center center" style="margin-bottom:12px;">
+                            <img ng-src="{{$ctrl.composer.image}}" style="width:48px;height:48px;border-radius:50%;" />
+                            <a flex class="md-title" ui-sref="composer({vanity:$ctrl.composer.$id})" style="margin-left:12px;">{{$ctrl.composer.fullname}}</a>
+                        </div>
                         <p class="md-body-1">{{$ctrl.composition.description}}</p>
                     </md-card-title-text>
                 </md-card-title>
