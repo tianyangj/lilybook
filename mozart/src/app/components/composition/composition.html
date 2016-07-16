@@ -10,7 +10,7 @@
         </md-tabs>
         <div flex ui-view>
             <md-card>
-                <md-card-title>
+                <md-card-title style="padding:12px;">
                     <md-card-title-media style="max-width:200px;margin:0;">
                         <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
                     </md-card-title-media>
@@ -23,10 +23,10 @@
                         <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
                     </md-card-title-text>
                 </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
+                <!--<md-card-actions layout="row" layout-align="end center">
                     <lb-composition-like composition="$ctrl.composition"></lb-composition-like>
                     <lb-bookmark composition="$ctrl.composition"></lb-bookmark>
-                </md-card-actions>
+                </md-card-actions>-->
             </md-card>
             <div class="md-padding">
                 <!--<div class="md-padding" layout="row">
