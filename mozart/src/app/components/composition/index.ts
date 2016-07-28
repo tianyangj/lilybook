@@ -32,12 +32,12 @@ export const CompositionModule = angular
         $stateProvider
             .state('composition.videos', {
                 url: '/videos',
-                template: '<div>videos</div>'
+                template: '<div class="md-padding">Videos section coming soon...</div>'
             });
         $stateProvider
             .state('composition.discuss', {
                 url: '/discuss',
-                template: '<div>questions and answers</div>'
+                template: '<div class="md-padding">Discussions section coming soon...</div>'
             });
     })
     .name;
