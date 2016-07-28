@@ -15,13 +15,17 @@ import { CompositionDataService } from './data/composition.service';
 import { DefinitionDataService } from './data/definition.service';
 import { ProfileDataService } from './data/profile.service';
 import { UserDataService } from './data/user.service';
+
+import { CollectionModalService } from './modals/collection.service';
 import { LoginModalService } from './modals/login.service';
 import { SignupModalService } from './modals/signup.service';
 import { ResolverService } from './resolvers/resolver.service';
 import { AuthenticationService } from './services/authentication.service';
 
 export const CommonModule = angular
-    .module('lilybook.common', [])
+    .module('lilybook.common', [
+        'ngMessages'
+    ])
     .component('lbBadgeAbrsm', BadgeAbrsmComponent)
     .component('lbBadgeHenle', BadgeHenleComponent)
     .component('lbBadgeKey', BadgeKeyComponent)
@@ -38,6 +42,7 @@ export const CommonModule = angular
     .service('definitionDataService', DefinitionDataService)
     .service('profileDataService', ProfileDataService)
     .service('userDataService', UserDataService)
+    .service('collectionModalService', CollectionModalService)
     .service('loginModalService', LoginModalService)
     .service('signupModalService', SignupModalService)
     .service('resolverService', ResolverService)

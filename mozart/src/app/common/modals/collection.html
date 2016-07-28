@@ -1,0 +1,38 @@
+<md-dialog class="collection-modal" aria-label="Add to Collection Modal">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add to Collection</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                <md-icon class="material-icons">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div ng-if="$ctrl.collections.length">
+            <md-subheader class="md-no-sticky">Add to existing collections.</md-subheader>
+            <md-list class="md-padding">
+                <md-list-item ng-repeat="collection in $ctrl.collections">
+                    <md-checkbox ng-model="collection.selected" ng-change="$ctrl.update(collection)"></md-checkbox>
+                    <p>{{collection.name}}</p>
+                </md-list-item>
+            </md-list>
+        </div>
+        <md-divider></md-divider>
+        <md-subheader class="md-no-sticky">Create new collection.</md-subheader>
+        <form class="md-padding" name="collectionForm" ng-submit="$ctrl.create()" novalidate>
+            <md-input-container class="md-block">
+                <label>Collection Name</label>
+                <input type="text" name="collectionName" ng-model="$ctrl.collectionName" required>
+                <div ng-messages="collectionForm.collectionName.$error">
+                    <p ng-message="required">Collection name is required.</p>
+                </div>
+            </md-input-container>
+            <div layout="row" layout-align="end center">
+                <md-button type="submit" class="md-raised md-primary" ng-disabled="collectionForm.$invalid">
+                    Create
+                </md-button>
+            </div>
+        </form>
+    </md-dialog-content>
+</md-dialog>

@@ -3,6 +3,6 @@ export function appConfig(
     $logProvider: angular.ILogProvider,
     $urlRouterProvider: angular.ui.IUrlRouterProvider
 ) {
-    $logProvider.debugEnabled(true);
+    $logProvider.debugEnabled(false);
     $urlRouterProvider.otherwise('/');
 }

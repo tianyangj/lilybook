@@ -10,14 +10,12 @@ class LoginModalController {
         private $mdDialog: angular.material.IDialogService,
         private $mdToast,
         private $firebaseAuth,
-        private $state: angular.ui.IStateService,
         private signupModalService: SignupModalService
     ) { }
 
     login() {
         this.$firebaseAuth().$signInWithEmailAndPassword(this.email, this.password).then(user => {
             this.$mdDialog.hide(user);
-            this.$state.go('home');
         }).catch(error => {
             this.$mdToast.show(
                 this.$mdToast.simple()

@@ -1,18 +1,10 @@
-<md-fab-speed-dial md-open="$ctrl.isOpen" md-direction="up" class="md-scale md-fab-bottom-right">
-    <md-fab-trigger>
-        <md-button class="md-fab md-accent md-primary">
-            <md-tooltip md-direction="left">Add to Playlist</md-tooltip>
-            <md-icon class="material-icons">playlist_add</md-icon>
-        </md-button>
-    </md-fab-trigger>
-    <md-fab-actions>
-        <lb-composition-fab-bookmark composition="$ctrl.composition" user="$ctrl.user"></lb-composition-fab-bookmark>
-        <md-button class="md-fab md-accent md-raised md-mini">
-            <md-tooltip md-direction="left">Add to Favorite</md-tooltip>
-            <md-icon class="material-icons">favorite</md-icon>
-        </md-button>
-        <md-button class="md-fab md-accent md-raised md-mini">
-            <md-icon class="material-icons">thumb_up</md-icon>
-        </md-button>
-    </md-fab-actions>
-</md-fab-speed-dial>
+<div>
+    <md-button class="md-fab md-accent md-primary" ng-click="$ctrl.login($event)" ng-hide="$ctrl.user">
+        <md-tooltip md-direction="left">Login to add this composition to your collection.</md-tooltip>
+        <md-icon class="material-icons">playlist_add</md-icon>
+    </md-button>
+    <md-button class="md-fab md-accent md-primary" ng-click="$ctrl.addCollection($event)" ng-show="$ctrl.user">
+        <md-tooltip md-direction="left">Add to collection.</md-tooltip>
+        <md-icon class="material-icons">playlist_add</md-icon>
+    </md-button>
+</div>
