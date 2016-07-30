@@ -1,3 +1,4 @@
+import { AuthenticationService } from '../../common/services/authentication.service';
 import { ComposerDataService } from '../../common/data/composer.service';
 import { DefinitionDataService } from '../../common/data/definition.service';
 
@@ -5,6 +6,7 @@ class CompositionComponentController {
 
     composition;
     composer;
+    user;
     abrsm;
     form;
     henle;
@@ -13,27 +15,30 @@ class CompositionComponentController {
 
     /* @ngInject */
     constructor(
+        private authenticationService: AuthenticationService,
         private composerDataService: ComposerDataService,
         private definitionDataService: DefinitionDataService
-    ) {
-        this.composer = composerDataService.get(this.composition.composerId);
-        definitionDataService.getAbrsm(this.composition.abrsm).then(abrsm => {
+    ) { }
+
+    $onInit() {
+        this.authenticationService.authObj.$onAuthStateChanged(user => this.user = user);
+        this.composer = this.composerDataService.get(this.composition.composerId);
+        this.definitionDataService.getAbrsm(this.composition.abrsm).then(abrsm => {
             this.abrsm = abrsm;
         });
-        definitionDataService.getForm(this.composition.form).then(form => {
+        this.definitionDataService.getForm(this.composition.form).then(form => {
             this.form = form;
         });
-        definitionDataService.getHenle(this.composition.henle).then(henle => {
+        this.definitionDataService.getHenle(this.composition.henle).then(henle => {
             this.henle = henle;
         });
-        definitionDataService.getKey(this.composition.key).then(key => {
+        this.definitionDataService.getKey(this.composition.key).then(key => {
             this.key = key;
         });
-        definitionDataService.getRcm(this.composition.rcm).then(rcm => {
+        this.definitionDataService.getRcm(this.composition.rcm).then(rcm => {
             this.rcm = rcm;
         });
     }
-
 }
 
 export const CompositionComponentView: angular.IComponentOptions = {
