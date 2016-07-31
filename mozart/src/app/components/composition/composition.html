@@ -3,61 +3,11 @@
     <lb-composition-fab composition="$ctrl.composition" style="position:fixed;right:24px;bottom:24px;"></lb-composition-fab>
     <div flex layout="column">
         <md-tabs md-center-tabs md-border-bottom>
-            <md-tab label="Details" ui-sref="composition"></md-tab>
+            <md-tab label="Details" ui-sref="composition.details"></md-tab>
             <md-tab label="Sheet Musics" ui-sref="composition.sheet" ng-disabled="!$ctrl.composition.sheet"></md-tab>
             <md-tab label="Videos" ui-sref="composition.videos"></md-tab>
             <md-tab label="Discussions" ui-sref="composition.discuss"></md-tab>
         </md-tabs>
-        <div flex ui-view>
-            <md-card>
-                <md-card-title style="padding:12px;">
-                    <md-card-title-media style="max-width:200px;margin:0;">
-                        <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
-                    </md-card-title-media>
-                    <md-card-title-text style="margin-left:12px;">
-                        <div layout="row" class="md-padding">
-                            <h1 flex class="md-headline">{{$ctrl.composition.title}}</h1>
-                            <lb-composition-like composition="$ctrl.composition" user="$ctrl.user"></lb-composition-like>
-                        </div>
-                        <md-divider></md-divider>
-                        <div class="md-padding">
-                            <h2 class="md-title" style="margin-bottom:12px;">
-                                Composer: <a ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a>
-                            </h2>
-                            <h3 class="md-title" style="margin-bottom:12px;">
-                                Form: <a href="#">{{$ctrl.form.name}}</a>
-                            </h3>
-                            <h4 class="md-title">
-                                Key: <a href="#">{{$ctrl.key.name}}</a>
-                            </h4>
-                        </div>
-                        <div class="md-padding">
-                            <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
-                        </div>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
-            <div class="md-padding">
-                <div>
-                    <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
-                    <lb-badge-henle henle="$ctrl.henle"></lb-badge-henle>
-                    <lb-badge-abrsm abrsm="$ctrl.abrsm"></lb-badge-abrsm>
-                </div>
-                <!--<div class="md-padding">
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.form">
-                        <strong flex="33" class="md-subhead">Form/Genre</strong>
-                        <span flex>{{$ctrl.form.name}}</span>
-                    </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.catalogue">
-                        <strong flex="33" class="md-subhead">Catalogue Number</strong>
-                        <span flex>{{$ctrl.composition.catalogue}}</span>
-                    </div>
-                    <div class="md-padding" layout="row" layout-align="center center" ng-if="$ctrl.composition.number">
-                        <strong flex="33" class="md-subhead">Work Number</strong>
-                        <div flex>{{$ctrl.composition.number}}</div>
-                    </div>
-                </div>-->
-            </div>
-        </div>
+        <ui-view flex></ui-view>
     </div>
 </div>

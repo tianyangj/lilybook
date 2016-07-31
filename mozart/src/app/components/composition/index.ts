@@ -1,5 +1,6 @@
 import { CompositionDataService } from '../../common/data/composition.service';
 import { CompositionComponentView } from './composition.component';
+import { CompositionDetailsComponentView } from './composition-details.component';
 import { CompositionSheetComponentView } from './composition-sheet.component';
 import { CompositionFabComponent } from './composition-fab.component';
 import { CompositionLikeComponent } from './composition-like.component';
@@ -10,6 +11,7 @@ export const CompositionModule = angular
         'hm.readmore'
     ])
     .component('lbCompositionView', CompositionComponentView)
+    .component('lbCompositionDetailsView', CompositionDetailsComponentView)
     .component('lbCompositionSheetView', CompositionSheetComponentView)
     .component('lbCompositionFab', CompositionFabComponent)
     .component('lbCompositionLike', CompositionLikeComponent)
@@ -21,6 +23,14 @@ export const CompositionModule = angular
                 component: 'lbCompositionView',
                 resolve: {
                     composition: ($stateParams, compositionDataService: CompositionDataService) => compositionDataService.get($stateParams.id).$loaded()
+                },
+                redirectTo: 'composition.details'
+            });
+        $stateProvider
+            .state('composition.details', {
+                component: 'lbCompositionDetailsView',
+                resolve: {
+                    composition: composition => composition
                 }
             });
         $stateProvider

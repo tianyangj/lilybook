@@ -1,0 +1,35 @@
+<div>
+    <md-card>
+        <md-card-title style="padding:12px;">
+            <md-card-title-media style="max-width:200px;margin:0;">
+                <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
+            </md-card-title-media>
+            <md-card-title-text style="margin-left:12px;">
+                <div layout="row" class="md-padding">
+                    <h1 flex class="md-headline">{{$ctrl.composition.title}}</h1>
+                    <lb-composition-like composition="$ctrl.composition" user="$ctrl.user"></lb-composition-like>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding">
+                    <h2 class="md-title" style="margin-bottom:12px;">
+                        Composer: <a ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a>
+                    </h2>
+                    <h3 class="md-title" style="margin-bottom:12px;">
+                        Form: <a href="#">{{$ctrl.form.name}}</a>
+                    </h3>
+                    <h4 class="md-title">
+                        Key: <a href="#">{{$ctrl.key.name}}</a>
+                    </h4>
+                </div>
+                <div class="md-padding">
+                    <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
+                </div>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+    <div class="md-padding">
+        <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
+        <lb-badge-henle henle="$ctrl.henle"></lb-badge-henle>
+        <lb-badge-abrsm abrsm="$ctrl.abrsm"></lb-badge-abrsm>
+    </div>
+</div>
