@@ -3,14 +3,14 @@ import { DefinitionDataService } from '../../common/data/definition.service';
 
 class Controller {
 
-    composition;
     composer;
-    user;
     abrsm;
     form;
     henle;
     key;
     rcm;
+
+    private composition;
 
     /* @ngInject */
     constructor(
@@ -42,7 +42,6 @@ export const CompositionDetailsComponentView: angular.IComponentOptions = {
     templateUrl: 'app/components/composition/composition-details.html',
     controller: Controller,
     bindings: {
-        composition: '<',
-        user: '<'
+        composition: '<'
     }
 };
