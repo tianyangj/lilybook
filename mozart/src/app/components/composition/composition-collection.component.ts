@@ -7,6 +7,7 @@ class Controller {
 
     /** @ngInject */
     constructor(
+        private toastr: any,
         private authenticationService: AuthenticationService,
         private collectionModalService: CollectionModalService
     ) { }
@@ -17,8 +18,18 @@ class Controller {
 
     add($event, composition) {
         this.authenticationService.getUser($event).then(user => {
-            this.collectionModalService.show($event, composition, user).then(() => {
-                console.log('todo: show toast');
+            this.collectionModalService.show($event, composition, user).then((data) => {
+                switch (data.event) {
+                    case 'LB_COLLECTION_SAVED':
+                        this.toastr.success(data.composition.title + ' has been added to your ' + data.collection.name + ' collection.');
+                        break;
+                    case 'LB_COLLECTION_REMOVED':
+                        this.toastr.info(data.composition.title + ' has been removed from your ' + data.collection.name + ' collection.');
+                        break;
+                    case 'LB_COLLECTION_CREATED':
+                        this.toastr.success(data.collection.name + ' collection has been created and ' + data.composition.title + ' has been added to your collection.');
+                        break;
+                }
             });
         });
     }

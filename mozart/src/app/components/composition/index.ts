@@ -9,7 +9,8 @@ import { CompositionFabBookmarkComponent } from './composition-fab-bookmark.comp
 
 export const CompositionModule = angular
     .module('lilybook.composition', [
-        'hm.readmore'
+        'hm.readmore',
+        'toastr'
     ])
     .component('lbCompositionView', CompositionComponentView)
     .component('lbCompositionDetailsView', CompositionDetailsComponentView)

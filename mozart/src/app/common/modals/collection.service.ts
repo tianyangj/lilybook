@@ -32,12 +32,20 @@ class CollectionModalController {
             record.compositions = record.compositions || [];
             record.compositions.push(this.composition.$id);
             this.collectionsArray.$save(record);
-            this.$mdDialog.hide();
+            this.$mdDialog.hide({
+                event: 'LB_COLLECTION_SAVED',
+                composition: this.composition,
+                collection: record
+            });
         } else {
             let index = record.compositions.indexOf(this.composition.$id);
             record.compositions.splice(index, 1);
             this.collectionsArray.$save(record);
-            this.$mdDialog.hide();
+            this.$mdDialog.hide({
+                event: 'LB_COLLECTION_REMOVED',
+                composition: this.composition,
+                collection: record
+            });
         }
     }
 
@@ -47,7 +55,11 @@ class CollectionModalController {
             compositions: [this.composition.$id]
         };
         this.collectionsArray.$add(record);
-        this.$mdDialog.hide();
+        this.$mdDialog.hide({
+            event: 'LB_COLLECTION_CREATED',
+            composition: this.composition,
+            collection: record
+        });
     }
 
     cancel() {
