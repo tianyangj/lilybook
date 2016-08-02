@@ -15,10 +15,10 @@
                         Composer: <a ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a>
                     </h2>
                     <h3 class="md-title" style="margin-bottom:12px;">
-                        Form: <a href="#">{{$ctrl.form.name}}</a>
+                        Form: <a ui-sref="browse({form:$ctrl.form.$id})">{{$ctrl.form.name}}</a>
                     </h3>
                     <h4 class="md-title">
-                        Key: <a href="#">{{$ctrl.key.name}}</a>
+                        Key: <a ui-sref="browse({key:$ctrl.key.$id})">{{$ctrl.key.name}}</a>
                     </h4>
                 </div>
                 <div class="md-padding">
@@ -28,8 +28,14 @@
         </md-card-title>
     </md-card>
     <div class="md-padding">
-        <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
-        <lb-badge-henle henle="$ctrl.henle"></lb-badge-henle>
-        <lb-badge-abrsm abrsm="$ctrl.abrsm"></lb-badge-abrsm>
+        <a ui-sref="browse({rcm:$ctrl.rcm.$id})">
+            <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
+        </a>
+        <a ui-sref="browse({henle:$ctrl.henle.$id})">
+            <lb-badge-henle henle="$ctrl.henle"></lb-badge-henle>
+        </a>
+        <a ui-sref="browse({abrsm:$ctrl.abrsm.$id})">
+            <lb-badge-abrsm abrsm="$ctrl.abrsm"></lb-badge-abrsm>
+        </a>
     </div>
 </div>
