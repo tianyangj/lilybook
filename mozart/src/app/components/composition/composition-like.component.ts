@@ -3,6 +3,9 @@ import { AuthenticationService } from '../../common/services/authentication.serv
 class Controller {
 
     likesRef;
+    liked = false;
+
+    private composition;
 
     /** @ngInject */
     constructor(
@@ -12,24 +15,39 @@ class Controller {
 
     $onInit() {
         this.likesRef = firebase.database().ref('/user-likes');
+        this.authenticationService.authObj.$onAuthStateChanged(user => {
+            if (user) {
+                this.$firebaseObject(this.likesRef.child(user.uid)).$loaded().then(likes => {
+                    this.liked = likes[this.composition.$id];
+                });
+            }
+        });
     }
 
     like($event, composition) {
-        console.log(composition);
         this.authenticationService.getUser($event).then(user => {
-            const likes = this.$firebaseObject(this.likesRef.child(user.uid));
-            likes[composition.$id] = true;
-            likes.$save();
+            if (user) {
+                this.$firebaseObject(this.likesRef.child(user.uid)).$loaded().then(likes => {
+                    if (likes[composition.$id]) {
+                        this.liked = false;
+                        delete likes[composition.$id];
+                    } else {
+                        this.liked = true;
+                        likes[composition.$id] = true;
+                    }
+                    likes.$save();
+                });
+            }
         });
     }
 }
 
 export const CompositionLikeComponent: angular.IComponentOptions = {
     template: `
-        <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.like($event, $ctrl.composition)">
-   	        <md-tooltip md-direction="left">I like this.</md-tooltip>
-         	<md-icon class="material-icons">thumb_up</md-icon>
-   	    </md-button>
+	    <md-button class="md-fab md-mini" ng-class="$ctrl.liked ? 'md-accent': 'md-primary'" ng-click="$ctrl.like($event, $ctrl.composition)">
+      	    <md-tooltip md-direction="left">{{$ctrl.liked ? 'Unlike': 'I like this'}}</md-tooltip>
+        	<md-icon class="material-icons">{{$ctrl.liked ? 'favorite': 'favorite_border'}}</md-icon>
+ 	    </md-button>
     `,
     controller: Controller,
     bindings: {
