@@ -9,6 +9,7 @@ class Controller {
 
     /** @ngInject */
     constructor(
+        private toastr: any,
         private $firebaseObject,
         private authenticationService: AuthenticationService
     ) { }
@@ -31,9 +32,11 @@ class Controller {
                     if (likes[composition.$id]) {
                         this.liked = false;
                         delete likes[composition.$id];
+                        this.toastr.info('You unliked ' + composition.title);
                     } else {
                         this.liked = true;
                         likes[composition.$id] = true;
+                        this.toastr.success('You liked ' + composition.title);
                     }
                     likes.$save();
                 });
