@@ -3,12 +3,14 @@ class Controller {
     private controller;
 
     $onInit() {
-        this.controller.selectedIndex = 1;
+        this.controller.selectedIndex = 2;
     }
 }
 
-export const CompositionSheetComponentView: angular.IComponentOptions = {
-    templateUrl: 'app/components/composition/composition-sheet-a.html',
+export const CompositionVideosComponentView: angular.IComponentOptions = {
+    template: `
+        <div class="md-padding">Videos section coming soon...</div>
+    `,
     controller: Controller,
     bindings: {
         composition: '<'

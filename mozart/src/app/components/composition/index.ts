@@ -3,9 +3,11 @@ import { CompositionDataService } from '../../common/data/composition.service';
 import { CompositionComponentView } from './composition.component';
 import { CompositionDetailsComponentView } from './composition-details.component';
 import { CompositionSheetComponentView } from './composition-sheet.component';
+import { CompositionVideosComponentView } from './composition-videos.component';
+import { CompositionDiscussionsComponentView } from './composition-discussions.component';
+
 import { CompositionCollectionComponent } from './composition-collection.component';
 import { CompositionLikeComponent } from './composition-like.component';
-import { CompositionFabBookmarkComponent } from './composition-fab-bookmark.component';
 
 export const CompositionModule = angular
     .module('lilybook.composition', [
@@ -15,9 +17,10 @@ export const CompositionModule = angular
     .component('lbCompositionView', CompositionComponentView)
     .component('lbCompositionDetailsView', CompositionDetailsComponentView)
     .component('lbCompositionSheetView', CompositionSheetComponentView)
+    .component('lbCompositionVideosView', CompositionVideosComponentView)
+    .component('lbCompositionDiscussionsView', CompositionDiscussionsComponentView)
     .component('lbCompositionCollection', CompositionCollectionComponent)
     .component('lbCompositionLike', CompositionLikeComponent)
-    .component('lbCompositionFabBookmark', CompositionFabBookmarkComponent)
     .config(($stateProvider) => {
         $stateProvider
             .state('composition', {
@@ -46,12 +49,18 @@ export const CompositionModule = angular
         $stateProvider
             .state('composition.videos', {
                 url: '/videos',
-                template: '<div class="md-padding">Videos section coming soon...</div>'
+                component: 'lbCompositionVideosView',
+                resolve: {
+                    composition: composition => composition
+                }
             });
         $stateProvider
             .state('composition.discuss', {
                 url: '/discuss',
-                template: '<div class="md-padding">Discussions section coming soon...</div>'
+                component: 'lbCompositionDiscussionsView',
+                resolve: {
+                    composition: composition => composition
+                }
             });
     })
     .name;

@@ -11,6 +11,7 @@ class Controller {
     rcm;
 
     private composition;
+    private controller;
 
     /* @ngInject */
     constructor(
@@ -19,6 +20,7 @@ class Controller {
     ) { }
 
     $onInit() {
+        this.controller.selectedIndex = 0;
         this.composer = this.composerDataService.get(this.composition.composerId);
         this.definitionDataService.getAbrsm(this.composition.abrsm).then(abrsm => {
             this.abrsm = abrsm;
@@ -43,5 +45,8 @@ export const CompositionDetailsComponentView: angular.IComponentOptions = {
     controller: Controller,
     bindings: {
         composition: '<'
+    },
+    require: {
+        controller: '^lbCompositionView'
     }
 };
