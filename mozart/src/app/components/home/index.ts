@@ -1,12 +1,12 @@
 import { HomeComponentView } from './home.component';
-import { HomeBookmarksComponentView } from './home-bookmarks.component';
+import { HomeCollectionsComponentView } from './home-collections.component';
 import { HomeLikesComponentView } from './home-likes.component';
 import { UserDataService } from '../../common/data/user.service';
 
 export const HomeModule = angular
     .module('lilybook.home', [])
     .component('lbHomeView', HomeComponentView)
-    .component('lbHomeBookmarksView', HomeBookmarksComponentView)
+    .component('lbHomeCollectionsView', HomeCollectionsComponentView)
     .component('lbHomeLikesView', HomeLikesComponentView)
     .config(($stateProvider) => {
         $stateProvider
@@ -18,9 +18,9 @@ export const HomeModule = angular
                 }
             });
         $stateProvider
-            .state('home.bookmarks', {
-                url: '/bookmarks',
-                component: 'lbHomeBookmarksView',
+            .state('home.collections', {
+                url: '/collections',
+                component: 'lbHomeCollectionsView',
                 resolve: {
                     user: account => account
                 }
