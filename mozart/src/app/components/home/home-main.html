@@ -1,36 +1,14 @@
-<section>
-    <md-subheader class="md-primary">Recommended</md-subheader>
-    <div layout="row" layout-wrap class="md-padding">
-        <div flex="20" ng-repeat="recommendation in $ctrl.recommendations">
-            <md-card>
-                <a ui-sref="composition({id:recommendation.id})">
-                    <img src="/assets/images/thumb-czerny.jpg" class="md-card-image" title={{recommendation.title}}>
-                </a>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button">
-                        <md-icon class="material-icons">play_arrow</md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button">
-                        <md-icon class="material-icons">more_vert</md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
-    </div>
-</section>
-<section>
-    <md-subheader class="md-primary">Chopin</md-subheader>
-    <div layout="row" layout-wrap class="md-padding">
-        <a flex="20" ng-repeat="recommendation in $ctrl.recommendations" ui-sref="composition({id:recommendation.id})">
-            <md-card>
-                <img src="/assets/images/thumb-chopin.jpg" class="md-card-image">
-            </md-card>
-        </a>
-    </div>
-</section>
-<div>Recommended (10), 2 rows, 5 compositions in each row</div>
-<div>Featured composer 1</div>
-<div>Featured composer 2</div>
-<div>Continue listening/studying</div>
-<div>Random followed composer 1</div>
-<div>Random followed composer 2</div>
+<div class="md-padding">
+    <h1 class="md-headline md-padding">Chopin's Compositions</h1>
+    <ul layout="row" layout-wrap>
+        <li flex="20" ng-repeat="composition in $ctrl.compositions">
+            <lb-thumbnail composition="composition"></lb-thumbnail>
+        </li>
+    </ul>
+    <h1 class="md-headline md-padding">Beethoven's Compositions</h1>
+    <ul layout="row" layout-wrap>
+        <li flex="20" ng-repeat="composition in $ctrl.compositions1">
+            <lb-thumbnail composition="composition"></lb-thumbnail>
+        </li>
+    </ul>
+</div>
