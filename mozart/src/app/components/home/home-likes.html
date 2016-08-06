@@ -1,11 +1,8 @@
 <div class="md-padding">
     <h1 class="md-headline md-padding">Liked Compositions</h1>
-    <md-list>
-        <md-list-item class="md-2-line" ng-repeat="composition in $ctrl.compositions">
-            <div class="md-list-item-text">
-                <h3><a ui-sref="composition({id:composition.$id})">{{composition.title}}</a></h3>
-                <p>by {{composition.composerId}}</p>
-            </div>
-        </md-list-item>
-    </md-list>
+    <ul layout="row" layout-wrap>
+        <li flex="20" ng-repeat="composition in $ctrl.compositions">
+            <lb-thumbnail composition="composition"></lb-thumbnail>
+        </li>
+    </ul>
 </div>
