@@ -1,12 +1,11 @@
 <div class="md-padding">
-    <h1 class="md-headline">My Collections</h1>
-    <md-list ng-repeat="collection in $ctrl.collections">
-        <md-subheader class="md-no-sticky">{{collection.name}}</md-subheader>
-        <md-list-item class="md-2-line" ng-repeat="compositionId in collection.compositions">
-            <div class="md-list-item-text">
-                <h3><a ui-sref="composition({id:$ctrl.compositions[compositionId].$id})">{{$ctrl.compositions[compositionId].title}}</a></h3>
-                <p>by {{$ctrl.compositions[compositionId].composerId}}</p>
-            </div>
-        </md-list-item>
-    </md-list>
+    <h1 class="md-headline md-padding">My Collections</h1>
+    <div ng-repeat="collection in $ctrl.collections">
+        <h2 class="md-title md-padding">{{collection.name}}</h2>
+        <ul layout="row" layout-wrap>
+            <li flex="20" ng-repeat="compositionId in collection.compositions">
+                <lb-thumbnail composition="$ctrl.compositions[compositionId]"></lb-thumbnail>
+            </li>
+        </ul>
+    </div>
 </div>
