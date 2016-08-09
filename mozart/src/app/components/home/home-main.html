@@ -1,5 +1,5 @@
 <div class="md-padding">
-    <section ng-repeat="composer in $ctrl.composers">
+    <md-card ng-repeat="composer in $ctrl.composers">
         <div layout="row" layout-align="center center" class="md-padding">
             <img ng-src="{{composer.image}}" style="width:48px;border-radius:50%;margin-right:12px;" />
             <h3 flex class="md-headline">{{composer.name}}'s Compositions</h3>
@@ -12,5 +12,5 @@
                 </a>
             </li>
         </ul>
-    </section>
+    </md-card>
 </div>
