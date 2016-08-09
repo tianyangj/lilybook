@@ -29,7 +29,7 @@ export class ComposerDataService {
             // return composers with first 10 compositions
             return composers.map(composer => {
                 return {
-                    composerId: composer.$id,
+                    $id: composer.$id,
                     name: composer.name,
                     image: composer.image,
                     compositions: Object.keys(composer.compositions).slice(0, 10).map(compositionId => {

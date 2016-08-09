@@ -1,9 +1,15 @@
 <div class="md-padding">
     <section ng-repeat="composer in $ctrl.composers">
-        <h3 class="md-headline md-padding">{{composer.name}}'s Compositions</h3>
+        <div layout="row" layout-align="center center" class="md-padding">
+            <img ng-src="{{composer.image}}" style="width:48px;border-radius:50%;margin-right:12px;" />
+            <h3 flex class="md-headline">{{composer.name}}'s Compositions</h3>
+            <md-button ui-sref="composer({vanity:composer.$id})">View More</md-button>
+        </div>
         <ul layout="row" layout-wrap>
             <li flex="20" ng-repeat="composition in composer.compositions">
-                <lb-thumbnail composition="composition"></lb-thumbnail>
+                <a ui-sref="composition({id:composition.$id})">
+                    <lb-thumbnail composition="composition"></lb-thumbnail>
+                </a>
             </li>
         </ul>
     </section>
