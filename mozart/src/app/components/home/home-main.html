@@ -1,14 +1,10 @@
 <div class="md-padding">
-    <h1 class="md-headline md-padding">Chopin's Compositions</h1>
-    <ul layout="row" layout-wrap>
-        <li flex="20" ng-repeat="composition in $ctrl.compositions">
-            <lb-thumbnail composition="composition"></lb-thumbnail>
-        </li>
-    </ul>
-    <h1 class="md-headline md-padding">Beethoven's Compositions</h1>
-    <ul layout="row" layout-wrap>
-        <li flex="20" ng-repeat="composition in $ctrl.compositions1">
-            <lb-thumbnail composition="composition"></lb-thumbnail>
-        </li>
-    </ul>
+    <section ng-repeat="composer in $ctrl.composers">
+        <h3 class="md-headline md-padding">{{composer.name}}'s Compositions</h3>
+        <ul layout="row" layout-wrap>
+            <li flex="20" ng-repeat="composition in composer.compositions">
+                <lb-thumbnail composition="composition"></lb-thumbnail>
+            </li>
+        </ul>
+    </section>
 </div>
