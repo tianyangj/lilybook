@@ -5,12 +5,24 @@
             <span flex class="md-title">{{composer.name}}'s Compositions</span>
             <md-button class="md-primary" ui-sref="composer({vanity:composer.$id})">View More</md-button>
         </div>
-        <div layout="row" layout-wrap>
+        <div class="swiper-container" style="width:100%">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="composition in composer.compositions">
+                    <a ui-sref="composition({id:composition.$id})">
+                        <lb-thumbnail composition="composition"></lb-thumbnail>
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <!--<div layout="row" layout-wrap>
             <div flex="20" ng-repeat="composition in composer.compositions">
                 <a ui-sref="composition({id:composition.$id})">
                     <lb-thumbnail composition="composition"></lb-thumbnail>
                 </a>
             </div>
-        </div>
+        </div>-->
     </md-card>
 </div>

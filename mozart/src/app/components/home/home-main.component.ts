@@ -8,12 +8,29 @@ class Controller {
 
     /* @ngInject */
     constructor(
-        private composerDataService: ComposerDataService
+        private composerDataService: ComposerDataService,
+        private $timeout,
+        private $window
     ) { }
 
     $onInit() {
         this.controller.activeTab = 0;
-        this.composerDataService.getFeaturedComposers().then(composers => this.composers = composers);
+        this.composerDataService.getFeaturedComposers().then(composers => {
+            this.composers = composers;
+            this.$timeout(() => {
+                new this.$window.Swiper('.swiper-container', {
+                    slidesPerView: 5,
+                    slidesPerGroup: 5,
+                    loop: false,
+                    scrollbar: '.swiper-scrollbar',
+                    scrollbarHide: true,
+                    scrollbarDraggable: true,
+                    scrollbarSnapOnRelease: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev'
+                });
+            });
+        });
     }
 }
 
