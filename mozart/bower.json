@@ -7,11 +7,11 @@
     "angular-animate": "~1.5.5",
     "angular-material": "1.1.0-rc.5",
     "angular-read-more": "^1.0.5",
+    "angular-swiper": "^0.4.0",
     "angular-toastr": "^2.0.0",
     "angular-ui-router": "1.0.0-beta.1",
     "normalize-css": "^4.2.0",
-    "plyr": "^1.6.20",
-    "Swiper": "swiper#^3.3.1"
+    "plyr": "^1.6.20"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.5"
