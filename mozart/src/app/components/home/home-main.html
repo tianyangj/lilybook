@@ -1,3 +1,23 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-title" style="text-transform:uppercase;">Browse LilyBook by</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <md-chips>
+            <md-chip style="background-color:#64B5F6"><a ui-sref="browse">Chopin</a></md-chip>
+            <md-chip style="background-color:#64B5F6">Beethoven</md-chip>
+            <md-chip style="background-color:#FF8A65">RCM Level 3</md-chip>
+            <md-chip style="background-color:#FF8A65">Henle Level 2/3</md-chip>
+            <md-chip style="background-color:#F06292">Sonatina</md-chip>
+            <md-chip style="background-color:#F06292">Practice</md-chip>
+            <md-chip style="background-color:#AED581">C Major</md-chip>
+            <md-chip style="background-color:#AED581">G♭ Major</md-chip>
+            <md-chip style="background-color:#90A4AE"><a ui-sref="browse">View Others...</a></md-chip>
+        </md-chips>
+    </md-card-content>
+</md-card>
 <md-card ng-repeat="composer in $ctrl.composers">
     <div layout="row" layout-align="center center">
         <img ng-src="{{composer.image}}" style="width:48px;border-radius:50%;margin:12px;" />
