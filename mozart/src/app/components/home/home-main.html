@@ -1,8 +1,8 @@
 <md-card ng-repeat="composer in $ctrl.composers">
     <div layout="row" layout-align="center center">
         <img ng-src="{{composer.image}}" style="width:48px;border-radius:50%;margin:12px;" />
-        <span flex class="md-title">{{composer.name}}</span>
-        <md-button class="md-primary" ui-sref="composer({vanity:composer.$id})">View More</md-button>
+        <md-button class="md-primary" ui-sref="composer({vanity:composer.$id})" style="min-width:initial;">{{composer.name}}</md-button>
+        <span flex></span>
     </div>
     <ks-swiper-container loop="false" show-nav-buttons="true" show-scroll-bar="true" override-parameters="$ctrl.options">
         <ks-swiper-slide class="swiper-slide" ng-repeat="composition in composer.compositions">
