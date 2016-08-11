@@ -5,7 +5,9 @@ import { HomeMainComponentView } from './home-main.component';
 import { UserDataService } from '../../common/data/user.service';
 
 export const HomeModule = angular
-    .module('lilybook.home', [])
+    .module('lilybook.home', [
+        'ksSwiper'
+    ])
     .component('lbHomeView', HomeComponentView)
     .component('lbHomeCollectionsView', HomeCollectionsComponentView)
     .component('lbHomeLikesView', HomeLikesComponentView)
