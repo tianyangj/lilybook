@@ -5,17 +5,18 @@
         </md-card-title-text>
     </md-card-title>
     <md-card-content>
-        <md-chips>
-            <md-chip style="background-color:#64B5F6"><a ui-sref="browse">Chopin</a></md-chip>
-            <md-chip style="background-color:#64B5F6">Beethoven</md-chip>
-            <md-chip style="background-color:#FF8A65">RCM Level 3</md-chip>
-            <md-chip style="background-color:#FF8A65">Henle Level 2/3</md-chip>
-            <md-chip style="background-color:#F06292">Sonatina</md-chip>
-            <md-chip style="background-color:#F06292">Practice</md-chip>
-            <md-chip style="background-color:#AED581">C Major</md-chip>
-            <md-chip style="background-color:#AED581">G♭ Major</md-chip>
-            <md-chip style="background-color:#90A4AE"><a ui-sref="browse">View Others...</a></md-chip>
-        </md-chips>
+        <div>
+            <lb-tag type="composer" id="chopin"></lb-tag>
+            <lb-tag type="composer" id="beethoven"></lb-tag>
+            <lb-tag type="rcm" id="rcm-piano-3"></lb-tag>
+            <lb-tag type="henle" id="henle-piano-5-6"></lb-tag>
+            <lb-tag type="abrsm" id="abrsm-piano-lrsm"></lb-tag>
+            <lb-tag type="key" id="c-major"></lb-tag>
+            <lb-tag type="key" id="e-flat-major"></lb-tag>
+            <lb-tag type="form" id="practice"></lb-tag>
+            <lb-tag type="form" id="nocturne"></lb-tag>
+            <lb-tag>Browse...</lb-tag>
+        </div>
     </md-card-content>
 </md-card>
 <md-card ng-repeat="composer in $ctrl.composers">

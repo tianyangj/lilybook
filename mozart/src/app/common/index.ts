@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderMenuComponent } from './header/header-menu.component';
 import { HeaderSearchComponent } from './header/header-search.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { TagComponent } from './tag/tag.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { VideoHeroComponent } from './video-hero/video-hero.component';
 
@@ -36,6 +37,7 @@ export const CommonModule = angular
     .component('lbHeaderMenu', HeaderMenuComponent)
     .component('lbHeaderSearch', HeaderSearchComponent)
     .component('lbSidenav', SidenavComponent)
+    .component('lbTag', TagComponent)
     .component('lbThumbnail', ThumbnailComponent)
     .component('lbVideoHero', VideoHeroComponent)
     .service('bookmarkDataService', BookmarkDataService)

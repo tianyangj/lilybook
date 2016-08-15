@@ -1,0 +1,22 @@
+<div ng-switch="$ctrl.type">
+    <a ui-sref="browse({composer:$ctrl.tag.$id})" ng-switch-when="composer" style="background-color:#64B5F6;">
+        {{$ctrl.tag.name}}
+    </a>
+    <a ui-sref="browse({rcm:$ctrl.tag.$id})" ng-switch-when="rcm" style="background-color:#F06292;">
+        {{$ctrl.tag.name}}
+    </a>
+    <a ui-sref="browse({abrsm:$ctrl.tag.$id})" ng-switch-when="abrsm" style="background-color:#F06292;">
+        {{$ctrl.tag.name}}
+    </a>
+    <a ui-sref="browse({henle:$ctrl.tag.$id})" ng-switch-when="henle" style="background-color:#F06292;">
+        {{$ctrl.tag.name}}
+    </a>
+    <a ui-sref="browse({key:$ctrl.tag.$id})" ng-switch-when="key" style="background-color:#FF8A65;">
+        {{$ctrl.tag.name}}
+    </a>
+    <a ui-sref="browse({form:$ctrl.tag.$id})" ng-switch-when="form" style="background-color:#AED581;">
+        {{$ctrl.tag.name}}
+    </a>
+    <a ui-sref="browse" ng-switch-default style="background-color:#90A4AE;" ng-transclude>
+    </a>
+</div>
