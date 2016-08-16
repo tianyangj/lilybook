@@ -7,16 +7,24 @@
     </md-toolbar>
     <md-list class="md-padding">
         <div ng-repeat="collection in $ctrl.collections">
-            <md-subheader class="md-no-sticky">{{collection.name}}</md-subheader>
+            <md-subheader class="md-no-sticky md-primary">
+                <div layout="row" layout-align="center center">
+                    <span flex class="md-title">{{collection.name}}</span>
+                    <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.removeCollection($event, collection)" style="margin:0;">
+                        <md-icon class="material-icons">remove_circle_outline</md-icon>
+                    </md-button>
+                </div>
+            </md-subheader>
             <md-list-item class="md-2-line" ui-sref="composition({id:composition.$id})" ng-repeat="composition in collection.compositions">
                 <div class="md-list-item-text">
                     <h3>{{composition.title}}</h3>
                     <p>by {{composition.composerId | uppercase}}</p>
                 </div>
-                <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.remove($event, compositionId)">
+                <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.removeComposition($event, composition, collection)">
                     <md-icon class="material-icons">remove_circle_outline</md-icon>
                 </md-button>
             </md-list-item>
+            <md-divider ng-if="!$last"></md-divider>
         </div>
     </md-list>
 </div>
