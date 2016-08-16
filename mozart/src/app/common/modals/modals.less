@@ -17,4 +17,14 @@
 
 .collection-modal {
     min-width: 320px;
+
+    /* https://github.com/angular/material/issues/5439 */
+    md-pagination-wrapper {
+        width:auto !important;
+    }
+
+    .md-button[type="submit"] {
+        width: 100%;
+        margin: 0;
+    }
 }

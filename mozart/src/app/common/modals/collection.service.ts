@@ -4,6 +4,7 @@ class CollectionModalController {
     collectionsArray;
     collections;
     collectionName: string;
+    collectionExistingDisabled = false;
 
     private user;
     private composition;
@@ -16,11 +17,12 @@ class CollectionModalController {
         this.collectionsRef = firebase.database().ref('/user-collections').child(this.user.uid);
         this.collectionsArray = this.$firebaseArray(this.collectionsRef);
         this.collectionsArray.$loaded().then(collections => {
+            this.collectionExistingDisabled = collections.length < 1;
             this.collections = collections.map(collection => {
                 return {
                     id: collection.$id,
                     name: collection.name,
-                    selected: collection.compositions && collection.compositions.indexOf(this.composition.$id) > -1
+                    selected: collection.compositions && collection.compositions[this.composition.$id]
                 };
             });
         });
@@ -29,8 +31,8 @@ class CollectionModalController {
     update(collection) {
         let record = this.collectionsArray.$getRecord(collection.id);
         if (collection.selected) {
-            record.compositions = record.compositions || [];
-            record.compositions.push(this.composition.$id);
+            record.compositions = record.compositions || {};
+            record.compositions[this.composition.$id] = true;
             this.collectionsArray.$save(record);
             this.$mdDialog.hide({
                 event: 'LB_COLLECTION_SAVED',
@@ -38,8 +40,7 @@ class CollectionModalController {
                 collection: record
             });
         } else {
-            let index = record.compositions.indexOf(this.composition.$id);
-            record.compositions.splice(index, 1);
+            record.compositions[this.composition.$id] = null;
             this.collectionsArray.$save(record);
             this.$mdDialog.hide({
                 event: 'LB_COLLECTION_REMOVED',
@@ -52,7 +53,7 @@ class CollectionModalController {
     create() {
         let record = {
             name: this.collectionName,
-            compositions: [this.composition.$id]
+            compositions: { [this.composition.$id]: true }
         };
         this.collectionsArray.$add(record);
         this.$mdDialog.hide({
