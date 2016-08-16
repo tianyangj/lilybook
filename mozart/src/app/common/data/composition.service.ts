@@ -13,4 +13,10 @@ export class CompositionDataService {
         return this.$firebaseObject(this.compositionRef.child(compositionId));
     }
 
+    getMany(compositionIds: string[]) {
+        return compositionIds.map(compositionId => {
+            return this.get(compositionId);
+        });
+    }
+
 }

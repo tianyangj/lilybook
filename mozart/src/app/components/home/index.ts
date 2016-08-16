@@ -38,8 +38,8 @@ export const HomeModule = angular
                 }
             });
         $stateProvider
-            .state('home.likes', {
-                url: '/likes',
+            .state('home.favorites', {
+                url: '/favorites',
                 component: 'lbHomeLikesView',
                 resolve: {
                     user: account => account
