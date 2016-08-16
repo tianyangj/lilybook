@@ -1,11 +1,22 @@
-<div class="md-padding">
-    <h1 class="md-headline md-padding">My Collections</h1>
-    <div ng-repeat="collection in $ctrl.collections">
-        <h2 class="md-title md-padding">{{collection.name}}</h2>
-        <ul layout="row" layout-wrap>
-            <li flex="20" ng-repeat="compositionId in collection.compositions">
-                <lb-thumbnail composition="$ctrl.compositions[compositionId]"></lb-thumbnail>
-            </li>
-        </ul>
-    </div>
+<div>
+    <md-toolbar class="md-tall md-hue-1">
+        <span flex></span>
+        <h2 class="md-toolbar-tools">
+            <span>My Collections</span>
+        </h2>
+    </md-toolbar>
+    <md-list class="md-padding">
+        <div ng-repeat="collection in $ctrl.collections">
+            <md-subheader class="md-no-sticky">{{collection.name}}</md-subheader>
+            <md-list-item class="md-2-line" ui-sref="composition({id:compositionId})" ng-repeat="compositionId in collection.compositions">
+                <div class="md-list-item-text">
+                    <h3>{{ $ctrl.compositions[compositionId].title }}</h3>
+                    <p>by {{$ctrl.compositions[compositionId].composerId | uppercase}}</p>
+                </div>
+                <md-button class="md-secondary md-icon-button" ng-click="$ctrl.remove($event, compositionId)">
+                    <md-icon class="material-icons">remove_circle_outline</md-icon>
+                </md-button>
+            </md-list-item>
+        </div>
+    </md-list>
 </div>
