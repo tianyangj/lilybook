@@ -8,12 +8,12 @@
     <md-list class="md-padding">
         <div ng-repeat="collection in $ctrl.collections">
             <md-subheader class="md-no-sticky">{{collection.name}}</md-subheader>
-            <md-list-item class="md-2-line" ui-sref="composition({id:compositionId})" ng-repeat="compositionId in collection.compositions">
+            <md-list-item class="md-2-line" ui-sref="composition({id:composition.$id})" ng-repeat="composition in collection.compositions">
                 <div class="md-list-item-text">
-                    <h3>{{ $ctrl.compositions[compositionId].title }}</h3>
-                    <p>by {{$ctrl.compositions[compositionId].composerId | uppercase}}</p>
+                    <h3>{{composition.title}}</h3>
+                    <p>by {{composition.composerId | uppercase}}</p>
                 </div>
-                <md-button class="md-secondary md-icon-button" ng-click="$ctrl.remove($event, compositionId)">
+                <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.remove($event, compositionId)">
                     <md-icon class="material-icons">remove_circle_outline</md-icon>
                 </md-button>
             </md-list-item>

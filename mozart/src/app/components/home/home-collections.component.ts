@@ -3,34 +3,31 @@ import { CompositionDataService } from '../../common/data/composition.service';
 class Controller {
 
     collections = [];
-    compositions = {};
+    collectionsRef;
 
     private user;
     private controller;
 
     /* @ngInject */
     constructor(
-        private $firebaseObject,
+        private $firebaseArray,
         private compositionDataService: CompositionDataService
     ) { }
 
     $onInit() {
-        const collectionsRef = firebase.database().ref('/user-collections').child(this.user.$id);
-        this.$firebaseObject(collectionsRef).$loaded().then(collections => {
-            let compositionIds = [];
-            angular.forEach(collections, collection => {
-                compositionIds = compositionIds.concat(collection.compositions);
-                this.collections.push(collection);
-            });
-            compositionIds.filter((compositionId, index, self) => {
-                return self.indexOf(compositionId) === index;
-            }).forEach(compositionId => {
-                this.compositionDataService.get(compositionId).$loaded(composition => {
-                    this.compositions[compositionId] = composition;
-                });
+        // set parent controller to 4th tab
+        this.controller.activeTab = 3;
+        // get user-collections reference
+        this.collectionsRef = firebase.database().ref('/user-collections').child(this.user.$id);
+        this.$firebaseArray(this.collectionsRef).$loaded().then(collections => {
+            this.collections = collections.map(collection => {
+                return {
+                    id: collection.$id,
+                    name: collection.name,
+                    compositions: this.compositionDataService.getMany(Object.keys(collection.compositions))
+                };
             });
         });
-        this.controller.activeTab = 3;
     }
 }
 

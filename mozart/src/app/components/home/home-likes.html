@@ -11,7 +11,7 @@
                 <h3>{{ composition.title }}</h3>
                 <p>by {{composition.composerId | uppercase}}</p>
             </div>
-            <md-button class="md-secondary md-icon-button" ng-click="$ctrl.remove($event, composition)">
+            <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.remove($event, composition)">
                 <md-icon class="material-icons">remove_circle_outline</md-icon>
             </md-button>
         </md-list-item>
