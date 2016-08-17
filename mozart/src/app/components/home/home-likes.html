@@ -6,9 +6,10 @@
         </h2>
     </md-toolbar>
     <md-list class="md-padding">
-        <md-list-item class="md-2-line" ui-sref="composition({id:composition.$id})" ng-repeat="composition in $ctrl.compositions">
+        <md-list-item class="md-2-line" ng-repeat="composition in $ctrl.compositions">
+            <span class="md-padding" style="width:24px;margin:auto;">{{$index+1}}</span>
             <div class="md-list-item-text">
-                <h3>{{ composition.title }}</h3>
+                <a class="md-subhead" ui-sref="composition({id:composition.$id})">{{composition.title}}</a>
                 <p>by {{composition.composerId | uppercase}}</p>
             </div>
             <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.remove($event, composition)">
