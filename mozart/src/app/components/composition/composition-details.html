@@ -1,41 +1,37 @@
-<div>
-    <md-card>
-        <md-card-title style="padding:12px;">
-            <md-card-title-media style="max-width:200px;margin:0;">
-                <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
-            </md-card-title-media>
-            <md-card-title-text style="margin-left:12px;">
-                <div layout="row" class="md-padding">
-                    <h1 flex class="md-headline">{{$ctrl.composition.title}}</h1>
-                    <lb-composition-like composition="$ctrl.composition"></lb-composition-like>
+<md-card>
+    <md-card-title style="padding:12px;">
+        <md-card-title-media style="max-width:200px;margin:0;">
+            <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
+        </md-card-title-media>
+        <md-card-title-text style="margin-left:12px;">
+            <div layout="row" layout-align="center center" class="md-padding">
+                <h1 flex class="md-headline" style="margin:0;">{{$ctrl.composition.title}}</h1>
+                <lb-composition-like composition="$ctrl.composition"></lb-composition-like>
+            </div>
+            <md-divider></md-divider>
+            <div class="md-padding">
+                <div layout="row" layout-align="start center">
+                    <span class="md-title">Composer:</span>
+                    <lb-tag type="composer" id="{{$ctrl.composition.composerId}}" fullname="true"></lb-tag>
                 </div>
-                <md-divider></md-divider>
-                <div class="md-padding">
-                    <h2 class="md-title" style="margin-bottom:12px;">
-                        Composer: <a ui-sref="composer({vanity:$ctrl.composer.$id})">{{$ctrl.composer.fullname}}</a>
-                    </h2>
-                    <h3 class="md-title" style="margin-bottom:12px;">
-                        Form: <a ui-sref="browse({form:$ctrl.form.$id})">{{$ctrl.form.name}}</a>
-                    </h3>
-                    <h4 class="md-title">
-                        Key: <a ui-sref="browse({key:$ctrl.key.$id})">{{$ctrl.key.name}}</a>
-                    </h4>
+                <div layout="row" layout-align="start center">
+                    <span class="md-title">Form:</span>
+                    <lb-tag type="form" id="{{$ctrl.composition.form}}"></lb-tag>
                 </div>
-                <div class="md-padding">
-                    <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
+                <div layout="row" layout-align="start center">
+                    <span class="md-title">Key:</span>
+                    <lb-tag type="key" id="{{$ctrl.composition.key}}"></lb-tag>
                 </div>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-    <div class="md-padding">
-        <a ui-sref="browse({rcm:$ctrl.rcm.$id})">
-            <lb-badge-rcm rcm="$ctrl.rcm"></lb-badge-rcm>
-        </a>
-        <a ui-sref="browse({henle:$ctrl.henle.$id})">
-            <lb-badge-henle henle="$ctrl.henle"></lb-badge-henle>
-        </a>
-        <a ui-sref="browse({abrsm:$ctrl.abrsm.$id})">
-            <lb-badge-abrsm abrsm="$ctrl.abrsm"></lb-badge-abrsm>
-        </a>
-    </div>
-</div>
+                <div layout="row" layout-align="start center" layout-wrap>
+                    <span class="md-title">Difficulty:</span>
+                    <lb-tag type="rcm" id="{{$ctrl.composition.rcm}}"></lb-tag>
+                    <lb-tag type="abrsm" id="{{$ctrl.composition.abrsm}}"></lb-tag>
+                    <lb-tag type="henle" id="{{$ctrl.composition.henle}}"></lb-tag>
+                </div>
+            </div>
+            <div class="md-padding">
+                <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
+            </div>
+        </md-card-title-text>
+    </md-card-title>
+</md-card>

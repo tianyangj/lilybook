@@ -1,6 +1,6 @@
-<div ng-switch="$ctrl.type">
+<div ng-switch="$ctrl.type" ng-if="$ctrl.id">
     <a ui-sref="browse({composer:$ctrl.tag.$id})" ng-switch-when="composer" style="background-color:#64B5F6;">
-        {{$ctrl.tag.name}}
+        {{$ctrl.fullname ? $ctrl.tag.fullname : $ctrl.tag.name}}
     </a>
     <a ui-sref="browse({rcm:$ctrl.tag.$id})" ng-switch-when="rcm" style="background-color:#F06292;">
         {{$ctrl.tag.name}}

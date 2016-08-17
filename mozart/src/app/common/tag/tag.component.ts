@@ -44,6 +44,7 @@ export const TagComponent: angular.IComponentOptions = {
     transclude: true,
     bindings: {
         type: '@',
-        id: '@'
+        id: '@',
+        fullname: '<'
     }
 };
