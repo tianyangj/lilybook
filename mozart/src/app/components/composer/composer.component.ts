@@ -1,14 +1,19 @@
+import { CompositionDataService } from '../../common/data/composition.service';
+
 class ComposerComponentController {
 
-    composer: any = {};
     additions: any[] = [];
     populars: any[] = [];
+    compositions;
+
+    private composer;
 
     /* @ngInject */
     constructor(
         private $stateParams: any,
+        private $firebaseArray,
         private $firebaseObject,
-        private $firebaseArray
+        private compositionDataService: CompositionDataService
     ) {
         let start = performance.now();
         console.log('ComposerController.constructor', performance.now() - start);
@@ -31,6 +36,10 @@ class ComposerComponentController {
         });
     }
 
+    $onInit() {
+        this.compositions = this.compositionDataService.getMany(Object.keys(this.composer.compositions));
+    }
+
     play(composition) {
         console.log('todo: play', composition);
     }
@@ -38,5 +47,8 @@ class ComposerComponentController {
 
 export const ComposerComponentView = {
     templateUrl: 'app/components/composer/composer.html',
-    controller: ComposerComponentController
+    controller: ComposerComponentController,
+    bindings: {
+        composer: '<'
+    }
 };

@@ -1,6 +1,8 @@
 import { ComposerComponentView } from './composer.component';
 import { ComposersComponentView } from './composers.component';
 
+import { ComposerDataService } from '../../common/data/composer.service';
+
 export const ComposerModule = angular
     .module('lilybook.composer', [])
     .component('lbComposerView', ComposerComponentView)
@@ -9,7 +11,10 @@ export const ComposerModule = angular
         $stateProvider
             .state('composer', {
                 url: '/composer/:vanity',
-                component: 'lbComposerView'
+                component: 'lbComposerView',
+                resolve: {
+                    composer: ($stateParams, composerDataService: ComposerDataService) => composerDataService.get($stateParams.vanity).$loaded()
+                }
             });
         $stateProvider
             .state('composers', {

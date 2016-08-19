@@ -41,5 +41,21 @@
                 </md-list-item>
             </md-list>
         </section>
+        <section md-whiteframe="2" style="margin-top:12px;">
+            <div layout="row" layout-align="center center" class="md-padding">
+                <h3 class="md-title md-padding">All</h3>
+                <span flex></span>
+                <md-button class="md-primary md-hue-1">View All</md-button>
+            </div>
+            <md-list class="md-dense" style="padding:0;">
+                <md-list-item class="md-2-line" ng-repeat="composition in $ctrl.compositions">
+                    <md-icon class="material-icons md-accent" ng-click="$ctrl.play(composition)">play_circle_outline</md-icon>
+                    <div class="md-list-item-text">
+                        <a ui-sref="composition({id:composition.$id})">{{composition.title}}</a>
+                        <p>{{composition.form}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </section>
     </md-content>
 </div>
