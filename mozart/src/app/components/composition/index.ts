@@ -5,6 +5,7 @@ import { CompositionDetailsComponentView } from './composition-details.component
 import { CompositionSheetComponentView } from './composition-sheet.component';
 import { CompositionVideosComponentView } from './composition-videos.component';
 import { CompositionDiscussionsComponentView } from './composition-discussions.component';
+import { CompositionCreateComponentView } from './composition-create.component';
 
 import { CompositionCollectionComponent } from './composition-collection.component';
 import { CompositionLikeComponent } from './composition-like.component';
@@ -19,6 +20,7 @@ export const CompositionModule = angular
     .component('lbCompositionSheetView', CompositionSheetComponentView)
     .component('lbCompositionVideosView', CompositionVideosComponentView)
     .component('lbCompositionDiscussionsView', CompositionDiscussionsComponentView)
+    .component('lbCompositionCreateView', CompositionCreateComponentView)
     .component('lbCompositionCollection', CompositionCollectionComponent)
     .component('lbCompositionLike', CompositionLikeComponent)
     .config(($stateProvider) => {
@@ -61,6 +63,11 @@ export const CompositionModule = angular
                 resolve: {
                     composition: composition => composition
                 }
+            });
+        $stateProvider
+            .state('composition-create', {
+                url: '/composition-create',
+                component: 'lbCompositionCreateView'
             });
     })
     .name;
