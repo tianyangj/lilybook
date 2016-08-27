@@ -15,12 +15,12 @@
                     <lb-tag type="composer" id="{{$ctrl.composition.composerId}}" fullname="true"></lb-tag>
                 </div>
                 <div layout="row" layout-align="start center">
-                    <span class="md-title">Form:</span>
-                    <lb-tag type="form" id="{{$ctrl.composition.form}}"></lb-tag>
-                </div>
-                <div layout="row" layout-align="start center">
                     <span class="md-title">Key:</span>
                     <lb-tag type="key" id="{{$ctrl.composition.key}}"></lb-tag>
+                </div>
+                <div layout="row" layout-align="start center" ng-if="$ctrl.composition.form">
+                    <span class="md-title">Form:</span>
+                    <lb-tag type="form" id="{{$ctrl.composition.form}}"></lb-tag>
                 </div>
                 <div layout="row" layout-align="start center" layout-wrap>
                     <span class="md-title">Difficulty:</span>

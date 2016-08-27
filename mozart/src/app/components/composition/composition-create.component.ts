@@ -53,21 +53,21 @@ class Controller {
 
         this.data.abrsm = undefined;
         this.data.catelogue = undefined;
-        this.data.composerId = 'beethoven';
-        this.data.description = 'The Écossaise in E flat major, WoO 86, was one of Beethoven\'s last works for piano. Composed in 1825, the Écossaise was published in the same year in a collection of dances published by C. F. Müller, Ernst und Tändeley. Müller (not Beethoven) dedicated the piece to the Duchess Sophie of Austria.';
-        this.data.form = 'dance';
+        this.data.composerId = 'mozart';
+        this.data.description = 'This Allegro in B flat Major, K 3 by Wolfgang Amadeus Mozart is part of the Notebook for Nannerl Mozart [Notenbuch für Maria Anna (Nannerl) Mozart], 1759-1764. The original manuscript for this Allegro is in the hand of Leopold Mozart, and is dated March 4, 1762 (Wolfgang was then six years old).';
+        this.data.form = undefined;
         this.data.henle = undefined;
-        this.data.hero = 'https://www.youtube.com/watch?v=QjU0JrNBnow';
-        this.data.imslp = 'http://imslp.org/wiki/Ecossaise,_WoO_86_(Beethoven,_Ludwig_van)';
-        this.data.key = 'e-flat-major';
+        this.data.hero = 'https://www.youtube.com/watch?v=kHi6BPoBki0';
+        this.data.imslp = undefined;
+        this.data.key = 'b-flat-major';
         this.data.order = undefined;
         this.data.rcm = 'rcm-piano-1';
-        this.data.sheet.images = ['https://storage.googleapis.com/project-6379245924955471702.appspot.com/images/sheet/E%CC%81cossaise_in_E_flat_major%2C_WoO_86-1.png'];
+        this.data.sheet.images = ['https://storage.googleapis.com/project-6379245924955471702.appspot.com/sheets/mozart-allegro-in-b-flat-major-1.png'];
         this.data.sheet.measures = undefined;
         this.data.sheet.pages = undefined;
         this.data.sheet.pdf = undefined;
-        this.data.thumbnail.url = 'https://storage.googleapis.com/project-6379245924955471702.appspot.com/thumbnails/beethoven-woo86.jpg';
-        this.data.title = 'Écossaise in E flat Major, WoO 86';
+        this.data.thumbnail.url = 'https://storage.googleapis.com/project-6379245924955471702.appspot.com/thumbnails/mozart-allegro-in-b-flat-major.png';
+        this.data.title = 'Allegro in B flat Major, K 3';
         this.data.wikipedia = undefined;
     }
 
