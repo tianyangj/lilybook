@@ -20,7 +20,7 @@ export class ComposerDataService {
         return this.$firebaseArray(this.composersRef);
     }
 
-    getFeaturedComposers(limit = 5) {
+    getFeaturedComposers(limit = 20) {
         // return items where compositionCount is greater than or equal to 1 with limit
         const query = this.composersRef.startAt(1).orderByChild('compositionCount').limitToLast(limit);
         return this.$firebaseArray(query).$loaded().then(composers => {
