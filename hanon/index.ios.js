@@ -54,6 +54,7 @@ AppRegistry.registerComponent('hanon', () => hanon);*/
 
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, Image, TextInput } from 'react-native';
+import Hanon from './src/components/app'
 
 class Bananas extends Component {
   render() {
@@ -98,14 +99,14 @@ class Pizza extends Component {
   render() {
     return (
       <View style={{ padding: 10 }}>
-        <TextInput style={{height:40,borderWidth:1}} placeholder="Type here to translate!" onChangeText={(text)=>this.setState({text:text})} />
-        <Text>{this.state.text.split(' ').map(word => word && '🍕').join(' ')}</Text>
+        <TextInput style={{ height: 40, borderWidth: 1 }} placeholder="Type here to translate!" onChangeText={(text) => this.setState({ text: text }) } />
+        <Text>{this.state.text.split(' ').map(word => word && '🍕').join(' ') }</Text>
       </View>
     );
   }
 }
 
-class Hanon extends Component {
+/*class Hanon extends Component {
   render() {
     return (
       <View>
@@ -117,6 +118,6 @@ class Hanon extends Component {
       </View>
     );
   }
-}
+}*/
 
 AppRegistry.registerComponent('hanon', () => Hanon);
