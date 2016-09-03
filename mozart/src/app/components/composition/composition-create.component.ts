@@ -7,7 +7,9 @@ class Controller {
         description: undefined,
         form: undefined,
         henle: undefined,
-        hero: undefined,
+        hero: {
+            src: undefined
+        },
         imslp: undefined,
         key: undefined,
         order: undefined,
@@ -38,7 +40,7 @@ class Controller {
         this.data.description = undefined;
         this.data.form = undefined;
         this.data.henle = undefined;
-        this.data.hero = undefined;
+        this.data.hero.src = undefined;
         this.data.imslp = undefined;
         this.data.key = undefined;
         this.data.order = undefined;
@@ -53,21 +55,21 @@ class Controller {
 
         this.data.abrsm = undefined;
         this.data.catelogue = undefined;
-        this.data.composerId = 'mozart';
-        this.data.description = 'This Allegro in B flat Major, K 3 by Wolfgang Amadeus Mozart is part of the Notebook for Nannerl Mozart [Notenbuch für Maria Anna (Nannerl) Mozart], 1759-1764. The original manuscript for this Allegro is in the hand of Leopold Mozart, and is dated March 4, 1762 (Wolfgang was then six years old).';
+        this.data.composerId = 'hook';
+        this.data.description = 'This lovely Allegretto in C Major, Op. 81, No. 4 by James Hook is part of the composer\'s New Guida di musica, Op. 81.';
         this.data.form = undefined;
         this.data.henle = undefined;
-        this.data.hero = 'https://www.youtube.com/watch?v=kHi6BPoBki0';
+        this.data.hero.src = 'https://storage.googleapis.com/project-6379245924955471702.appspot.com/assets/hook-allegretto-in-c-major.webm';
         this.data.imslp = undefined;
-        this.data.key = 'b-flat-major';
+        this.data.key = 'c-major';
         this.data.order = undefined;
         this.data.rcm = 'rcm-piano-1';
-        this.data.sheet.images = ['https://storage.googleapis.com/project-6379245924955471702.appspot.com/sheets/mozart-allegro-in-b-flat-major-1.png'];
+        this.data.sheet.images = ['https://storage.googleapis.com/project-6379245924955471702.appspot.com/assets/hook-allegretto-in-c-major-1.png'];
         this.data.sheet.measures = undefined;
         this.data.sheet.pages = undefined;
         this.data.sheet.pdf = undefined;
-        this.data.thumbnail.url = 'https://storage.googleapis.com/project-6379245924955471702.appspot.com/thumbnails/mozart-allegro-in-b-flat-major.png';
-        this.data.title = 'Allegro in B flat Major, K 3';
+        this.data.thumbnail.url = 'https://storage.googleapis.com/project-6379245924955471702.appspot.com/assets/hook-allegretto-in-c-major.png';
+        this.data.title = 'Allegretto in C Major, Op. 81, No. 4';
         this.data.wikipedia = undefined;
     }
 
