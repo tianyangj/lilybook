@@ -5,7 +5,7 @@
     "angular": "~1.5.5",
     "angularfire": "latest",
     "angular-animate": "~1.5.5",
-    "angular-material": "1.1.0",
+    "angular-material": "^1.1.0",
     "angular-read-more": "^1.0.5",
     "angular-swiper": "^0.4.0",
     "angular-toastr": "^2.0.0",
