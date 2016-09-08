@@ -1,37 +1,33 @@
 <md-card>
-    <md-card-title style="padding:12px;">
-        <md-card-title-media style="max-width:200px;margin:0;">
+    <md-card-title>
+        <md-card-title-media hide-xs>
             <img ng-src="{{$ctrl.composition.thumbnail.url}}" alt="{{$ctrl.composition.title}}" />
         </md-card-title-media>
-        <md-card-title-text style="margin-left:12px;">
-            <div layout="row" layout-align="center center" class="md-padding">
+        <md-card-title-text style="margin-left:16px;">
+            <div layout="row" layout-align="center center">
                 <h1 flex class="md-headline" style="margin:0;">{{$ctrl.composition.title}}</h1>
                 <lb-composition-like composition="$ctrl.composition"></lb-composition-like>
             </div>
             <md-divider></md-divider>
-            <div class="md-padding">
-                <div layout="row" layout-align="start center">
-                    <span class="md-title">Composer:</span>
-                    <lb-tag type="composer" id="{{$ctrl.composition.composerId}}" fullname="true"></lb-tag>
-                </div>
-                <div layout="row" layout-align="start center">
-                    <span class="md-title">Key:</span>
-                    <lb-tag type="key" id="{{$ctrl.composition.key}}"></lb-tag>
-                </div>
-                <div layout="row" layout-align="start center" ng-if="$ctrl.composition.form">
-                    <span class="md-title">Form:</span>
-                    <lb-tag type="form" id="{{$ctrl.composition.form}}"></lb-tag>
-                </div>
-                <div layout="row" layout-align="start center" layout-wrap>
-                    <span class="md-title">Difficulty:</span>
-                    <lb-tag type="rcm" id="{{$ctrl.composition.rcm}}"></lb-tag>
-                    <lb-tag type="abrsm" id="{{$ctrl.composition.abrsm}}"></lb-tag>
-                    <lb-tag type="henle" id="{{$ctrl.composition.henle}}"></lb-tag>
-                </div>
+            <div layout="row" layout-align="start center">
+                <span class="md-title">Composer:</span>
+                <lb-tag type="composer" id="{{$ctrl.composition.composerId}}" fullname="true"></lb-tag>
             </div>
-            <div class="md-padding">
-                <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
+            <div layout="row" layout-align="start center">
+                <span class="md-title">Key:</span>
+                <lb-tag type="key" id="{{$ctrl.composition.key}}"></lb-tag>
             </div>
+            <div layout="row" layout-align="start center" ng-if="$ctrl.composition.form">
+                <span class="md-title">Form:</span>
+                <lb-tag type="form" id="{{$ctrl.composition.form}}"></lb-tag>
+            </div>
+            <div layout="row" layout-align="start center" layout-wrap>
+                <span class="md-title">Difficulty:</span>
+                <lb-tag type="rcm" id="{{$ctrl.composition.rcm}}"></lb-tag>
+                <lb-tag type="abrsm" id="{{$ctrl.composition.abrsm}}"></lb-tag>
+                <lb-tag type="henle" id="{{$ctrl.composition.henle}}"></lb-tag>
+            </div>
+            <p class="md-body-1" hm-read-more hm-text="{{$ctrl.composition.description}}" hm-limit="200" hm-link-class="read-more"></p>
         </md-card-title-text>
     </md-card-title>
 </md-card>
