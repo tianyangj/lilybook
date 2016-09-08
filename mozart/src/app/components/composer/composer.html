@@ -1,10 +1,10 @@
 <div layout="column" layout-fill>
-    <md-toolbar class="md-tall md-hue-1" layout="row" layout-align="center center">
-        <div class="md-padding" style="width:128px;">
+    <md-toolbar class="md-tall" layout="row" layout-align="center center">
+        <div style="width:128px;height:128px;padding:16px;">
             <img ng-src="{{$ctrl.composer.image}}" alt="{{$ctrl.composer.fullname}}" style="width:100%;border-radius:50%;">
         </div>
-        <div flex>
-            <h1 class="md-title" style="margin-bottom:12px;">{{$ctrl.composer.fullname}}</h1>
+        <div flex style="padding-right:16px;">
+            <h1 class="md-headline" style="margin:0;padding-bottom:8px;">{{$ctrl.composer.fullname}}</h1>
             <p class="md-body-1 line-clamp-3">{{$ctrl.composer.bio}}</p>
         </div>
     </md-toolbar>
