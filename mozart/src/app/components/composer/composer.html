@@ -9,7 +9,7 @@
         </div>
     </md-toolbar>
     <md-content flex class="md-padding">
-        <section md-whiteframe="2">
+        <!--<section md-whiteframe="2">
             <div layout="row" layout-align="center center" class="md-padding">
                 <h3 class="md-title md-padding">New Additions</h3>
                 <span flex></span>
@@ -40,6 +40,13 @@
                     </div>
                 </md-list-item>
             </md-list>
+        </section>-->
+        <section md-whiteframe="2" style="margin-top:12px;">
+            <div layout="row" layout-wrap>
+                <div flex="50"" ng-repeat="composition in $ctrl.compositions">
+                    <lb-thumbnail-card composition="composition"></lb-thumbnail-card>
+                </div>
+            </div>
         </section>
         <section md-whiteframe="2" style="margin-top:12px;">
             <div layout="row" layout-align="center center" class="md-padding">
