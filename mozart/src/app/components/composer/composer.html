@@ -41,13 +41,11 @@
                 </md-list-item>
             </md-list>
         </section>-->
-        <section md-whiteframe="2" style="margin-top:12px;">
-            <div layout="row" layout-wrap>
-                <div flex="50"" ng-repeat="composition in $ctrl.compositions">
-                    <lb-thumbnail-card composition="composition"></lb-thumbnail-card>
-                </div>
+        <div layout="row" layout-wrap>
+            <div flex="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="composition in $ctrl.compositions">
+                <lb-thumbnail-card composition="composition"></lb-thumbnail-card>
             </div>
-        </section>
+        </div>
         <section md-whiteframe="2" style="margin-top:12px;">
             <div layout="row" layout-align="center center" class="md-padding">
                 <h3 class="md-title md-padding">All</h3>
