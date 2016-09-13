@@ -20,6 +20,7 @@ const template = `
                     md-colors="{color:'primary-600'}">
                     {{$ctrl.composition.title}}
                 </a>
+                <lb-tag-key id="$ctrl.composition.key"></lb-tag-key>
                 <h5 class="md-subhead line-clamp-1" style="margin:8px 0;line-height:24px;">by {{$ctrl.composition.composerId}}</h5>
                 <p class="md-caption line-clamp-3" style="line-height:16px;">{{$ctrl.composition.description}}<p>
             </div>
