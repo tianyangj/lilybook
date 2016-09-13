@@ -22,7 +22,7 @@ export const TagKeyComponent: angular.IComponentOptions = {
             class="md-raised" 
             ui-sref="browse({key:$ctrl.id})" 
             ng-if="$ctrl.id"
-            style="background-color:#FF8A65;margin:0;color:#FFF;border-radius:16px;padding:0 16px;min-width:inherit;">
+            style="background-color:#FF8A65;color:#FFF;border-radius:16px;padding:0 16px;min-width:inherit;">
             {{$ctrl.key.name}}
         </md-button>
     `,

@@ -22,7 +22,7 @@ export const TagFormComponent: angular.IComponentOptions = {
             class="md-raised" 
             ui-sref="browse({form:$ctrl.id})" 
             ng-if="$ctrl.id"
-            style="background-color:#AED581;margin:0;color:#FFF;border-radius:16px;padding:0 16px;min-width:inherit;">
+            style="background-color:#AED581;color:#FFF;border-radius:16px;padding:0 16px;min-width:inherit;">
             {{$ctrl.form.name}}
         </md-button>
     `,

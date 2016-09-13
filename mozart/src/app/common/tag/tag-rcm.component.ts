@@ -22,7 +22,7 @@ export const TagRcmComponent: angular.IComponentOptions = {
             class="md-raised" 
             ui-sref="browse({rcm:$ctrl.id})" 
             ng-if="$ctrl.id"
-            style="background-color:#F06292;margin:0;color:#FFF;border-radius:16px;padding:0 16px;min-width:inherit;">
+            style="background-color:#F06292;color:#FFF;border-radius:16px;padding:0 16px;min-width:inherit;">
             {{$ctrl.rcm.name}}
         </md-button>
     `,

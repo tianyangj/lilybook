@@ -20,9 +20,8 @@ const template = `
                     md-colors="{color:'primary-600'}">
                     {{$ctrl.composition.title}}
                 </a>
-                <div style="margin:8px 0;">
+                <div style="margin:0;">
                     <lb-tag-key id="$ctrl.composition.key"></lb-tag-key>
-                    <lb-tag-form id="$ctrl.composition.form"></lb-tag-form>
                     <lb-tag-rcm id="$ctrl.composition.rcm"></lb-tag-rcm>
                 </div>
             </div>
