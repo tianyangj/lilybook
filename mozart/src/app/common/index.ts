@@ -7,8 +7,11 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderMenuComponent } from './header/header-menu.component';
 import { HeaderSearchComponent } from './header/header-search.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { TagAbrsmComponent } from './tag/tag-abrsm.component';
 import { TagFormComponent } from './tag/tag-form.component';
+import { TagHenleComponent } from './tag/tag-henle.component';
 import { TagKeyComponent } from './tag/tag-key.component';
+import { TagRcmComponent } from './tag/tag-rcm.component';
 import { TagComponent } from './tag/tag.component';
 import { ThumbnailCardComponent } from './thumbnail/thumbnail-card.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
@@ -40,8 +43,11 @@ export const CommonModule = angular
     .component('lbHeaderMenu', HeaderMenuComponent)
     .component('lbHeaderSearch', HeaderSearchComponent)
     .component('lbSidenav', SidenavComponent)
+    .component('lbTagAbrsm', TagAbrsmComponent)
     .component('lbTagForm', TagFormComponent)
+    .component('lbTagHenle', TagHenleComponent)
     .component('lbTagKey', TagKeyComponent)
+    .component('lbTagRcm', TagRcmComponent)
     .component('lbTag', TagComponent)
     .component('lbThumbnailCard', ThumbnailCardComponent)
     .component('lbThumbnail', ThumbnailComponent)
