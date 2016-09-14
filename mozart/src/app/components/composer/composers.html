@@ -1,5 +1,5 @@
 <div layout="column" layout-fill>
-    <md-toolbar md-scroll-shrink>
+    <md-toolbar>
         <div class="md-toolbar-tools">
             <h2 class="md-padding">
                 <span>Composers</span>
@@ -26,10 +26,9 @@
     </md-toolbar>
     <md-content flex class="md-padding">
         <md-list>
-            <md-list-item ng-click="$ctrl.goto(composer.$id)" ng-repeat="composer in $ctrl.composers">
+            <md-list-item ui-sref="composer({vanity:composer.$id})" ng-repeat="composer in $ctrl.composers">
                 <img ng-src="{{composer.image}}" class="md-avatar" alt="{{composer.name}}" />
                 <p>{{composer.fullname}}</p>
-                <span class="md-secondary">{{composer.compositionCount}} composition(s)</span>
             </md-list-item>
         </md-list>
     </md-content>

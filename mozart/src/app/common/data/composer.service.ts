@@ -2,6 +2,7 @@ export class ComposerDataService {
 
     private composersRef;
     private compositionsRef;
+    private composersIndexRef;
 
     /* @ngInject */
     constructor(
@@ -10,6 +11,7 @@ export class ComposerDataService {
     ) {
         this.composersRef = firebase.database().ref('/composers');
         this.compositionsRef = firebase.database().ref('/compositions');
+        this.composersIndexRef = firebase.database().ref('/index-composers');
     }
 
     get(composerId: string) {
@@ -37,6 +39,13 @@ export class ComposerDataService {
                     })
                 };
             });
+        });
+    }
+
+    getActiveComposers() {
+        return this.$firebaseArray(this.composersIndexRef).$loaded().then(composers => {
+            return composers.map(composer => composer.$id)
+                .map(composerId => this.get(composerId));
         });
     }
 }

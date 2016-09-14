@@ -19,7 +19,10 @@ export const ComposerModule = angular
         $stateProvider
             .state('composers', {
                 url: '/composers',
-                component: 'lbComposersView'
+                component: 'lbComposersView',
+                resolve: {
+                    composers: (composerDataService: ComposerDataService) => composerDataService.getActiveComposers()
+                }
             });
     })
     .name;
