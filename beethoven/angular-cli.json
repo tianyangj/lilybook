@@ -15,6 +15,7 @@
       "prefix": "lb",
       "mobile": false,
       "styles": [
+        "../node_modules/normalize.css/normalize.css",
         "styles.css"
       ],
       "scripts": [],
