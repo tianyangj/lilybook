@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MdSidenav } from '@angular2-material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild('sidenav') sidenav: MdSidenav;
+
   title = 'app works!';
+
+  onMenuToggle() {
+    this.sidenav.toggle();
+  }
 }

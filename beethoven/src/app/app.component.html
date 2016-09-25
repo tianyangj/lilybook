@@ -1,4 +1,9 @@
-<lb-header></lb-header>
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout>
+  <md-sidenav #sidenav>
+    Start Sidenav.
+  </md-sidenav>
+  <lb-header (onMenuToggle)="onMenuToggle($event)"></lb-header>
+  <h1>
+    {{title}}
+  </h1>
+</md-sidenav-layout>
