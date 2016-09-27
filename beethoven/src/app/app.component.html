@@ -1,9 +1,14 @@
 <md-sidenav-layout fullscreen>
   <md-sidenav #sidenav>
-    Start Sidenav.
+    <lb-sidenav></lb-sidenav>
   </md-sidenav>
-  <lb-header (onMenuToggle)="onMenuToggle($event)"></lb-header>
-  <h1>
-    {{title}}
-  </h1>
+  <div>
+    <lb-header (onMenuToggle)="onMenuToggle($event)"></lb-header>
+    <div>
+      <h1>
+        {{title}}
+      </h1>
+      <p>main content</p>
+    </div>
+  </div>
 </md-sidenav-layout>
