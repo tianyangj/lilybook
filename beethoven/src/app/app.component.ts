@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MdSidenav } from '@angular2-material/sidenav';
+import { MdSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
