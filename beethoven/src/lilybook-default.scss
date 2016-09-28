@@ -1,0 +1,13 @@
+// https://github.com/angular/material2/blob/master/docs/theming.md
+
+@import '~@angular/material/core/theming/all-theme';
+
+@include md-core();
+
+$primary: md-palette($md-light-blue);
+$accent:  md-palette($md-pink);
+$warn:    md-palette($md-red);
+
+$theme: md-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);

@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'lb-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.less']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
 

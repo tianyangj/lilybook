@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'lb-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.less']
+  styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
 

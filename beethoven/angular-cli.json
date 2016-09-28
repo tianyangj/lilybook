@@ -15,7 +15,7 @@
       "prefix": "lb",
       "mobile": false,
       "styles": [
-        "../node_modules/normalize.css/normalize.css",
+        "lilybook-default.scss",
         "styles.css"
       ],
       "scripts": [],
@@ -39,7 +39,7 @@
     }
   },
   "defaults": {
-    "styleExt": "less",
+    "styleExt": "scss",
     "prefixInterfaces": false
   }
 }
