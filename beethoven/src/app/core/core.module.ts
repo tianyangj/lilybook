@@ -4,6 +4,7 @@ import { MaterialModule } from '@angular/material';
 
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { MoreComponent } from './more/more.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
   ],
   declarations: [
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    MoreComponent
   ],
   exports: [
     HeaderComponent,
