@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MoreComponent } from './more/more.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,11 @@ import { MoreComponent } from './more/more.component';
   declarations: [
     HeaderComponent,
     SidenavComponent,
-    MoreComponent
+    MoreComponent,
+    LoginComponent
+  ],
+  entryComponents: [
+    LoginComponent
   ],
   exports: [
     HeaderComponent,

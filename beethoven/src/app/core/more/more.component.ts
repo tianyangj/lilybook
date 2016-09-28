@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { MdDialog, MdDialogConfig } from "@angular/material";
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'lb-more',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoreComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private mdDialog: MdDialog,
+    private viewContainerRef: ViewContainerRef
+  ) { }
 
   ngOnInit() {
+  }
+
+  openLogin() {
+    let config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+    this.mdDialog.open(LoginComponent, config);
   }
 
 }
