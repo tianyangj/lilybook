@@ -1,0 +1,18 @@
+$header-height: 64px;
+
+lb-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-height;
+    z-index: 1;
+}
+
+md-sidenav-layout {
+    padding-top: $header-height;
+}
+
+md-sidenav {
+    padding-top: $header-height;
+}
