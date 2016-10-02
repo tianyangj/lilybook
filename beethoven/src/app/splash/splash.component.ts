@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'lb-splash',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashComponent implements OnInit {
 
-  constructor() { }
+  composers: FirebaseListObservable<any[]>;
+
+  constructor(private angularFire: AngularFire) { }
 
   ngOnInit() {
+    this.composers = this.angularFire.database.list('/composers');
   }
 
 }
