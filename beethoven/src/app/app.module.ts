@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
 import { SplashModule } from './splash/splash.module';
 
-import { AppComponent } from './app.component';
 import { routes } from './app.routes';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
