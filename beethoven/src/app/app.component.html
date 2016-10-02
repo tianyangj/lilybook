@@ -4,4 +4,11 @@
     <lb-sidenav></lb-sidenav>
   </md-sidenav>
   <router-outlet></router-outlet>
+  <div>
+    <ul>
+      <li class="text" *ngFor="let composer of composers | async">
+        {{composer.fullname}}
+      </li>
+    </ul>
+  </div>
 </md-sidenav-layout>
