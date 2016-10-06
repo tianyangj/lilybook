@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'lb-sidenav',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  @Output() onLinkClose = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  close() {
+    this.onLinkClose.emit();
   }
 
 }

@@ -12,7 +12,11 @@ export class AppComponent {
 
   constructor() { }
 
-  onMenuToggle() {
+  toggleSidenav() {
     this.sidenav.toggle();
+  }
+
+  closeSidenav() {
+    this.sidenav.close();
   }
 }

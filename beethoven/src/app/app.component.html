@@ -1,9 +1,9 @@
 <md-sidenav-layout fullscreen>
   <md-sidenav #sidenav>
-    <lb-sidenav class="lb-container"></lb-sidenav>
+    <lb-sidenav class="lb-container" (onLinkClose)="closeSidenav()"></lb-sidenav>
   </md-sidenav>
   <div class="lb-container">
-    <lb-header (onMenuToggle)="onMenuToggle($event)"></lb-header>
+    <lb-header (onMenuToggle)="toggleSidenav()"></lb-header>
     <div class="lb-content">
       <router-outlet></router-outlet>
     </div>
