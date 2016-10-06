@@ -12,3 +12,11 @@
     flex: 1;
     overflow: auto;
 }
+
+.lb-padding {
+    padding: 8px;
+}
+
+.lb-margin {
+    margin: 8px;
+}
