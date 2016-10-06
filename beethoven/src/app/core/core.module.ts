@@ -9,6 +9,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MoreComponent } from './more/more.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
+import { DataService } from './data.service';
 
 @NgModule({
   imports: [
@@ -30,6 +31,9 @@ import { LoginComponent } from './login/login.component';
   exports: [
     HeaderComponent,
     SidenavComponent
+  ],
+  providers: [
+    DataService
   ]
 })
 export class CoreModule { }

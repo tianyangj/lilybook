@@ -6,6 +6,11 @@
     {{composer.fullname}}
   </li>
 </ul>
+<ul>
+  <li *ngFor="let feature of features | async">
+    {{feature | async | json}}
+  </li>
+</ul>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac massa at risus hendrerit ornare sit amet sed arcu. Fusce
   id nunc iaculis, sagittis lorem at, elementum tellus. Maecenas at lorem nulla. Proin quis augue id risus aliquet molestie
   at eget dolor. Maecenas diam sem, faucibus eget ex vel, egestas volutpat sem. Quisque a euismod nibh. Mauris sit amet mattis
