@@ -1,7 +1,11 @@
-<lb-header (onMenuToggle)="onMenuToggle($event)"></lb-header>
 <md-sidenav-layout fullscreen>
   <md-sidenav #sidenav>
     <lb-sidenav></lb-sidenav>
   </md-sidenav>
-  <router-outlet></router-outlet>
+  <div class="lb-container">
+    <lb-header (onMenuToggle)="onMenuToggle($event)"></lb-header>
+    <div class="lb-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </md-sidenav-layout>
