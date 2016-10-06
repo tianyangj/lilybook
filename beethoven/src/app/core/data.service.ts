@@ -15,11 +15,15 @@ export class DataService {
     return this.angularFire.database.list('/composers');
   }
 
+  getComposer(vanity: string): Observable<any> {
+    return this.angularFire.database.object(`/composers/${vanity}`);
+  }
+
   getFeatures(): Observable<Observable<any>[]> {
     return this.angularFire.database.list('/index-features').map(features => {
       return features.map(feature => {
         return this.angularFire.database.object(`/compositions/${feature.$key}`);
-      })
+      });
     });
   }
 

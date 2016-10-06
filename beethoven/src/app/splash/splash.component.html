@@ -1,16 +1,6 @@
 <div class="layout-row layout-wrap">
   <div class="flex-50 lb-padding" *ngFor="let feature of features | async">
-    <md-card class="layout-row">
-      <img [src]="(feature|async)?.thumbnail.url" style="width:100px;height:150px;">
-      <div class="flex">
-        <md-card-title>
-          {{(feature|async)?.title}}
-        </md-card-title>
-        <md-card-subtitle>
-          {{(feature|async)?.composerId}}
-        </md-card-subtitle>
-      </div>
-    </md-card>
+    <lb-composition-card [composition]="feature"></lb-composition-card>
   </div>
 </div>
 <ul>
