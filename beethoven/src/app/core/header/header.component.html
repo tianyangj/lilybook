@@ -1,12 +1,10 @@
 <md-toolbar color="primary">
-  <button md-icon-button class="menu" (click)="toggle()">
+  <button md-icon-button (click)="toggle()">
     <md-icon>menu</md-icon>
   </button>
   <span class="brand">LilyBook</span>
-  <lb-nav></lb-nav>
-  <span class="filler"></span>
-  <button md-icon-button class="search">
-    <md-icon>search</md-icon>
-  </button>
+  <lb-nav class="hide-xs"></lb-nav>
+  <span class="flex"></span>
+  <lb-search></lb-search>
   <lb-more></lb-more>
 </md-toolbar>

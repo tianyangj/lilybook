@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MoreComponent } from './more/more.component';
 import { NavComponent } from './nav/nav.component';
+import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { DataService } from './data.service';
 
@@ -23,6 +24,7 @@ import { DataService } from './data.service';
     SidenavComponent,
     MoreComponent,
     NavComponent,
+    SearchComponent,
     LoginComponent
   ],
   entryComponents: [
