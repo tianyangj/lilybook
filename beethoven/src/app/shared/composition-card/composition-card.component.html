@@ -1,11 +1,13 @@
-<md-card class="layout-row">
-  <img [src]="(composition|async)?.thumbnail.url">
+<md-card class="layout-row" *ngIf="composition">
+  <img [src]="composition.thumbnail.url">
   <div class="flex title-group">
     <md-card-title>
-      {{(composition|async)?.title}}
+      <a [routerLink]="['/composition', composition.$key]">
+        {{composition.title}}
+      </a>
     </md-card-title>
     <md-card-subtitle>
-      {{(composer|async)?.fullname}}
+      {{composer?.fullname}}
     </md-card-subtitle>
   </div>
 </md-card>

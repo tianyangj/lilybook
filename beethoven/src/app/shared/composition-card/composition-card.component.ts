@@ -9,17 +9,21 @@ import { DataService } from '../../core/data.service';
 })
 export class CompositionCardComponent implements OnInit {
 
-  @Input() composition: Observable<any>;
+  @Input('composition') compositionSource: Observable<any>;
 
-  composer: Observable<any>;
+  composition;
+  composer;
 
   constructor(
     private dataService: DataService
   ) { }
 
   ngOnInit() {
-    this.composer = this.composition.switchMap(composition => {
-      return this.dataService.getComposer(composition.composerId);
+    this.compositionSource.subscribe(composition => {
+      this.composition = composition;
+      this.dataService.getComposer(composition.composerId).subscribe(composer => {
+        this.composer = composer
+      });
     });
   }
 
