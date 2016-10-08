@@ -19,6 +19,10 @@ export class DataService {
     return this.angularFire.database.object(`/composers/${vanity}`);
   }
 
+  getComposition(id: string): Observable<any> {
+    return this.angularFire.database.object(`/compositions/${id}`);
+  }
+
   getFeatures(): Observable<Observable<any>[]> {
     return this.angularFire.database.list('/index-features').map(features => {
       return features.map(feature => {
