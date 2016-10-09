@@ -1,6 +1,12 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~normalize.css/normalize.css';
 @import '~angular-material/modules/layouts/angular-material.layouts.css';
+@import '~plyr/dist/plyr.css';
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
 
 .lb-container {
     height: 100%;

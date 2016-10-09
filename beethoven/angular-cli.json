@@ -18,7 +18,9 @@
         "lilybook-default.scss",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/plyr/dist/plyr.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
