@@ -1,4 +1,5 @@
-<div *ngIf="composition">
+<div class="composition-container" *ngIf="composition">
   <lb-composition-hero [hero]="composition.hero"></lb-composition-hero>
+  <lb-composition-detail [composition]="composition"></lb-composition-detail>
   <pre>{{composition | json}}</pre>
 </div>

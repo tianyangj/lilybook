@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { routes } from './composition.routes';
 import { CompositionComponent } from './composition.component';
 import { CompositionHeroComponent } from './composition-hero/composition-hero.component';
+import { CompositionDetailComponent } from './composition-detail/composition-detail.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { CompositionHeroComponent } from './composition-hero/composition-hero.co
   ],
   declarations: [
     CompositionComponent,
-    CompositionHeroComponent
+    CompositionHeroComponent,
+    CompositionDetailComponent
   ]
 })
 export class CompositionModule { }
