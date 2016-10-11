@@ -7,6 +7,8 @@ import { CompositionComponent } from './composition.component';
 import { CompositionHeroComponent } from './composition-hero/composition-hero.component';
 import { CompositionDetailComponent } from './composition-detail/composition-detail.component';
 
+import { CompositionResolveService } from './guards/composition-resolve.service';
+
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
@@ -16,6 +18,9 @@ import { CompositionDetailComponent } from './composition-detail/composition-det
     CompositionComponent,
     CompositionHeroComponent,
     CompositionDetailComponent
+  ],
+  providers: [
+    CompositionResolveService
   ]
 })
 export class CompositionModule { }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../core/data.service';
 
 @Component({
   selector: 'lb-composition',
@@ -12,17 +11,12 @@ export class CompositionComponent implements OnInit {
   composition;
 
   constructor(
-    private route: ActivatedRoute,
-    private dataService: DataService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(
   ) {
-    this.route.params.switchMap(param => {
-      return this.dataService.getComposition(param['id']);
-    }).subscribe(composition => {
-      this.composition = composition;
-    });
+    this.route.data.subscribe(data => this.composition = data['composition']);
   }
 
 }
