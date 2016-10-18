@@ -5,3 +5,11 @@ md-card {
 .title-group {
     padding-left: 12px;
 }
+
+md-card-actions {
+    margin: 0;
+
+    button {
+        margin-left: 12px;
+    }
+}

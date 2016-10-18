@@ -14,15 +14,19 @@
 			<md-card-subtitle *ngIf="composition.form">
 				Form: {{composition.form}}
 			</md-card-subtitle>
-      <md-card-subtitle *ngIf="composition.rcm">
+			<md-card-subtitle *ngIf="composition.rcm">
 				Level: {{composition.rcm}}
 			</md-card-subtitle>
 			<md-card-content>
 				{{composition.description}}
 			</md-card-content>
 			<md-card-actions align="end">
-				<button md-button>LIKE</button>
-				<button md-button>SHARE</button>
+				<button md-fab color="primary">
+    				<md-icon class="md-24">favorite</md-icon>
+				</button>
+				<button md-fab color="primary">
+    				<md-icon class="md-24">playlist_add</md-icon>
+				</button>
 			</md-card-actions>
 		</div>
 	</md-card>
