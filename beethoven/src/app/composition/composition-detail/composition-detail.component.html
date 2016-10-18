@@ -1,13 +1,29 @@
 <div class="lb-margin">
-  <md-card class="layout-row">
-    <img [src]="composition.thumbnail.url">
-    <div class="flex title-group">
-      <md-card-title>
-        {{composition.title}}
-      </md-card-title>
-      <md-card-subtitle>
-        {{composer?.fullname}}
-      </md-card-subtitle>
-    </div>
-  </md-card>
+	<md-card class="layout-row">
+		<img [src]="composition.thumbnail.url">
+		<div class="flex title-group">
+			<md-card-title>
+				{{composition.title}}
+			</md-card-title>
+			<md-card-subtitle>
+				Composer: {{composition.composerId}}
+			</md-card-subtitle>
+			<md-card-subtitle *ngIf="composition.key">
+				Key: {{composition.key}}
+			</md-card-subtitle>
+			<md-card-subtitle *ngIf="composition.form">
+				Form: {{composition.form}}
+			</md-card-subtitle>
+      <md-card-subtitle *ngIf="composition.rcm">
+				Level: {{composition.rcm}}
+			</md-card-subtitle>
+			<md-card-content>
+				{{composition.description}}
+			</md-card-content>
+			<md-card-actions align="end">
+				<button md-button>LIKE</button>
+				<button md-button>SHARE</button>
+			</md-card-actions>
+		</div>
+	</md-card>
 </div>
