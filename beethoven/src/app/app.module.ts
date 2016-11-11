@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
+
+import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SplashModule } from './splash/splash.module';
 
-import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 
 export const firebaseConfig = {
@@ -23,8 +23,8 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     MaterialModule.forRoot(),
-    RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig),
+    AppRoutingModule,
     CoreModule,
     SplashModule
   ],
