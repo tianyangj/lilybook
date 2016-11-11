@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { SplashRoutingModule } from './splash-routing.module';
 
-import { routes } from './splash.routes';
 import { SplashComponent } from './splash.component';
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    SplashRoutingModule
   ],
   declarations: [
     SplashComponent
