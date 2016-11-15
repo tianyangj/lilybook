@@ -1,5 +1,7 @@
-<div class="composition-container">
-  <lb-composition-hero [hero]="composition.hero"></lb-composition-hero>
-  <lb-composition-detail [composition]="composition"></lb-composition-detail>
-  <pre>{{composition | json}}</pre>
-</div>
+<lb-layout>
+  <div class="composition-container">
+    <lb-composition-hero [hero]="composition.hero"></lb-composition-hero>
+    <lb-composition-detail [composition]="composition"></lb-composition-detail>
+    <pre>{{composition | json}}</pre>
+  </div>
+</lb-layout>

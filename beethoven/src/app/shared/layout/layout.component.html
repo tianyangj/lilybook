@@ -1,0 +1,11 @@
+<md-sidenav-layout fullscreen>
+  <md-sidenav #sidenav>
+    <lb-sidenav class="lb-container" (onLinkClose)="closeSidenav()"></lb-sidenav>
+  </md-sidenav>
+  <div class="lb-container">
+    <lb-header (onMenuToggle)="toggleSidenav()"></lb-header>
+    <div class="lb-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</md-sidenav-layout>
