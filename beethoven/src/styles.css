@@ -1,7 +1,12 @@
+@import '~https://fonts.googleapis.com/icon?family=Roboto';
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~normalize.css/normalize.css';
 @import '~angular-material/modules/layouts/angular-material.layouts.css';
 @import '~plyr/dist/plyr.css';
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 a {
     color: inherit;
