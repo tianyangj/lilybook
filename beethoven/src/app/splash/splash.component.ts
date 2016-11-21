@@ -18,7 +18,6 @@ export class SplashComponent implements OnInit {
 
   ngOnInit() {
     this.composers = this.dataService.getComposers();
-    this.features = this.dataService.getFeatures();
   }
 
 }
