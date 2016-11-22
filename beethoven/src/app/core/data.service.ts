@@ -22,13 +22,16 @@ export class DataService {
         return this.angularFire.database.object(`/compositions/${id}`);
     }
 
-    getCollection(collectionId: string) {
+    getCollection(collectionId: string, size = 4) {
         return this.angularFire.database
             .object(`/index-collections/${collectionId}`)
             .map(collection => {
+                let compositionIds = Object.keys(collection.compositions).sort((x, y) => {
+                    return collection.compositions[x] - collection.compositions[y]
+                }).slice(0, 4);
                 return {
                     name: collection.name,
-                    compositions: Object.keys(collection.compositions).map(compositionId => {
+                    compositions: compositionIds.map(compositionId => {
                         return this.getComposition(compositionId);
                     })
                 };
