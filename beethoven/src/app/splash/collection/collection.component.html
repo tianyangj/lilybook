@@ -1,5 +1,8 @@
 <div style="padding:8px;">
-  <h3 style="margin:8px;font-weight:500;font-size:24px;">{{collection?.name}}</h3>
+  <div class="layout-row" *ngIf="collection">
+    <h3 class="flex" style="margin:8px;font-weight:500;font-size:24px;">{{collection.name}}</h3>
+    <a md-button [routerLink]="['/collection', collection.id]">More</a>
+  </div>
   <div class="layout-row layout-wrap">
     <div class="flex-100 flex-gt-xs-50 flex-gt-sm-33 flex-gt-md-25 flex-gt-lg-20 lb-padding" *ngFor="let composition of collection?.compositions">
       <lb-composition-card [composition]="composition"></lb-composition-card>

@@ -30,6 +30,7 @@ export class DataService {
                     return collection.compositions[x] - collection.compositions[y]
                 }).slice(0, 4);
                 return {
+                    id: collection.$key,
                     name: collection.name,
                     compositions: compositionIds.map(compositionId => {
                         return this.getComposition(compositionId);
