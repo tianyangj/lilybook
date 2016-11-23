@@ -28,7 +28,7 @@ export class DataService {
             .map(collection => {
                 let compositionIds = Object.keys(collection.compositions).sort((x, y) => {
                     return collection.compositions[x] - collection.compositions[y]
-                }).slice(0, 4);
+                }).slice(0, size);
                 return {
                     id: collection.$key,
                     name: collection.name,
