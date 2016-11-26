@@ -12,6 +12,7 @@ import { MoreComponent } from './more/more.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { ChipComposerComponent } from './chip-composer/chip-composer.component';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
         MoreComponent,
         NavComponent,
         SearchComponent,
-        SidenavComponent
+        SidenavComponent,
+        ChipComposerComponent
     ],
     entryComponents: [
         LoginComponent

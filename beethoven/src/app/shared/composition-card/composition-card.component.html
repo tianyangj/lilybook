@@ -6,8 +6,6 @@
         {{composition.title}}
       </a>
     </md-card-title>
-    <md-card-subtitle>
-      {{composer?.fullname}}
-    </md-card-subtitle>
+    <lb-chip-composer [composerId]="composition.composerId"></lb-chip-composer>
   </div>
 </md-card>
