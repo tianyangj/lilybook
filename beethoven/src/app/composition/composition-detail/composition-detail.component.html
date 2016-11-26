@@ -5,12 +5,8 @@
 			<md-card-title>
 				{{composition.title}}
 			</md-card-title>
-			<md-card-subtitle>
-				Composer: {{composition.composerId}}
-			</md-card-subtitle>
-			<md-card-subtitle *ngIf="composition.key">
-				Key: {{composition.key}}
-			</md-card-subtitle>
+			<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
+			<lb-chip-key [keyId]="composition.key"></lb-chip-key>
 			<md-card-subtitle *ngIf="composition.form">
 				Form: {{composition.form}}
 			</md-card-subtitle>

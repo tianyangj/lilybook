@@ -39,4 +39,8 @@ export class DataService {
             });
     }
 
+    getKey(id: string): Observable<any> {
+        return this.angularFire.database.object(`/key/${id}`);
+    }
+
 }
