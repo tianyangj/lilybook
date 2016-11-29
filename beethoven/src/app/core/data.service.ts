@@ -43,4 +43,8 @@ export class DataService {
         return this.angularFire.database.object(`/key/${id}`);
     }
 
+    getForm(id: string): Observable<any> {
+        return this.angularFire.database.object(`/form/${id}`);
+    }
+
 }

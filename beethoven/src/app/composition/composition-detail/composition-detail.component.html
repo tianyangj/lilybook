@@ -7,9 +7,7 @@
 			</md-card-title>
 			<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
 			<lb-chip-key [keyId]="composition.key"></lb-chip-key>
-			<md-card-subtitle *ngIf="composition.form">
-				Form: {{composition.form}}
-			</md-card-subtitle>
+			<lb-chip-form [formId]="composition.form"></lb-chip-form>
 			<md-card-subtitle *ngIf="composition.rcm">
 				Level: {{composition.rcm}}
 			</md-card-subtitle>
