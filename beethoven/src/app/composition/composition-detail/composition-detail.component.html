@@ -1,25 +1,26 @@
 <div class="lb-margin">
 	<md-card class="layout-row">
-		<img [src]="composition.thumbnail.url">
+		<div>
+			<img [src]="composition.thumbnail.url">
+		</div>
 		<div class="flex title-group">
 			<md-card-title>
 				{{composition.title}}
 			</md-card-title>
-			<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
-			<lb-chip-key [keyId]="composition.key"></lb-chip-key>
-			<lb-chip-form [formId]="composition.form"></lb-chip-form>
-			<lb-chip-level [rcmId]="composition.rcm"></lb-chip-level>
-			<lb-chip-level [abrsmId]="composition.abrsm"></lb-chip-level>
-			<lb-chip-level [henleId]="composition.henle"></lb-chip-level>
 			<md-card-content>
-				{{composition.description}}
+				<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
+				<lb-chip-key [keyId]="composition.key"></lb-chip-key>
+				<lb-chip-form [formId]="composition.form"></lb-chip-form>
+				<lb-chip-level [rcmId]="composition.rcm"></lb-chip-level>
+				<lb-chip-level [abrsmId]="composition.abrsm"></lb-chip-level>
+				<lb-chip-level [henleId]="composition.henle"></lb-chip-level>
+			</md-card-content>
+			<md-card-content>
+				<p>{{composition.description}}</p>
 			</md-card-content>
 			<md-card-actions align="end">
-				<button md-fab color="primary">
-    				<md-icon class="md-24">favorite</md-icon>
-				</button>
-				<button md-fab color="primary">
-    				<md-icon class="md-24">playlist_add</md-icon>
+				<button md-raised-button color="primary">
+					<md-icon style="margin-right:8px;">playlist_add</md-icon>Add to My Collection
 				</button>
 			</md-card-actions>
 		</div>

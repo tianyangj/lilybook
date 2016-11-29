@@ -1,5 +1,3 @@
-<div class="chip">
-  <button md-raised-button>
-    {{ fullname ? composer?.fullname : composer?.name }}
-  </button>
-</div>
+<button md-raised-button *ngIf="composer">
+  {{ fullname ? composer.fullname : composer.name }}
+</button>

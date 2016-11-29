@@ -1,5 +1,3 @@
-<div class="chip">
-  <button md-raised-button>
-    {{ key?.name }}
-  </button>
-</div>
+<button md-raised-button *ngIf="key">
+    {{ key.name }}
+</button>
