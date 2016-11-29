@@ -8,9 +8,9 @@
 			<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
 			<lb-chip-key [keyId]="composition.key"></lb-chip-key>
 			<lb-chip-form [formId]="composition.form"></lb-chip-form>
-			<md-card-subtitle *ngIf="composition.rcm">
-				Level: {{composition.rcm}}
-			</md-card-subtitle>
+			<lb-chip-level [rcmId]="composition.rcm"></lb-chip-level>
+			<lb-chip-level [abrsmId]="composition.abrsm"></lb-chip-level>
+			<lb-chip-level [henleId]="composition.henle"></lb-chip-level>
 			<md-card-content>
 				{{composition.description}}
 			</md-card-content>

@@ -39,12 +39,44 @@ export class DataService {
             });
     }
 
-    getKey(id: string): Observable<any> {
+    getKey(id: string): Observable<{
+        name: string,
+        image: string,
+        wiki: string
+    }> {
         return this.angularFire.database.object(`/key/${id}`);
     }
 
-    getForm(id: string): Observable<any> {
+    getForm(id: string): Observable<{
+        name: string,
+        description: string,
+        wiki: string,
+        order: number
+    }> {
         return this.angularFire.database.object(`/form/${id}`);
+    }
+
+    getRcm(id: string): Observable<{
+        certificate: string,
+        name: string,
+        description?: string,
+        order: number
+    }> {
+        return this.angularFire.database.object(`/rcm/${id}`);
+    }
+
+    getAbrsm(id: string): Observable<{
+        name: string,
+        description?: string,
+        order: number
+    }> {
+        return this.angularFire.database.object(`/abrsm/${id}`);
+    }
+
+    getHenle(id: string): Observable<{
+        name: string
+    }> {
+        return this.angularFire.database.object(`/henle/${id}`);
     }
 
 }

@@ -15,6 +15,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ChipComposerComponent } from './chip-composer/chip-composer.component';
 import { ChipKeyComponent } from './chip-key/chip-key.component';
 import { ChipFormComponent } from './chip-form/chip-form.component';
+import { ChipLevelComponent } from './chip-level/chip-level.component';
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import { ChipFormComponent } from './chip-form/chip-form.component';
         SidenavComponent,
         ChipComposerComponent,
         ChipKeyComponent,
-        ChipFormComponent
+        ChipFormComponent,
+        ChipLevelComponent
     ],
     entryComponents: [
         LoginComponent
@@ -48,7 +50,8 @@ import { ChipFormComponent } from './chip-form/chip-form.component';
         LayoutComponent,
         ChipComposerComponent,
         ChipKeyComponent,
-        ChipFormComponent
+        ChipFormComponent,
+        ChipLevelComponent
     ]
 })
 export class SharedModule { }
