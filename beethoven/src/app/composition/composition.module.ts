@@ -7,6 +7,7 @@ import { CompositionHeroComponent } from './composition-hero/composition-hero.co
 import { CompositionDetailComponent } from './composition-detail/composition-detail.component';
 
 import { CompositionResolveService } from './guards/composition-resolve.service';
+import { CompositionSheetComponent } from './composition-sheet/composition-sheet.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { CompositionResolveService } from './guards/composition-resolve.service'
   declarations: [
     CompositionComponent,
     CompositionHeroComponent,
-    CompositionDetailComponent
+    CompositionDetailComponent,
+    CompositionSheetComponent
   ],
   providers: [
     CompositionResolveService
