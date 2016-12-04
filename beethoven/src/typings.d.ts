@@ -3,3 +3,5 @@
 // https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
 
 declare var System: any;
+declare module 'photoswipe/dist/photoswipe';
+declare module 'photoswipe/dist/photoswipe-ui-default';
