@@ -16,7 +16,9 @@ export class CompositionComponent implements OnInit {
 
   ngOnInit(
   ) {
-    this.route.data.subscribe(data => this.composition = data['composition']);
+    this.route.data.do(data => {
+      console.log(data['composition']);
+    }).subscribe(data => this.composition = data['composition']);
   }
 
 }
