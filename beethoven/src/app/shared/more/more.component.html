@@ -2,6 +2,8 @@
   <md-icon>more_vert</md-icon>
 </button>
 <md-menu x-position="before" #more="mdMenu">
-  <button md-menu-item (click)="login()" *ngIf="!authenticated">Login</button>
-  <button md-menu-item (click)="logout()" *ngIf="authenticated">Logout</button>
+  <button md-menu-item (click)="login()" *ngIf="!authenticated">Log In</button>
+  <button md-menu-item (click)="signup()" *ngIf="!authenticated">Sign Up</button>
+  <button md-menu-item *ngIf="authenticated">Home</button>
+  <button md-menu-item (click)="logout()" *ngIf="authenticated">Log Out</button>
 </md-menu>

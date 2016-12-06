@@ -1,4 +1,4 @@
-<md-toolbar>Login</md-toolbar>
+<md-toolbar>Log In</md-toolbar>
 <form novalidate>
   <md-input type="email" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" required>
   </md-input>
@@ -8,6 +8,6 @@
     {{error.message}}
   </p>
   <div style="text-align:right;">
-    <button md-raised-button color="primary" (click)="login()">Login</button>
+    <button md-raised-button color="primary" (click)="login()">Log In</button>
   </div>
 </form>

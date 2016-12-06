@@ -37,4 +37,8 @@ export class MoreComponent implements OnInit {
         this.mdSnackBar.open('You are logged out.', 'OK');
     }
 
+    signup() {
+        console.log('signup...');
+    }
+
 }
