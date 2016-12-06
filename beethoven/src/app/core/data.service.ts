@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import {
+    AngularFire,
+    FirebaseListObservable,
+    FirebaseObjectObservable,
+    AuthProviders,
+    AuthMethods
+} from 'angularfire2';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -77,6 +83,24 @@ export class DataService {
         name: string
     }> {
         return this.angularFire.database.object(`/henle/${id}`);
+    }
+
+    auth() {
+        return this.angularFire.auth;
+    }
+
+    login(credentials: {
+        email: string,
+        password: string
+    }) {
+        return this.angularFire.auth.login(credentials, {
+            provider: AuthProviders.Password,
+            method: AuthMethods.Password
+        });
+    }
+
+    logout() {
+        return this.angularFire.auth.logout();
     }
 
 }

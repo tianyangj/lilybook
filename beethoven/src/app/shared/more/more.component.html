@@ -2,7 +2,6 @@
   <md-icon>more_vert</md-icon>
 </button>
 <md-menu x-position="before" #more="mdMenu">
-  <button md-menu-item (click)="openLogin()">Login</button>
-  <button md-menu-item (click)="isDarkTheme=!isDarkTheme">Toggle theme</button>
-  <button md-menu-item>Help</button>
+  <button md-menu-item (click)="login()" *ngIf="!authenticated">Login</button>
+  <button md-menu-item (click)="logout()" *ngIf="authenticated">Logout</button>
 </md-menu>
