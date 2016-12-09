@@ -3,6 +3,7 @@ import {
     AngularFire,
     FirebaseListObservable,
     FirebaseObjectObservable,
+    FirebaseAuthState,
     AuthProviders,
     AuthMethods
 } from 'angularfire2';
@@ -92,7 +93,7 @@ export class DataService {
     login(credentials: {
         email: string,
         password: string
-    }) {
+    }): firebase.Promise<FirebaseAuthState> {
         return this.angularFire.auth.login(credentials, {
             provider: AuthProviders.Password,
             method: AuthMethods.Password
@@ -101,6 +102,25 @@ export class DataService {
 
     logout() {
         return this.angularFire.auth.logout();
+    }
+
+    signup(credentials: {
+        email: string,
+        password: string,
+        displayName: string
+    }): firebase.Promise<FirebaseAuthState> {
+        return this.angularFire.auth.createUser(credentials).then(authState => {
+            // don't wait set displayName
+            authState.auth.updateProfile({
+                displayName: credentials.displayName,
+                photoURL: ''
+            });
+            return authState;
+        });
+    }
+
+    getVanity(vanity: string) {
+        return this.angularFire.database.object(`/user-vanity/${vanity}`);
     }
 
 }

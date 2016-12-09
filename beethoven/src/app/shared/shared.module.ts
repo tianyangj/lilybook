@@ -16,6 +16,7 @@ import { ChipComposerComponent } from './chip-composer/chip-composer.component';
 import { ChipKeyComponent } from './chip-key/chip-key.component';
 import { ChipFormComponent } from './chip-form/chip-form.component';
 import { ChipLevelComponent } from './chip-level/chip-level.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
     imports: [
@@ -36,10 +37,12 @@ import { ChipLevelComponent } from './chip-level/chip-level.component';
         ChipComposerComponent,
         ChipKeyComponent,
         ChipFormComponent,
-        ChipLevelComponent
+        ChipLevelComponent,
+        SignupComponent
     ],
     entryComponents: [
-        LoginComponent
+        LoginComponent,
+        SignupComponent
     ],
     exports: [
         CommonModule,

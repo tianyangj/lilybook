@@ -3,6 +3,7 @@ import { MdDialog, MdSnackBar } from "@angular/material";
 import { FirebaseAuthState } from 'angularfire2'
 
 import { LoginComponent } from '../login/login.component';
+import { SignupComponent } from '../signup/signup.component';
 import { DataService } from '../../core/data.service';
 
 @Component({
@@ -22,23 +23,26 @@ export class MoreComponent implements OnInit {
 
     ngOnInit() {
         this.dataService.auth().subscribe((authState: FirebaseAuthState) => {
+            console.log('authState', authState);
             this.authenticated = !!authState;
         });
     }
 
     login() {
         this.mdDialog.open(LoginComponent).afterClosed().subscribe(authState => {
-            this.mdSnackBar.open('You are logged in.', 'OK');
+            this.mdSnackBar.open('You have successfully logged in.', 'OK');
         });
     }
 
     logout() {
         this.dataService.logout();
-        this.mdSnackBar.open('You are logged out.', 'OK');
+        this.mdSnackBar.open('You have successfully logged out.', 'OK');
     }
 
     signup() {
-        console.log('signup...');
+        this.mdDialog.open(SignupComponent).afterClosed().subscribe(authState => {
+            this.mdSnackBar.open('You have successfully signed up!', 'OK');
+        });
     }
 
 }
