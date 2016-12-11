@@ -46,6 +46,10 @@ export class DataService {
             });
     }
 
+    getUserCollections(userId: string) {
+        return this.angularFire.database.list(`/user-collections/${userId}`);
+    }
+
     getKey(id: string): Observable<{
         name: string,
         image: string,

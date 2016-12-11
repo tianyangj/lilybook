@@ -23,25 +23,28 @@ export class MoreComponent implements OnInit {
 
     ngOnInit() {
         this.dataService.auth().subscribe((authState: FirebaseAuthState) => {
-            console.log('authState', authState);
             this.authenticated = !!authState;
         });
     }
 
     login() {
         this.mdDialog.open(LoginComponent).afterClosed().subscribe(authState => {
-            this.mdSnackBar.open('You have successfully logged in.', 'OK');
+            if (authState) {
+                this.mdSnackBar.open('You have successfully logged in.', 'OK', { duration: 3000 });
+            }
         });
     }
 
     logout() {
         this.dataService.logout();
-        this.mdSnackBar.open('You have successfully logged out.', 'OK');
+        this.mdSnackBar.open('You have successfully logged out.', 'OK', { duration: 3000 });
     }
 
     signup() {
         this.mdDialog.open(SignupComponent).afterClosed().subscribe(authState => {
-            this.mdSnackBar.open('You have successfully signed up!', 'OK');
+            if (authState) {
+                this.mdSnackBar.open('You have successfully signed up!', 'OK', { duration: 3000 });
+            }
         });
     }
 

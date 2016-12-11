@@ -8,6 +8,7 @@ import { CompositionDetailComponent } from './composition-detail/composition-det
 
 import { CompositionResolveService } from './guards/composition-resolve.service';
 import { CompositionSheetComponent } from './composition-sheet/composition-sheet.component';
+import { CompositionAddCollectionComponent } from './composition-add-collection/composition-add-collection.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { CompositionSheetComponent } from './composition-sheet/composition-sheet
     CompositionComponent,
     CompositionHeroComponent,
     CompositionDetailComponent,
-    CompositionSheetComponent
+    CompositionSheetComponent,
+    CompositionAddCollectionComponent
   ],
   providers: [
     CompositionResolveService
