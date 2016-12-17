@@ -1,0 +1,10 @@
+<md-toolbar>Add to My Collection</md-toolbar>
+<div *ngIf="collections">
+  <ul *ngIf="collections.length">
+    <li *ngFor="let collection of collections">
+      <md-checkbox [checked]="inCollection(composition, collection)" (change)="updateCollection(composition, collection, $event)">
+        {{collection.name}}
+      </md-checkbox>
+    </li>
+  </ul>
+</div>
