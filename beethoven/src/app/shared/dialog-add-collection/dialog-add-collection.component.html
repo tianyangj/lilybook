@@ -1,10 +1,24 @@
 <md-toolbar>Add to My Collection</md-toolbar>
-<div *ngIf="collections">
-  <ul *ngIf="collections.length">
-    <li *ngFor="let collection of collections">
+<div *ngIf="!showCreate">
+  <p>Add to existing collections by clicking checkboxes next to your collections.</p>
+  <md-list>
+    <md-list-item *ngFor="let collection of collections">
       <md-checkbox [checked]="inCollection(composition, collection)" (change)="updateCollection(composition, collection, $event)">
         {{collection.name}}
       </md-checkbox>
-    </li>
-  </ul>
+    </md-list-item>
+  </md-list>
+  <hr>
+  <div style="text-align:right;">
+    <button md-button (click)="showCreate = true">Or, Create a New Collection</button>
+  </div>
+</div>
+<div *ngIf="showCreate">
+  <form novalidate>
+    <md-input [(ngModel)]="collectionName" name="collectionName" placeholder="Collection Name" required style="width:100%;">
+    </md-input>
+    <div style="text-align:right;">
+      <button md-raised-button color="primary" (click)="createCollection(composition)">Create and Add</button>
+    </div>
+  </form>
 </div>

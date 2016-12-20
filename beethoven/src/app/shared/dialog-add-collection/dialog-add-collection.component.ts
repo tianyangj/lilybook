@@ -12,6 +12,8 @@ export class DialogAddCollectionComponent implements OnInit {
     userId: string;
     composition;
     collections;
+    showCreate = false;
+    collectionName = '';
 
     constructor(
         private mdSnackBar: MdSnackBar,
@@ -22,6 +24,7 @@ export class DialogAddCollectionComponent implements OnInit {
     ngOnInit() {
         this.dataService.getUserCollections(this.userId).take(1).subscribe(collections => {
             this.collections = collections;
+            this.showCreate = collections.length === 0;
         });
     }
 
@@ -43,6 +46,13 @@ export class DialogAddCollectionComponent implements OnInit {
             name: collection.name
         }).then(() => {
             this.mdSnackBar.open(message, null, { duration: 3000 });
+        });
+    }
+
+    createCollection(composition) {
+        this.dataService.createUserCollection(this.userId, this.collectionName, composition.$key).then(() => {
+            this.dialogRef.close();
+            this.mdSnackBar.open(`${composition.title} was added to ${this.collectionName}.`, null, { duration: 3000 });
         });
     }
 

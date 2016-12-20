@@ -55,6 +55,16 @@ export class DataService {
         return collection.set(value);
     }
 
+    createUserCollection(userId: string, collectionName: string, compositionId) {
+        let collection = this.angularFire.database.list(`/user-collections/${userId}`);
+        return collection.push({
+            name: collectionName,
+            compositions: {
+                [compositionId]: true
+            }
+        });
+    }
+
     getKey(id: string): Observable<{
         name: string,
         image: string,
