@@ -5,6 +5,7 @@ import { SplashComponent } from './splash/splash.component';
 
 export const routes: Routes = [
     { path: '', component: SplashComponent },
+    { path: 'book', loadChildren: 'app/book/book.module#BookModule' },
     { path: 'collection', loadChildren: 'app/collection/collection.module#CollectionModule' },
     { path: 'composition', loadChildren: 'app/composition/composition.module#CompositionModule' }
 ];
