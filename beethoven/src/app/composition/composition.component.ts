@@ -14,8 +14,7 @@ export class CompositionComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit(
-  ) {
+  ngOnInit() {
     this.route.data.do(data => {
       console.log(data['composition']);
     }).subscribe(data => this.composition = data['composition']);

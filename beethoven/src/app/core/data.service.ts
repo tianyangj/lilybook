@@ -33,6 +33,9 @@ export class DataService {
         return this.angularFire.database
             .object(`/index-collections/${collectionId}`)
             .map(collection => {
+                if (!collection.$exists()) {
+                    return null;
+                }
                 let compositionIds = Object.keys(collection.compositions).sort((x, y) => {
                     return collection.compositions[x] - collection.compositions[y]
                 }).slice(0, size);

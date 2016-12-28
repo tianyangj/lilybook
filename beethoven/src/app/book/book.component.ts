@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MdSidenav } from '@angular/material'
 
 @Component({
@@ -9,10 +10,16 @@ import { MdSidenav } from '@angular/material'
 export class BookComponent implements OnInit {
 
   @ViewChild(MdSidenav) sidenav: MdSidenav;
+  book;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.data.do(data => {
+      console.log('book', data['book']);
+    }).subscribe(data => this.book = data['book']);
   }
 
   toggleSidenav() {

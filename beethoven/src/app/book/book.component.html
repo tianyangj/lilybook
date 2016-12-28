@@ -1,8 +1,12 @@
 <md-sidenav-container>
   <md-sidenav mode="over">
-    Book Sidenav.
+    <md-nav-list>
+      <md-list-item *ngFor="let composition of book.compositions">
+        {{(composition | async)?.title}}
+      </md-list-item>
+    </md-nav-list>
   </md-sidenav>
-  <lb-book-header (toggleSidenav)="toggleSidenav($event)"></lb-book-header>
+  <lb-book-header [bookName]="book.name" (toggleSidenav)="toggleSidenav($event)"></lb-book-header>
   <div>
     My regular content. This will be moved into the proper DOM at runtime.
   </div>
