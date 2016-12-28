@@ -3,6 +3,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BookRoutingModule } from './book-routing.module';
 
 import { BookComponent } from './book.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,8 @@ import { BookComponent } from './book.component';
     BookRoutingModule
   ],
   declarations: [
-    BookComponent
+    BookComponent,
+    HeaderComponent
   ]
 })
 export class BookModule { }

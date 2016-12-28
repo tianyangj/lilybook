@@ -1,3 +1,9 @@
-<p>
-  book works!
-</p>
+<md-sidenav-container>
+  <md-sidenav mode="over">
+    Book Sidenav.
+  </md-sidenav>
+  <lb-book-header (toggleSidenav)="toggleSidenav($event)"></lb-book-header>
+  <div>
+    My regular content. This will be moved into the proper DOM at runtime.
+  </div>
+</md-sidenav-container>

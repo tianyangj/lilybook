@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MdSidenav } from '@angular/material'
 
 @Component({
   selector: 'lb-book',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
+  @ViewChild(MdSidenav) sidenav: MdSidenav;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleSidenav() {
+    this.sidenav.toggle();
   }
 
 }
