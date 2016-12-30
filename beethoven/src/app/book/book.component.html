@@ -6,8 +6,8 @@
       </md-list-item>
     </md-nav-list>
   </md-sidenav>
-  <lb-book-header [bookName]="book.name" (toggleSidenav)="toggleSidenav($event)"></lb-book-header>
-  <div>
-    My regular content. This will be moved into the proper DOM at runtime.
+  <div class="layout-column layout-fill">
+    <lb-book-header [bookName]="book.name" (toggleSidenav)="toggleSidenav($event)"></lb-book-header>
+    <lb-book-content class="flex" [book]="book"></lb-book-content>
   </div>
 </md-sidenav-container>

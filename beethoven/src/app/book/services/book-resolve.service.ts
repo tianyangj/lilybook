@@ -12,7 +12,7 @@ export class BookResolveService implements Resolve<any> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    return this.dataService.getCollection(route.params['id']).map(book => {
+    return this.dataService.getCollection(route.params['id'], 100).map(book => {
       if (book) {
         return book;
       } else {

@@ -5,6 +5,7 @@ import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
 import { HeaderComponent } from './header/header.component';
 import { BookResolveService } from './services/book-resolve.service';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { BookResolveService } from './services/book-resolve.service';
   ],
   declarations: [
     BookComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContentComponent
   ],
   providers: [
     BookResolveService

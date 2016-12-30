@@ -5,6 +5,7 @@
 @import '~plyr/dist/plyr.css';
 @import '~photoswipe/dist/photoswipe.css';
 @import '~photoswipe/dist/default-skin/default-skin.css';
+@import '~swiper/dist/css/swiper.css';
 
 body {
     font-family: 'Roboto', sans-serif;
