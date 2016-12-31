@@ -12,11 +12,11 @@ const Swiper = require('swiper');
 export class ContentComponent implements OnInit {
 
   @ViewChild('swiperContainer') swiperContainer: ElementRef;
-  @ViewChild('swiperPagination') swiperPagination: ElementRef;
   @ViewChild('swiperPrev') swiperPrev: ElementRef;
   @ViewChild('swiperNext') swiperNext: ElementRef;
   @Input() book;
-  swiper: any;
+  swiper;
+  compositions = [];
   pages = [];
 
   constructor() { }
@@ -26,6 +26,8 @@ export class ContentComponent implements OnInit {
       .merge(...this.book.compositions)
       .take(this.book.compositions.length)
       .subscribe((composition: any) => {
+        // builds compositions
+        this.compositions.push(composition);
         // builds pages with composition sheet images
         this.pages = this.pages.concat(composition.sheet.images);
       }, (err) => {
@@ -34,7 +36,6 @@ export class ContentComponent implements OnInit {
         // after all compositions have been fetched, initialize swiper
         setTimeout(() => {
           this.swiper = new Swiper(this.swiperContainer.nativeElement, {
-            pagination: this.swiperPagination.nativeElement,
             nextButton: this.swiperNext.nativeElement,
             prevButton: this.swiperPrev.nativeElement,
             preloadImages: false,
