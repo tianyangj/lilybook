@@ -18,6 +18,7 @@ import { ChipFormComponent } from './chip-form/chip-form.component';
 import { ChipLevelComponent } from './chip-level/chip-level.component';
 import { SignupComponent } from './signup/signup.component';
 import { DialogAddCollectionComponent } from './dialog-add-collection/dialog-add-collection.component';
+import { ComposerComponent } from './composer/composer.component';
 
 @NgModule({
     imports: [
@@ -40,7 +41,8 @@ import { DialogAddCollectionComponent } from './dialog-add-collection/dialog-add
         ChipFormComponent,
         ChipLevelComponent,
         SignupComponent,
-        DialogAddCollectionComponent
+        DialogAddCollectionComponent,
+        ComposerComponent
     ],
     entryComponents: [
         LoginComponent,
@@ -57,7 +59,8 @@ import { DialogAddCollectionComponent } from './dialog-add-collection/dialog-add
         ChipComposerComponent,
         ChipKeyComponent,
         ChipFormComponent,
-        ChipLevelComponent
+        ChipLevelComponent,
+        ComposerComponent
     ]
 })
 export class SharedModule { }

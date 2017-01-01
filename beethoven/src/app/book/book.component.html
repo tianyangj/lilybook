@@ -12,8 +12,8 @@
         <md-list>
           <md-list-item (click)="slideTo(composition)" *ngFor="let composition of compositions; let i = index">
             <span md-list-avatar>{{i+1}}</span>
-            <h4 md-line>{{composition.title}}</h4>
-            <p md-line>{{composition.composerId}}</p>
+            <h3 md-line>{{composition.title}}</h3>
+            <lb-composer md-line [composerId]="composition.composerId" fullname="true"></lb-composer>
           </md-list-item>
         </md-list>
       </div>
