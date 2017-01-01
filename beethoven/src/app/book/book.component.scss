@@ -1,8 +1,35 @@
-md-sidenav-container {
+.book-container {
     width: 100%;
     height: 100vh;
+}
 
-    md-sidenav {
-        width: 285px;
-    }
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+    padding-left: 16px;
+    font-size: inherit;
+}
+
+h2 {
+    text-align: center;
+}
+
+span[md-list-avatar] {
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    margin-left: 16px;
+}
+
+.swiper-slide img {
+    width: 100%;
+}
+
+.swiper-slide.cover {
+    overflow-y: auto;
+    height: 100%;
 }

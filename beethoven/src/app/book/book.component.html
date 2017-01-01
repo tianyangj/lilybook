@@ -1,13 +1,28 @@
-<md-sidenav-container>
-  <md-sidenav mode="over">
-    <md-nav-list>
-      <md-list-item *ngFor="let composition of book.compositions">
-        {{(composition | async)?.title}}
-      </md-list-item>
-    </md-nav-list>
-  </md-sidenav>
-  <div class="layout-column layout-fill">
-    <lb-book-header [bookName]="book.name" (toggleSidenav)="toggleSidenav($event)"></lb-book-header>
-    <lb-book-content class="flex" [book]="book"></lb-book-content>
+<div class="book-container layout-column">
+  <md-toolbar>
+    <button md-icon-button (click)="slideTo()">
+      <md-icon>toc</md-icon>
+    </button>
+    <h1 class="flex">{{title}}</h1>
+  </md-toolbar>
+  <div #swiperContainer class="swiper-container flex">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide cover">
+        <h2>{{book.name}}</h2>
+        <md-list>
+          <md-list-item (click)="slideTo(composition)" *ngFor="let composition of compositions; let i = index">
+            <span md-list-avatar>{{i+1}}</span>
+            <h4 md-line>{{composition.title}}</h4>
+            <p md-line>{{composition.composerId}}</p>
+          </md-list-item>
+        </md-list>
+      </div>
+      <div class="swiper-slide" [attr.data-hash]="page.compositionId" *ngFor="let page of pages">
+        <img [attr.data-src]="page.image" class="swiper-lazy">
+        <div class="swiper-lazy-preloader"></div>
+      </div>
+    </div>
+    <div #swiperPrev class="swiper-button-prev"></div>
+    <div #swiperNext class="swiper-button-next"></div>
   </div>
-</md-sidenav-container>
+</div>
