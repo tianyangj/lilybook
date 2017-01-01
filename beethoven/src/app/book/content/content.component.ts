@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/merge';
 
@@ -19,11 +18,8 @@ export class ContentComponent implements OnInit {
   swiper;
   compositions = [];
   pages = [];
-  compositionId: string;
 
-  constructor(
-    private route: ActivatedRoute
-  ) { }
+  constructor() { }
 
   ngOnInit() {
     Observable
@@ -42,18 +38,24 @@ export class ContentComponent implements OnInit {
           this.swiper = new Swiper(this.swiperContainer.nativeElement, {
             nextButton: this.swiperNext.nativeElement,
             prevButton: this.swiperPrev.nativeElement,
+            hashnav: true,
             preloadImages: false,
             lazyLoading: true,
             lazyLoadingInPrevNext: true,
             lazyLoadingInPrevNextAmount: 1
           });
-          this.slideToPage();
         });
       });
-    this.route.params.subscribe(params => {
-      this.compositionId = params['composition'];
-      this.slideToPage();
-    });
+  }
+
+  slideTo(composition) {
+    if (this.swiper) {
+      let pageIndex = this.pages.findIndex(page => {
+        return page.compositionId === composition.$key;
+      });
+      // need to offset cover page
+      this.swiper.slideTo(pageIndex + 1);
+    }
   }
 
   private buildPages(composition) {
@@ -63,16 +65,6 @@ export class ContentComponent implements OnInit {
         image: image
       });
     });
-  }
-
-  private slideToPage() {
-    if (this.compositionId && this.swiper) {
-      let pageIndex = this.pages.findIndex(page => {
-        return page.compositionId === this.compositionId;
-      });
-      // need to offset cover page
-      this.swiper.slideTo(pageIndex + 1);
-    }
   }
 
 }

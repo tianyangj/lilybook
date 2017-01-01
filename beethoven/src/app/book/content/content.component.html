@@ -3,14 +3,14 @@
     <div class="swiper-slide cover">
       <h1>{{book.name}}</h1>
       <md-nav-list>
-        <a md-list-item [routerLink]="['/book', book.id, {composition:composition.$key}]" *ngFor="let composition of compositions; let i = index">
+        <a md-list-item [routerLink]="['/book', book.id]" [fragment]="composition.$key" (click)="slideTo(composition)" *ngFor="let composition of compositions; let i = index">
           <span md-list-avatar>{{i+1}}</span>
           <h4 md-line>{{composition.title}}</h4>
           <p md-line>{{composition.composerId}}</p>
         </a>
       </md-nav-list>
     </div>
-    <div class="swiper-slide" *ngFor="let page of pages">
+    <div class="swiper-slide" [attr.data-hash]="page.compositionId" *ngFor="let page of pages">
       <img [attr.data-src]="page.image" class="swiper-lazy">
       <div class="swiper-lazy-preloader"></div>
     </div>
