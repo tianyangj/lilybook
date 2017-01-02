@@ -4,6 +4,9 @@
       <md-icon>toc</md-icon>
     </button>
     <h1 class="flex">{{title}}</h1>
+    <a md-icon-button [routerLink]="['/composition', composition.$key]" *ngIf="composition">
+      <md-icon>music_video</md-icon>
+    </a>
   </md-toolbar>
   <div #swiperContainer class="swiper-container flex">
     <div class="swiper-wrapper">

@@ -16,6 +16,7 @@ export class BookComponent implements OnInit {
   @ViewChild('swiperNext') swiperNext: ElementRef;
   book;
   title: string;
+  composition: any;
   swiper;
   compositions = [];
   pages = [];
@@ -50,7 +51,17 @@ export class BookComponent implements OnInit {
               preloadImages: false,
               lazyLoading: true,
               lazyLoadingInPrevNext: true,
-              lazyLoadingInPrevNextAmount: 1
+              lazyLoadingInPrevNextAmount: 1,
+              onSlideChangeStart: (swiper) => {
+                let page = this.pages[swiper.activeIndex - 1];
+                if (page) {
+                  this.composition = this.compositions.find(composition => composition.$key === page.compositionId);
+                  this.title = this.composition.title;
+                } else {
+                  this.composition = null;
+                  this.title = this.book.name;
+                }
+              }
             });
           });
         });
@@ -60,14 +71,12 @@ export class BookComponent implements OnInit {
   slideTo(composition) {
     if (this.swiper) {
       if (composition) {
-        this.title = composition.title;
         let pageIndex = this.pages.findIndex(page => {
           return page.compositionId === composition.$key;
         });
         // need to offset cover page
         this.swiper.slideTo(pageIndex + 1);
       } else {
-        this.title = this.book.name;
         this.swiper.slideTo(0);
       }
     }
