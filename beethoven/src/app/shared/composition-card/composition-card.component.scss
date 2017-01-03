@@ -1,5 +1,5 @@
 md-card {
-    padding: 12px;
+    padding: 8px;
 }
 
 .title-group {
@@ -13,4 +13,14 @@ img {
 
 md-card-title {
     font-size: 18px;
+    padding: 8px 0;
+    margin: 0;
+
+    a {
+        color: #03a9f4;
+    }
+}
+
+lb-composer {
+    font-size: 14px;
 }

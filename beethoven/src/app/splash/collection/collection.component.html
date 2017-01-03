@@ -1,11 +1,18 @@
-<div style="padding:8px;">
+<div class="lb-margin">
   <div class="layout-row" *ngIf="collection">
-    <h3 class="flex" style="margin:8px;font-weight:500;font-size:24px;">{{collection.name}}</h3>
-    <a md-button [routerLink]="['/collection', collection.id]">More</a>
+    <h2 class="flex">{{collection.name}}</h2>
+    <a md-button color="primary" [routerLink]="['/collection', collection.id]">View All</a>
   </div>
-  <div class="layout-row layout-wrap">
-    <div class="flex-100 flex-gt-xs-50 flex-gt-sm-33 flex-gt-md-25 flex-gt-lg-20 lb-padding" *ngFor="let composition of collection?.compositions">
-      <lb-composition-card [composition]="composition"></lb-composition-card>
+  <div #swiperContainer class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let composition of collection?.compositions">
+        <div class="lb-padding">
+          <lb-composition-card [composition]="composition"></lb-composition-card>
+        </div>
+      </div>
     </div>
+    <div #swiperPrev class="swiper-button-prev"></div>
+    <div #swiperNext class="swiper-button-next"></div>
+    <div #swiperScrollbar class="swiper-scrollbar"></div>
   </div>
 </div>
