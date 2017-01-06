@@ -49,6 +49,24 @@ export class DataService {
             });
     }
 
+    getComposerCollection(composerId: string, size = 4) {
+        return this.angularFire.database
+            .object(`/index-composers/${composerId}`)
+            .map(collection => {
+                if (!collection.$exists()) {
+                    return null;
+                }
+                let compositionIds = Object.keys(collection.compositions).slice(0, size);
+                return {
+                    id: collection.$key,
+                    name: collection.name,
+                    compositions: compositionIds.map(compositionId => {
+                        return this.getComposition(compositionId);
+                    })
+                };
+            });
+    }
+
     getUserCollections(userId: string) {
         return this.angularFire.database.list(`/user-collections/${userId}`);
     }
