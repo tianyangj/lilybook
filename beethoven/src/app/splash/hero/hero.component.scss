@@ -1,17 +1,17 @@
 .hero {
     width: 100%;
-    height: 512px;
+    height: 360px;
     background-image: url(assets/piano.jpg);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
+    position: relative;
+    
     lb-splash-search {
-        align-items: center;
-        margin: 0 auto;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
         width: 100%;
     }
 }
