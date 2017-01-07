@@ -1,7 +1,11 @@
 <div class="lb-margin">
-  <div class="layout-row" *ngIf="collection">
-    <h2 class="flex">{{collection.name}}</h2>
-    <a md-button color="primary" [routerLink]="['/collection', collection.id]">View All</a>
+  <div class="layout-row layout-align-center-center" *ngIf="collection">
+    <h2 class="flex">
+      <a [routerLink]="['/book', collection.id]">{{collection.name}}</a> <md-icon class="md-24">book</md-icon>
+    </h2>
+    <div>
+      <a md-button color="primary" [routerLink]="['/collection', collection.id]">More</a>
+    </div>
   </div>
   <div #swiperContainer class="swiper-container">
     <div class="swiper-wrapper">
