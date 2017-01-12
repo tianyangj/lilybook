@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() collectionName: string;
+  @Input() collection: any;
 
   constructor() { }
 

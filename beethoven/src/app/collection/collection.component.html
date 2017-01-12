@@ -1,5 +1,5 @@
 <lb-layout>
-  <lb-collection-header [collectionName]="collection.name"></lb-collection-header>
+  <lb-collection-header [collection]="collection"></lb-collection-header>
   <div class="layout-row layout-wrap">
     <div class="flex-100 flex-gt-xs-50 flex-gt-sm-33 flex-gt-md-25 flex-gt-lg-20 lb-padding" *ngFor="let composition of collection?.compositions">
       <lb-composition-card [composition]="composition"></lb-composition-card>

@@ -8,14 +8,18 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CompositionCardComponent implements OnInit {
 
-  @Input('composition') compositionSource: Observable<any>;
+  @Input('composition') compositionSource: any;
 
   composition;
 
   constructor() { }
 
   ngOnInit() {
-    this.compositionSource.subscribe(composition => this.composition = composition);
+    if (this.compositionSource instanceof Observable) {
+      this.compositionSource.subscribe(composition => this.composition = composition);
+    } else {
+      this.composition = this.compositionSource;
+    }
   }
 
 }

@@ -9,6 +9,8 @@ import {
 } from 'angularfire2';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class DataService {
@@ -29,22 +31,29 @@ export class DataService {
         return this.angularFire.database.object(`/compositions/${id}`);
     }
 
-    getCollection(collectionId: string, size = 4) {
+    getCollection(collectionId: string, limit = 4) {
         return this.angularFire.database
             .object(`/index-collections/${collectionId}`)
-            .map(collection => {
+            .switchMap(collection => {
                 if (!collection.$exists()) {
-                    return null;
+                    return Observable.of(null);
                 }
                 let compositionIds = Object.keys(collection.compositions).sort((x, y) => {
                     return collection.compositions[x] - collection.compositions[y]
-                }).slice(0, size);
+                }).slice(0, limit);
+                return Observable.forkJoin(
+                    compositionIds.map(compositionId => {
+                        return this.getComposition(compositionId).first();
+                    })
+                );
+            }, (collection, compositions) => {
+                if (!collection.$exists()) {
+                    return null;
+                }
                 return {
                     id: collection.$key,
                     name: collection.name,
-                    compositions: compositionIds.map(compositionId => {
-                        return this.getComposition(compositionId);
-                    })
+                    compositions
                 };
             });
     }
