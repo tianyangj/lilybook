@@ -13,7 +13,7 @@
       <div class="swiper-slide cover">
         <h2>{{book.name}}</h2>
         <md-list>
-          <md-list-item (click)="slideTo(composition)" *ngFor="let composition of compositions; let i = index">
+          <md-list-item (click)="slideTo(composition)" *ngFor="let composition of book.compositions; let i = index">
             <span md-list-avatar>{{i+1}}</span>
             <h3 md-line>{{composition.title}}</h3>
             <lb-composer md-line [composerId]="composition.composerId" fullname="true"></lb-composer>
