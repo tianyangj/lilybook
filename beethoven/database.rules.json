@@ -1,0 +1,77 @@
+{
+  "rules": {
+    "abrsm": {
+      ".read": true,
+      ".write": false
+    },
+    "composers": {
+      ".read": true,
+      ".write": false,
+      ".indexOn": [
+        "compositionCount"
+      ]
+    },
+    "compositions": {
+      ".read": true,
+      ".write": false
+    },
+    "key": {
+      ".read": true,
+      ".write": false
+    },
+    "form": {
+      ".read": true,
+      ".write": false
+    },
+    "rcm": {
+      ".read": true,
+      ".write": false
+    },
+    "henle": {
+      ".read": true,
+      ".write": false
+    },
+    "index-collections": {
+      ".read": true,
+      ".write": false
+    },
+    "index-composers": {
+      ".read": true,
+      ".write": false
+    },
+    "user-bookmarks": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "user-public": {
+      "$uid": {
+        ".read": true,
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "user-collections": {
+      "$uid": {
+        ".read": true,
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "user-likes": {
+      "$uid": {
+        ".read": true,
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "user-vanity": {
+      ".read": true,
+      ".write": false
+    }
+  }
+}
