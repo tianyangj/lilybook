@@ -1,3 +1,3 @@
-<video #videoEl poster="/assets/poster.png" controls>
-  <source [src]="hero.src" type="video/webm">
+<video #videoEl poster="/assets/poster.png" controls *ngIf="media.videos">
+  <source [src]="video.src" [type]="'video/'+video.type" *ngFor="let video of media.videos">
 </video>

@@ -9,7 +9,7 @@ import { Component, AfterViewInit, Input, ViewChild } from '@angular/core';
 })
 export class CompositionHeroComponent implements AfterViewInit {
 
-  @Input() hero;
+  @Input() media;
 
   @ViewChild('videoEl') videoEl;
 
