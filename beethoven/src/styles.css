@@ -23,7 +23,6 @@ a {
 
 .lb-content {
     flex: 1;
-    overflow: auto;
 }
 
 .lb-padding {
