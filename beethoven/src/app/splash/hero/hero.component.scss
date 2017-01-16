@@ -1,17 +1,25 @@
+:host {
+    display: block;
+}
+
 .hero {
-    width: 100%;
     height: 360px;
     background-image: url(assets/piano.jpg);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
     position: relative;
-    
+    z-index: -1;
     lb-splash-search {
         position: absolute;
-        top: 100px;
+        top: 25%;
         left: 0;
         right: 0;
-        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 270px;
     }
 }

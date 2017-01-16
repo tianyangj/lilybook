@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+/* Routing Component */
 @Component({
   templateUrl: './splash.component.html',
   styleUrls: ['./splash.component.scss']

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { CompositionCardComponent } from './composition-card/composition-card.component';
 import { HeaderComponent } from './header/header.component';
@@ -25,7 +26,8 @@ import { ComposerComponent } from './composer/composer.component';
         CommonModule,
         FormsModule,
         MaterialModule,
-        RouterModule
+        RouterModule,
+        FlexLayoutModule
     ],
     declarations: [
         CompositionCardComponent,
@@ -54,6 +56,7 @@ import { ComposerComponent } from './composer/composer.component';
         FormsModule,
         MaterialModule,
         RouterModule,
+        FlexLayoutModule,
         CompositionCardComponent,
         LayoutComponent,
         ChipComposerComponent,

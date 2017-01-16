@@ -1,22 +1,18 @@
-<div class="lb-margin">
-  <div class="layout-row layout-align-center-center" *ngIf="collection">
-    <h2 class="flex">
-      <a [routerLink]="['/book', collection.id]">{{collection.name}}</a> <md-icon class="md-24">book</md-icon>
-    </h2>
-    <div>
-      <a md-button color="primary" [routerLink]="['/collection', collection.id]">More</a>
-    </div>
-  </div>
-  <div #swiperContainer class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" *ngFor="let composition of collection?.compositions">
-        <div class="lb-padding">
-          <lb-composition-card [composition]="composition"></lb-composition-card>
-        </div>
+<div class="heading" fxLayout="row" fxLayoutAlign="center center" *ngIf="collection">
+  <h2 fxFlex>
+    <a [routerLink]="['/book', collection.id]">{{collection.name}}</a>
+  </h2>
+  <a md-button color="primary" [routerLink]="['/collection', collection.id]">More</a>
+</div>
+<div #swiperContainer class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let composition of collection?.compositions">
+      <div class="lb-padding">
+        <lb-composition-card [composition]="composition"></lb-composition-card>
       </div>
     </div>
-    <div #swiperPrev class="swiper-button-prev"></div>
-    <div #swiperNext class="swiper-button-next"></div>
-    <div #swiperScrollbar class="swiper-scrollbar"></div>
   </div>
+  <div #swiperPrev class="swiper-button-prev"></div>
+  <div #swiperNext class="swiper-button-next"></div>
+  <div #swiperScrollbar class="swiper-scrollbar"></div>
 </div>
