@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 const Swiper = require('swiper');
 
+/* Routing Component */
 @Component({
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']

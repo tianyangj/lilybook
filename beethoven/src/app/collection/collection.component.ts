@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+/* Routing Component */
 @Component({
-  selector: 'lb-collection',
   templateUrl: './collection.component.html',
   styleUrls: ['./collection.component.scss']
 })
