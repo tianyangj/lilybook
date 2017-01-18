@@ -1,7 +1,6 @@
 @import '~https://fonts.googleapis.com/icon?family=Roboto';
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~normalize.css/normalize.css';
-@import '~angular-material/modules/layouts/angular-material.layouts.css';
 @import '~plyr/dist/plyr.css';
 @import '~photoswipe/dist/photoswipe.css';
 @import '~photoswipe/dist/default-skin/default-skin.css';
@@ -13,16 +12,6 @@ body {
 a {
     color: inherit;
     text-decoration: inherit;
-}
-
-.lb-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.lb-content {
-    flex: 1;
 }
 
 .lb-padding {

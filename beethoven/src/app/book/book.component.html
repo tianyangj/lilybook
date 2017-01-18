@@ -1,14 +1,14 @@
-<div class="book-container layout-column">
+<div fxLayout="column" class="book-container">
   <md-toolbar>
     <button md-icon-button (click)="slideTo()">
       <md-icon>toc</md-icon>
     </button>
-    <h1 class="flex">{{title}}</h1>
+    <h1 fxFlex>{{title}}</h1>
     <a md-icon-button [routerLink]="['/composition', composition.$key]" *ngIf="composition">
       <md-icon>music_video</md-icon>
     </a>
   </md-toolbar>
-  <div #swiperContainer class="swiper-container flex">
+  <div fxFlex #swiperContainer class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide cover">
         <h2>{{book.name}}</h2>
