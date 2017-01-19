@@ -7,7 +7,7 @@ import { DataService } from '../../core/data.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class DialogSignupComponent implements OnInit {
 
   model = {
     email: '',
@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private dialogRef: MdDialogRef<SignupComponent>
+    private dialogRef: MdDialogRef<DialogSignupComponent>
   ) { }
 
   ngOnInit() {

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdSnackBar } from "@angular/material";
 import { FirebaseAuthState } from 'angularfire2'
 
-import { LoginComponent } from '../login/login.component';
-import { SignupComponent } from '../signup/signup.component';
-import { DataService } from '../../core/data.service';
+import { DialogLoginComponent } from '../../dialog-login/login.component';
+import { DialogSignupComponent } from '../../dialog-signup/signup.component';
+import { DataService } from '../../data.service';
 
 @Component({
     selector: 'lb-more',
@@ -28,7 +28,7 @@ export class MoreComponent implements OnInit {
     }
 
     login() {
-        this.mdDialog.open(LoginComponent).afterClosed().subscribe(authState => {
+        this.mdDialog.open(DialogLoginComponent).afterClosed().subscribe(authState => {
             if (authState) {
                 this.mdSnackBar.open('You have successfully logged in.', 'OK', { duration: 3000 });
             }
@@ -41,7 +41,7 @@ export class MoreComponent implements OnInit {
     }
 
     signup() {
-        this.mdDialog.open(SignupComponent).afterClosed().subscribe(authState => {
+        this.mdDialog.open(DialogSignupComponent).afterClosed().subscribe(authState => {
             if (authState) {
                 this.mdSnackBar.open('You have successfully signed up!', 'OK', { duration: 3000 });
             }

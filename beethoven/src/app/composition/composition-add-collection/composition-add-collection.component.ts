@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/switchMap';
 
-import { LoginComponent } from '../../shared/login/login.component';
+import { DialogLoginComponent } from '../../core/dialog-login/login.component';
 import { DialogAddCollectionComponent } from '../../shared/dialog-add-collection/dialog-add-collection.component';
 import { DataService } from '../../core/data.service';
 
@@ -31,7 +31,7 @@ export class CompositionAddCollectionComponent implements OnInit {
             if (authState) {
                 return Observable.of(authState);
             }
-            return this.mdDialog.open(LoginComponent).afterClosed();
+            return this.mdDialog.open(DialogLoginComponent).afterClosed();
         }).take(1).subscribe(authState => {
             if (authState) {
                 let dialogRef = this.mdDialog.open(DialogAddCollectionComponent);
