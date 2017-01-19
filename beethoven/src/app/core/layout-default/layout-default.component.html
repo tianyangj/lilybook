@@ -1,34 +1,4 @@
-<md-sidenav-container>
-  <md-sidenav #start>
-    <md-toolbar color="primary">
-      <span>LilyBook</span>
-      <md-toolbar-row>
-        <span>Second Row</span>
-      </md-toolbar-row>
-    </md-toolbar>
-    <md-nav-list class="lb-content">
-      <a md-list-item routerLink="" routerLinkActive="active" (click)="close()">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active" (click)="close()">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-      <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-      <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    </md-nav-list>
-  </md-sidenav>
+<div fxFlexFill fxLayout="column">
   <md-toolbar color="primary">
     <button md-icon-button (click)="start.open()">
       <md-icon>menu</md-icon>
@@ -39,5 +9,37 @@
     <lb-search></lb-search>
     <lb-more></lb-more>-->
   </md-toolbar>
-  <router-outlet></router-outlet>
-</md-sidenav-container>
+  <md-sidenav-container fxFlex>
+    <md-sidenav #start>
+      <md-toolbar color="primary">
+        <span>LilyBook</span>
+        <md-toolbar-row>
+          <span>Second Row</span>
+        </md-toolbar-row>
+      </md-toolbar>
+      <md-nav-list class="lb-content">
+        <a md-list-item routerLink="" routerLinkActive="active" (click)="close()">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active" (click)="close()">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+        <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
+        <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+      </md-nav-list>
+    </md-sidenav>
+    <router-outlet></router-outlet>
+  </md-sidenav-container>
+</div>
