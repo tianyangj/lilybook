@@ -1,4 +1,11 @@
 <md-toolbar color="primary">
-  <span fxFlex>{{collection.name}}</span>
-  <md-select></md-select>
+  <span></span>
+  <md-toolbar-row>
+    <h1 fxFlex>{{collection.name}}</h1>
+    <!--<md-select placeholder="Composers">
+      <md-option *ngFor="let composerId of composerIds" [value]="composerId">
+        {{composerId}}
+      </md-option>
+    </md-select>-->
+  </md-toolbar-row>
 </md-toolbar>
