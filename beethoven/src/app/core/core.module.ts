@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { DataService } from './data.service';
-import { LayoutEmptyComponent } from './layout-empty/layout-empty.component';
 import { LayoutDefaultComponent } from './layout-default/layout-default.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { LayoutDefaultComponent } from './layout-default/layout-default.componen
         DataService
     ],
     declarations: [
-        LayoutEmptyComponent,
         LayoutDefaultComponent
     ]
 })
