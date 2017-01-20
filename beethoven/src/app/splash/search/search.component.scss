@@ -1,5 +1,34 @@
 :host {
     display: block;
+    /deep/ {
+        .algolia-autocomplete {
+            width: 100%;
+        }
+        .algolia-autocomplete .aa-input,
+        .algolia-autocomplete .aa-hint {
+            width: 100%;
+        }
+        .algolia-autocomplete .aa-hint {
+            color: #999;
+        }
+        .algolia-autocomplete .aa-dropdown-menu {
+            width: 100%;
+            background-color: #fff;
+        }
+        .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+            cursor: pointer;
+            padding: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+            background-color: #B2D7FF;
+        }
+        .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+            white-space: inherit !important;
+        }
+    }
 }
 
 .sbx-custom {
