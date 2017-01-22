@@ -59,20 +59,30 @@ export class DataService {
             });
     }
 
-    getComposerCollection(composerId: string, size = 4) {
+    getComposerCollection(composerId: string, limit = 4) {
         return this.angularFire.database
             .object(`/index-composers/${composerId}`)
-            .map(collection => {
+            .switchMap(collection => {
+                if (!collection.$exists()) {
+                    return Observable.of(null);
+                }
+                let compositionIds = Object.keys(collection.compositions).sort((x, y) => {
+                    return collection.compositions[x] - collection.compositions[y]
+                }).slice(0, limit);
+                return Observable.forkJoin(
+                    compositionIds.map(compositionId => {
+                        return this.getComposition(compositionId).first();
+                    })
+                );
+            }, (collection, compositions) => {
                 if (!collection.$exists()) {
                     return null;
                 }
-                let compositionIds = Object.keys(collection.compositions).slice(0, size);
                 return {
                     id: collection.$key,
                     name: collection.name,
-                    compositions: compositionIds.map(compositionId => {
-                        return this.getComposition(compositionId);
-                    })
+                    book: collection.book,
+                    compositions
                 };
             });
     }

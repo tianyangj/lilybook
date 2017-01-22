@@ -8,10 +8,10 @@
     </a>
   </div>
   <div #swiperContainer class="swiper-container">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper" fxLayout="row" fxLayoutAlign=" end">
       <div class="swiper-slide" *ngFor="let composition of collection?.compositions">
         <div class="lb-padding">
-          <lb-composition-card [composition]="composition"></lb-composition-card>
+          <lb-composition-thumbnail [composition]="composition"></lb-composition-thumbnail>
         </div>
       </div>
     </div>

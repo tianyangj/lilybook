@@ -38,24 +38,28 @@ export class CollectionComponent implements OnInit {
                         nextButton: this.swiperNext.nativeElement,
                         prevButton: this.swiperPrev.nativeElement,
                         scrollbar: this.swiperScrollbar.nativeElement,
-                        slidesPerView: 4,
-                        slidesPerGroup: 4,
+                        slidesPerView: 6,
+                        slidesPerGroup: 6,
                         breakpoints: {
-                            384: {
-                                slidesPerView: 1,
-                                slidesPerGroup: 1
-                            },
-                            768: {
+                            320: {
                                 slidesPerView: 2,
                                 slidesPerGroup: 2
                             },
-                            1024: {
+                            480: {
                                 slidesPerView: 3,
                                 slidesPerGroup: 3
                             },
-                            1280: {
+                            640: {
                                 slidesPerView: 4,
                                 slidesPerGroup: 4
+                            },
+                            800: {
+                                slidesPerView: 5,
+                                slidesPerGroup: 5
+                            },
+                            960: {
+                                slidesPerView: 6,
+                                slidesPerGroup: 6
                             }
                         }
                     });

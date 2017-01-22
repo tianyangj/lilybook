@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { CompositionCardComponent } from './composition-card/composition-card.component';
+import { CompositionThumbnailComponent } from './composition-thumbnail/composition-thumbnail.component';
 import { ChipComposerComponent } from './chip-composer/chip-composer.component';
 import { ChipKeyComponent } from './chip-key/chip-key.component';
 import { ChipFormComponent } from './chip-form/chip-form.component';
@@ -23,6 +24,7 @@ import { ComposerComponent } from './composer/composer.component';
     ],
     declarations: [
         CompositionCardComponent,
+        CompositionThumbnailComponent,
         ChipComposerComponent,
         ChipKeyComponent,
         ChipFormComponent,
@@ -40,6 +42,7 @@ import { ComposerComponent } from './composer/composer.component';
         RouterModule,
         FlexLayoutModule,
         CompositionCardComponent,
+        CompositionThumbnailComponent,
         ChipComposerComponent,
         ChipKeyComponent,
         ChipFormComponent,
