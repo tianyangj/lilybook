@@ -53,6 +53,7 @@ export class DataService {
                 return {
                     id: collection.$key,
                     name: collection.name,
+                    book: collection.book,
                     compositions
                 };
             });
