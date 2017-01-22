@@ -22,6 +22,7 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
+firebase-debug.log
 /typings
 
 # e2e
