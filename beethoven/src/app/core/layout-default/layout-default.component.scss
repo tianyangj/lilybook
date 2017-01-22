@@ -5,8 +5,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-}
-
-:host /deep/ .md-sidenav-content {
-    position: absolute;
+    /deep/ .md-sidenav-content {
+        position: absolute;
+        width: 100%;
+    }
 }
