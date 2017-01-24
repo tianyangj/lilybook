@@ -1,3 +1,5 @@
-<video #videoEl poster="/assets/poster.png" controls *ngIf="media.videos">
-  <source [src]="video.src" [type]="'video/'+video.type" *ngFor="let video of media.videos">
-</video>
+<div class="video-hero">
+  <video #videoEl poster="/assets/poster.png" controls *ngIf="media.videos">
+    <source [src]="video.src" [type]="'video/'+video.type" *ngFor="let video of media.videos">
+  </video>
+</div>
