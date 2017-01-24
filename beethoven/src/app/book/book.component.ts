@@ -39,7 +39,7 @@ export class BookComponent implements OnInit {
           preloadImages: false,
           lazyLoading: true,
           lazyLoadingInPrevNext: true,
-          lazyLoadingInPrevNextAmount: 1,
+          lazyLoadingInPrevNextAmount: 2,
           onSlideChangeStart: (swiper) => {
             let page = this.pages[swiper.activeIndex - 1];
             if (page) {
