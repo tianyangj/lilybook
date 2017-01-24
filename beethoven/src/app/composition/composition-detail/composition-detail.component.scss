@@ -1,11 +1,17 @@
 md-card {
-    padding: 12px;
-}
-
-.title-group {
-    padding-left: 12px;
-}
-
-md-card-actions {
-    margin: 0;
+    padding: 0;
+    >div {
+        margin: 12px;
+    }
+    md-card-title {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    md-card-actions {
+        margin: 0;
+        padding: 0;
+        >* {
+            margin: 0 8px 12px 0;
+        }
+    }
 }

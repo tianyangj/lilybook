@@ -1,9 +1,9 @@
 <div class="lb-margin">
 	<md-card fxLayout="row" fxLayout.xs="column">
-		<div>
+		<div class="text-center">
 			<img [src]="composition.thumbnail.url">
 		</div>
-		<div fxFlex class="title-group">
+		<div fxFlex>
 			<md-card-title>
 				{{composition.title}}
 			</md-card-title>
@@ -18,10 +18,10 @@
 			<md-card-content>
 				<p>{{composition.description}}</p>
 			</md-card-content>
-			<md-card-actions align="end">
+			<md-card-actions>
 				<lb-composition-sheet [sheet]="composition.sheet"></lb-composition-sheet>
-				<lb-composition-add-collection [composition]="composition" style="margin-left:12px;"></lb-composition-add-collection>
-</md-card-actions>
-</div>
-</md-card>
+				<lb-composition-add-collection [composition]="composition"></lb-composition-add-collection>
+			</md-card-actions>
+		</div>
+	</md-card>
 </div>
