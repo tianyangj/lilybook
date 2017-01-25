@@ -7,13 +7,13 @@
 			<md-card-title>
 				{{composition.title}}
 			</md-card-title>
-			<md-card-content>
+			<md-card-content class="chips">
 				<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
 				<lb-chip-key [keyId]="composition.key"></lb-chip-key>
 				<lb-chip-form [formId]="composition.form"></lb-chip-form>
-				<lb-chip-level [rcmId]="composition.rcm"></lb-chip-level>
-				<lb-chip-level [abrsmId]="composition.abrsm"></lb-chip-level>
-				<lb-chip-level [henleId]="composition.henle"></lb-chip-level>
+				<lb-chip-level [rcmId]="composition.rcm" *ngIf="composition.rcm"></lb-chip-level>
+				<lb-chip-level [abrsmId]="composition.abrsm" *ngIf="composition.abrsm"></lb-chip-level>
+				<lb-chip-level [henleId]="composition.henle" *ngIf="composition.henle"></lb-chip-level>
 			</md-card-content>
 			<md-card-content>
 				<p>{{composition.description}}</p>

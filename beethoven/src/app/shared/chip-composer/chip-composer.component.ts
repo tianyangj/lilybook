@@ -13,13 +13,17 @@ export class ChipComposerComponent implements OnInit {
   @Input() fullname: boolean;
 
   composer;
+  composerLink: boolean;
 
   constructor(
     private dataService: DataService
   ) { }
 
   ngOnInit() {
-    this.dataService.getComposer(this.composerId).subscribe(composer => this.composer = composer);
+    this.dataService.getComposer(this.composerId)
+      .subscribe(composer => this.composer = composer);
+    this.dataService.hasComposerCollection(this.composerId)
+      .subscribe(composerLink => this.composerLink = composerLink);
   }
 
 }

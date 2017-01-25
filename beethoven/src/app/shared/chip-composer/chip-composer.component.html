@@ -1,3 +1,6 @@
-<button md-raised-button *ngIf="composer">
+<a md-raised-button [routerLink]="['/composer', composerId]" *ngIf="composer && composerLink">
+  {{ fullname ? composer.fullname : composer.name }}
+</a>
+<button md-raised-button disabled *ngIf="composer && !composerLink">
   {{ fullname ? composer.fullname : composer.name }}
 </button>

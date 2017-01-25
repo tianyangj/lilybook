@@ -59,6 +59,11 @@ export class DataService {
             });
     }
 
+    hasCollection(collectionId) {
+        return this.angularFire.database.object(`/index-collections/${collectionId}`)
+            .map(collection => <boolean>collection.$exists());
+    }
+
     getComposerCollection(composerId: string, limit = 4) {
         return this.angularFire.database
             .object(`/index-composers/${composerId}`)
@@ -85,6 +90,11 @@ export class DataService {
                     compositions
                 };
             });
+    }
+
+    hasComposerCollection(collectionId) {
+        return this.angularFire.database.object(`/index-composers/${collectionId}`)
+            .map(collection => <boolean>collection.$exists());
     }
 
     getUserCollections(userId: string) {

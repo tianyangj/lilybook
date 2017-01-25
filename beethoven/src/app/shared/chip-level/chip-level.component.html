@@ -1,9 +1,20 @@
-<button md-raised-button *ngIf="rcm">
-    {{ rcm.name }}
+<a md-raised-button [routerLink]="['/collection', rcmId]" *ngIf="rcm && rcmLink">
+    {{rcm.name}}
+</a>
+<button md-raised-button disabled *ngIf="rcm && !rcmLink">
+    {{rcm.name}}
 </button>
-<button md-raised-button *ngIf="abrsm">
-    {{ abrsm.name }}
+
+<a md-raised-button [routerLink]="['/collection', abrsmId]" *ngIf="abrsm && abrsmLink">
+    {{abrsm.name}}
+</a>
+<button md-raised-button disabled *ngIf="abrsm && !abrsmLink">
+    {{abrsm.name}}
 </button>
-<button md-raised-button *ngIf="henle">
-    {{ henle.name }}
+
+<a md-raised-button [routerLink]="['/collection', henleId]" *ngIf="henle && henleLink">
+    {{henle.name}}
+</a>
+<button md-raised-button disabled *ngIf="henle && !henleLink">
+    {{henle.name}}
 </button>

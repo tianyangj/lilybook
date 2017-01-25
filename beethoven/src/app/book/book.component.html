@@ -10,7 +10,7 @@
   </md-toolbar>
   <div fxFlex #swiperContainer class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide cover">
+      <div class="swiper-slide">
         <h2>{{book.name}}</h2>
         <md-list>
           <md-list-item (click)="slideTo(composition)" *ngFor="let composition of book.compositions; let i = index">
