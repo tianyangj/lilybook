@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { AppService } from './app.service';
 import { DataService } from './data.service';
 
 import { LayoutDefaultComponent } from './layout-default/layout-default.component';
@@ -25,6 +26,7 @@ import { DialogSignupComponent } from './dialog-signup/signup.component';
         FlexLayoutModule
     ],
     providers: [
+        AppService,
         DataService
     ],
     declarations: [
