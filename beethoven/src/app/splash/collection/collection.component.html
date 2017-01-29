@@ -11,7 +11,7 @@
     <div class="swiper-wrapper" fxLayout="row" fxLayoutAlign=" end">
       <div class="swiper-slide" *ngFor="let composition of collection?.compositions">
         <div class="lb-padding">
-          <lb-composition-thumbnail [composition]="composition"></lb-composition-thumbnail>
+          <lb-composition-thumbnail [composition]="composition" [popup]="true"></lb-composition-thumbnail>
         </div>
       </div>
     </div>

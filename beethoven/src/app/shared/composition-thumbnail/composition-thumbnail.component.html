@@ -1,5 +1,5 @@
 <md-card>
-  <a [routerLink]="['/composition', composition.$key]">
+  <a [href]="link" (click)="go(composition, $event)">
     <img [src]="composition.thumbnail?.url" [alt]="composition.title">
   </a>
 </md-card>

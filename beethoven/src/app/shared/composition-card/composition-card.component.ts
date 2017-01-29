@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lb-composition-card',
@@ -8,17 +8,27 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CompositionCardComponent implements OnInit {
 
-  @Input('composition') compositionSource: any;
+  @Input() composition;
+  @Input() popup = false;
+  link: string;
 
-  composition;
-
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    if (this.compositionSource instanceof Observable) {
-      this.compositionSource.subscribe(composition => this.composition = composition);
+    this.link = `/composition/${this.composition.$key}`;
+  }
+
+  go(composition, $event) {
+    $event.stopPropagation();
+    $event.preventDefault();
+    if (this.popup) {
+      this.router.navigate([{
+        outlets: { popup: ['composition', composition.$key] }
+      }]);
     } else {
-      this.composition = this.compositionSource;
+      this.router.navigate(['/composition', composition.$key]);
     }
   }
 

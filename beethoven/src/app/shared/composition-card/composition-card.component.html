@@ -1,10 +1,10 @@
 <md-card fxLayout="row" *ngIf="composition">
-  <a [routerLink]="['/composition', composition.$key]">
-    <img [src]="composition.thumbnail.url">
+  <a [href]="link" (click)="go(composition, $event)">
+    <img [src]="composition.thumbnail.url" [alt]="composition.title">
   </a>
   <div fxFlex>
     <md-card-title>
-      <a [routerLink]="['/composition', composition.$key]">
+      <a [href]="link" (click)="go(composition, $event)">
         {{composition.title}}
       </a>
     </md-card-title>
