@@ -1,18 +1,18 @@
-<a md-raised-button [routerLink]="['/collection', rcmId]" *ngIf="rcm && rcmLink">
+<a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', rcmId] } }]" *ngIf="rcm && rcmLink">
     {{rcm.name}}
 </a>
 <button md-raised-button disabled *ngIf="rcm && !rcmLink">
     {{rcm.name}}
 </button>
 
-<a md-raised-button [routerLink]="['/collection', abrsmId]" *ngIf="abrsm && abrsmLink">
+<a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', abrsmId] } }]" *ngIf="abrsm && abrsmLink">
     {{abrsm.name}}
 </a>
 <button md-raised-button disabled *ngIf="abrsm && !abrsmLink">
     {{abrsm.name}}
 </button>
 
-<a md-raised-button [routerLink]="['/collection', henleId]" *ngIf="henle && henleLink">
+<a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', henleId] } }]" *ngIf="henle && henleLink">
     {{henle.name}}
 </a>
 <button md-raised-button disabled *ngIf="henle && !henleLink">
