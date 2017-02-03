@@ -7,5 +7,8 @@
         {{composerId}}
       </md-option>
     </md-select>-->
+    <a md-raised-button color="accent" [routerLink]="['/book', collection.id]" *ngIf="collection.book">
+      View Sheet Music
+    </a>
   </md-toolbar-row>
 </md-toolbar>

@@ -3,7 +3,7 @@
     <h2 fxFlex>
       <a md-button color="primary" [routerLink]="['/collection', collection.id]">{{collection.name}}</a>
     </h2>
-    <a md-icon-button [routerLink]="['/book', collection.id]" *ngIf="collection.book">
+    <a md-icon-button color="primary" [routerLink]="['/book', collection.id]" *ngIf="collection.book">
       <md-icon>library_music</md-icon>
     </a>
   </div>
