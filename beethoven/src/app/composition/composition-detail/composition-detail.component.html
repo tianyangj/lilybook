@@ -1,4 +1,4 @@
-<div class="lb-margin">
+<!--<div class="lb-margin">
 	<md-card fxLayout="row" fxLayout.xs="column">
 		<div class="text-center">
 			<img [src]="composition.thumbnail.url">
@@ -24,4 +24,27 @@
 			</md-card-actions>
 		</div>
 	</md-card>
+</div>-->
+<div class="lb-padding">
+	<div fxLayout="row">
+		<div class="thumbnail">
+			<img [src]="composition.thumbnail.url">
+		</div>
+		<div fxFlex>
+			<h1>{{composition.title}}</h1>
+			<div class="chips">
+				<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
+				<lb-chip-key [keyId]="composition.key"></lb-chip-key>
+				<lb-chip-form [formId]="composition.form"></lb-chip-form>
+				<lb-chip-level [rcmId]="composition.rcm" *ngIf="composition.rcm"></lb-chip-level>
+				<lb-chip-level [abrsmId]="composition.abrsm" *ngIf="composition.abrsm"></lb-chip-level>
+				<lb-chip-level [henleId]="composition.henle" *ngIf="composition.henle"></lb-chip-level>
+			</div>
+		</div>
+	</div>
+	<p>{{composition.description}}</p>
+	<div class="actions" fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="end center">
+		<lb-composition-sheet [sheet]="composition.sheet"></lb-composition-sheet>
+		<lb-composition-add-collection [composition]="composition"></lb-composition-add-collection>
+	</div>
 </div>
