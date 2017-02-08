@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutWrap="wrap">
-  <div fxFlex="33" class="composer" *ngFor="let composer of composers">
+  <div fxFlex.xs="50" fxFlex.sm="33" fxFlex.md="25" fxFlex.lg="20" class="composer" *ngFor="let composer of composers">
     <a [routerLink]="['/composer', composer.$key]">
       <md-card>
         <img md-card-image src="/assets/composer-bg.jpg">
