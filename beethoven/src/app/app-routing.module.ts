@@ -13,6 +13,10 @@ export const featureRoutes: Routes = [
     {
         path: 'composition',
         loadChildren: './composition/composition.module#CompositionModule'
+    },
+    {
+        path: 'composer',
+        loadChildren: './composer/composer.module#ComposerModule'
     }
 ];
 
