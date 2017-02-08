@@ -1,0 +1,27 @@
+.composer {
+    padding: 8px;
+}
+
+[md-card-image] {
+    opacity: 0.3;
+}
+
+md-card-title {
+    font-size: 20px;
+    line-height: 24px;
+    height: 48px;
+    overflow: hidden;
+}
+
+.composer-image {
+    position: absolute;
+    top: 7%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    img {
+        width: 80%;
+        border-radius: 50%;
+    }
+}
