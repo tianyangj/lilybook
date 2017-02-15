@@ -1,4 +1,22 @@
-<p>
-  composer works!
-</p>
-<code>{{composer | json}}</code>
+<md-toolbar color="primary">
+  <span></span>
+  <md-toolbar-row>
+    <h1 fxFlex>{{composer.fullname}}</h1>
+  </md-toolbar-row>
+</md-toolbar>
+<div>
+  <div class="lb-padding">
+    <md-card>
+      <md-card-title-group>
+        <img md-card-lg-image [src]="composer.image">
+        <md-card-title>{{composer.fullname}}</md-card-title>
+        <md-card-subtitle>{{composer.bio}}</md-card-subtitle>
+      </md-card-title-group>
+    </md-card>
+  </div>
+  <div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" fxFlex.xl="20%" class="lb-padding" *ngFor="let composition of compositions">
+      <lb-composition-card [composition]="composition" [popup]="true"></lb-composition-card>
+    </div>
+  </div>
+</div>
