@@ -1,22 +1,14 @@
-<md-nav-list>
-    <a md-list-item routerLink="" routerLinkActive="active" (click)="close()">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active" (click)="close()">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
-    <a md-list-item routerLink="" routerLinkActive="active">Splash</a>
-    <a md-list-item routerLink="composition" routerLinkActive="active">Composition</a>
+<md-nav-list dense>
+    <h3 md-subheader>Collections</h3>
+    <a md-list-item [routerLink]="['/collection/lucas']">Lucas Playlist</a>
+    <a md-list-item [routerLink]="['/collection/features']">Featured</a>
+    <a md-list-item [routerLink]="['/collection/rcm-piano-1']">RCM Piano Level 1</a>
+    <a md-list-item [routerLink]="['/collection/rcm-piano-2']">RCM Piano Level 2</a>
+    <a md-list-item [routerLink]="['/collection/rcm-piano-3']">RCM Piano Level 3</a>
+    <h3 md-subheader>Composers</h3>
+    <a md-list-item [routerLink]="['/composer/all']">All Composers</a>
+    <a md-list-item [routerLink]="['/composer/bach']">J. S. Bach</a>
+    <a md-list-item [routerLink]="['/composer/beethoven']">Beethoven</a>
+    <a md-list-item [routerLink]="['/composer/haydn']">Haydn</a>
+    <a md-list-item [routerLink]="['/composer/mozart']">Mozart</a>
 </md-nav-list>

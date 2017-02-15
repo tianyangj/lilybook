@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'lb-sidenav',
@@ -9,13 +10,16 @@ export class SidenavComponent implements OnInit {
 
   @Output() onLinkClose = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
-  }
-
-  close() {
-    this.onLinkClose.emit();
+    this.router.events
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe(() => {
+        this.onLinkClose.emit()
+      });
   }
 
 }

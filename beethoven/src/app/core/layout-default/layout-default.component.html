@@ -2,7 +2,7 @@
   <lb-header (onMenuToggle)="start.toggle()"></lb-header>
   <md-sidenav-container fxFlex>
     <md-sidenav #start>
-      <lb-sidenav></lb-sidenav>
+      <lb-sidenav (onLinkClose)="start.close()"></lb-sidenav>
     </md-sidenav>
     <router-outlet></router-outlet>
   </md-sidenav-container>
