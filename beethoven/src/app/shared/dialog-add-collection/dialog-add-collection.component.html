@@ -15,8 +15,9 @@
 </div>
 <div *ngIf="showCreate">
   <form novalidate>
-    <md-input [(ngModel)]="collectionName" name="collectionName" placeholder="Collection Name" required style="width:100%;">
-    </md-input>
+    <md-input-container>
+      <input mdInput [(ngModel)]="collectionName" name="collectionName" placeholder="Collection Name" required style="width:100%;">
+    </md-input-container>
     <div style="text-align:right;">
       <button md-raised-button color="primary" (click)="createCollection(composition)">Create and Add</button>
     </div>

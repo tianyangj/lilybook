@@ -1,12 +1,15 @@
 <md-toolbar>Sign Up</md-toolbar>
 <form novalidate>
-  <md-input type="text" placeholder="Display Name" [(ngModel)]="model.displayName" name="displayName" #displayName="ngModel"
-    required>
-  </md-input>
-  <md-input type="email" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" required>
-  </md-input>
-  <md-input type="password" placeholder="Password" [(ngModel)]="model.password" name="password" #password="ngModel" required>
-  </md-input>
+  <md-input-container>
+    <input mdInput type="text" placeholder="Display Name" [(ngModel)]="model.displayName" name="displayName" #displayName="ngModel"
+      required>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput type="email" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" required>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" #password="ngModel" required>
+  </md-input-container>
   <p *ngIf="error">
     {{error.message}}
   </p>

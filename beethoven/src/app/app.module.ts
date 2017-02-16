@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MaterialModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +18,6 @@ export const firebaseConfig = {
 @NgModule({
     imports: [
         BrowserModule,
-        MaterialModule.forRoot(),
         AngularFireModule.initializeApp(firebaseConfig),
         AppRoutingModule,
         CoreModule,

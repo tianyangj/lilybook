@@ -18,7 +18,7 @@
     "@angular/flex-layout": "2.0.0-beta.5",
     "@angular/forms": "^2.1.2",
     "@angular/http": "^2.1.2",
-    "@angular/material": "2.0.0-beta.1",
+    "@angular/material": "2.0.0-beta.2",
     "@angular/platform-browser": "^2.1.2",
     "@angular/platform-browser-dynamic": "^2.1.2",
     "@angular/router": "^3.1.2",
@@ -51,6 +51,6 @@
     "protractor": "^5.0.0",
     "ts-node": "^2.0.0",
     "tslint": "^4.0.1",
-    "typescript": "^2.1.15"
+    "typescript": "^2.1.6"
   }
 }
