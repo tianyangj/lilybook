@@ -1,0 +1,28 @@
+<div *ngIf="collection">
+  <div class="heading" fxLayout="row" fxLayoutAlign="center center">
+    <h2 fxFlex>
+      <a md-button color="primary" [routerLink]="['/collection', collectionId]" *ngIf="collectionId">{{collection.name}}</a>
+      <a md-button color="primary" [routerLink]="['/composer', composerId]" *ngIf="composerId">{{collection.name}}</a>
+    </h2>
+    <a md-icon-button color="primary" [routerLink]="['/book', collection.id]" *ngIf="collection.book">
+      <md-icon>library_music</md-icon>
+    </a>
+  </div>
+  <div class="wrapper">
+    <button md-icon-button color="primary" class="left" (click)="prev()">
+      <md-icon>chevron_left</md-icon>
+    </button>
+    <div class="container" #scrollerContainer>
+      <div class="scroller">
+        <ul fxLayout="row" fxLayoutAlign="start end">
+          <li fxFlex="150px" *ngFor="let composition of collection?.compositions">
+            <lb-composition-thumbnail [composition]="composition" [popup]="true"></lb-composition-thumbnail>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button md-icon-button color="primary" class="right" (click)="next()">
+      <md-icon>chevron_right</md-icon>
+    </button>
+  </div>
+</div>

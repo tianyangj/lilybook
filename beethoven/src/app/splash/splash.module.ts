@@ -7,6 +7,7 @@ import { HeroComponent } from './hero/hero.component';
 import { SearchComponent } from './search/search.component';
 import { CollectionComponent } from './collection/collection.component';
 import { PopupComponent } from './popup/popup.component';
+import { ScrollerComponent } from './scroller/scroller.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { PopupComponent } from './popup/popup.component';
     HeroComponent,
     SearchComponent,
     CollectionComponent,
-    PopupComponent
+    PopupComponent,
+    ScrollerComponent
   ]
 })
 export class SplashModule { }
