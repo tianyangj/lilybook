@@ -23,7 +23,7 @@ export class ComposerComponent implements OnInit {
       this.composer = data['composer'];
       return this.dataService.getComposerCollection(this.composer.$key, 100)
     }).subscribe(collection => {
-      this.compositions = collection.compositions;
+      this.compositions = collection ? collection.compositions : null;
     });
   }
 
