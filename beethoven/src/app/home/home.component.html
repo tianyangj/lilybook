@@ -1,3 +1,11 @@
-<code>
-  {{collections | json }}
-</code>
+<md-list *ngFor="let collection of collections">
+  <h3 md-subheader>{{collection.name}}</h3>
+  <md-list-item *ngFor="let composition$ of collection.compositions$">
+    <md-icon md-list-icon>queue_music</md-icon>
+    <h4 md-line>{{(composition$ | async)?.title}}</h4>
+    <button md-icon-button color="warn" (click)="delete(collection, composition$)">
+        <md-icon>delete</md-icon>
+     </button>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>

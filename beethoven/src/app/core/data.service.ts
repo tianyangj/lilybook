@@ -116,6 +116,11 @@ export class DataService {
         });
     }
 
+    removeUserCollection(userId: string, collectionId: string, compositionId: string) {
+        let composition = this.angularFire.database.object(`/user-collections/${userId}/${collectionId}/compositions/${compositionId}`);
+        return composition.remove();
+    }
+
     getKey(id: string): Observable<{
         name: string,
         image: string,

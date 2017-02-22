@@ -14,6 +14,16 @@ export class HomeResolveService implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot) {
     return this.dataService.auth().switchMap(authState => {
       return this.dataService.getUserCollections(authState.uid);
+    }).map(collections => {
+      return collections.map(collection => {
+        return {
+          id: collection.$key,
+          name: collection.name,
+          compositions$: Object.keys(collection.compositions).map(compositionId => {
+            return this.dataService.getComposition(compositionId);
+          })
+        };
+      });
     }).first();
   }
 
