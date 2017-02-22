@@ -7,6 +7,10 @@ import { PopupComponent } from './splash/popup/popup.component';
 
 export const featureRoutes: Routes = [
     {
+        path: 'home',
+        loadChildren: './home/home.module#HomeModule'
+    },
+    {
         path: 'collection',
         loadChildren: './collection/collection.module#CollectionModule'
     },
