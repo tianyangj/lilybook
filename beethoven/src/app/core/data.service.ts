@@ -171,10 +171,6 @@ export class DataService {
         });
     }
 
-    logout() {
-        return this.angularFire.auth.logout();
-    }
-
     signup(credentials: {
         email: string,
         password: string,

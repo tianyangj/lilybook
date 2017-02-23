@@ -37,8 +37,9 @@ export class MoreComponent implements OnInit {
     }
 
     logout() {
-        this.dataService.logout();
-        this.mdSnackBar.open('You have successfully logged out.', 'OK', { duration: 3000 });
+        this.angularFire.auth.logout().then(() => {
+            this.mdSnackBar.open('You have successfully logged out.', 'OK', { duration: 3000 });
+        });
     }
 
     signup() {
