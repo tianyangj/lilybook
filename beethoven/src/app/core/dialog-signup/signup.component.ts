@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-
-import { DataService } from '../../core/data.service';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -17,7 +16,7 @@ export class DialogSignupComponent implements OnInit {
   error: any;
 
   constructor(
-    private dataService: DataService,
+    private angularFire: AngularFire,
     private dialogRef: MdDialogRef<DialogSignupComponent>
   ) { }
 
@@ -26,11 +25,14 @@ export class DialogSignupComponent implements OnInit {
 
   signup() {
     this.error = null;
-    this.dataService.signup({
+    this.angularFire.auth.createUser({
       email: this.model.email,
-      password: this.model.password,
-      displayName: this.model.displayName
-    }).then((authState) => {
+      password: this.model.password
+    }).then(authState => {
+      authState.auth.updateProfile({
+        displayName: this.model.displayName,
+        photoURL: ''
+      });
       this.dialogRef.close(authState);
     }, (error) => {
       this.error = error;

@@ -161,21 +161,6 @@ export class DataService {
         return this.angularFire.database.object(`/henle/${id}`);
     }
 
-    signup(credentials: {
-        email: string,
-        password: string,
-        displayName: string
-    }): firebase.Promise<FirebaseAuthState> {
-        return this.angularFire.auth.createUser(credentials).then(authState => {
-            // don't wait set displayName
-            authState.auth.updateProfile({
-                displayName: credentials.displayName,
-                photoURL: ''
-            });
-            return authState;
-        });
-    }
-
     getVanity(vanity: string) {
         return this.angularFire.database.object(`/user-vanity/${vanity}`);
     }
