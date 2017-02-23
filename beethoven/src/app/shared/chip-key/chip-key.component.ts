@@ -11,7 +11,7 @@ export class ChipKeyComponent implements OnInit {
 
     @Input() keyId: string;
 
-    key;
+    key$;
 
     constructor(
         private dataService: DataService
@@ -19,7 +19,7 @@ export class ChipKeyComponent implements OnInit {
 
     ngOnInit() {
         if (this.keyId) {
-            this.dataService.getKey(this.keyId).subscribe(key => this.key = key);
+            this.key$ = this.dataService.getKey(this.keyId);
         }
     }
 

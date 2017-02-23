@@ -1,3 +1,3 @@
-<button md-raised-button *ngIf="key">
-    {{ key.name }}
+<button md-raised-button *ngIf="keyId">
+    {{ (key$ | async)?.name }}
 </button>

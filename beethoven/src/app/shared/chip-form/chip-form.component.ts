@@ -11,7 +11,7 @@ export class ChipFormComponent implements OnInit {
 
   @Input() formId: string;
 
-  form;
+  form$;
 
   constructor(
     private dataService: DataService
@@ -19,7 +19,7 @@ export class ChipFormComponent implements OnInit {
 
   ngOnInit() {
     if (this.formId) {
-      this.dataService.getForm(this.formId).subscribe(form => this.form = form);
+      this.form$ = this.dataService.getForm(this.formId);
     }
   }
 
