@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdSnackBar } from "@angular/material";
-import { FirebaseAuthState } from 'angularfire2'
+import { MdDialog, MdSnackBar } from '@angular/material';
+import { AngularFire } from 'angularfire2';
 
 import { DialogLoginComponent } from '../../dialog-login/login.component';
 import { DialogSignupComponent } from '../../dialog-signup/signup.component';
@@ -18,11 +18,12 @@ export class MoreComponent implements OnInit {
     constructor(
         private mdDialog: MdDialog,
         private mdSnackBar: MdSnackBar,
-        private dataService: DataService
+        private dataService: DataService,
+        private angularFire: AngularFire
     ) { }
 
     ngOnInit() {
-        this.dataService.auth().subscribe((authState: FirebaseAuthState) => {
+        this.angularFire.auth.subscribe(authState => {
             this.authenticated = !!authState;
         });
     }

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MdDialog, MdSnackBar } from "@angular/material";
+import { MdDialog, MdSnackBar } from '@angular/material';
+import { AngularFire } from 'angularfire2';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/switchMap';
@@ -20,14 +22,15 @@ export class CompositionAddCollectionComponent implements OnInit {
     constructor(
         private mdDialog: MdDialog,
         private mdSnackBar: MdSnackBar,
-        private dataService: DataService
+        private dataService: DataService,
+        private angularFire: AngularFire
     ) { }
 
     ngOnInit() {
     }
 
     add(composition) {
-        this.dataService.auth().switchMap(authState => {
+        this.angularFire.auth.switchMap(authState => {
             if (authState) {
                 return Observable.of(authState);
             }

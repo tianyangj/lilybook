@@ -161,10 +161,6 @@ export class DataService {
         return this.angularFire.database.object(`/henle/${id}`);
     }
 
-    auth() {
-        return this.angularFire.auth;
-    }
-
     login(credentials: {
         email: string,
         password: string

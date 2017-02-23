@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AngularFire } from 'angularfire2';
 import { DataService } from '../core/data.service';
 
 @Component({
@@ -9,25 +10,26 @@ import { DataService } from '../core/data.service';
 export class HomeComponent implements OnInit {
 
   collections;
-  user;
+  authState;
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private angularFire: AngularFire
   ) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.collections = data['collections'];
     });
-    this.dataService.auth().subscribe(authState => {
-      this.user = authState;
+    this.angularFire.auth.subscribe(authState => {
+      this.authState = authState;
     })
   }
 
   delete(collection, composition$) {
     composition$.subscribe(composition => {
-      this.dataService.removeUserCollection(this.user.uid, collection.id, composition.$key);
+      this.dataService.removeUserCollection(this.authState.uid, collection.id, composition.$key);
     })
   }
 
