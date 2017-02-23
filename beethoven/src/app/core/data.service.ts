@@ -161,16 +161,6 @@ export class DataService {
         return this.angularFire.database.object(`/henle/${id}`);
     }
 
-    login(credentials: {
-        email: string,
-        password: string
-    }): firebase.Promise<FirebaseAuthState> {
-        return this.angularFire.auth.login(credentials, {
-            provider: AuthProviders.Password,
-            method: AuthMethods.Password
-        });
-    }
-
     signup(credentials: {
         email: string,
         password: string,

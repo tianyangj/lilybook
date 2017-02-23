@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-
-import { DataService } from '../../core/data.service';
+import { AngularFire } from 'angularfire2';
 
 @Component({
     templateUrl: './login.component.html',
@@ -16,7 +15,7 @@ export class DialogLoginComponent implements OnInit {
     error: any;
 
     constructor(
-        private dataService: DataService,
+        private angularFire: AngularFire,
         private dialogRef: MdDialogRef<DialogLoginComponent>
     ) { }
 
@@ -25,10 +24,7 @@ export class DialogLoginComponent implements OnInit {
 
     login() {
         this.error = null;
-        this.dataService.login({
-            email: this.model.email,
-            password: this.model.password
-        }).then((authState) => {
+        this.angularFire.auth.login(this.model).then(authState => {
             this.dialogRef.close(authState);
         }, (error) => {
             this.error = error;
