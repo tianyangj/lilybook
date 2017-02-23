@@ -23,6 +23,8 @@ import {
 @Injectable()
 export class DataService {
 
+    private cache = {};
+
     constructor(
         private angularFire: AngularFire
     ) { }
@@ -129,28 +131,40 @@ export class DataService {
         return composition.remove();
     }
 
-    getKey(id: string): FirebaseObjectObservable<Key> {
-        return this.angularFire.database.object(`/key/${id}`);
-    }
-
-    getForm(id: string): FirebaseObjectObservable<Form> {
-        return this.angularFire.database.object(`/form/${id}`);
-    }
-
-    getRcm(id: string): FirebaseObjectObservable<Rcm> {
-        return this.angularFire.database.object(`/rcm/${id}`);
-    }
-
-    getAbrsm(id: string): FirebaseObjectObservable<Abrsm> {
-        return this.angularFire.database.object(`/abrsm/${id}`);
-    }
-
-    getHenle(id: string): FirebaseObjectObservable<Henle> {
-        return this.angularFire.database.object(`/henle/${id}`);
-    }
-
     getVanity(vanity: string) {
         return this.angularFire.database.object(`/user-vanity/${vanity}`);
+    }
+
+    // cache enabled below
+
+    getKey(id: string): Observable<Key> {
+        return this.withObjectCache<Key>(`/key/${id}`);
+    }
+
+    getForm(id: string): Observable<Form> {
+        return this.withObjectCache<Form>(`/form/${id}`);
+    }
+
+    getRcm(id: string): Observable<Rcm> {
+        return this.withObjectCache<Rcm>(`/rcm/${id}`);
+    }
+
+    getAbrsm(id: string): Observable<Abrsm> {
+        return this.withObjectCache<Abrsm>(`/abrsm/${id}`);
+    }
+
+    getHenle(id: string): Observable<Henle> {
+        return this.withObjectCache<Henle>(`/henle/${id}`);
+    }
+
+    private withObjectCache<T>(url) {
+        if (this.cache[url]) {
+            console.info('Cache HIT', url);
+            return Observable.of<T>(this.cache[url]);
+        }
+        console.info('Cache MISS', url);
+        return this.angularFire.database.object(url)
+            .do(data => this.cache[url] = data) as Observable<T>;
     }
 
 }

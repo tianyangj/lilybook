@@ -13,9 +13,9 @@ export class ChipLevelComponent implements OnInit {
   @Input() abrsmId: string;
   @Input() henleId: string;
 
-  rcm;
-  abrsm;
-  henle;
+  rcm$;
+  abrsm$;
+  henle$;
   rcmLink: boolean;
   abrsmLink: boolean;
   henleLink: boolean;
@@ -26,15 +26,15 @@ export class ChipLevelComponent implements OnInit {
 
   ngOnInit() {
     if (this.rcmId) {
-      this.dataService.getRcm(this.rcmId).subscribe(rcm => this.rcm = rcm);
+      this.rcm$ = this.dataService.getRcm(this.rcmId);
       this.dataService.hasCollection(this.rcmId).subscribe(rcmLink => this.rcmLink = rcmLink);
     }
     if (this.abrsmId) {
-      this.dataService.getAbrsm(this.abrsmId).subscribe(abrsm => this.abrsm = abrsm);
+      this.abrsm$ = this.dataService.getAbrsm(this.abrsmId);
       this.dataService.hasCollection(this.abrsmLink).subscribe(abrsmLink => this.abrsmLink = abrsmLink);
     }
     if (this.henleId) {
-      this.dataService.getHenle(this.henleId).subscribe(henle => this.henle = henle);
+      this.henle$ = this.dataService.getHenle(this.henleId);
       this.dataService.hasCollection(this.henleLink).subscribe(henleLink => this.henleLink = henleLink);
     }
   }
