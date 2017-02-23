@@ -12,6 +12,14 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
 import 'rxjs/add/operator/switchMap';
 
+import {
+    Abrsm,
+    Form,
+    Henle,
+    Key,
+    Rcm
+} from './models';
+
 @Injectable()
 export class DataService {
 
@@ -121,43 +129,23 @@ export class DataService {
         return composition.remove();
     }
 
-    getKey(id: string): Observable<{
-        name: string,
-        image: string,
-        wiki: string
-    }> {
+    getKey(id: string): FirebaseObjectObservable<Key> {
         return this.angularFire.database.object(`/key/${id}`);
     }
 
-    getForm(id: string): Observable<{
-        name: string,
-        description: string,
-        wiki: string,
-        order: number
-    }> {
+    getForm(id: string): FirebaseObjectObservable<Form> {
         return this.angularFire.database.object(`/form/${id}`);
     }
 
-    getRcm(id: string): Observable<{
-        certificate: string,
-        name: string,
-        description?: string,
-        order: number
-    }> {
+    getRcm(id: string): FirebaseObjectObservable<Rcm> {
         return this.angularFire.database.object(`/rcm/${id}`);
     }
 
-    getAbrsm(id: string): Observable<{
-        name: string,
-        description?: string,
-        order: number
-    }> {
+    getAbrsm(id: string): FirebaseObjectObservable<Abrsm> {
         return this.angularFire.database.object(`/abrsm/${id}`);
     }
 
-    getHenle(id: string): Observable<{
-        name: string
-    }> {
+    getHenle(id: string): FirebaseObjectObservable<Henle> {
         return this.angularFire.database.object(`/henle/${id}`);
     }
 
