@@ -14,6 +14,8 @@ import 'rxjs/add/operator/switchMap';
 
 import {
     Abrsm,
+    Composer,
+    Composition,
     Form,
     Henle,
     Key,
@@ -31,14 +33,6 @@ export class DataService {
 
     getComposers(): Observable<any[]> {
         return this.angularFire.database.list('/composers');
-    }
-
-    getComposer(vanity: string): Observable<any> {
-        return this.angularFire.database.object(`/composers/${vanity}`);
-    }
-
-    getComposition(id: string): Observable<any> {
-        return this.angularFire.database.object(`/compositions/${id}`);
     }
 
     getCollection(collectionId: string, limit = 4) {
@@ -137,34 +131,42 @@ export class DataService {
 
     // cache enabled below
 
-    getKey(id: string): Observable<Key> {
+    getComposer(id: string): FirebaseObjectObservable<Composer> {
+        return this.withObjectCache<Composer>(`/composers/${id}`);
+    }
+
+    getComposition(id: string): FirebaseObjectObservable<Composition> {
+        return this.withObjectCache<Composition>(`/compositions/${id}`);
+    }
+
+    getKey(id: string): FirebaseObjectObservable<Key> {
         return this.withObjectCache<Key>(`/key/${id}`);
     }
 
-    getForm(id: string): Observable<Form> {
+    getForm(id: string): FirebaseObjectObservable<Form> {
         return this.withObjectCache<Form>(`/form/${id}`);
     }
 
-    getRcm(id: string): Observable<Rcm> {
+    getRcm(id: string): FirebaseObjectObservable<Rcm> {
         return this.withObjectCache<Rcm>(`/rcm/${id}`);
     }
 
-    getAbrsm(id: string): Observable<Abrsm> {
+    getAbrsm(id: string): FirebaseObjectObservable<Abrsm> {
         return this.withObjectCache<Abrsm>(`/abrsm/${id}`);
     }
 
-    getHenle(id: string): Observable<Henle> {
+    getHenle(id: string): FirebaseObjectObservable<Henle> {
         return this.withObjectCache<Henle>(`/henle/${id}`);
     }
 
-    private withObjectCache<T>(url) {
+    private withObjectCache<T>(url): FirebaseObjectObservable<T> {
         if (this.cache[url]) {
             console.info('Cache HIT', url);
-            return Observable.of<T>(this.cache[url]);
+            return Observable.of<T>(this.cache[url]) as FirebaseObjectObservable<T>;
         }
         console.info('Cache MISS', url);
         return this.angularFire.database.object(url)
-            .do(data => this.cache[url] = data) as Observable<T>;
+            .do(data => this.cache[url] = data) as FirebaseObjectObservable<T>;
     }
 
 }
