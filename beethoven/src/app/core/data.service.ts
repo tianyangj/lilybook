@@ -136,7 +136,17 @@ export class DataService {
     }
 
     getComposition(id: string): FirebaseObjectObservable<Composition> {
-        return this.withObjectCache<Composition>(`/compositions/${id}`);
+        return this.withObjectCache<Composition>(`/compositions/${id}`)
+            .map((composition: Composition) => {
+                return Object.assign(composition, {
+                    composer$: composition.composerId ? this.getComposer(composition.composerId) : null,
+                    abrsm$: composition.abrsm ? this.getAbrsm(composition.abrsm) : null,
+                    key$: composition.key ? this.getKey(composition.key) : null,
+                    form$: composition.form ? this.getForm(composition.form) : null,
+                    rcm$: composition.rcm ? this.getRcm(composition.rcm) : null,
+                    henle$: composition.henle ? this.getHenle(composition.henle) : null
+                });
+            }) as FirebaseObjectObservable<Composition>;
     }
 
     getKey(id: string): FirebaseObjectObservable<Key> {

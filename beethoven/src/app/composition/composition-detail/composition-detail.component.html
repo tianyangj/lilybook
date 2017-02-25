@@ -34,7 +34,7 @@
 			<h1>{{composition.title}}</h1>
 			<div class="chips">
 				<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
-				<lb-chip-key [keyId]="composition.key"></lb-chip-key>
+				<lb-chip-key [key]="composition.key$"></lb-chip-key>
 				<lb-chip-form [formId]="composition.form"></lb-chip-form>
 				<lb-chip-level [rcmId]="composition.rcm" *ngIf="composition.rcm"></lb-chip-level>
 				<lb-chip-level [abrsmId]="composition.abrsm" *ngIf="composition.abrsm"></lb-chip-level>

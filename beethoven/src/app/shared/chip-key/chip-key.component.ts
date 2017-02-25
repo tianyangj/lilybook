@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { DataService } from '../../core/data.service';
+import { FirebaseObjectObservable } from 'angularfire2';
+import { Key } from '../../core/models';
 
 @Component({
     selector: 'lb-chip-key',
@@ -9,18 +9,13 @@ import { DataService } from '../../core/data.service';
 })
 export class ChipKeyComponent implements OnInit {
 
-    @Input() keyId: string;
+    @Input() key: FirebaseObjectObservable<Key>;
+    showKey = false;
 
-    key$;
-
-    constructor(
-        private dataService: DataService
-    ) { }
+    constructor() { }
 
     ngOnInit() {
-        if (this.keyId) {
-            this.key$ = this.dataService.getKey(this.keyId);
-        }
+        this.showKey = !!this.key;
     }
 
 }
