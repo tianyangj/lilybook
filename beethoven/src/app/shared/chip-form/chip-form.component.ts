@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { DataService } from '../../core/data.service';
+import { FirebaseObjectObservable } from 'angularfire2';
+import { Form } from '../../core/models';
 
 @Component({
   selector: 'lb-chip-form',
@@ -9,18 +9,13 @@ import { DataService } from '../../core/data.service';
 })
 export class ChipFormComponent implements OnInit {
 
-  @Input() formId: string;
+  @Input() form: FirebaseObjectObservable<Form>;
+  showForm = false;
 
-  form$;
-
-  constructor(
-    private dataService: DataService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    if (this.formId) {
-      this.form$ = this.dataService.getForm(this.formId);
-    }
+    this.showForm = !!this.form;
   }
 
 }
