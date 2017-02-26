@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { FirebaseObjectObservable } from 'angularfire2';
+import { Rcm, Abrsm, Henle } from '../../core/models';
 import { DataService } from '../../core/data.service';
 
 @Component({
@@ -9,33 +10,50 @@ import { DataService } from '../../core/data.service';
 })
 export class ChipLevelComponent implements OnInit {
 
-  @Input() rcmId: string;
-  @Input() abrsmId: string;
-  @Input() henleId: string;
-
-  rcm$;
-  abrsm$;
-  henle$;
-  rcmLink: boolean;
-  abrsmLink: boolean;
-  henleLink: boolean;
+  @Input() rcm: FirebaseObjectObservable<Rcm>;
+  @Input() abrsm: FirebaseObjectObservable<Abrsm>;
+  @Input() henle: FirebaseObjectObservable<Henle>;
+  rcmId: string;
+  abrsmId: string;
+  henleId: string;
+  showRcm = false;
+  showAbrsm = false;
+  showHenle = false;
+  showRcmLink = false;
+  showAbrsmLink = false;
+  showHenleLink = false;
 
   constructor(
     private dataService: DataService
   ) { }
 
   ngOnInit() {
-    if (this.rcmId) {
-      this.rcm$ = this.dataService.getRcm(this.rcmId);
-      this.dataService.hasCollection(this.rcmId).subscribe(rcmLink => this.rcmLink = rcmLink);
+    if (this.rcm) {
+      this.showRcm = true;
+      this.rcm.switchMap((rcm: Rcm) => {
+        this.rcmId = rcm.$key;
+        return this.dataService.hasCollection(rcm.$key);
+      }).subscribe(hasRcmLink => {
+        this.showRcmLink = hasRcmLink;
+      });
     }
-    if (this.abrsmId) {
-      this.abrsm$ = this.dataService.getAbrsm(this.abrsmId);
-      this.dataService.hasCollection(this.abrsmLink).subscribe(abrsmLink => this.abrsmLink = abrsmLink);
+    if (this.abrsm) {
+      this.showAbrsm = true;
+      this.abrsm.switchMap((abrsm: Abrsm) => {
+        this.abrsmId = abrsm.$key;
+        return this.dataService.hasCollection(abrsm.$key);
+      }).subscribe(hasAbrsmLink => {
+        this.showAbrsmLink = hasAbrsmLink;
+      });
     }
-    if (this.henleId) {
-      this.henle$ = this.dataService.getHenle(this.henleId);
-      this.dataService.hasCollection(this.henleLink).subscribe(henleLink => this.henleLink = henleLink);
+    if (this.henle) {
+      this.showHenle = true;
+      this.henle.switchMap((henle: Henle) => {
+        this.henleId = henle.$key;
+        return this.dataService.hasCollection(henle.$key);
+      }).subscribe(showHenleLink => {
+        this.showHenleLink = showHenleLink;
+      });
     }
   }
 

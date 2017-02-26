@@ -36,9 +36,9 @@
 				<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
 				<lb-chip-key [key]="composition.key$"></lb-chip-key>
 				<lb-chip-form [form]="composition.form$"></lb-chip-form>
-				<lb-chip-level [rcmId]="composition.rcm" *ngIf="composition.rcm"></lb-chip-level>
-				<lb-chip-level [abrsmId]="composition.abrsm" *ngIf="composition.abrsm"></lb-chip-level>
-				<lb-chip-level [henleId]="composition.henle" *ngIf="composition.henle"></lb-chip-level>
+				<lb-chip-level [rcm]="composition.rcm$"></lb-chip-level>
+				<lb-chip-level [abrsm]="composition.abrsm$"></lb-chip-level>
+				<lb-chip-level [henle]="composition.henle$"></lb-chip-level>
 			</div>
 		</div>
 	</div>

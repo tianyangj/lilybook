@@ -1,17 +1,23 @@
-export interface Abrsm {
+export interface AFUnwrappedDataSnapshot {
+    $key: string;
+    $value?: string | number | boolean;
+    $exists: () => boolean;
+}
+
+export interface Abrsm extends AFUnwrappedDataSnapshot {
     name: string;
     order: number;
     description?: string;
 }
 
-export interface Composer {
+export interface Composer extends AFUnwrappedDataSnapshot {
     fullname: string;
     image: string;
     name: string;
     bio?: string;
 }
 
-export interface Composition {
+export interface Composition extends AFUnwrappedDataSnapshot {
     abrsm?: string;
     composerId: string;
     description?: string;
@@ -39,24 +45,24 @@ export interface Composition {
     title: string;
 }
 
-export interface Form {
+export interface Form extends AFUnwrappedDataSnapshot {
     name: string;
     description: string;
     wiki: string;
     order: number;
 }
 
-export interface Henle {
+export interface Henle extends AFUnwrappedDataSnapshot {
     name: string;
 }
 
-export interface Key {
+export interface Key extends AFUnwrappedDataSnapshot {
     name: string;
     image: string;
     wiki: string;
 }
 
-export interface Rcm {
+export interface Rcm extends AFUnwrappedDataSnapshot {
     certificate: string;
     name: string;
     order: number;
