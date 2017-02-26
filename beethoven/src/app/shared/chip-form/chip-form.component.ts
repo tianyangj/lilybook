@@ -9,13 +9,13 @@ import { Form } from '../../core/models';
 })
 export class ChipFormComponent implements OnInit {
 
-  @Input() form: FirebaseObjectObservable<Form>;
-  showForm = false;
+  @Input('form') formObservable: FirebaseObjectObservable<Form>;
+  form: Form;
 
   constructor() { }
 
   ngOnInit() {
-    this.showForm = !!this.form;
+    this.formObservable.subscribe(form => this.form = form);
   }
 
 }

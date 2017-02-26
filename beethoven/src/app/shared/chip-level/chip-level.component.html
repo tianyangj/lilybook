@@ -1,24 +1,24 @@
-<div *ngIf="showRcm">
-    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', rcmId] } }]" *ngIf="showRcmLink">
-        {{ (rcm | async)?.name }}
+<div *ngIf="rcm">
+    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', rcm.$key] } }]" *ngIf="showRcmLink">
+        {{ rcm.name }}
     </a>
     <button md-raised-button disabled *ngIf="!showRcmLink">
-        {{ (rcm | async)?.name }}
+        {{ rcm.name }}
     </button>
 </div>
-<div *ngIf="showaAbrsm">
-    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', abrsmId] } }]" *ngIf="showAbrsmLink">
-        {{ (abrsm | async)?.name }}
+<div *ngIf="abrsm">
+    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', abrsm.$key] } }]" *ngIf="showAbrsmLink">
+        {{ abrsm.name }}
     </a>
     <button md-raised-button disabled *ngIf="!showAbrsmLink">
-        {{ (abrsm | async)?.name }}
+        {{ abrsm.name }}
     </button>
 </div>
-<div *ngIf="showHenle">
-    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', henleId] } }]" *ngIf="showHenleLink">
-        {{ (henle | async)?.name }}
+<div *ngIf="henle">
+    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', henle.$key] } }]" *ngIf="showHenleLink">
+        {{ henle.name }}
     </a>
     <button md-raised-button disabled *ngIf="!showHenleLink">
-        {{ (henle | async)?.name }}
+        {{ henle.name }}
     </button>
 </div>

@@ -11,7 +11,9 @@ import {
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/publishLast';
 
+import { environment } from '../../environments/environment';
 import {
     Abrsm,
     Composer,
@@ -131,10 +133,6 @@ export class DataService {
 
     // cache enabled below
 
-    getComposer(id: string): FirebaseObjectObservable<Composer> {
-        return this.withObjectCache<Composer>(`/composers/${id}`);
-    }
-
     getComposition(id: string): FirebaseObjectObservable<Composition> {
         return this.withObjectCache<Composition>(`/compositions/${id}`)
             .map((composition: Composition) => {
@@ -147,6 +145,10 @@ export class DataService {
                     henle$: composition.henle ? this.getHenle(composition.henle) : null
                 });
             }) as FirebaseObjectObservable<Composition>;
+    }
+
+    getComposer(id: string): FirebaseObjectObservable<Composer> {
+        return this.withObjectCache<Composer>(`/composers/${id}`);
     }
 
     getKey(id: string): FirebaseObjectObservable<Key> {
@@ -171,12 +173,20 @@ export class DataService {
 
     private withObjectCache<T>(url): FirebaseObjectObservable<T> {
         if (this.cache[url]) {
-            console.info('Cache HIT', url);
-            return Observable.of<T>(this.cache[url]) as FirebaseObjectObservable<T>;
+            return Observable.of<T>(this.cache[url])
+                .do(data => {
+                    if (!environment.production) {
+                        console.info('Cache HIT', url);
+                    }
+                }) as FirebaseObjectObservable<T>;
         }
-        console.info('Cache MISS', url);
         return this.angularFire.database.object(url)
-            .do(data => this.cache[url] = data) as FirebaseObjectObservable<T>;
+            .do(data => {
+                if (!environment.production) {
+                    console.info('Cache MISS', url);
+                }
+                this.cache[url] = data;
+            }) as FirebaseObjectObservable<T>;
     }
 
 }

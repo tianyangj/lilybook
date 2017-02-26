@@ -9,13 +9,13 @@ import { Key } from '../../core/models';
 })
 export class ChipKeyComponent implements OnInit {
 
-    @Input() key: FirebaseObjectObservable<Key>;
-    showKey = false;
+    @Input('key') keyObservable: FirebaseObjectObservable<Key>;
+    key: Key;
 
     constructor() { }
 
     ngOnInit() {
-        this.showKey = !!this.key;
+        this.keyObservable.subscribe(key => this.key = key);
     }
 
 }

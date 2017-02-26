@@ -1,8 +1,8 @@
-<div *ngIf="showComposer">
-  <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['composer', composerId] } }]" *ngIf="showComposerLink">
-    {{ fullname ? (composer|async)?.fullname : (composer|async)?.name }}
+<div *ngIf="composer">
+  <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['composer', composer.$key] } }]" *ngIf="showComposerLink">
+    {{ fullname ? composer.fullname : composer.name }}
   </a>
   <button md-raised-button disabled *ngIf="!showComposerLink">
-    {{ fullname ? (composer|async)?.fullname : (composer|async)?.name }}
+    {{ fullname ? composer.fullname : composer.name }}
   </button>
 </div>

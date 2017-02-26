@@ -10,15 +10,12 @@ import { DataService } from '../../core/data.service';
 })
 export class ChipLevelComponent implements OnInit {
 
-  @Input() rcm: FirebaseObjectObservable<Rcm>;
-  @Input() abrsm: FirebaseObjectObservable<Abrsm>;
-  @Input() henle: FirebaseObjectObservable<Henle>;
-  rcmId: string;
-  abrsmId: string;
-  henleId: string;
-  showRcm = false;
-  showAbrsm = false;
-  showHenle = false;
+  @Input('rcm') rcmObservable: FirebaseObjectObservable<Rcm>;
+  @Input('abrsm') abrsmObservable: FirebaseObjectObservable<Abrsm>;
+  @Input('henle') henleObservable: FirebaseObjectObservable<Henle>;
+  rcm: Rcm;
+  abrsm: Abrsm;
+  henle: Henle;
   showRcmLink = false;
   showAbrsmLink = false;
   showHenleLink = false;
@@ -28,28 +25,25 @@ export class ChipLevelComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.rcm) {
-      this.showRcm = true;
-      this.rcm.switchMap((rcm: Rcm) => {
-        this.rcmId = rcm.$key;
+    if (this.rcmObservable) {
+      this.rcmObservable.switchMap((rcm: Rcm) => {
+        this.rcm = rcm;
         return this.dataService.hasCollection(rcm.$key);
       }).subscribe(hasRcmLink => {
         this.showRcmLink = hasRcmLink;
       });
     }
-    if (this.abrsm) {
-      this.showAbrsm = true;
-      this.abrsm.switchMap((abrsm: Abrsm) => {
-        this.abrsmId = abrsm.$key;
+    if (this.abrsmObservable) {
+      this.abrsmObservable.switchMap((abrsm: Abrsm) => {
+        this.abrsm = abrsm;
         return this.dataService.hasCollection(abrsm.$key);
       }).subscribe(hasAbrsmLink => {
         this.showAbrsmLink = hasAbrsmLink;
       });
     }
-    if (this.henle) {
-      this.showHenle = true;
-      this.henle.switchMap((henle: Henle) => {
-        this.henleId = henle.$key;
+    if (this.henleObservable) {
+      this.henleObservable.switchMap((henle: Henle) => {
+        this.henle = henle;
         return this.dataService.hasCollection(henle.$key);
       }).subscribe(showHenleLink => {
         this.showHenleLink = showHenleLink;
