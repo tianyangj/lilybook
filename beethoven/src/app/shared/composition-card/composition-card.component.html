@@ -8,6 +8,8 @@
         {{composition.title}}
       </a>
     </md-card-title>
-    <lb-composer [composerId]="composition.composerId" fullname="true"></lb-composer>
+    <md-card-subtitle>
+      {{ (composition.composer$ | async)?.fullname }}
+    </md-card-subtitle>
   </div>
 </md-card>
