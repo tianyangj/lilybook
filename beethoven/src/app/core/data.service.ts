@@ -33,8 +33,16 @@ export class DataService {
         private angularFire: AngularFire
     ) { }
 
-    getComposers(): Observable<any[]> {
-        return this.angularFire.database.list('/composers');
+    getComposers(): FirebaseObjectObservable<Composer[]> {
+        return this.angularFire.database.object('/index-composers')
+            .map(composers => {
+                return Object.keys(composers)
+            })
+            .switchMap(composerIds => {
+                return Observable.forkJoin(
+                    composerIds.map(composerId => this.getComposer(composerId).first())
+                );
+            }) as FirebaseObjectObservable<Composer[]>;
     }
 
     getCollection(collectionId: string, limit = 4) {

@@ -15,7 +15,9 @@ export class ChipKeyComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        this.keyObservable.subscribe(key => this.key = key);
+        if (this.keyObservable) {
+            this.keyObservable.subscribe(key => this.key = key);
+        }
     }
 
 }

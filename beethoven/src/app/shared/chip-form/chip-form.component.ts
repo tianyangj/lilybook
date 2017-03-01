@@ -15,7 +15,9 @@ export class ChipFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.formObservable.subscribe(form => this.form = form);
+    if (this.formObservable) {
+      this.formObservable.subscribe(form => this.form = form);
+    }
   }
 
 }
