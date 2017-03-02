@@ -15,6 +15,7 @@ export interface Composer extends AFUnwrappedDataSnapshot {
     image: string;
     name: string;
     bio?: string;
+    compositions?: any;
 }
 
 export interface Composition extends AFUnwrappedDataSnapshot {

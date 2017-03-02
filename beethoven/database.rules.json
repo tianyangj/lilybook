@@ -72,6 +72,10 @@
     "user-vanity": {
       ".read": true,
       ".write": false
+    },
+    "list-composers": {
+      ".read": true,
+      ".write": false
     }
   }
 }

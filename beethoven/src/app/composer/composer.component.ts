@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/switchMap';
 
 import { DataService } from '../core/data.service';
@@ -21,9 +23,9 @@ export class ComposerComponent implements OnInit {
   ngOnInit() {
     this.route.data.switchMap(data => {
       this.composer = data['composer'];
-      return this.dataService.getComposerCollection(this.composer.$key, 100)
-    }).subscribe(collection => {
-      this.compositions = collection ? collection.compositions : null;
+      return Observable.combineLatest(this.composer.compositions$);
+    }).subscribe(compositions => {
+      this.compositions = compositions;
     });
   }
 

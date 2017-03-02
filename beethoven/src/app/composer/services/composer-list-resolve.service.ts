@@ -12,7 +12,7 @@ export class ComposerListResolveService implements Resolve<any> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.dataService.getComposers().first();
+    return this.dataService.getComposerList().first();
   }
 
 }
