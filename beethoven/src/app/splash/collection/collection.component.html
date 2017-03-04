@@ -1,16 +1,16 @@
-<div *ngIf="collection">
+<div>
   <div class="heading" fxLayout="row" fxLayoutAlign="center center">
     <h2 fxFlex>
-      <a md-button color="primary" [routerLink]="['/collection', collectionId]" *ngIf="collectionId">{{collection.name}}</a>
-      <a md-button color="primary" [routerLink]="['/composer', composerId]" *ngIf="composerId">{{collection.name}}</a>
+      <a md-button color="primary" [routerLink]="['/collection', collectionId]" *ngIf="collectionId">{{collection?.name}}</a>
+      <a md-button color="primary" [routerLink]="['/composer', composerId]" *ngIf="composerId">{{composer?.fullname}}</a>
     </h2>
-    <a md-icon-button color="primary" [routerLink]="['/book', collection.id]" *ngIf="collection.book">
+    <a md-icon-button color="primary" [routerLink]="['/book', collectionId]" *ngIf="collection?.book">
       <md-icon>library_music</md-icon>
     </a>
   </div>
   <div #swiperContainer class="swiper-container">
     <div class="swiper-wrapper" fxLayout="row" fxLayoutAlign=" end">
-      <div class="swiper-slide" *ngFor="let composition of collection?.compositions">
+      <div class="swiper-slide" *ngFor="let composition of compositions">
         <div class="lb-padding">
           <lb-composition-thumbnail [composition]="composition" [popup]="true"></lb-composition-thumbnail>
         </div>

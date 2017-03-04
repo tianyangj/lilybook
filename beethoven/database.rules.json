@@ -35,10 +35,6 @@
       ".read": true,
       ".write": false
     },
-    "index-composers": {
-      ".read": true,
-      ".write": false
-    },
     "user-bookmarks": {
       "$uid": {
         ".read": "$uid === auth.uid",

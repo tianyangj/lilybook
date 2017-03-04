@@ -13,7 +13,6 @@ export class ChipComposerComponent implements OnInit {
   @Input('composer') composerObservable: FirebaseObjectObservable<Composer>;
   @Input() fullname: boolean;
   composer: Composer;
-  showComposerLink = false;
 
   constructor(
     private dataService: DataService
@@ -21,12 +20,7 @@ export class ChipComposerComponent implements OnInit {
 
   ngOnInit() {
     if (this.composerObservable) {
-      this.composerObservable.switchMap((composer: Composer) => {
-        this.composer = composer;
-        return this.dataService.hasComposerCollection(composer.$key);
-      }).subscribe(hasComposerLink => {
-        this.showComposerLink = hasComposerLink;
-      });
+      this.composerObservable.subscribe(composer => this.composer = composer);
     }
   }
 

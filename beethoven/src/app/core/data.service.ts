@@ -77,39 +77,6 @@ export class DataService {
             .map(collection => <boolean>collection.$exists());
     }
 
-    getComposerCollection(composerId: string, limit = 4) {
-        return this.angularFire.database
-            .object(`/index-composers/${composerId}`)
-            .switchMap(collection => {
-                if (!collection.$exists()) {
-                    return Observable.of(null);
-                }
-                let compositionIds = Object.keys(collection.compositions).sort((x, y) => {
-                    return collection.compositions[x] - collection.compositions[y]
-                }).slice(0, limit);
-                return Observable.forkJoin(
-                    compositionIds.map(compositionId => {
-                        return this.getComposition(compositionId).first();
-                    })
-                );
-            }, (collection, compositions) => {
-                if (!collection.$exists()) {
-                    return null;
-                }
-                return {
-                    id: collection.$key,
-                    name: collection.name,
-                    book: collection.book,
-                    compositions
-                };
-            });
-    }
-
-    hasComposerCollection(collectionId) {
-        return this.angularFire.database.object(`/index-composers/${collectionId}`)
-            .map(collection => <boolean>collection.$exists());
-    }
-
     getUserCollections(userId: string) {
         return this.angularFire.database.list(`/user-collections/${userId}`);
     }
@@ -136,6 +103,19 @@ export class DataService {
 
     getVanity(vanity: string) {
         return this.angularFire.database.object(`/user-vanity/${vanity}`);
+    }
+
+    getComposerWithCompositions(id: string): Observable<Composer> {
+        return this.getComposer(id).switchMap(composer => {
+            if (!composer.compositions$) {
+                return Observable.of(null);
+            }
+            return Observable.combineLatest(composer.compositions$);
+        }, (composer, compositions) => {
+            return Object.assign(composer, {
+                compositions
+            });
+        });
     }
 
     // cache enabled below
