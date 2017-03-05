@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
 import { DataService } from '../../core/data.service';
 
 const Swiper = require('swiper');
@@ -34,9 +34,11 @@ export class CollectionComponent implements OnInit {
             });
         }
         if (this.composerId) {
-            this.dataService.getComposerWithCompositions(this.composerId).subscribe(composer => {
+            this.dataService.getComposer(this.composerId).switchMap(composer => {
                 this.composer = composer;
-                this.compositions = composer.compositions;
+                return Observable.combineLatest(this.composer.compositions$);
+            }).subscribe(compositions => {
+                this.compositions = compositions;
                 this.initSwiper();
             });
         }

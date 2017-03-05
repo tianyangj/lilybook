@@ -105,19 +105,6 @@ export class DataService {
         return this.angularFire.database.object(`/user-vanity/${vanity}`);
     }
 
-    getComposerWithCompositions(id: string): Observable<Composer> {
-        return this.getComposer(id).switchMap(composer => {
-            if (!composer.compositions$) {
-                return Observable.of(null);
-            }
-            return Observable.combineLatest(composer.compositions$);
-        }, (composer, compositions) => {
-            return Object.assign(composer, {
-                compositions
-            });
-        });
-    }
-
     // cache enabled below
 
     getComposition(id: string): FirebaseObjectObservable<Composition> {
