@@ -21,18 +21,18 @@ export class ScrollerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dataService.getCollection(this.collectionId, 10).subscribe(collection => {
-      this.collection = collection;
-      setTimeout(() => {
-        this.scroller = new IScroll(this.scrollerContainer.nativeElement, {
-          scrollX: true,
-          scrollY: false,
-          scrollbars: true,
-          //fadeScrollbars: true,
-          snap: 'li'
-        });
-      });
-    });
+    // this.dataService.getCollection(this.collectionId, 10).subscribe(collection => {
+    //   this.collection = collection;
+    //   setTimeout(() => {
+    //     this.scroller = new IScroll(this.scrollerContainer.nativeElement, {
+    //       scrollX: true,
+    //       scrollY: false,
+    //       scrollbars: true,
+    //       //fadeScrollbars: true,
+    //       snap: 'li'
+    //     });
+    //   });
+    // });
   }
 
   prev() {

@@ -27,9 +27,11 @@ export class CollectionComponent implements OnInit {
 
     ngOnInit() {
         if (this.collectionId) {
-            this.dataService.getCollection(this.collectionId, 8).subscribe(collection => {
+            this.dataService.getCollection(this.collectionId).switchMap(collection => {
                 this.collection = collection;
-                this.compositions = collection.compositions;
+                return Observable.combineLatest(this.collection.compositions$.slice(0, 8));
+            }).subscribe(compositions => {
+                this.compositions = compositions;
                 this.initSwiper();
             });
         }

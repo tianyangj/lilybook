@@ -17,6 +17,7 @@ import 'rxjs/add/operator/publishLast';
 import { environment } from '../../environments/environment';
 import {
     Abrsm,
+    Collection,
     Composer,
     Composition,
     Form,
@@ -44,37 +45,9 @@ export class DataService {
         });
     }
 
-    getCollection(collectionId: string, limit = 4) {
-        return this.angularFire.database
-            .object(`/index-collections/${collectionId}`)
-            .switchMap(collection => {
-                if (!collection.$exists()) {
-                    return Observable.of(null);
-                }
-                let compositionIds = Object.keys(collection.compositions).sort((x, y) => {
-                    return collection.compositions[x] - collection.compositions[y]
-                }).slice(0, limit);
-                return Observable.forkJoin(
-                    compositionIds.map(compositionId => {
-                        return this.getComposition(compositionId).first();
-                    })
-                );
-            }, (collection, compositions) => {
-                if (!collection.$exists()) {
-                    return null;
-                }
-                return {
-                    id: collection.$key,
-                    name: collection.name,
-                    book: collection.book,
-                    compositions
-                };
-            });
-    }
-
     hasCollection(collectionId) {
-        return this.angularFire.database.object(`/index-collections/${collectionId}`)
-            .map(collection => <boolean>collection.$exists());
+        return this.angularFire.database.object(`/collections/${collectionId}/name`)
+            .map(name => <boolean>name.$exists());
     }
 
     getUserCollections(userId: string) {
@@ -129,6 +102,23 @@ export class DataService {
                         Object.keys(composer.compositions).map(id => this.getComposition(id)) : null
                 });
             }) as FirebaseObjectObservable<Composer>;
+    }
+
+    getCollection(id: string): FirebaseObjectObservable<Collection> {
+        return this.withObjectCache<Collection>(`/collections/${id}`)
+            .map((collection: Collection) => {
+                if (collection.$exists()) {
+                    let compositionIds = Object
+                        .keys(collection.compositions)
+                        .sort((x, y) => {
+                            return collection.compositions[x] - collection.compositions[y];
+                        });
+                    return Object.assign(collection, {
+                        compositions$: compositionIds.map(id => this.getComposition(id))
+                    });
+                }
+                return collection;
+            }) as FirebaseObjectObservable<Collection>;
     }
 
     getKey(id: string): FirebaseObjectObservable<Key> {

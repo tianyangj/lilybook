@@ -10,6 +10,12 @@ export interface Abrsm extends AFUnwrappedDataSnapshot {
     description?: string;
 }
 
+export interface Collection extends AFUnwrappedDataSnapshot {
+    name: string;
+    book?: boolean;
+    compositions: any;
+}
+
 export interface Composer extends AFUnwrappedDataSnapshot {
     fullname: string;
     image: string;

@@ -7,7 +7,7 @@
         {{composerId}}
       </md-option>
     </md-select>-->
-    <a md-raised-button color="accent" [routerLink]="['/book', collection.id]" *ngIf="collection.book">
+    <a md-raised-button color="accent" [routerLink]="['/book', collection.$key]" *ngIf="collection.book">
       <md-icon>library_books</md-icon> Sheet Music Book
     </a>
   </md-toolbar-row>

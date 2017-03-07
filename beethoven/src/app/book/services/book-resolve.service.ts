@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { DataService } from '../../core/data.service';
 import { Observable } from 'rxjs/Observable';
+import { Collection } from '../../core/models';
+import { DataService } from '../../core/data.service';
 
 @Injectable()
 export class BookResolveService implements Resolve<any> {
@@ -12,9 +13,9 @@ export class BookResolveService implements Resolve<any> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    return this.dataService.getCollection(route.params['id'], 100).map(book => {
-      if (book) {
-        return book;
+    return this.dataService.getCollection(route.params['id']).map((collection: Collection) => {
+      if (collection.$exists()) {
+        return collection;
       } else {
         console.log('book not found, redirecting...');
         this.router.navigate(['']);

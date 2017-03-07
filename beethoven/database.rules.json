@@ -4,6 +4,10 @@
       ".read": true,
       ".write": false
     },
+    "collections": {
+      ".read": true,
+      ".write": false
+    },
     "composers": {
       ".read": true,
       ".write": false,
@@ -28,10 +32,6 @@
       ".write": false
     },
     "henle": {
-      ".read": true,
-      ".write": false
-    },
-    "index-collections": {
       ".read": true,
       ".write": false
     },
