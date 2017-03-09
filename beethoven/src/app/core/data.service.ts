@@ -108,9 +108,12 @@ export class DataService {
 
     // cache enabled below
 
-    getComposition(id: string): FirebaseObjectObservable<Composition> {
+    getComposition(id: string): Observable<Composition> {
         return this.withObjectCache<Composition>(`/compositions/${id}`)
             .map((composition: Composition) => {
+                if (!composition.$exists()) {
+                    return composition;
+                }
                 return Object.assign(composition, {
                     composer$: composition.composerId ? this.getComposer(composition.composerId) : null,
                     abrsm$: composition.abrsm ? this.getAbrsm(composition.abrsm) : null,
@@ -119,64 +122,71 @@ export class DataService {
                     rcm$: composition.rcm ? this.getRcm(composition.rcm) : null,
                     henle$: composition.henle ? this.getHenle(composition.henle) : null
                 });
-            }) as FirebaseObjectObservable<Composition>;
+            });
     }
 
-    getComposer(id: string): FirebaseObjectObservable<Composer> {
+    getComposer(id: string): Observable<Composer> {
         return this.withObjectCache<Composer>(`/composers/${id}`)
             .map((composer: Composer) => {
+                if (!composer.$exists()) {
+                    return composer;
+                }
+                let compositionIds = Object
+                    .keys(composer.compositions)
+                    .sort((x, y) => {
+                        return composer.compositions[x] - composer.compositions[y];
+                    });
                 return Object.assign(composer, {
-                    compositions$: composer.compositions ?
-                        Object.keys(composer.compositions).map(id => this.getComposition(id)) : null
+                    compositions$: compositionIds.map(id => this.getComposition(id))
                 });
-            }) as FirebaseObjectObservable<Composer>;
+            });
     }
 
-    getCollection(id: string): FirebaseObjectObservable<Collection> {
+    getCollection(id: string): Observable<Collection> {
         return this.withObjectCache<Collection>(`/collections/${id}`)
             .map((collection: Collection) => {
-                if (collection.$exists()) {
-                    let compositionIds = Object
-                        .keys(collection.compositions)
-                        .sort((x, y) => {
-                            return collection.compositions[x] - collection.compositions[y];
-                        });
-                    return Object.assign(collection, {
-                        compositions$: compositionIds.map(id => this.getComposition(id))
-                    });
+                if (!collection.$exists()) {
+                    return collection;
                 }
-                return collection;
-            }) as FirebaseObjectObservable<Collection>;
+                let compositionIds = Object
+                    .keys(collection.compositions)
+                    .sort((x, y) => {
+                        return collection.compositions[x] - collection.compositions[y];
+                    });
+                return Object.assign(collection, {
+                    compositions$: compositionIds.map(id => this.getComposition(id))
+                });
+            });
     }
 
-    getKey(id: string): FirebaseObjectObservable<Key> {
+    getKey(id: string): Observable<Key> {
         return this.withObjectCache<Key>(`/key/${id}`);
     }
 
-    getForm(id: string): FirebaseObjectObservable<Form> {
+    getForm(id: string): Observable<Form> {
         return this.withObjectCache<Form>(`/form/${id}`);
     }
 
-    getRcm(id: string): FirebaseObjectObservable<Rcm> {
+    getRcm(id: string): Observable<Rcm> {
         return this.withObjectCache<Rcm>(`/rcm/${id}`);
     }
 
-    getAbrsm(id: string): FirebaseObjectObservable<Abrsm> {
+    getAbrsm(id: string): Observable<Abrsm> {
         return this.withObjectCache<Abrsm>(`/abrsm/${id}`);
     }
 
-    getHenle(id: string): FirebaseObjectObservable<Henle> {
+    getHenle(id: string): Observable<Henle> {
         return this.withObjectCache<Henle>(`/henle/${id}`);
     }
 
-    private withObjectCache<T>(url): FirebaseObjectObservable<T> {
+    private withObjectCache<T>(url): Observable<T> {
         if (this.cache[url]) {
             return Observable.of<T>(this.cache[url])
                 .do(data => {
                     if (!environment.production) {
                         console.info('Cache HIT', url);
                     }
-                }) as FirebaseObjectObservable<T>;
+                });
         }
         return this.angularFire.database.object(url)
             .do(data => {
@@ -184,7 +194,7 @@ export class DataService {
                     console.info('Cache MISS', url);
                 }
                 this.cache[url] = data;
-            }) as FirebaseObjectObservable<T>;
+            });
     }
 
 }

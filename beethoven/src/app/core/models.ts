@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+
 export interface AFUnwrappedDataSnapshot {
     $key: string;
     $value?: string | number | boolean;
@@ -13,7 +15,8 @@ export interface Abrsm extends AFUnwrappedDataSnapshot {
 export interface Collection extends AFUnwrappedDataSnapshot {
     name: string;
     book?: boolean;
-    compositions: any;
+    compositions?: { string: number }[];
+    compositions$?: Observable<Composition>[];
 }
 
 export interface Composer extends AFUnwrappedDataSnapshot {
@@ -21,17 +24,23 @@ export interface Composer extends AFUnwrappedDataSnapshot {
     image: string;
     name: string;
     bio?: string;
-    compositions?: any;
+    compositions?: { string: number }[];
+    compositions$?: Observable<Composition>[];
 }
 
 export interface Composition extends AFUnwrappedDataSnapshot {
     abrsm?: string;
+    abrsm$?: Observable<Abrsm>;
     composerId: string;
+    composer$?: Observable<Composer>;
     description?: string;
     form?: string;
+    form$?: Observable<Form>;
     henle?: string;
+    henle$?: Observable<Henle>;
     imslp?: string;
     key?: string;
+    key$?: Observable<Key>;
     media?: {
         videos?: [{
             src: string;
@@ -43,6 +52,7 @@ export interface Composition extends AFUnwrappedDataSnapshot {
         }]
     };
     rcm?: string;
+    rcm$?: Observable<Rcm>;
     sheet?: {
         images: [string];
     };
