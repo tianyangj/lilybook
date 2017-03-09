@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AppService {
 
-  private popupInitializedSource = new Subject();
-  private popupDestroyedSource = new Subject();
+  private libraryChangedSource: BehaviorSubject<any>;
 
-  popupInitialized = this.popupInitializedSource.asObservable();
-  popupDestroyed = this.popupDestroyedSource.asObservable();
+  public libraryChanged: Observable<any>;
 
-  constructor() { }
-
-  initializePopup() {
-    this.popupInitializedSource.next();
-  }
-
-  destroyPopup() {
-    this.popupDestroyedSource.next();
+  constructor() {
+    this.libraryChangedSource = new BehaviorSubject(null);
+    this.libraryChanged = this.libraryChangedSource.asObservable();
   }
 
 }

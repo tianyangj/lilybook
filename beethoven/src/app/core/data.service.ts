@@ -50,6 +50,34 @@ export class DataService {
             .map(name => <boolean>name.$exists());
     }
 
+    getUserLibrary() {
+        return this.angularFire.auth.switchMap((authState: FirebaseAuthState) => {
+            if (authState.uid) {
+                return this.angularFire.database.list(`/user-collections/${authState.uid}`);
+            }
+            return Observable.throw('NOT_AUTHENTICATED');
+        }).map(collections => {
+            return collections.map(collection => {
+                let compositionIds = Object.keys(collection.compositions);
+                return Object.assign(collection, {
+                    compositions: [],
+                    compositions$: compositionIds.map(compositionId => this.getComposition(compositionId))
+                });
+            });
+        });
+    }
+
+    removeUserLibrary(collection: Collection, composition: Composition) {
+        return this.angularFire.auth.map((authState: FirebaseAuthState) => {
+            if (authState.uid) {
+                return this.angularFire.database.object(`/user-collections/${authState.uid}/${collection.$key}/compositions/${composition.$key}`);
+            }
+            return Observable.throw('NOT_AUTHENTICATED');
+        }).map((composition: FirebaseObjectObservable<Composition>) => {
+            return composition.remove();
+        });
+    }
+
     getUserCollections(userId: string) {
         return this.angularFire.database.list(`/user-collections/${userId}`);
     }
