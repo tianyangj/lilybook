@@ -33,12 +33,12 @@
 		<div fxFlex>
 			<h1>{{composition.title}}</h1>
 			<div class="chips">
-				<lb-chip-composer [composer]="composition.composer$" [fullname]="true"></lb-chip-composer>
-				<lb-chip-key [key]="composition.key$"></lb-chip-key>
-				<lb-chip-form [form]="composition.form$"></lb-chip-form>
-				<lb-chip-level [rcm]="composition.rcm$"></lb-chip-level>
-				<lb-chip-level [abrsm]="composition.abrsm$"></lb-chip-level>
-				<lb-chip-level [henle]="composition.henle$"></lb-chip-level>
+				<lb-chip-composer [composer]="composition.composer$ | async" [fullname]="true"></lb-chip-composer>
+				<lb-chip-key [key]="composition.key$ | async"></lb-chip-key>
+				<lb-chip-form [form]="composition.form$ | async"></lb-chip-form>
+				<lb-chip-level [rcm]="composition.rcm$ | async"></lb-chip-level>
+				<lb-chip-level [abrsm]="composition.abrsm$ | async"></lb-chip-level>
+				<lb-chip-level [henle]="composition.henle$ | async"></lb-chip-level>
 			</div>
 		</div>
 	</div>

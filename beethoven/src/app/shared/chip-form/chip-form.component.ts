@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FirebaseObjectObservable } from 'angularfire2';
 import { Form } from '../../core/models';
 
 @Component({
@@ -9,15 +8,11 @@ import { Form } from '../../core/models';
 })
 export class ChipFormComponent implements OnInit {
 
-  @Input('form') formObservable: FirebaseObjectObservable<Form>;
-  form: Form;
+  @Input() form: Form;
 
   constructor() { }
 
   ngOnInit() {
-    if (this.formObservable) {
-      this.formObservable.subscribe(form => this.form = form);
-    }
   }
 
 }

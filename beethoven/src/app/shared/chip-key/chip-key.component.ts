@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FirebaseObjectObservable } from 'angularfire2';
 import { Key } from '../../core/models';
 
 @Component({
@@ -9,15 +8,11 @@ import { Key } from '../../core/models';
 })
 export class ChipKeyComponent implements OnInit {
 
-    @Input('key') keyObservable: FirebaseObjectObservable<Key>;
-    key: Key;
+    @Input() key: Key;
 
     constructor() { }
 
     ngOnInit() {
-        if (this.keyObservable) {
-            this.keyObservable.subscribe(key => this.key = key);
-        }
     }
 
 }

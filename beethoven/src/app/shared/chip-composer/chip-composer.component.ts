@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FirebaseObjectObservable } from 'angularfire2';
 import { Composer } from '../../core/models';
-import { DataService } from '../../core/data.service';
 
 @Component({
   selector: 'lb-chip-composer',
@@ -10,18 +8,12 @@ import { DataService } from '../../core/data.service';
 })
 export class ChipComposerComponent implements OnInit {
 
-  @Input('composer') composerObservable: FirebaseObjectObservable<Composer>;
+  @Input() composer: Composer;
   @Input() fullname: boolean;
-  composer: Composer;
 
-  constructor(
-    private dataService: DataService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    if (this.composerObservable) {
-      this.composerObservable.subscribe(composer => this.composer = composer);
-    }
   }
 
 }
