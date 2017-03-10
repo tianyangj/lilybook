@@ -112,9 +112,10 @@ export class DataService {
         return this.withObjectCache<Composition>(`/compositions/${id}`)
             .map((composition: Composition) => {
                 if (!composition.$exists()) {
-                    return composition;
+                    return null;
                 }
-                return Object.assign(composition, {
+                return Object.assign({}, composition, {
+                    $key: composition.$key, // copy non-enumerable property
                     composer$: composition.composerId ? this.getComposer(composition.composerId) : null,
                     abrsm$: composition.abrsm ? this.getAbrsm(composition.abrsm) : null,
                     key$: composition.key ? this.getKey(composition.key) : null,
@@ -129,14 +130,15 @@ export class DataService {
         return this.withObjectCache<Composer>(`/composers/${id}`)
             .map((composer: Composer) => {
                 if (!composer.$exists()) {
-                    return composer;
+                    return null;
                 }
                 let compositionIds = Object
                     .keys(composer.compositions)
                     .sort((x, y) => {
                         return composer.compositions[x] - composer.compositions[y];
                     });
-                return Object.assign(composer, {
+                return Object.assign({}, composer, {
+                    $key: composer.$key, // copy non-enumerable property
                     compositions$: compositionIds.map(id => this.getComposition(id))
                 });
             });
@@ -146,14 +148,15 @@ export class DataService {
         return this.withObjectCache<Collection>(`/collections/${id}`)
             .map((collection: Collection) => {
                 if (!collection.$exists()) {
-                    return collection;
+                    return null;
                 }
                 let compositionIds = Object
                     .keys(collection.compositions)
                     .sort((x, y) => {
                         return collection.compositions[x] - collection.compositions[y];
                     });
-                return Object.assign(collection, {
+                return Object.assign({}, collection, {
+                    $key: collection.$key, // copy non-enumerable property
                     compositions$: compositionIds.map(id => this.getComposition(id))
                 });
             });

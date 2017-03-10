@@ -14,7 +14,7 @@ export class BookResolveService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
     return this.dataService.getCollection(route.params['id']).map((collection: Collection) => {
-      if (collection.$exists()) {
+      if (collection) {
         return collection;
       } else {
         console.log('book not found, redirecting...');

@@ -1,6 +1,6 @@
 <lb-collection-header [collection]="collection"></lb-collection-header>
-<div fxLayout="row" fxLayoutWrap="wrap">
-  <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" fxFlex.xl="20%" class="lb-padding" *ngFor="let composition of compositions">
-    <lb-composition-card [composition]="composition" [popup]="true"></lb-composition-card>
+<div fxLayout="row" fxLayoutWrap="wrap" *ngIf="collection.compositions$.length">
+  <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" fxFlex.xl="20%" class="lb-padding" *ngFor="let composition$ of collection.compositions$">
+    <lb-composition-card [composition]="composition$ | async" [popup]="true"></lb-composition-card>
   </div>
 </div>

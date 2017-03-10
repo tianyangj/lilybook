@@ -14,12 +14,12 @@
       </md-card-title-group>
     </md-card>
   </div>
-  <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="compositions">
-    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" fxFlex.xl="20%" class="lb-padding" *ngFor="let composition of compositions">
-      <lb-composition-card [composition]="composition" [popup]="false"></lb-composition-card>
+  <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="composer.compositions$.length">
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" fxFlex.xl="20%" class="lb-padding" *ngFor="let composition$ of composer.compositions$">
+      <lb-composition-card [composition]="composition$ | async" [popup]="false"></lb-composition-card>
     </div>
   </div>
-  <div *ngIf="!compositions">
+  <div *ngIf="!composer.compositions$.length">
     <p>This composer has no compositions at this moment, come back and check later.</p>
   </div>
 </div>

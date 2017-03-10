@@ -13,7 +13,7 @@ export class ComposerResolveService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot) {
     return this.dataService.getComposer(route.params['composerId']).map(composer => {
-      if (composer.$exists()) {
+      if (composer) {
         return composer;
       } else {
         console.log('composer not found, redirecting...');

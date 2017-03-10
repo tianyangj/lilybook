@@ -14,7 +14,7 @@ export class CompositionResolveService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
     return this.dataService.getComposition(route.params['id']).map(composition => {
-      if (composition.$exists()) {
+      if (composition) {
         return composition;
       } else {
         console.log('composition not found, redirecting...');
