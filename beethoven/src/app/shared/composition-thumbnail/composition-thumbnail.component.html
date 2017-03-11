@@ -1,4 +1,4 @@
-<md-card>
+<md-card *ngIf="composition">
   <a [href]="link" (click)="go(composition, $event)">
     <img [src]="composition.thumbnail?.url" [alt]="composition.title">
   </a>

@@ -19,7 +19,7 @@ export class CollectionComponent implements OnInit {
     @Input() composerId: string;
     collection: any;
     composer: any;
-    compositions: any;
+    compositions$: any;
 
     constructor(
         private dataService: DataService
@@ -27,20 +27,16 @@ export class CollectionComponent implements OnInit {
 
     ngOnInit() {
         if (this.collectionId) {
-            this.dataService.getCollection(this.collectionId).switchMap(collection => {
+            this.dataService.getCollection(this.collectionId).subscribe(collection => {
                 this.collection = collection;
-                return Observable.combineLatest(this.collection.compositions$.slice(0, 8));
-            }).subscribe(compositions => {
-                this.compositions = compositions;
+                this.compositions$ = collection.compositions$.slice(0, 8);
                 this.initSwiper();
             });
         }
         if (this.composerId) {
-            this.dataService.getComposer(this.composerId).switchMap(composer => {
+            this.dataService.getComposer(this.composerId).subscribe(composer => {
                 this.composer = composer;
-                return Observable.combineLatest(this.composer.compositions$);
-            }).subscribe(compositions => {
-                this.compositions = compositions;
+                this.compositions$ = composer.compositions$.slice(0, 8);
                 this.initSwiper();
             });
         }

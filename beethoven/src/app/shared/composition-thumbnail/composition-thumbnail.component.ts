@@ -1,14 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Composition } from '../../core/models';
 
 @Component({
   selector: 'lb-composition-thumbnail',
   templateUrl: './composition-thumbnail.component.html',
   styleUrls: ['./composition-thumbnail.component.scss']
 })
-export class CompositionThumbnailComponent implements OnInit {
+export class CompositionThumbnailComponent implements OnInit, OnChanges {
 
-  @Input() composition;
+  @Input() composition: Composition;
   @Input() popup = false;
   link: string;
 
@@ -17,7 +18,12 @@ export class CompositionThumbnailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.link = `/composition/${this.composition.$key}`;
+  }
+
+  ngOnChanges() {
+    if (this.composition) {
+      this.link = `/composition/${this.composition.$key}`;
+    }
   }
 
   go(composition, $event) {
