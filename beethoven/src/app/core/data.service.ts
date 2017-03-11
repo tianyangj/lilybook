@@ -10,7 +10,7 @@ import {
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
-import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/publishLast';
 
@@ -58,23 +58,29 @@ export class DataService {
             return Observable.throw('NOT_AUTHENTICATED');
         }).map(collections => {
             return collections.map(collection => {
-                let compositionIds = Object.keys(collection.compositions);
-                return Object.assign(collection, {
-                    compositions: [],
+                let compositionIds = Object
+                    .keys(collection.compositions)
+                    .sort((x, y) => {
+                        return collection.compositions[x] - collection.compositions[y];
+                    });
+                return Object.assign({}, collection, {
+                    $key: collection.$key, // copy non-enumerable property
                     compositions$: compositionIds.map(compositionId => this.getComposition(compositionId))
                 });
             });
         });
     }
 
-    removeUserLibrary(collection: Collection, composition: Composition) {
+    removeUserLibrary(collectionId: string, compositionId: string) {
         return this.angularFire.auth.map((authState: FirebaseAuthState) => {
             if (authState.uid) {
-                return this.angularFire.database.object(`/user-collections/${authState.uid}/${collection.$key}/compositions/${composition.$key}`);
+                return this.angularFire.database.object(`/user-collections/${authState.uid}/${collectionId}/compositions/${compositionId}`);
             }
             return Observable.throw('NOT_AUTHENTICATED');
-        }).map((composition: FirebaseObjectObservable<Composition>) => {
-            return composition.remove();
+        }).switchMap((composition: FirebaseObjectObservable<Composition>) => {
+            return Observable.from(composition.remove());
+        }).switchMap(() => {
+            return this.getUserLibrary();
         });
     }
 

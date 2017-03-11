@@ -19,17 +19,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.collections = data['collections'];
-      this.collections.forEach(collection => {
-        Observable.combineLatest(collection.compositions$).subscribe(compositions => {
-          collection.compositions = compositions;
-        });
-      });
     });
   }
 
-  delete(collection, composition) {
-    console.log('to delete', collection, composition);
-    this.dataService.removeUserLibrary(collection, composition).subscribe(x => console.log(x));
+  delete(collectionId, compositionId) {
+    this.dataService.removeUserLibrary(collectionId, compositionId).subscribe(collections => {
+      this.collections = collections;
+    });
   }
 
 }

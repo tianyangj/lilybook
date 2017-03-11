@@ -4,6 +4,7 @@ import { HomeRoutingModule } from './home-routing.module';
 
 import { HomeResolveService } from './services/home-resolve.service';
 import { HomeComponent } from './home.component';
+import { CollectionListItemComponent } from './collection-list-item/collection-list-item.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { HomeComponent } from './home.component';
     HomeRoutingModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    CollectionListItemComponent
   ],
   providers: [
     HomeResolveService

@@ -1,0 +1,10 @@
+<md-list-item *ngIf="composition">
+  <md-icon md-list-icon>queue_music</md-icon>
+  <h4 md-line style="font-size:1.5em;">
+    <a [routerLink]="['/composition', composition.$key]">{{composition.title}}</a>
+  </h4>
+  <p md-line>{{ (composition.composer$ | async)?.fullname }}</p>
+  <button md-icon-button color="warn" (click)="delete()">
+    <md-icon>delete</md-icon>
+  </button>
+</md-list-item>
