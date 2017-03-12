@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import {
     AngularFire,
     FirebaseListObservable,
-    FirebaseObjectObservable,
-    FirebaseAuthState,
-    AuthProviders,
-    AuthMethods
+    FirebaseObjectObservable
 } from 'angularfire2';
 
 import { Observable } from 'rxjs/Observable';
@@ -50,38 +47,26 @@ export class DataService {
             .map(name => <boolean>name.$exists());
     }
 
-    getUserLibrary() {
-        return this.angularFire.auth.switchMap((authState: FirebaseAuthState) => {
-            if (authState.uid) {
-                return this.angularFire.database.list(`/user-collections/${authState.uid}`);
-            }
-            return Observable.throw('NOT_AUTHENTICATED');
-        }).map(collections => {
-            return collections.map(collection => {
-                let compositionIds = Object
-                    .keys(collection.compositions)
-                    .sort((x, y) => {
-                        return collection.compositions[x] - collection.compositions[y];
+    getUserLibrary(uid: string) {
+        return this.angularFire.database.list(`/user-collections/${uid}`)
+            .map(collections => {
+                return collections.map(collection => {
+                    let compositionIds = Object
+                        .keys(collection.compositions)
+                        .sort((x, y) => {
+                            return collection.compositions[x] - collection.compositions[y];
+                        });
+                    return Object.assign({}, collection, {
+                        $key: collection.$key, // copy non-enumerable property
+                        compositions$: compositionIds.map(compositionId => this.getComposition(compositionId))
                     });
-                return Object.assign({}, collection, {
-                    $key: collection.$key, // copy non-enumerable property
-                    compositions$: compositionIds.map(compositionId => this.getComposition(compositionId))
                 });
             });
-        });
     }
 
-    removeUserLibrary(collectionId: string, compositionId: string) {
-        return this.angularFire.auth.map((authState: FirebaseAuthState) => {
-            if (authState.uid) {
-                return this.angularFire.database.object(`/user-collections/${authState.uid}/${collectionId}/compositions/${compositionId}`);
-            }
-            return Observable.throw('NOT_AUTHENTICATED');
-        }).switchMap((composition: FirebaseObjectObservable<Composition>) => {
-            return Observable.from(composition.remove());
-        }).switchMap(() => {
-            return this.getUserLibrary();
-        });
+    removeUserLibrary(uid: string, collectionId: string, compositionId: string): Observable<string> {
+        let promise = this.angularFire.database.object(`/user-collections/${uid}/${collectionId}/compositions/${compositionId}`).remove();
+        return Observable.from(promise.then(() => uid));
     }
 
     getUserCollections(userId: string) {

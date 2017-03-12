@@ -1,31 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { DataService } from '../core/data.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { Collection } from '../core/models';
+import { AppService } from '../core/app.service';
 
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
-  collections;
+  subscription: Subscription;
+  collections: Collection[];
 
   constructor(
-    private route: ActivatedRoute,
-    private dataService: DataService
+    private appService: AppService
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      this.collections = data['collections'];
+    this.subscription = this.appService.libraryChanged.subscribe(collections => {
+      this.collections = collections;
     });
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   delete(collectionId, compositionId) {
-    this.dataService.removeUserLibrary(collectionId, compositionId).subscribe(collections => {
-      this.collections = collections;
-    });
+    this.appService.removeCompositionFromCollection(collectionId, compositionId);
   }
 
 }

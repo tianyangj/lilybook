@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from './core/app.service';
 
 @Component({
     selector: 'lb-app',
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
     `,
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent { }
+export class AppComponent {
+
+    constructor(
+        private appService: AppService
+    ) { }
+}
