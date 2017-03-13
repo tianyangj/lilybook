@@ -42,15 +42,16 @@ export class DataService {
         });
     }
 
-    hasCollection(collectionId) {
+    hasCollection(collectionId): Observable<boolean> {
         return this.angularFire.database.object(`/collections/${collectionId}/name`)
             .map(name => <boolean>name.$exists());
     }
 
-    getUserLibrary(uid: string) {
+    getUserCollections(uid: string): Observable<Collection[]> {
         return this.angularFire.database.list(`/user-collections/${uid}`)
             .map(collections => {
                 return collections.map(collection => {
+                    collection.compositions = collection.compositions || {};
                     let compositionIds = Object
                         .keys(collection.compositions)
                         .sort((x, y) => {
@@ -64,37 +65,19 @@ export class DataService {
             });
     }
 
-    removeUserLibrary(uid: string, collectionId: string, compositionId: string): Observable<string> {
-        let promise = this.angularFire.database.object(`/user-collections/${uid}/${collectionId}/compositions/${compositionId}`).remove();
+    setUserCollections(uid: string, collectionId: string | null, collection: {
+        name: string,
+        compositions: {}
+    }) {
+        let promise;
+        if (collectionId) {
+            promise = this.angularFire.database.object(`/user-collections/${uid}/${collectionId}`)
+                .set(collection);
+        } else {
+            promise = this.angularFire.database.list(`/user-collections/${uid}`)
+                .push(collection);
+        }
         return Observable.from(promise.then(() => uid));
-    }
-
-    getUserCollections(userId: string) {
-        return this.angularFire.database.list(`/user-collections/${userId}`);
-    }
-
-    setUserCollection(userId: string, collectionId: string, value: { compositions: any, name: any }) {
-        let collection = this.angularFire.database.object(`/user-collections/${userId}/${collectionId}`);
-        return collection.set(value);
-    }
-
-    createUserCollection(userId: string, collectionName: string, compositionId) {
-        let collection = this.angularFire.database.list(`/user-collections/${userId}`);
-        return collection.push({
-            name: collectionName,
-            compositions: {
-                [compositionId]: true
-            }
-        });
-    }
-
-    removeUserCollection(userId: string, collectionId: string, compositionId: string) {
-        let composition = this.angularFire.database.object(`/user-collections/${userId}/${collectionId}/compositions/${compositionId}`);
-        return composition.remove();
-    }
-
-    getVanity(vanity: string) {
-        return this.angularFire.database.object(`/user-vanity/${vanity}`);
     }
 
     // cache enabled below

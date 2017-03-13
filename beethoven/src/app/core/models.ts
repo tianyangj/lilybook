@@ -15,8 +15,12 @@ export interface Abrsm extends AFUnwrappedDataSnapshot {
 export interface Collection extends AFUnwrappedDataSnapshot {
     name: string;
     book?: boolean;
-    compositions?: { string: number }[];
+    compositions?: {};
     compositions$?: Observable<Composition>[];
+}
+
+export interface CollectionModel extends Collection {
+    checked?: boolean;
 }
 
 export interface Composer extends AFUnwrappedDataSnapshot {
@@ -24,7 +28,7 @@ export interface Composer extends AFUnwrappedDataSnapshot {
     image: string;
     name: string;
     bio?: string;
-    compositions?: { string: number }[];
+    compositions?: {};
     compositions$?: Observable<Composition>[];
 }
 

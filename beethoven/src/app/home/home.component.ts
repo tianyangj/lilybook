@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
+import * as _ from 'lodash';
 import { Collection } from '../core/models';
 import { AppService } from '../core/app.service';
 
@@ -27,7 +28,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   delete(collectionId, compositionId) {
-    this.appService.removeCompositionFromCollection(collectionId, compositionId);
+    let collection = this.collections.find(collection => collection.$key === collectionId);
+    this.appService.setUserCollections(collectionId, {
+      name: collection.name,
+      compositions: _.omit(collection.compositions, [compositionId])
+    }).subscribe();
   }
 
 }

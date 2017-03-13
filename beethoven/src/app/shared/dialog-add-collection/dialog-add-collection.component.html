@@ -3,7 +3,7 @@
   <p>Add to existing collections by clicking checkboxes next to your collections.</p>
   <md-list>
     <md-list-item *ngFor="let collection of collections">
-      <md-checkbox [checked]="inCollection(composition, collection)" (change)="updateCollection(composition, collection, $event)">
+      <md-checkbox [checked]="collection.checked" (change)="updateCollection(composition, collection, $event)">
         {{collection.name}}
       </md-checkbox>
     </md-list-item>

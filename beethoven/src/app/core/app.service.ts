@@ -22,23 +22,28 @@ export class AppService {
 
     this.angularFire.auth.switchMap((authState: FirebaseAuthState) => {
       if (authState && authState.uid) {
-        return this.dataService.getUserLibrary(authState.uid);
+        return this.dataService.getUserCollections(authState.uid).first();
       } else {
         return Observable.of([]);
       }
     }).subscribe((data: Collection[]) => {
+      console.info('AuthChange => Library Updating...');
       this.libraryChangedSource.next(data);
     });
   }
 
-  removeCompositionFromCollection(collectionId: string, compositionId: string) {
-    this.angularFire.auth.filter((authState: FirebaseAuthState) => {
+  setUserCollections(collectionId: string | null, collection: {
+    name: string,
+    compositions: {}
+  }) {
+    return this.angularFire.auth.filter((authState: FirebaseAuthState) => {
       return authState && !!authState.uid;
     }).switchMap((authState: FirebaseAuthState) => {
-      return this.dataService.removeUserLibrary(authState.uid, collectionId, compositionId);
+      return this.dataService.setUserCollections(authState.uid, collectionId, collection);
     }).switchMap((uid: string) => {
-      return this.dataService.getUserLibrary(uid);
-    }).subscribe((data: Collection[]) => {
+      return this.dataService.getUserCollections(uid).first();
+    }).do((data: Collection[]) => {
+      console.info('SetLibrary => Library Updating...');
       this.libraryChangedSource.next(data);
     });
   }
