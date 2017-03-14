@@ -68,7 +68,7 @@ export class DataService {
     setUserCollections(uid: string, collectionId: string | null, collection: {
         name: string,
         compositions: {}
-    }) {
+    }): Observable<string> {
         let promise;
         if (collectionId) {
             promise = this.angularFire.database.object(`/user-collections/${uid}/${collectionId}`)

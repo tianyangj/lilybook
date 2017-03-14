@@ -16,6 +16,8 @@ import { NavComponent } from './layout-default/nav/nav.component';
 import { SearchComponent } from './layout-default/search/search.component';
 import { DialogLoginComponent } from './dialog-login/login.component';
 import { DialogSignupComponent } from './dialog-signup/signup.component';
+import { LibraryComponent } from './layout-default/library/library.component';
+import { LibraryListItemComponent } from './layout-default/library-list-item/library-list-item.component';
 
 @NgModule({
     imports: [
@@ -37,7 +39,9 @@ import { DialogSignupComponent } from './dialog-signup/signup.component';
         NavComponent,
         SearchComponent,
         DialogLoginComponent,
-        DialogSignupComponent
+        DialogSignupComponent,
+        LibraryComponent,
+        LibraryListItemComponent
     ],
     entryComponents: [
         DialogLoginComponent,

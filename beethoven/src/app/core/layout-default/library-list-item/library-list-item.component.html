@@ -1,0 +1,3 @@
+<md-list-item *ngIf="composition">
+  <a md-line [routerLink]="['/composition', composition.$key]">{{ composition.title }}</a>
+</md-list-item>

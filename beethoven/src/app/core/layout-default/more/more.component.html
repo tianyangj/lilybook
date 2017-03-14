@@ -1,5 +1,6 @@
 <button md-icon-button [md-menu-trigger-for]="more">
-  <md-icon>more_vert</md-icon>
+  <md-icon *ngIf="!authenticated">more_vert</md-icon>
+  <md-icon *ngIf="authenticated">account_circle</md-icon>
 </button>
 <md-menu x-position="before" #more="mdMenu">
   <button md-menu-item (click)="login()" *ngIf="!authenticated">Log In</button>

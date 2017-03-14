@@ -8,14 +8,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() onMenuToggle = new EventEmitter();
+  @Output() onLibraryToggle = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggle() {
+  toggleMenu() {
     this.onMenuToggle.emit();
+  }
+
+  toggleLibrary() {
+    this.onLibraryToggle.emit();
   }
 
 }

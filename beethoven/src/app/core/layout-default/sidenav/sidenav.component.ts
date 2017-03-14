@@ -8,7 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class SidenavComponent implements OnInit {
 
-  @Output() onLinkClose = new EventEmitter();
+  @Output() onMenuClose = new EventEmitter();
 
   constructor(
     private router: Router
@@ -18,7 +18,7 @@ export class SidenavComponent implements OnInit {
     this.router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(() => {
-        this.onLinkClose.emit()
+        this.onMenuClose.emit()
       });
   }
 

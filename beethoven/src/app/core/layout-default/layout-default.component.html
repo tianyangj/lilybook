@@ -1,8 +1,11 @@
 <div fxFlexFill fxLayout="column">
-  <lb-header (onMenuToggle)="start.toggle()"></lb-header>
+  <lb-header (onMenuToggle)="start.toggle()" (onLibraryToggle)="end.toggle()"></lb-header>
   <md-sidenav-container fxFlex>
     <md-sidenav #start>
-      <lb-sidenav (onLinkClose)="start.close()"></lb-sidenav>
+      <lb-sidenav (onMenuClose)="start.close()"></lb-sidenav>
+    </md-sidenav>
+    <md-sidenav #end align="end">
+      <lb-library (onLibraryClose)="end.close()"></lb-library>
     </md-sidenav>
     <router-outlet></router-outlet>
   </md-sidenav-container>
