@@ -8,6 +8,8 @@ import { SearchComponent } from './search/search.component';
 import { CollectionComponent } from './collection/collection.component';
 import { PopupComponent } from './popup/popup.component';
 import { ScrollerComponent } from './scroller/scroller.component';
+import { LinksComponent } from './links/links.component';
+import { FeaturedComponent } from './featured/featured.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { ScrollerComponent } from './scroller/scroller.component';
     SearchComponent,
     CollectionComponent,
     PopupComponent,
-    ScrollerComponent
+    ScrollerComponent,
+    LinksComponent,
+    FeaturedComponent
   ]
 })
 export class SplashModule { }
