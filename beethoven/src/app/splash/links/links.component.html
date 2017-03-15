@@ -1,14 +1,12 @@
 <md-card>
   <h2>Browse By</h2>
   <md-chip-list>
-    <a [routerLink]="'/collection/lucas'">
-      <md-chip selected="true" color="accent">
-        Lucas Jiang
-      </md-chip>
-    </a>
     <a [routerLink]="link.link" *ngFor="let link of links">
-      <md-chip selected="true" color="primary">
-        {{link.name}}
+      <md-chip selected="true" [color]="link.color">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <md-icon>{{link.icon}}</md-icon>
+          <span>{{link.name}}</span>
+        </div>
       </md-chip>
     </a>
   </md-chip-list>

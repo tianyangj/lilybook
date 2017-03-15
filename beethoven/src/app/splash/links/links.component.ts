@@ -13,11 +13,14 @@ export class LinksComponent implements OnInit {
 
   ngOnInit() {
     this.links = [
-      { link: '/composer/bach', name: 'J.S. Bach' },
-      { link: '/composer/beethoven', name: 'Beethoven' },
-      { link: '/composer/mozart', name: 'Mozart' },
-      { link: '/collection/rcm-piano-1', name: 'RCM Grade 1' },
-      { link: '/collection/rcm-piano-2', name: 'RCM Grade 2' }
+      { color: 'accent', icon: 'face', link: '/collection/lucas', name: 'Lucas Jiang' },
+      { color: 'primary', icon: 'person', link: '/composer/bach', name: 'J.S. Bach' },
+      { color: 'primary', icon: 'person', link: '/composer/beethoven', name: 'Beethoven' },
+      { color: 'primary', icon: 'person', link: '/composer/mozart', name: 'Mozart' },
+      { color: 'primary', icon: 'collections', link: '/collection/rcm-piano-1', name: 'RCM Grade 1' },
+      { color: 'primary', icon: 'collections', link: '/collection/rcm-piano-2', name: 'RCM Grade 2' },
+      { color: 'primary', icon: 'book', link: '/book/rcm-piano-1', name: 'RCM Grade 1 Book' },
+      { color: 'primary', icon: 'book', link: '/book/rcm-piano-2', name: 'RCM Grade 2 Book' }
     ]
   }
 
