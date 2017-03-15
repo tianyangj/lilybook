@@ -51,9 +51,8 @@ export class DataService {
         return this.angularFire.database.list(`/user-collections/${uid}`)
             .map(collections => {
                 return collections.map(collection => {
-                    collection.compositions = collection.compositions || {};
                     let compositionIds = Object
-                        .keys(collection.compositions)
+                        .keys(collection.compositions || {})
                         .sort((x, y) => {
                             return collection.compositions[x] - collection.compositions[y];
                         });
@@ -107,7 +106,7 @@ export class DataService {
                     return null;
                 }
                 let compositionIds = Object
-                    .keys(composer.compositions)
+                    .keys(composer.compositions || {})
                     .sort((x, y) => {
                         return composer.compositions[x] - composer.compositions[y];
                     });
