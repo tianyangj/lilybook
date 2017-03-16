@@ -4,7 +4,7 @@
     <a [routerLink]="['/composition', composition.$key]">{{composition.title}}</a>
   </h4>
   <p md-line>{{ (composition.composer$ | async)?.fullname }}</p>
-  <button md-icon-button color="warn" (click)="delete()">
+  <button md-icon-button color="warn" (click)="delete()" mdTooltip="Remove Composition!" mdTooltipPosition="left">
     <md-icon>delete</md-icon>
   </button>
 </md-list-item>

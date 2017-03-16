@@ -27,12 +27,25 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  delete(collectionId, compositionId) {
+  deleteComposition(collectionId, compositionId) {
     let collection = this.collections.find(collection => collection.$key === collectionId);
     this.appService.setUserCollections(collectionId, {
       name: collection.name,
       compositions: _.omit(collection.compositions, [compositionId])
     }).subscribe();
+  }
+
+  deleteCollection(collectionId) {
+    this.appService.setUserCollections(collectionId, null).subscribe();
+  }
+
+  updateCollection(collection, collectionName) {
+    if (collection.name !== collectionName) {
+      this.appService.setUserCollections(collection.$key, {
+        name: collectionName,
+        compositions: collection.compositions
+      }).subscribe();
+    }
   }
 
 }

@@ -1,7 +1,14 @@
-<md-list dense *ngFor="let collection of collections">
-  <h3 md-subheader>{{collection.name}}</h3>
-  <div *ngFor="let composition$ of collection.compositions$">
-    <lb-library-list-item [composition]="composition$ | async"></lb-library-list-item>
+<div fxLayout="column" fxFlexFill>
+  <div fxFlex>
+    <md-list dense *ngFor="let collection of collections">
+      <h3 md-subheader>{{collection.name}}</h3>
+      <div *ngFor="let composition$ of collection.compositions$">
+        <lb-library-list-item [composition]="composition$ | async"></lb-library-list-item>
+      </div>
+      <md-divider></md-divider>
+    </md-list>
   </div>
-  <md-divider></md-divider>
-</md-list>
+  <div class="lb-padding">
+    <a md-raised-button color="primary" routerLink="/home" style="display:block;">Manage My Library</a>
+  </div>
+</div>

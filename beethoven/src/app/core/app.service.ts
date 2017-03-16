@@ -35,7 +35,7 @@ export class AppService {
   setUserCollections(collectionId: string | null, collection: {
     name: string,
     compositions: {}
-  }) {
+  } | null) {
     return this.angularFire.auth.filter((authState: FirebaseAuthState) => {
       return authState && !!authState.uid;
     }).switchMap((authState: FirebaseAuthState) => {

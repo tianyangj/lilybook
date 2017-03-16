@@ -1,7 +1,15 @@
-<md-list dense *ngFor="let collection of collections">
-  <h3 md-subheader>{{collection.name}}</h3>
-  <div *ngFor="let composition$ of collection.compositions$">
-    <lb-collection-list-item [composition]="composition$ | async" (onDelete)="delete(collection.$key, $event)"></lb-collection-list-item>
+<md-card *ngFor="let collection of collections">
+  <div fxLayout="row" fxLayoutGap="16px" style="padding:0 16px;">
+    <md-input-container fxFlex>
+      <input mdInput placeholder="Collection Name" [value]="collection.name" #name (blur)="updateCollection(collection, name.value)">
+    </md-input-container>
+    <button md-icon-button color="warn" (click)="deleteCollection(collection.$key)" mdTooltip="Remove Collection!" mdTooltipPosition="left"> 
+      <md-icon>delete_forever</md-icon>
+    </button>
   </div>
-  <md-divider></md-divider>
-</md-list>
+  <md-list dense>
+    <div *ngFor="let composition$ of collection.compositions$">
+      <lb-collection-list-item [composition]="composition$ | async" (onDelete)="deleteComposition(collection.$key, $event)"></lb-collection-list-item>
+    </div>
+  </md-list>
+</md-card>
