@@ -8,8 +8,15 @@
     </button>
   </div>
   <md-list dense>
-    <div *ngFor="let composition$ of collection.compositions$">
-      <lb-collection-list-item [composition]="composition$ | async" (onDelete)="deleteComposition(collection.$key, $event)"></lb-collection-list-item>
+    <div *ngFor="let composition$ of collection.compositions$; let index = index; let first = first; let last = last;">
+      <lb-collection-list-item 
+        [composition]="composition$ | async" 
+        [position]="index + 1" 
+        [first]="first"
+        [last]="last"
+        (onDelete)="deleteComposition(collection, $event)"
+        (onUp)="moveComposition(collection, $event, 'up')"
+        (onDown)="moveComposition(collection, $event, 'down')"></lb-collection-list-item>
     </div>
   </md-list>
 </md-card>

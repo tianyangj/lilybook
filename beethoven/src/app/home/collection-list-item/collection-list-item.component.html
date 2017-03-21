@@ -1,10 +1,16 @@
 <md-list-item *ngIf="composition">
-  <md-icon md-list-icon>queue_music</md-icon>
+  <span md-list-icon style="font-size:20px;">{{position}}</span>
   <h4 md-line style="font-size:1.5em;">
     <a [routerLink]="['/composition', composition.$key]">{{composition.title}}</a>
   </h4>
   <p md-line>{{ (composition.composer$ | async)?.fullname }}</p>
-  <button md-icon-button color="warn" (click)="delete()" mdTooltip="Remove Composition!" mdTooltipPosition="left">
+  <button md-icon-button color="primary" (click)="up()" [disabled]="first" mdTooltip="Move Up" mdTooltipPosition="above">
+    <md-icon>arrow_upward</md-icon>
+  </button>
+  <button md-icon-button color="primary" (click)="down()" [disabled]="last" mdTooltip="Move Down" mdTooltipPosition="above">
+    <md-icon>arrow_downward</md-icon>
+  </button>
+  <button md-icon-button color="warn" (click)="delete()" mdTooltip="Remove Composition!" mdTooltipPosition="above">
     <md-icon>delete</md-icon>
   </button>
 </md-list-item>

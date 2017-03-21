@@ -27,9 +27,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  deleteComposition(collectionId, compositionId) {
-    let collection = this.collections.find(collection => collection.$key === collectionId);
-    this.appService.setUserCollections(collectionId, {
+  deleteComposition(collection, compositionId) {
+    this.appService.setUserCollections(collection.$key, {
       name: collection.name,
       compositions: _.omit(collection.compositions, [compositionId])
     }).subscribe();
@@ -46,6 +45,25 @@ export class HomeComponent implements OnInit, OnDestroy {
         compositions: collection.compositions
       }).subscribe();
     }
+  }
+
+  moveComposition(collection, compositionId, direction) {
+    let compositionIds = Object
+      .keys(collection.compositions)
+      .sort((x, y) => collection.compositions[x] - collection.compositions[y]);
+    let index = compositionIds.indexOf(compositionId);
+    let tempIndex = direction === 'up' ? index - 1 : index + 1;
+    let temp = compositionIds[tempIndex];
+    compositionIds[tempIndex] = compositionId;
+    compositionIds[index] = temp;
+    let compositions = compositionIds.reduce((prev, curr, index) => {
+      prev[curr] = index;
+      return prev;
+    }, {});
+    this.appService.setUserCollections(collection.$key, {
+      name: collection.name,
+      compositions: compositions
+    }).subscribe();
   }
 
 }
