@@ -52,6 +52,10 @@ export const rootRoutes: Routes = [
         children: featureRoutes
     },
     {
+        path: ':vanity',
+        loadChildren: './profile/profile.module#ProfileModule'
+    },
+    {
         path: '**',
         component: PageNotFoundComponent
     }

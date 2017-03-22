@@ -84,6 +84,12 @@ export class DataService {
             .map(value => <boolean>value.$exists());
     }
 
+    getUserProfile(username: string) {
+        return this.angularFire.database.object(`/user-vanity/${username}`)
+            .filter(data => data.$exists())
+            .switchMap(data => this.getUserCollections(data.$value));
+    }
+
     // cache enabled below
 
     getComposition(id: string): Observable<Composition> {
