@@ -85,9 +85,13 @@ export class DataService {
     }
 
     getUserProfile(username: string) {
-        return this.angularFire.database.object(`/user-vanity/${username}`)
+        return this.angularFire.database.object(`/user-profile/${username}`)
             .filter(data => data.$exists())
-            .switchMap(data => this.getUserCollections(data.$value));
+            .switchMap(data => {
+                return this.getUserCollections(data.uid)
+            }, (profile, collections) => {
+                return { profile, collections }
+            });
     }
 
     // cache enabled below

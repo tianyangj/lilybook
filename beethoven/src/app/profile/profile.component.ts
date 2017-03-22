@@ -8,6 +8,7 @@ import { DataService } from '../core/data.service';
 })
 export class ProfileComponent implements OnInit {
 
+  profile;
   collections;
 
   constructor(
@@ -21,8 +22,9 @@ export class ProfileComponent implements OnInit {
       return params.vanity;
     }).switchMap(params => {
       return this.dataService.getUserProfile(params.vanity);
-    }).subscribe(collections => {
-      console.log(collections);
+    }).subscribe(({ profile, collections }) => {
+      console.log(profile, collections);
+      this.profile = profile;
       this.collections = collections;
     });
   }

@@ -69,6 +69,10 @@
       ".read": true,
       ".write": false
     },
+    "user-profile": {
+      ".read": true,
+      ".write": false
+    },
     "list-composers": {
       ".read": true,
       ".write": false
