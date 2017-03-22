@@ -79,6 +79,11 @@ export class DataService {
         return Observable.from(promise.then(() => uid));
     }
 
+    hasVanity(username: string) {
+        return this.angularFire.database.object(`/user-vanity/${username}`)
+            .map(value => <boolean>value.$exists());
+    }
+
     // cache enabled below
 
     getComposition(id: string): Observable<Composition> {

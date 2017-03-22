@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { AngularFire } from 'angularfire2';
+import { DataService } from '../data.service';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -11,7 +12,8 @@ export class DialogSignupComponent implements OnInit {
   model = {
     email: '',
     password: '',
-    displayName: ''
+    displayName: '',
+    username: ''
   };
   error: any;
 
@@ -24,19 +26,20 @@ export class DialogSignupComponent implements OnInit {
   }
 
   signup() {
-    this.error = null;
-    this.angularFire.auth.createUser({
-      email: this.model.email,
-      password: this.model.password
-    }).then(authState => {
-      authState.auth.updateProfile({
-        displayName: this.model.displayName,
-        photoURL: ''
-      });
-      this.dialogRef.close(authState);
-    }, (error) => {
-      this.error = error;
-    });
+    console.log('to signup...', this.model)
+    // this.error = null;
+    // this.angularFire.auth.createUser({
+    //   email: this.model.email,
+    //   password: this.model.password
+    // }).then(authState => {
+    //   authState.auth.updateProfile({
+    //     displayName: this.model.displayName,
+    //     photoURL: ''
+    //   });
+    //   this.dialogRef.close(authState);
+    // }, (error) => {
+    //   this.error = error;
+    // });
   }
 
 }

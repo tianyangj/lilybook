@@ -1,19 +1,32 @@
 <md-toolbar>Sign Up</md-toolbar>
-<form novalidate>
-  <md-input-container>
-    <input mdInput type="text" placeholder="Display Name" [(ngModel)]="model.displayName" name="displayName" #displayName="ngModel"
-      required>
-  </md-input-container>
-  <md-input-container>
-    <input mdInput type="email" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" required>
-  </md-input-container>
-  <md-input-container>
-    <input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" #password="ngModel" required>
-  </md-input-container>
+<form #signupForm="ngForm" (ngSubmit)="signup()" novalidate>
+  <div class="lb-margin">
+    <md-input-container dividerColor="{{displayName.valid ? 'primary' : 'warn'}}">
+      <input mdInput type="text" placeholder="Display Name" [(ngModel)]="model.displayName" name="displayName" #displayName="ngModel"
+        required>
+    </md-input-container>
+  </div>
+  <div class="lb-margin">
+    <md-input-container dividerColor="{{email.valid ? 'primary' : 'warn'}}">
+      <input mdInput type="email" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+    </md-input-container>
+  </div>
+  <div class="lb-margin">
+    <md-input-container dividerColor="{{password.valid ? 'primary' : 'warn'}}">
+      <input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" #password="ngModel" required>
+    </md-input-container>
+  </div>
+  <div class="lb-margin">
+    <md-input-container dividerColor="{{username.valid ? 'primary' : 'warn'}}">
+      <input mdInput type="text" placeholder="Username" [(ngModel)]="model.username" name="username" #username="ngModel" required
+        pattern="^[a-zA-Z0-9]+$">
+      <md-hint align="start">https://lilybook.com/{{model.username}}</md-hint>
+    </md-input-container>
+  </div>
   <p *ngIf="error">
     {{error.message}}
   </p>
-  <div style="text-align:right;">
-    <button md-raised-button color="primary" (click)="signup()">Sign Up</button>
+  <div style="margin-top:24px;text-align:right;">
+    <button type="submit" md-raised-button color="primary" [disabled]="!signupForm.form.valid">Sign Up</button>
   </div>
 </form>
