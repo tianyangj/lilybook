@@ -13,6 +13,7 @@ import { DialogLoginComponent } from './dialog-login/login.component';
 import { DialogSignupComponent } from './dialog-signup/signup.component';
 import { LibraryComponent } from './layout-default/library/library.component';
 import { LibraryListItemComponent } from './layout-default/library-list-item/library-list-item.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
     imports: [
@@ -31,7 +32,8 @@ import { LibraryListItemComponent } from './layout-default/library-list-item/lib
         DialogLoginComponent,
         DialogSignupComponent,
         LibraryComponent,
-        LibraryListItemComponent
+        LibraryListItemComponent,
+        PageNotFoundComponent
     ],
     entryComponents: [
         DialogLoginComponent,

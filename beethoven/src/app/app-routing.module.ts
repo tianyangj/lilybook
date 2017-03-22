@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LayoutDefaultComponent } from './core/layout-default/layout-default.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { SplashComponent } from './splash/splash.component';
 import { PopupComponent } from './splash/popup/popup.component';
 
@@ -49,6 +50,10 @@ export const rootRoutes: Routes = [
         path: '',
         component: LayoutDefaultComponent,
         children: featureRoutes
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ];
 
