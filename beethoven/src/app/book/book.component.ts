@@ -58,7 +58,7 @@ export class BookComponent implements OnInit {
     });
   }
 
-  slideTo(composition) {
+  slideTo(composition?) {
     if (this.swiper) {
       if (composition) {
         let pageIndex = this.pages.findIndex(page => {
