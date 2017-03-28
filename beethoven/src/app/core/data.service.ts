@@ -88,9 +88,9 @@ export class DataService {
         return this.angularFire.database.object(`/user-profile/${username}`)
             .filter(data => data.$exists())
             .switchMap(data => {
-                return this.getUserCollections(data.uid)
-            }, (profile, collections) => {
-                return { profile, collections }
+                return this.getUserCollections(data.uid);
+            }, (user, collections) => {
+                return { user, collections };
             });
     }
 

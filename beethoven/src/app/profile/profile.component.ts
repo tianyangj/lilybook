@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DataService } from '../core/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -9,23 +8,14 @@ import { DataService } from '../core/data.service';
 export class ProfileComponent implements OnInit {
 
   profile;
-  collections;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private dataService: DataService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.route.params.filter(params => {
-      return params.vanity;
-    }).switchMap(params => {
-      return this.dataService.getUserProfile(params.vanity);
-    }).subscribe(({ profile, collections }) => {
-      console.log(profile, collections);
-      this.profile = profile;
-      this.collections = collections;
+    this.route.data.subscribe(data => {
+      this.profile = data.profile;
     });
   }
 
