@@ -1,7 +1,4 @@
-<md-list *ngIf="profile">
-  <h3 md-subheader>{{profile.user.displayName}}'s Collections</h3>
-  <md-list-item *ngFor="let collection of profile.collections">
-    <md-icon md-list-icon>library_music</md-icon>
-    <h4 md-line>{{collection.name}}</h4>
-  </md-list-item>
-</md-list>
+<div>
+  <lb-profile-header [user]="profile.user"></lb-profile-header>
+  <lb-collection-list [collections]="profile.collections"></lb-collection-list>
+</div>
