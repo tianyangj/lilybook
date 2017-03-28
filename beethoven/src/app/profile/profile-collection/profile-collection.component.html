@@ -1,0 +1,6 @@
+<md-nav-list>
+  <a md-list-item [routerLink]="['./', collection.$key]" *ngFor="let collection of collections">
+    <md-icon md-list-icon>library_music</md-icon>
+    <h4 md-line>{{collection.name}}</h4>
+  </a>
+</md-nav-list>
