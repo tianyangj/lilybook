@@ -13,6 +13,7 @@ import { ChipFormComponent } from './chip-form/chip-form.component';
 import { ChipLevelComponent } from './chip-level/chip-level.component';
 import { DialogAddCollectionComponent } from './dialog-add-collection/dialog-add-collection.component';
 import { MoreIconComponent } from './more-icon/more-icon.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { MoreIconComponent } from './more-icon/more-icon.component';
         ChipFormComponent,
         ChipLevelComponent,
         DialogAddCollectionComponent,
-        MoreIconComponent
+        MoreIconComponent,
+        BookComponent
     ],
     entryComponents: [
         DialogAddCollectionComponent
@@ -47,7 +49,8 @@ import { MoreIconComponent } from './more-icon/more-icon.component';
         ChipKeyComponent,
         ChipFormComponent,
         ChipLevelComponent,
-        MoreIconComponent
+        MoreIconComponent,
+        BookComponent
     ]
 })
 export class SharedModule { }

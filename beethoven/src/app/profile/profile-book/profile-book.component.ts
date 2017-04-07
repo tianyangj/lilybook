@@ -8,19 +8,18 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ProfileBookComponent implements OnInit {
 
-  collection;
+  collection$;
 
   constructor(
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    Observable.combineLatest(
+    this.collection$ = Observable.combineLatest(
       this.route.params,
       this.route.parent.data
-    ).subscribe(([params, data]) => {
-      this.collection = data.profile.collections.find(collection => collection.$key === params.collectionId);
-      console.log(this.collection);
+    ).map(([params, data]) => {
+      return data.profile.collections.find(collection => collection.$key === params.collectionId);
     });
   }
 
