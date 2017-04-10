@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center center" style="margin:50px;" *ngIf="!collection">
-  <md-progress-circle color="primary" mode="indeterminate" value="50">
-  </md-progress-circle>
+  <md-progress-spinner color="primary" mode="indeterminate" value="50">
+  </md-progress-spinner>
 </div>
 <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="collection">
   <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" fxFlex.xl="20%" class="lb-padding" *ngFor="let composition$ of collection.compositions$">
