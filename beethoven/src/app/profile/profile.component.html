@@ -1,6 +1,6 @@
 <md-sidenav-container fxFlexFill>
   <md-sidenav #sidenav>
-    <lb-profile-sidenav></lb-profile-sidenav>
+    <lb-profile-sidenav [user]="profile.user" [collections]="profile.collections"></lb-profile-sidenav>
   </md-sidenav>
   <div fxLayout="column" fxFlexFill>
     <lb-profile-header [user]="profile.user" (onMenuToggle)="sidenav.toggle()">

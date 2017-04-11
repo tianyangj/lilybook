@@ -2,7 +2,7 @@
   <button md-icon-button (click)="toggleMenu()">
     <md-icon>menu</md-icon>
   </button>
-  <div>
+  <a md-button [routerLink]="['/', user.$key]">
     {{user.displayName}}'s Library
-  </div>
+  </a>
 </md-toolbar>
