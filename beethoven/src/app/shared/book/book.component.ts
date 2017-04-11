@@ -33,7 +33,6 @@ export class BookComponent implements OnInit {
         this.swiper = new Swiper(this.swiperContainer.nativeElement, {
           nextButton: this.swiperNext.nativeElement,
           prevButton: this.swiperPrev.nativeElement,
-          autoHeight: true,
           hashnav: true,
           preloadImages: false,
           lazyLoading: true,
