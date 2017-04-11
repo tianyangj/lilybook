@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'lb-profile-header',
@@ -9,10 +9,15 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 export class ProfileHeaderComponent implements OnInit {
 
   @Input() user;
+  @Output() onMenuToggle = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleMenu() {
+    this.onMenuToggle.emit();
   }
 
 }

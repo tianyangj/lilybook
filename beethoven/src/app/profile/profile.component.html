@@ -1,6 +1,12 @@
-<div fxLayout="column" fxFlexFill>
-  <lb-profile-header [user]="profile.user"></lb-profile-header>
-  <div fxFlex class="container">
-    <router-outlet></router-outlet>
+<md-sidenav-container fxFlexFill>
+  <md-sidenav #sidenav>
+    <lb-profile-sidenav></lb-profile-sidenav>
+  </md-sidenav>
+  <div fxLayout="column" fxFlexFill>
+    <lb-profile-header [user]="profile.user" (onMenuToggle)="sidenav.toggle()">
+    </lb-profile-header>
+    <div fxFlex class="container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
+</md-sidenav-container>

@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile.component';
 import { ProfileHeaderComponent } from './profile-header/profile-header.component';
 import { ProfileBookComponent } from './profile-book/profile-book.component';
 import { ProfileCollectionComponent } from './profile-collection/profile-collection.component';
+import { ProfileSidenavComponent } from './profile-sidenav/profile-sidenav.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ProfileCollectionComponent } from './profile-collection/profile-collect
     ProfileComponent,
     ProfileHeaderComponent,
     ProfileBookComponent,
-    ProfileCollectionComponent
+    ProfileCollectionComponent,
+    ProfileSidenavComponent
   ],
   providers: [
     ProfileResolveService
