@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnChanges, Input, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 const Swiper = require('swiper');
@@ -8,7 +8,7 @@ const Swiper = require('swiper');
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit {
+export class BookComponent implements OnChanges {
 
   @Input() book;
   @ViewChild('swiperContainer') swiperContainer: ElementRef;
@@ -23,7 +23,7 @@ export class BookComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.title = this.book.name;
     Observable.combineLatest(this.book.compositions$).subscribe(compositions => {
       this.compositions = compositions;
