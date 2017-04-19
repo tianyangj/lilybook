@@ -4,6 +4,10 @@
   </a>
 </md-toolbar>
 <md-nav-list>
+  <a md-list-item routerLink="">
+    <md-icon md-list-icon>home</md-icon>
+    <h4 md-line>Discover</h4>
+  </a>
   <a md-list-item [routerLink]="['./', collection.$key]" routerLinkActive="active" *ngFor="let collection of collections">
     <md-icon md-list-icon>library_music</md-icon>
     <h4 md-line>{{collection.name}}</h4>

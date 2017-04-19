@@ -9,13 +9,7 @@
         font-size: 20px;
         text-transform: uppercase;
     }
-    .mat-chip {
-        margin: 8px;
-        font-size: 16px;
-        padding: 12px 24px;
-        line-height: inherit;
-        span {
-            margin-left: 8px;
-        }
+    .mat-chip span {
+        margin-left: 8px;
     }
 }
