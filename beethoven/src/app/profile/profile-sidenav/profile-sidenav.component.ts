@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'lb-profile-sidenav',
@@ -8,12 +9,21 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 })
 export class ProfileSidenavComponent implements OnInit {
 
+  @Output() onSidenavClose = new EventEmitter();
+
   @Input() user;
   @Input() collections;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.router.events
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe(() => {
+        this.onSidenavClose.emit()
+      });
   }
 
 }
