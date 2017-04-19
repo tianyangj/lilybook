@@ -174,15 +174,15 @@ export class DataService {
         if (this.cache[url]) {
             return Observable.of<T>(this.cache[url])
                 .do(data => {
-                    if (!environment.production) {
-                        console.info('Cache HIT', url);
+                    if (environment.debug) {
+                        console.debug('Cache HIT', url);
                     }
                 });
         }
         return this.angularFire.database.object(url)
             .do(data => {
-                if (!environment.production) {
-                    console.info('Cache MISS', url);
+                if (environment.debug) {
+                    console.debug('Cache MISS', url);
                 }
                 this.cache[url] = data;
             });
