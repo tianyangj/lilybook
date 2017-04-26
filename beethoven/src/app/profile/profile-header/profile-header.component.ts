@@ -1,23 +1,24 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileViewService } from '../services/profile-view.service';
 
 @Component({
   selector: 'lb-profile-header',
   templateUrl: './profile-header.component.html',
-  styleUrls: ['./profile-header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./profile-header.component.scss']
 })
 export class ProfileHeaderComponent implements OnInit {
 
-  @Input() user;
-  @Output() onMenuToggle = new EventEmitter();
+  @Input() profile;
+  activeCollection;
 
-  constructor() { }
+  constructor(
+    private viewService: ProfileViewService
+  ) { }
 
   ngOnInit() {
-  }
-
-  toggleMenu() {
-    this.onMenuToggle.emit();
+    this.viewService.collection$.subscribe(collection => {
+      this.activeCollection = collection;
+    });
   }
 
 }

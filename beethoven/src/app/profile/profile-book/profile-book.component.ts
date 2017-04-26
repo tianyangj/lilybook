@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { ProfileViewService } from '../services/profile-view.service';
 
 @Component({
   templateUrl: './profile-book.component.html',
@@ -11,7 +12,8 @@ export class ProfileBookComponent implements OnInit {
   collection$;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private viewService: ProfileViewService
   ) { }
 
   ngOnInit() {
@@ -19,7 +21,9 @@ export class ProfileBookComponent implements OnInit {
       this.route.params,
       this.route.parent.data
     ).map(([params, data]) => {
-      return data.profile.collections.find(collection => collection.$key === params.collectionId);
+      const collection = data.profile.collections.find(collection => collection.$key === params.collectionId);
+      this.viewService.setActiveCollection(collection);
+      return collection;
     });
   }
 

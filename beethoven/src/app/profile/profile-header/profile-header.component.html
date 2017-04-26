@@ -1,8 +1,26 @@
 <md-toolbar color="primary">
-  <button md-icon-button (click)="toggleMenu()">
-    <md-icon>menu</md-icon>
-  </button>
-  <a md-button [routerLink]="['/', user.$key]">
-    {{user.displayName}}'s Library
-  </a>
+  <header fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+    <a md-icon-button routerLink="">
+      <md-icon>home</md-icon>
+    </a>
+    <a md-button [routerLink]="['/', profile.user.$key]">
+      {{profile.user.displayName}}'s Library
+    </a>
+    <span *ngIf="activeCollection" fxLayoutAlign="center center">
+      <md-icon>chevron_right</md-icon>
+      <a md-button [routerLink]="['./', activeCollection.$key]">
+        {{activeCollection.name}}
+      </a>
+    </span>
+    <span fxFlex></span>
+    <button md-button [mdMenuTriggerFor]="libraryMenu">
+      Library <md-icon>arrow_drop_down</md-icon>
+    </button>
+    <md-menu #libraryMenu="mdMenu">
+      <a md-menu-item [routerLink]="['./', collection.$key]" *ngFor="let collection of profile.collections">
+        <md-icon>library_music</md-icon>
+        <span>{{collection.name}}</span>
+      </a>
+    </md-menu>
+  </header>
 </md-toolbar>
