@@ -4,7 +4,7 @@
 </button>
 <md-menu x-position="before" #more="mdMenu">
   <button md-menu-item (click)="login()" *ngIf="!authenticated">Log In</button>
-  <button md-menu-item (click)="signup()" *ngIf="!authenticated">Sign Up</button>
+  <a md-menu-item routerLink="/signup" *ngIf="!authenticated">Sign Up</a>
   <button md-menu-item [routerLink]="'/home'" *ngIf="authenticated">My Library</button>
   <button md-menu-item (click)="logout()" *ngIf="authenticated">Log Out</button>
 </md-menu>

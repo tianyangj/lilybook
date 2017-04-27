@@ -22,6 +22,10 @@ export const featureRoutes: Routes = [
     {
         path: 'composer',
         loadChildren: './composer/composer.module#ComposerModule'
+    },
+    {
+        path: 'signup',
+        loadChildren: './signup/signup.module#SignupModule'
     }
 ];
 
