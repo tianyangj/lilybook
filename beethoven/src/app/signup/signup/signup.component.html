@@ -1,3 +1,24 @@
-<p>
-  signup works!
-</p>
+<md-card>
+  <md-card-title>Sign Up</md-card-title>
+  <form fxLayout="column" [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+    <md-input-container>
+      <input mdInput type="text" placeholder="Display Name" formControlName="name" required>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput type="email" placeholder="Email" formControlName="email" required>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput type="password" placeholder="Password" formControlName="password" required>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput type="text" placeholder="Username" formControlName="username" required>
+      <md-hint align="end">https://lilybook.com/{{signupForm.get('username').value || 'username'}}</md-hint>
+    </md-input-container>
+    <p *ngIf="error">
+      {{error.message}}
+    </p>
+    <div style="margin-top:24px;text-align:right;">
+      <button type="submit" md-raised-button color="primary" [disabled]="signupForm.invalid">Sign Up</button>
+    </div>
+  </form>
+</md-card>

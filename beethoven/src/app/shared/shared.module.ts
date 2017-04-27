@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -19,6 +19,7 @@ import { BookComponent } from './book/book.component';
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         MaterialModule,
         RouterModule,
         FlexLayoutModule
@@ -40,6 +41,7 @@ import { BookComponent } from './book/book.component';
     exports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         MaterialModule,
         RouterModule,
         FlexLayoutModule,
