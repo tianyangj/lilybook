@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 import { CompositionCardComponent } from './composition-card/composition-card.component';
 import { CompositionThumbnailComponent } from './composition-thumbnail/composition-thumbnail.component';
@@ -22,7 +23,8 @@ import { BookComponent } from './book/book.component';
         ReactiveFormsModule,
         MaterialModule,
         RouterModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        NgxErrorsModule
     ],
     declarations: [
         CompositionCardComponent,
@@ -45,6 +47,7 @@ import { BookComponent } from './book/book.component';
         MaterialModule,
         RouterModule,
         FlexLayoutModule,
+        NgxErrorsModule,
         CompositionCardComponent,
         CompositionThumbnailComponent,
         ChipComposerComponent,
