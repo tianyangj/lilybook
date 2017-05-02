@@ -1,3 +1,9 @@
+@import '~@angular/material/theming';
+
 :host {
     display: block;
+}
+
+.mat-menu-item.active {
+    border-left: 8px solid mat-color($mat-light-blue, 600);
 }

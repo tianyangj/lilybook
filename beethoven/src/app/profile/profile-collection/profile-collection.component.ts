@@ -8,7 +8,7 @@ import { ProfileViewService } from '../services/profile-view.service';
 })
 export class ProfileCollectionComponent implements OnInit {
 
-  collections;
+  profile: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,7 +18,7 @@ export class ProfileCollectionComponent implements OnInit {
   ngOnInit() {
     this.route.parent.data.subscribe(data => {
       this.viewService.setActiveCollection(null);
-      this.collections = data.profile.collections;
+      this.profile = data.profile;
     });
   }
 

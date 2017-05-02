@@ -6,18 +6,17 @@
     <a md-button [routerLink]="['/', profile.user.$key]">
       {{profile.user.displayName}}'s Library
     </a>
-    <span *ngIf="activeCollection" fxLayoutAlign="center center">
-      <md-icon>chevron_right</md-icon>
-      <a md-button [routerLink]="['./', activeCollection.$key]">
-        {{activeCollection.name}}
-      </a>
-    </span>
     <span fxFlex></span>
     <button md-button [mdMenuTriggerFor]="libraryMenu">
-      Library <md-icon>arrow_drop_down</md-icon>
+      {{title}} <md-icon>arrow_drop_down</md-icon>
     </button>
     <md-menu #libraryMenu="mdMenu">
-      <a md-menu-item [routerLink]="['./', collection.$key]" *ngFor="let collection of profile.collections">
+      <a md-menu-item [routerLink]="['/', profile.user.$key]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <md-icon>library_books</md-icon>
+        <span>{{profile.user.displayName}}'s Library</span>
+      </a>
+      <a md-menu-item [routerLink]="['./', collection.$key]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+        *ngFor="let collection of profile.collections">
         <md-icon>library_music</md-icon>
         <span>{{collection.name}}</span>
       </a>

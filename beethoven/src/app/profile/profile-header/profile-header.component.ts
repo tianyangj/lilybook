@@ -8,8 +8,9 @@ import { ProfileViewService } from '../services/profile-view.service';
 })
 export class ProfileHeaderComponent implements OnInit {
 
-  @Input() profile;
-  activeCollection;
+  @Input() profile: any;
+  activeCollection: any;
+  title: string;
 
   constructor(
     private viewService: ProfileViewService
@@ -18,6 +19,7 @@ export class ProfileHeaderComponent implements OnInit {
   ngOnInit() {
     this.viewService.collection$.subscribe(collection => {
       this.activeCollection = collection;
+      this.title = collection === null ? `${this.profile.user.displayName}'s Library` : collection.name;
     });
   }
 
