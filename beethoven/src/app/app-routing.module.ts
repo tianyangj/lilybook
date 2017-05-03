@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LayoutDefaultComponent } from './core/layout-default/layout-default.component';
+import { LayoutPopupComponent } from './core/layout-popup/layout-popup.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { SplashComponent } from './splash/splash.component';
-import { PopupComponent } from './splash/popup/popup.component';
 
 export const featureRoutes: Routes = [
     {
@@ -33,7 +33,7 @@ export const rootRoutes: Routes = [
     {
         path: 'composition',
         outlet: 'popup',
-        component: PopupComponent,
+        component: LayoutPopupComponent,
         children: [
             {
                 path: '',

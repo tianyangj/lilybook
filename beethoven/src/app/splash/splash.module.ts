@@ -6,7 +6,6 @@ import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 import { SearchComponent } from './search/search.component';
 import { CollectionComponent } from './collection/collection.component';
-import { PopupComponent } from './popup/popup.component';
 import { ScrollerComponent } from './scroller/scroller.component';
 import { LinksComponent } from './links/links.component';
 import { FeaturedComponent } from './featured/featured.component';
@@ -21,7 +20,6 @@ import { FeaturedComponent } from './featured/featured.component';
     HeroComponent,
     SearchComponent,
     CollectionComponent,
-    PopupComponent,
     ScrollerComponent,
     LinksComponent,
     FeaturedComponent
