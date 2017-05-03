@@ -1,14 +1,14 @@
-<md-card fxLayout="row" *ngIf="composition">
-  <a [href]="link" (click)="go(composition, $event)">
+<md-card fxLayout="row" fxLayoutGap="16px" *ngIf="composition">
+  <a fxFlex="100px" [href]="link" (click)="go(composition, $event)">
     <img [src]="composition.thumbnail.url" [alt]="composition.title">
   </a>
-  <div fxFlex>
-    <md-card-title>
+  <div style="padding-top:12px" fxFlex>
+    <md-card-title class="md-title">
       <a [href]="link" (click)="go(composition, $event)">
         {{composition.title}}
       </a>
     </md-card-title>
-    <md-card-subtitle>
+    <md-card-subtitle class="md-subhead">
       {{ (composition.composer$ | async)?.fullname }}
     </md-card-subtitle>
   </div>

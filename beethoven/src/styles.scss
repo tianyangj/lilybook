@@ -6,6 +6,8 @@
 @import '~photoswipe/dist/default-skin/default-skin.css';
 @import '~swiper/dist/css/swiper.css';
 
+@import '~@angular/material/theming';
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -13,8 +15,12 @@ body {
 }
 
 a {
-    color: inherit;
+    color: mat-color($mat-light-blue, A700);
     text-decoration: inherit;
+}
+
+.brand {
+    color: inherit;
 }
 
 .lb-padding {

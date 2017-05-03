@@ -1,25 +1,12 @@
-md-card {
+:host {
+    display: block;
+}
+
+.mat-card {
     padding: 0;
     border-radius: 0;
-    height: 150px;
-    >div {
-        padding: 16px;
+    img {
+        width: 100%;
+        display: block;
     }
-}
-
-img {
-    width: 100px;
-    height: 150px;
-}
-
-.mat-card-title {
-    font-size: 20px;
-    margin-bottom: 16px;
-    a {
-        color: #03a9f4;
-    }
-}
-
-.mat-card-subtitle {
-    font-size: 16px;
 }
