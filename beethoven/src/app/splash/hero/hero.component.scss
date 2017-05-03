@@ -9,6 +9,12 @@
     background-position: 50% 50%;
     background-size: cover;
     position: relative;
+    lb-splash-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
     lb-splash-search {
         position: absolute;
         top: 25%;

@@ -1,13 +1,7 @@
 :host {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
 }
 
-md-toolbar {
+.mat-toolbar.mat-primary {
     background-color: transparent;
-    color: #fff;
 }

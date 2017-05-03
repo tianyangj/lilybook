@@ -1,9 +1,9 @@
 <md-card>
-  <h2>Browse By</h2>
+  <h2 class="md-headline">Browse By</h2>
   <md-chip-list>
-    <a [routerLink]="link.link" *ngFor="let link of links" style="padding:4px;">
+    <a [routerLink]="link.link" *ngFor="let link of links">
       <md-chip selected="true" [color]="link.color">
-        <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
           <md-icon>{{link.icon}}</md-icon>
           <span>{{link.name}}</span>
         </div>
