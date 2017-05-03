@@ -17,8 +17,8 @@
       "prefix": "lb",
       "mobile": false,
       "styles": [
-        "lilybook-default.scss",
-        "styles.css"
+        "themes.scss",
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/plyr/dist/plyr.js"
