@@ -6,10 +6,18 @@
 @import '~photoswipe/dist/default-skin/default-skin.css';
 @import '~swiper/dist/css/swiper.css';
 
-@import '~@angular/material/theming';
+@import './themes';
 
-body {
-    font-family: 'Roboto', sans-serif;
+// apply custom theme styles
+@include mat-core();
+@include angular-material-theme($lb-theme);
+
+// import covalent typography
+@import '~@covalent/core/common/styles/typography';
+
+// last minute global styles
+html, body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     margin: 0;
     padding: 0;
 }

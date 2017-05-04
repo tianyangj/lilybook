@@ -1,16 +1,8 @@
 // https://github.com/angular/material2/blob/master/docs/theming.md
 
 @import '~@angular/material/theming';
-@import '~@covalent/core/theming/all-theme';
-@import '~@covalent/core/common/styles/typography';
 
-@include mat-core();
-
-$primary: mat-palette($mat-light-blue);
-$accent: mat-palette($mat-pink);
-$warn: mat-palette($mat-red);
-
-$theme: mat-light-theme($primary, $accent, $warn);
-
-@include angular-material-theme($theme);
-@include covalent-theme($theme);
+$lb-primary: mat-palette($mat-light-blue);
+$lb-accent: mat-palette($mat-pink);
+$lb-warn: mat-palette($mat-red);
+$lb-theme: mat-light-theme($lb-primary, $lb-accent, $lb-warn);
