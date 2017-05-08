@@ -1,44 +1,15 @@
-md-card {
-    padding: 0;
-    >div {
-        margin: 12px;
-    }
-    md-card-title {
-        font-size: 30px;
-        font-weight: bold;
-    }
-    md-card-actions {
-        margin: 0;
-        padding: 0;
-        >* {
-            margin: 0 8px 12px 0;
-        }
-    }
-}
-
-.chips>*,
-.actions>* {
-    margin: 8px;
-}
-
-.thumbnail {
-    width: 25%;
-    min-width: 100px;
-    max-width: 200px;
-    margin-right: 8px;
-    img {
-        width: 100%;
-    }
+:host {
+    display: block;
 }
 
 h1 {
-    font-size: 32px;
-    margin: 0;
-    padding: 8px;
+    margin: 0 0 10px 0;
+}
+
+.chips>* {
+    margin: 0 5px 10px 0;
 }
 
 p {
-    font-size: 14px;
-    margin: 0;
-    padding: 8px;
+    margin: 0 0 10px 0;
 }

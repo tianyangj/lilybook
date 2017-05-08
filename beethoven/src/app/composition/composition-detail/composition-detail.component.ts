@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ObservableMedia } from '@angular/flex-layout';
 
 @Component({
   selector: 'lb-composition-detail',
@@ -9,7 +10,9 @@ export class CompositionDetailComponent implements OnInit {
 
   @Input() composition;
 
-  constructor() { }
+  constructor(
+    public media: ObservableMedia
+  ) { }
 
   ngOnInit() {
   }

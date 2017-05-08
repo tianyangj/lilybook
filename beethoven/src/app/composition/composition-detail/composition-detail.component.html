@@ -1,37 +1,11 @@
-<!--<div class="lb-margin">
-	<md-card fxLayout="row" fxLayout.xs="column">
-		<div class="text-center">
-			<img [src]="composition.thumbnail.url">
+<div *ngIf="media.isActive('xs'); then mobile; else tablet"></div>
+<ng-template #tablet>
+	<div fxLayout="row" fxLayoutGap="20px" class="push-sm">
+		<div fxFlex="200px">
+			<img [src]="composition.thumbnail.url" style="width:100%;display:block;">
 		</div>
 		<div fxFlex>
-			<md-card-title>
-				{{composition.title}}
-			</md-card-title>
-			<md-card-content class="chips">
-				<lb-chip-composer [composerId]="composition.composerId" [fullname]="true"></lb-chip-composer>
-				<lb-chip-key [keyId]="composition.key"></lb-chip-key>
-				<lb-chip-form [formId]="composition.form"></lb-chip-form>
-				<lb-chip-level [rcmId]="composition.rcm" *ngIf="composition.rcm"></lb-chip-level>
-				<lb-chip-level [abrsmId]="composition.abrsm" *ngIf="composition.abrsm"></lb-chip-level>
-				<lb-chip-level [henleId]="composition.henle" *ngIf="composition.henle"></lb-chip-level>
-			</md-card-content>
-			<md-card-content>
-				<p>{{composition.description}}</p>
-			</md-card-content>
-			<md-card-actions>
-				<lb-composition-sheet [sheet]="composition.sheet"></lb-composition-sheet>
-				<lb-composition-add-collection [composition]="composition"></lb-composition-add-collection>
-			</md-card-actions>
-		</div>
-	</md-card>
-</div>-->
-<div class="lb-padding">
-	<div fxLayout="row">
-		<div class="thumbnail">
-			<img [src]="composition.thumbnail.url">
-		</div>
-		<div fxFlex>
-			<h1>{{composition.title}}</h1>
+			<h1 class="md-display-1">{{composition.title}}</h1>
 			<div class="chips">
 				<lb-chip-composer [composer]="composition.composer$ | async" [fullname]="true"></lb-chip-composer>
 				<lb-chip-key [key]="composition.key$ | async"></lb-chip-key>
@@ -40,11 +14,34 @@
 				<lb-chip-level [abrsm]="composition.abrsm$ | async"></lb-chip-level>
 				<lb-chip-level [henle]="composition.henle$ | async"></lb-chip-level>
 			</div>
+			<p class="md-body-1">{{composition.description}}</p>
+			<div fxLayout="row" fxLayoutGap="10px" fxLayoutWrap="wrap" fxLayoutAlign="end center">
+				<lb-composition-sheet [sheet]="composition.sheet"></lb-composition-sheet>
+				<lb-composition-add-collection [composition]="composition"></lb-composition-add-collection>
+			</div>
 		</div>
 	</div>
-	<p>{{composition.description}}</p>
-	<div class="actions" fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="end center">
-		<lb-composition-sheet [sheet]="composition.sheet"></lb-composition-sheet>
-		<lb-composition-add-collection [composition]="composition"></lb-composition-add-collection>
+</ng-template>
+<ng-template #mobile>
+	<div fxLayout="row" fxLayoutGap="20px" class="push-sm">
+		<div fxFlex="100px">
+			<img [src]="composition.thumbnail.url" style="width:100%;display:block;">
+		</div>
+		<h1 fxFlex class="md-headline">{{composition.title}}</h1>
 	</div>
-</div>
+	<div class="push-sm">
+		<div class="chips">
+			<lb-chip-composer [composer]="composition.composer$ | async" [fullname]="true"></lb-chip-composer>
+			<lb-chip-key [key]="composition.key$ | async"></lb-chip-key>
+			<lb-chip-form [form]="composition.form$ | async"></lb-chip-form>
+			<lb-chip-level [rcm]="composition.rcm$ | async"></lb-chip-level>
+			<lb-chip-level [abrsm]="composition.abrsm$ | async"></lb-chip-level>
+			<lb-chip-level [henle]="composition.henle$ | async"></lb-chip-level>
+		</div>
+		<p class="md-body-1">{{composition.description}}</p>
+		<div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center">
+			<lb-composition-sheet [sheet]="composition.sheet"></lb-composition-sheet>
+			<lb-composition-add-collection [composition]="composition"></lb-composition-add-collection>
+		</div>
+	</div>
+</ng-template>

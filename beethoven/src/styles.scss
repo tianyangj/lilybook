@@ -15,6 +15,9 @@
 // import covalent typography
 @import '~@covalent/core/common/styles/typography';
 
+// import covalent utilities
+@import '~@covalent/core/common/styles/utilities/utilities';
+
 // last minute global styles
 html, body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -37,10 +40,6 @@ a {
 
 .lb-margin {
     margin: 8px;
-}
-
-.text-center {
-    text-align: center;
 }
 
 .app-container {
