@@ -10,10 +10,7 @@
     },
     "composers": {
       ".read": true,
-      ".write": false,
-      ".indexOn": [
-        "compositionCount"
-      ]
+      ".write": false
     },
     "compositions": {
       ".read": true,
@@ -35,21 +32,9 @@
       ".read": true,
       ".write": false
     },
-    "user-bookmarks": {
-      "$uid": {
-        ".read": "$uid === auth.uid",
-        ".write": "$uid === auth.uid"
-      }
-    },
     "users": {
       "$uid": {
         ".read": "$uid === auth.uid",
-        ".write": "$uid === auth.uid"
-      }
-    },
-    "user-public": {
-      "$uid": {
-        ".read": true,
         ".write": "$uid === auth.uid"
       }
     },
@@ -59,15 +44,9 @@
         ".write": "$uid === auth.uid"
       }
     },
-    "user-likes": {
-      "$uid": {
-        ".read": true,
-        ".write": "$uid === auth.uid"
-      }
-    },
     "user-vanity": {
       ".read": true,
-      ".write": false
+      ".write": "$uid === auth.uid"
     },
     "user-profile": {
       ".read": true,

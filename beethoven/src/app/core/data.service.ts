@@ -84,6 +84,10 @@ export class DataService {
             .map(value => <boolean>value.$exists());
     }
 
+    setVanity(username: string, uid: string) {
+        return this.angularFire.database.object(`/user-vanity/${username}`).set(uid);
+    }
+
     getUserProfile(username: string) {
         return this.angularFire.database.object(`/user-profile/${username}`)
             .filter(data => data.$exists())
