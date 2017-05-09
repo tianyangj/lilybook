@@ -1,24 +1,11 @@
-<div *ngIf="rcm">
-    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', rcm.$key] } }]" *ngIf="showRcmLink">
-        {{ rcm.name }}
+<md-chip-list>
+    <a [routerLink]="['/', { outlets: { popup: null, primary: ['collection', rcm.$key] } }]" *ngIf="rcm">
+        <md-chip [disabled]="!showRcmLink">{{ rcm.name }}</md-chip>
     </a>
-    <button md-raised-button disabled *ngIf="!showRcmLink">
-        {{ rcm.name }}
-    </button>
-</div>
-<div *ngIf="abrsm">
-    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', abrsm.$key] } }]" *ngIf="showAbrsmLink">
-        {{ abrsm.name }}
+    <a [routerLink]="['/', { outlets: { popup: null, primary: ['collection', abrsm.$key] } }]" *ngIf="abrsm">
+        <md-chip [disabled]="!showAbrsmLink">{{ abrsm.name }}</md-chip>
     </a>
-    <button md-raised-button disabled *ngIf="!showAbrsmLink">
-        {{ abrsm.name }}
-    </button>
-</div>
-<div *ngIf="henle">
-    <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['collection', henle.$key] } }]" *ngIf="showHenleLink">
-        {{ henle.name }}
+    <a [routerLink]="['/', { outlets: { popup: null, primary: ['collection', henle.$key] } }]" *ngIf="henle">
+        <md-chip [disabled]="!showHenleLink">{{ henle.name }}</md-chip>
     </a>
-    <button md-raised-button disabled *ngIf="!showHenleLink">
-        {{ henle.name }}
-    </button>
-</div>
+</md-chip-list>

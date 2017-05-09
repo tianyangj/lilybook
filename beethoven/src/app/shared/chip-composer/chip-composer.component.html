@@ -1,8 +1,5 @@
-<div *ngIf="composer">
-  <a md-raised-button [routerLink]="['/', { outlets: { popup: null, primary: ['composer', composer.$key] } }]" *ngIf="composer.compositions">
-    {{ fullname ? composer.fullname : composer.name }}
+<md-chip-list *ngIf="composer">
+  <a [routerLink]="['/', { outlets: { popup: null, primary: ['composer', composer.$key] } }]">
+    <md-chip [disabled]="!composer.compositions">{{ fullname ? composer.fullname : composer.name }}</md-chip>
   </a>
-  <button md-raised-button disabled *ngIf="!composer.compositions">
-    {{ fullname ? composer.fullname : composer.name }}
-  </button>
-</div>
+</md-chip-list>
