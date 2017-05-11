@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdSnackBar } from '@angular/material';
 import { AngularFire } from 'angularfire2';
-
-import { DialogLoginComponent } from '../../core/dialog-login/login.component';
-import { DialogSignupComponent } from '../../core/dialog-signup/signup.component';
+import { AppService } from '../../core/app.service';
 
 @Component({
   selector: 'lb-more-icon',
@@ -15,9 +12,8 @@ export class MoreIconComponent implements OnInit {
   authenticated = false;
 
   constructor(
-    private mdDialog: MdDialog,
-    private mdSnackBar: MdSnackBar,
-    private angularFire: AngularFire
+    private angularFire: AngularFire,
+    private appService: AppService
   ) { }
 
   ngOnInit() {
@@ -27,25 +23,10 @@ export class MoreIconComponent implements OnInit {
   }
 
   login() {
-    this.mdDialog.open(DialogLoginComponent).afterClosed().subscribe(authState => {
-      if (authState) {
-        this.mdSnackBar.open('You have successfully logged in.', 'OK', { duration: 3000 });
-      }
-    });
+    this.appService.login();
   }
 
   logout() {
-    this.angularFire.auth.logout().then(() => {
-      this.mdSnackBar.open('You have successfully logged out.', 'OK', { duration: 3000 });
-    });
+    this.appService.logout();
   }
-
-  signup() {
-    this.mdDialog.open(DialogSignupComponent).afterClosed().subscribe(authState => {
-      if (authState) {
-        this.mdSnackBar.open('You have successfully signed up!', 'OK', { duration: 3000 });
-      }
-    });
-  }
-
 }

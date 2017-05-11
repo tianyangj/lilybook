@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { AngularFire, FirebaseAuthState } from 'angularfire2';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { DataService } from './data.service';
 import { Collection } from './models';
+import { DialogLoginComponent } from './dialog-login/login.component';
 
 @Injectable()
 export class AppService {
@@ -13,6 +15,8 @@ export class AppService {
   public libraryChanged: Observable<Collection[]>;
 
   constructor(
+    private mdDialog: MdDialog,
+    private mdSnackBar: MdSnackBar,
     private angularFire: AngularFire,
     private dataService: DataService
   ) {
@@ -45,6 +49,20 @@ export class AppService {
     }).do((data: Collection[]) => {
       console.info('SetLibrary => Library Updating...');
       this.libraryChangedSource.next(data);
+    });
+  }
+
+  login() {
+    this.mdDialog.open(DialogLoginComponent).afterClosed().subscribe(authState => {
+      if (authState) {
+        this.mdSnackBar.open('You have successfully logged in.', 'OK', { duration: 3000 });
+      }
+    });
+  }
+
+  logout() {
+    this.angularFire.auth.logout().then(() => {
+      this.mdSnackBar.open('You have successfully logged out.', 'OK', { duration: 3000 });
     });
   }
 
