@@ -45,8 +45,10 @@
       }
     },
     "user-vanity": {
-      ".read": true,
-      ".write": "$uid === auth.uid"
+      "$uid": {
+        ".read": true,
+        ".write": "$uid === auth.uid"
+      }
     },
     "user-profile": {
       ".read": true,
