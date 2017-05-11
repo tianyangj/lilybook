@@ -3,6 +3,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AppService } from './app.service';
 import { DataService } from './data.service';
+import { MemberGuard } from './services/member-guard.service';
+import { NonMemberGuard } from './services/non-member-guard.service';
 
 import { LayoutDefaultComponent } from './layout-default/layout-default.component';
 import { HeaderComponent } from './layout-default/header/header.component';
@@ -22,7 +24,9 @@ import { LayoutPopupComponent } from './layout-popup/layout-popup.component';
     ],
     providers: [
         AppService,
-        DataService
+        DataService,
+        MemberGuard,
+        NonMemberGuard
     ],
     declarations: [
         LayoutDefaultComponent,
