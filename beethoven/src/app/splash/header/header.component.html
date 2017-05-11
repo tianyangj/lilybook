@@ -1,5 +1,13 @@
 <md-toolbar color="primary">
-  <a class="brand" routerLink="">LilyBook</a>
-  <span fxFlex></span>
-  <lb-more-icon></lb-more-icon>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" fxLayoutGap.xs="8px" fxFlexFill>
+    <a class="brand" routerLink="">LilyBook</a>
+    <span fxFlex></span>
+    <div *ngIf="authenticated; else nonauthenticated">
+      <a md-raised-button color="primary" routerLink="/home">My Library</a>
+    </div>
+    <ng-template #nonauthenticated>
+      <button md-raised-button color="primary" (click)="login()">Log In</button>
+      <a md-raised-button color="accent" routerLink="/signup">Sign Up</a>
+    </ng-template>
+  </div>
 </md-toolbar>
