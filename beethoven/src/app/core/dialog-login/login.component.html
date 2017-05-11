@@ -1,15 +1,25 @@
-<md-toolbar>Log In</md-toolbar>
-<form novalidate>
+<h2 class="md-display-1 push-none push-bottom">Log In</h2>
+<form fxLayout="column" fxLayoutGap="16px" [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
   <md-input-container>
-    <input mdInput type="email" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" required>
+    <input mdInput type="email" placeholder="Email" formControlName="email" required>
+    <md-error ngxErrors="email">
+      <div ngxError="required" when="touched">
+        Email is required.
+      </div>
+    </md-error>
   </md-input-container>
   <md-input-container>
-    <input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" #password="ngModel" required>
+    <input mdInput type="password" placeholder="Password" formControlName="password" required>
+    <md-error ngxErrors="password">
+      <div ngxError="required" when="touched">
+        Password is required.
+      </div>
+    </md-error>
   </md-input-container>
-  <p *ngIf="error">
-    {{error.message}}
-  </p>
-  <div style="text-align:right;">
-    <button md-raised-button color="primary" (click)="login()">Log In</button>
+  <div *ngIf="error">
+    <md-error>{{error.message}}</md-error>
+  </div>
+  <div>
+    <button type="submit" md-raised-button color="primary" [disabled]="!loginForm.valid">Log In</button>
   </div>
 </form>

@@ -1,4 +1,7 @@
-md-input-container {
+:host {
     display: block;
-    margin: 32px 0;
+    width: 200px;
+    .mat-raised-button[type="submit"] {
+        width: 100%;
+    }
 }
