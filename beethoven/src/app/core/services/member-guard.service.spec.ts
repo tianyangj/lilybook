@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { MemberGuardService } from './member-guard.service';
+import { MemberGuard } from './member-guard.service';
 
 describe('MemberGuardService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MemberGuardService]
+      providers: [MemberGuard]
     });
   });
 
-  it('should be created', inject([MemberGuardService], (service: MemberGuardService) => {
+  it('should be created', inject([MemberGuard], (service: MemberGuard) => {
     expect(service).toBeTruthy();
   }));
 });

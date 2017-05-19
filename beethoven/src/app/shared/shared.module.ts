@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -20,6 +21,7 @@ import { BookComponent } from './book/book.component';
     imports: [
         CommonModule,
         FormsModule,
+        HttpModule,
         ReactiveFormsModule,
         MaterialModule,
         RouterModule,

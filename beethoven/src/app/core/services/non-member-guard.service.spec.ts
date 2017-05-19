@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { NonMemberGuardService } from './non-member-guard.service';
+import { NonMemberGuard } from './non-member-guard.service';
 
 describe('NonMemberGuardService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NonMemberGuardService]
+      providers: [NonMemberGuard]
     });
   });
 
-  it('should be created', inject([NonMemberGuardService], (service: NonMemberGuardService) => {
+  it('should be created', inject([NonMemberGuard], (service: NonMemberGuard) => {
     expect(service).toBeTruthy();
   }));
 });
