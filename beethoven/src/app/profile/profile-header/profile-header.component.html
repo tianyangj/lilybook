@@ -3,7 +3,7 @@
     <a md-icon-button routerLink="">
       <md-icon>home</md-icon>
     </a>
-    <a md-button [routerLink]="['/', profile.user.$key]">
+    <a md-button [routerLink]="['/profile', profile.user.$key]">
       {{profile.user.displayName}}'s Library
     </a>
     <span fxFlex></span>
@@ -11,7 +11,7 @@
       {{title}} <md-icon>arrow_drop_down</md-icon>
     </button>
     <md-menu #libraryMenu="mdMenu">
-      <a md-menu-item [routerLink]="['/', profile.user.$key]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <a md-menu-item [routerLink]="['/profile', profile.user.$key]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <md-icon>library_books</md-icon>
         <span>{{profile.user.displayName}}'s Library</span>
       </a>
