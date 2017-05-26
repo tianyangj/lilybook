@@ -14,7 +14,7 @@ export class LinksComponent implements OnInit {
   ngOnInit() {
     this.links = [
       { color: 'accent', icon: 'face', link: '/collection/lucas', name: 'Lucas Jiang' },
-      { color: 'accent', icon: 'whatshot', link: '/tianyangj', name: 'Tommy Jiang' },
+      { color: 'accent', icon: 'whatshot', link: '/profile/tianyangj', name: 'Tommy Jiang' },
       { color: 'primary', icon: 'person', link: '/composer/bach', name: 'J.S. Bach' },
       { color: 'primary', icon: 'person', link: '/composer/beethoven', name: 'Beethoven' },
       { color: 'primary', icon: 'person', link: '/composer/mozart', name: 'Mozart' },

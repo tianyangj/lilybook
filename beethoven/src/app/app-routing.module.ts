@@ -51,13 +51,13 @@ export const rootRoutes: Routes = [
         loadChildren: './book/book.module#BookModule'
     },
     {
+        path: 'profile/:vanity',
+        loadChildren: './profile/profile.module#ProfileModule'
+    },
+    {
         path: '',
         component: LayoutDefaultComponent,
         children: featureRoutes
-    },
-    {
-        path: ':vanity',
-        loadChildren: './profile/profile.module#ProfileModule'
     },
     {
         path: '**',
